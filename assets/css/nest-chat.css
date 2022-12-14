@@ -1,0 +1,184 @@
+body {
+  background: #7f7fd5;
+  background: -webkit-linear-gradient(to right, #91eae4, #86a8e7, #7f7fd5);
+  background: linear-gradient(to right, #91eae4, #86a8e7, #7f7fd5);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  height: auto;
+}
+
+* a {
+  text-decoration: none;
+  color: black;
+}
+
+.whole-container {
+  display: flex;
+  padding-top: 8px;
+  margin: 0px 30px 100px 30px;
+  gap: 2rem;
+}
+
+.first-main-member-div {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.head-member {
+  display: flex;
+  justify-content: center;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  padding: 7px 8px;
+}
+.member-container {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+}
+
+.members-div {
+  margin: 19px;
+}
+
+.members {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid white;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.member-image {
+  width: 54px;
+  height: 52px;
+  border-radius: 30px;
+}
+
+.image-name {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.time-ago {
+  width: 40%;
+  margin-left: 40px;
+}
+
+.chat-container {
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  flex: 2;
+  row-gap: 2rem;
+}
+
+.chat-head-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 5px 5px;
+}
+
+.vinit-container {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding-left: 15px;
+  font-weight: bold;
+  flex: 2;
+}
+
+.vinit-anna {
+  width: 54px;
+  height: 52px;
+  border-radius: 80px;
+}
+
+.call-div {
+  display: flex;
+  flex: 0.4;
+  align-items: center;
+  gap: 1.4rem;
+}
+.chat-call {
+  height: 44%;
+  width: 14%;
+}
+
+.convo-start {
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  border-radius: 15px;
+}
+
+.conversation-margin {
+  margin: 30px;
+}
+
+.convos {
+  display: flex;
+  flex-direction: column;
+  max-height: 470px;
+  overflow-y: scroll;
+}
+
+.hello-anna {
+  display: flex;
+  width: 95%;
+  justify-content: end;
+}
+
+.chat {
+  background-color: rgb(59, 5, 64);
+  color: white;
+  padding: 7px 20px;
+  border-bottom-left-radius: 15px;
+  border-top-right-radius: 10px;
+}
+
+.yes-susi {
+  display: flex;
+  justify-content: start;
+}
+
+.textarea {
+  display: flex;
+  margin: 20px;
+}
+
+#text {
+  width: 100%;
+  padding: 6px 7px;
+  border-radius: 21px;
+}
+
+::placeholder {
+  color: grey;
+  padding-top: 15px;
+  font-size: 17px;
+}
+
+.text-div {
+  width: 100%;
+  display: flex;
+  flex: 3;
+}
+
+.send-div {
+  width: 30%;
+  display: flex;
+  flex: 0.5;
+  align-items: center;
+}

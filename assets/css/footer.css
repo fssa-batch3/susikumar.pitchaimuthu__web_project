@@ -1,0 +1,147 @@
+footer {
+  display: flex;
+  background-color: black;
+  color: white;
+  padding-top: 3.5em;
+  padding-bottom: 3.5em;
+}
+
+.footer-container {
+  display: flex;
+  flex: 1;
+  justify-content: space-around;
+  padding-left: 5em;
+}
+
+.footer-logo-div {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.footer-logo-div a {
+  color: a;
+  text-decoration: none;
+}
+
+.footer-logo-div-image {
+  height: 17%;
+  width: 50%;
+  padding-bottom: 28px;
+}
+
+.footer-copyright-div {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.footer-copyright-div-image {
+  width: 9%;
+}
+
+.footer-term-policy-div {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+.footer-term-policy-div a {
+  color: white;
+}
+
+.footer-home-div {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 2.5em;
+}
+
+.footer-home-div a {
+  color: white;
+  text-decoration: none;
+  width: 30px;
+}
+
+.footer-home-div a:hover {
+  border-bottom: white 2px solid;
+}
+.footer-features-div {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 2.5em;
+}
+
+.footer-features-div a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-download-div {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 2em;
+}
+
+.footer-download-div a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-social-media-div {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 2.5em;
+}
+
+.footer-social-media-div a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-social-media-div-twitter-div {
+  display: flex;
+  align-items: center;
+}
+
+.footer-social-media-div-twitter-div-image {
+  width: 10%;
+}
+
+.footer-social-media-div-facebook-div {
+  display: flex;
+  align-items: center;
+}
+
+.footer-social-media-div-facebook-div-image {
+  width: 12%;
+}
+
+.footer-social-media-div-github-div {
+  display: flex;
+  align-items: center;
+}
+
+.footer-social-media-div-github-div-image {
+  width: 10%;
+}
+
+.footer-social-media-div-whatsapp-div {
+  display: flex;
+  align-items: center;
+}
+
+.footer-social-media-div-whatsapp-div-image {
+  width: 10%;
+}
+
+.footer-social-media-div-instagram-div {
+  display: flex;
+  align-items: center;
+}
+
+.footer-social-media-div-instagram-div-image {
+  width: 10%;
+}

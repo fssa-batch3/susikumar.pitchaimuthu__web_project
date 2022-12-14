@@ -1,0 +1,180 @@
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: hsla(0, 0%, 100%, 0);
+  background-color: white;
+  z-index: 10;
+  box-shadow: 0 0 0 rgb(0 40 100 / 0%);
+  transition: all 0.25s ease-in-out;
+  transform: translateZ(1000px);
+}
+
+.nav-logo-div {
+  display: flex;
+  flex: 0.7;
+}
+
+.nav-logo-div-image {
+  display: flex;
+  width: 24%;
+  padding-left: 21px;
+}
+
+.nav-link-div {
+  display: flex;
+  flex: 0.65;
+  justify-content: space-between;
+}
+
+.nav-link-div a {
+  text-decoration: none;
+}
+
+.nav-link-div-about-us-div {
+  display: flex;
+  align-items: center;
+}
+
+.nav-link-div-about-us-div-about {
+  color: black;
+  padding: 20px 0px 17px 0px;
+  font-weight: bold;
+}
+
+.nav-link-div-about-us-div-about:hover {
+  border-bottom: black 2px solid;
+}
+
+.nav-link-div-download-div {
+  display: flex;
+  align-items: center;
+}
+
+.nav-link-div-download-div-download {
+  padding: 20px 0px 17px 0px;
+  font-weight: bold;
+  color: black;
+}
+
+.nav-link-div-download-div-download:hover {
+  border-bottom: 2px solid black;
+}
+
+.nav-link-div-features-div {
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
+}
+
+.nav-link-div-features-div-features {
+  display: flex;
+  align-items: center;
+  padding: 20px 0px 17px 0px;
+  font-weight: bold;
+  color: black;
+}
+
+.nav-link-div-features-div-features:hover {
+  border-bottom: 2px solid black;
+}
+
+.nav-link-div-features-div-dropdown-div {
+  position: relative;
+  display: inline-block;
+}
+
+.nav-link-div-features-div-features-exploremore-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  color: black;
+  min-width: 160px;
+  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px,
+    rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.nav-link-div-features-div-dropdown-div:hover
+  .nav-link-div-features-div-features-exploremore-dropdown-content {
+  display: block;
+}
+
+.nav-link-div-features-div-features-exploremore {
+  display: flex;
+  width: 30%;
+  padding-top: 5px;
+}
+
+.nav-link-features-div-features-exploremore-dropdown-content-div:hover {
+  background-color: black;
+}
+
+.nav-link-div-features-div-features-exploremore-dropdown-content-div-stil {
+  color: black;
+  font-weight: bold;
+}
+
+.nav-link-div-features-div-features-exploremore-dropdown-content-div-stil:hover {
+  color: white;
+}
+
+.nav-link-features-div-features-exploremore-dropdown-content-nest-div:hover {
+  background-color: black;
+}
+
+.nav-link-div-features-div-features-exploremore-dropdown-content-nest {
+  color: black;
+  font-weight: bold;
+}
+
+.nav-link-div-features-div-features-exploremore-dropdown-content-nest:hover {
+  color: white;
+}
+
+.nav-link-div-features-div-features-exploremore-dropdown-content-rollings-div:hover {
+  background-color: black;
+}
+
+.nav-link-div-features-div-exploremore-dropdown-content-rollings {
+  color: black;
+  font-weight: bold;
+}
+
+.nav-link-div-features-div-exploremore-dropdown-content-rollings:hover {
+  color: white;
+}
+.nav-link-div-support {
+  display: flex;
+  align-items: center;
+  padding: 20px 0px 17px 0px;
+  font-weight: bold;
+  color: black;
+}
+
+.nav-link-div-support:hover {
+  border-bottom: 2px solid black;
+}
+
+.nav-button-div {
+  display: flex;
+  gap: 0.9em;
+  flex: 0.29;
+  padding-left: 58px;
+}
+
+.nav-button-div-sign-up-button {
+  padding: 10px 25px;
+  border-radius: 6px;
+}
+
+.nav-button-div-sign-up-button-log-in-button {
+  padding: 10px 25px;
+  border-radius: 6px;
+}

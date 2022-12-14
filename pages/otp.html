@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../assets/css/otp.css" />
+  </head>
+  <body>
+    <div class="div-container">
+      <div class="main-div">
+        <div class="content-container">
+          <div>
+            <img
+              class="content-container-logo"
+              src="../assets/images/common/Fresh-nest-logo-black.png"
+            />
+            <h1>Just one more step</h1>
+            <p>Enter the 6 digits code</p>
+            <p>We sent to this number xxxxx</p>
+          </div>
+
+          <div>
+            <label for="otp">Enter OTP</label>
+            <input
+              type="text"
+              inputmode="numeric"
+              id="otp-label"
+              autocomplete="one-time-code"
+              pattern="/d{6}"
+              required
+            />
+
+            <div class="confirm-button">
+              <button class="confirm">
+                <a href="http://127.0.0.1:5500/index.html">Confirm</a>
+              </button>
+            </div>
+          </div>
+
+          <div>
+            <p>
+              <a href="#">Change number</a><span>&#124;</span>
+              <a href="#">Resend OTP</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
