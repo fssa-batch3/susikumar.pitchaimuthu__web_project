@@ -8,16 +8,24 @@
     <link rel="stylesheet" href="../assets/css/nav.css" />
     <link rel="stylesheet" href="../assets/css/footer.css" />
     <link rel="stylesheet" href="../assets/css/nest.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <header>
       <nav>
         <div class="nav-logo-div">
-          <img
-            class="nav-logo-div-image"
-            src="../assets/images/common/Fresh-nest-logo-black.png"
-            alt="logo-image"
-          />
+          <a href="http://127.0.0.1:5500/index.html">
+            <img
+              class="nav-logo-div-image"
+              src="../assets/images/common/Fresh-nest-logo-black.png"
+              alt="logo-image"
+            />
+          </a>
         </div>
 
         <div class="nav-link-div">
@@ -31,7 +39,7 @@
             <div class="nav-link-div-features-div-dropdown-div">
               <img
                 class="nav-link-div-features-div-features-exploremore"
-                src="../assets/images/nav-bar/arrow-down-16px.png "
+                src="../assets/images/nav-bar/Down arrow blue.png"
                 alt="down-arrow-for-explore-our-features"
               />
               <div
@@ -42,7 +50,7 @@
                 >
                   <a
                     class="nav-link-div-features-div-features-exploremore-dropdown-content-div-stil"
-                    href="#"
+                    href="http://127.0.0.1:5500/pages/still.html"
                     >Still</a
                   >
                 </div>
@@ -81,15 +89,28 @@
           </div>
         </div>
 
-        <div class="nav-button-div">
-          <a href="http://127.0.0.1:5500/pages/signup.html"
-            ><button class="nav-button-div-sign-up-button">Sign Up</button></a
-          >
-          <a href="#"
-            ><button class="nav-button-div-sign-up-button-log-in-button">
-              Log In
-            </button></a
-          >
+        <div class="nav-button-div-container">
+          <div class="sign-up-button-div">
+            <a href="http://127.0.0.1:5500/pages/signup.html">
+              <p class="sign-up-button-div-text">SIGN</p>
+            </a>
+            <div class="swip-up-button-div">
+              <a href="http://127.0.0.1:5500/pages/signup.html">
+                <p class="swip-up-button-div-up">UP</p></a
+              >
+            </div>
+          </div>
+
+          <div class="sign-up-button-div">
+            <a href="http://127.0.0.1:5500/pages/login.html">
+              <p class="sign-up-button-div-text">LOG</p>
+            </a>
+            <div class="swip-up-button-div">
+              <a href="http://127.0.0.1:5500/pages/login.html">
+                <p class="swip-up-button-div-up">IN</p>
+              </a>
+            </div>
+          </div>
         </div>
       </nav>
 
@@ -140,7 +161,7 @@
                 playsinline
               >
                 <source
-                  src="../assets/videos/nest/chat-head-video.mp4"
+                  src="../assets/videos/nest/section-first-video.mp4"
                   type="video/mp4"
                 />
               </video>
@@ -149,17 +170,20 @@
         </div>
         <div class="section-first-para-container">
           <div class="section-first-para-div">
-            <h2>What is Nest-chat?</h2>
+            <h2 class="section-first-para-div-head2">What is Nest-chat?</h2>
 
-            <p>
+            <p class="section-first-para-div-para">
               Nest chat is a just a chatting website. You can use this website
               professionally or funny commending website whatever you like. You
               can join with your friends in this website.
             </p>
             <p>Make fun more and keep Smile more.</p>
-            <a href="http://127.0.0.1:5500/pages/nest-chat.html"
-              ><button>Try yourself<span>&#8594;</span></button></a
-            >
+            <div>
+              <button class="hero-section-button">
+                <p>Try Nest for free</p>
+                <span>&#8594;</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -215,27 +239,27 @@
             <p>2022 Fresh Nest</p>
           </div>
           <div class="footer-term-policy-div">
-            <a href="#">Privacy</a>
-            <a href="#">Terms and Conditions</a>
+            <a class="footer-policy-a" href="#">Privacy</a>
+            <a class="footer-term-condition-a" href="#">Terms and Conditions</a>
           </div>
         </div>
         <div class="footer-home-div">
           <h3>Home</h3>
-          <a href="#">About us</a>
-          <a href="#">Download</a>
-          <a href="#">Support</a>
+          <a class="footer-home-about" href="#">About us</a>
+          <a class="footer-home-download" href="#">Download</a>
+          <a class="footer-home-support" href="#">Support</a>
         </div>
         <div class="footer-features-div">
           <h3>Features</h3>
-          <a href="#">Still</a>
-          <a href="#">Nest</a>
-          <a href="#">Rolling</a>
+          <a class="footer-still-a" href="#">Still</a>
+          <a class="footer-nest-a" href="#">Nest</a>
+          <a class="footer-rolling-a" href="#">Rolling</a>
         </div>
         <div class="footer-download-div">
           <h3>Download</h3>
-          <a href="#">Mac/Pc</a>
-          <a href="#">Iphone</a>
-          <a href="#">Android</a>
+          <a class="footer-mac-a" href="#">Mac/Pc</a>
+          <a class="footer-iphone-a" href="#">Iphone</a>
+          <a class="footer-android-a" href="#">Android</a>
         </div>
         <div class="footer-social-media-div">
           <h3>Social Media contacts</h3>
@@ -266,7 +290,7 @@
           <div class="footer-social-media-div-whatsapp-div">
             <img
               class="footer-social-media-div-whatsapp-div-image"
-              src="../assets/images/footer/Whatsapp-logo.png"
+              src="../assets/images/footer/whatsapp-logo.png"
               alt="whatsapp-logo"
             />
             <a href="#">freshnest</a>

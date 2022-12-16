@@ -22,7 +22,7 @@ nav {
 
 .nav-logo-div-image {
   display: flex;
-  width: 24%;
+  width: 31%;
   padding-left: 21px;
 }
 
@@ -162,19 +162,66 @@ nav {
   border-bottom: 2px solid black;
 }
 
-.nav-button-div {
+/* nav button css */
+
+.nav-button-div-container {
   display: flex;
-  gap: 0.9em;
-  flex: 0.29;
-  padding-left: 58px;
+  justify-content: center;
+  flex: 0.45;
 }
 
-.nav-button-div-sign-up-button {
-  padding: 10px 25px;
-  border-radius: 6px;
+.nav-button-div-container a {
+  text-decoration: none;
+}
+.sign-up-button-div {
+  background: #3d4c53;
+  margin: 10px;
+  width: 137px;
+  height: 42px;
+  overflow: hidden;
+  text-align: center;
+  transition: 0.2s;
+  cursor: pointer;
+  border-radius: 3px;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-.nav-button-div-sign-up-button-log-in-button {
-  padding: 10px 25px;
-  border-radius: 6px;
+.sign-up-button-div-text {
+  color: white;
+  transition: 0.3s;
+  margin-top: 0.6em;
+}
+
+.swip-up-button-div {
+  position: relative;
+  width: 200px;
+  height: 100px;
+  margin-top: -100px;
+  padding-top: 2px;
+  background-image: linear-gradient(
+    to right,
+    #25aae1,
+    #4481eb,
+    #04befe,
+    #3f86ed
+  );
+  right: -250px;
+  transition: 0.5s;
+}
+.swip-up-button-div-up {
+  margin-top: 60px;
+  margin-left: -130px;
+  color: #fff;
+}
+.sign-up-button-div:hover .swip-up-button-div {
+  /*When hovering over .button change .btnTwo*/
+  right: -65px;
+}
+.sign-up-button-div:hover .sign-up-button-div-text {
+  /*When hovering over .button change .btnText*/
+  margin-right: 65px;
+}
+.sign-up-button-div:active {
+  /*Clicked and held*/
+  box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.3);
 }

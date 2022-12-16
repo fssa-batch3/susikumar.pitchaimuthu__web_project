@@ -6,16 +6,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nest</title>
     <link rel="stylesheet" href="../assets/css/nest-chat.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ewert&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <div>
-      <a href="http://127.0.0.1:5500/Home%20pages/still-intro.html">
-        <img src="../assets/images/common/Back-arrow.png" />
-      </a>
+    <!-- first profile sectting -->
+    <div class="back-setting-profile-div">
+      <div>
+        <a href="http://127.0.0.1:5500/Home%20pages/still-intro.html">
+          <img src="../assets/images/common/Back-arrow.png" />
+        </a>
+      </div>
+
+      <div class="profile-user-div">
+        <img
+          class="setting-image"
+          src="../assets/images/chat/setting.png"
+          alt="user-profile-image"
+        />
+        <img
+          class="user-profile-image"
+          src="../assets/images/chat/user.png"
+          alt="setting-control-logo"
+        />
+      </div>
     </div>
+
+    <!-- chat container body -->
     <div class="whole-container">
       <div class="first-main-member-div">
-        <h1 class="head-member">Members</h1>
+        <div class="first-section-search-bar-member-div">
+          <h1 class="head-member">Members</h1>
+          <div class="search-container">
+            <form>
+              <input type="text" placeholder="Search..." />
+              <button type="submit">
+                <img
+                  src="../assets/images/chat/search-icon.png"
+                  alt="search-option-icon"
+                />
+              </button>
+            </form>
+          </div>
+        </div>
 
         <div class="member-container">
           <div class="members-div">
@@ -238,12 +281,32 @@
               </div>
             </div>
             <div class="textarea">
+              <div class="emoji-div">
+                <img
+                  class="emoji-div-image"
+                  src="../assets/images/chat/Smile-i on-black.png"
+                  alt="smil-emoji"
+                />
+              </div>
               <div class="text-div">
                 <textarea id="text" placeholder="chat with nest"></textarea>
               </div>
+
               <div class="send-div">
-                <img src="../assets/images/chat/send.svg" />
-                <img src="../assets/images/chat/Mike.png" />
+                <img
+                  class="file-upload-image"
+                  src="../assets/images/chat/File-upload.png"
+                  alt="file-upload-icon"
+                />
+                <img
+                  class="send-message-icon"
+                  src="../assets/images/chat/send-option.png"
+                />
+                <img
+                  class="send-div-mike-image"
+                  src="../assets/images/chat/mike.png"
+                  alt="mike-listener-icon"
+                />
               </div>
             </div>
           </div>

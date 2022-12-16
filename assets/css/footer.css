@@ -1,6 +1,12 @@
 footer {
   display: flex;
-  background-color: black;
+  background-image: linear-gradient(
+    to right,
+    #25aae1,
+    #4481eb,
+    #04befe,
+    #3f86ed
+  );
   color: white;
   padding-top: 3.5em;
   padding-bottom: 3.5em;
@@ -30,6 +36,7 @@ footer {
   padding-bottom: 28px;
 }
 
+/* cpoy right */
 .footer-copyright-div {
   display: flex;
   align-items: center;
@@ -39,15 +46,35 @@ footer {
   width: 9%;
 }
 
+/* term and policy */
 .footer-term-policy-div {
   display: flex;
   flex-direction: column;
   gap: 2em;
 }
 
-.footer-term-policy-div a {
+/* policy anger a */
+.footer-policy-a {
   color: white;
+  width: 20%;
 }
+
+.footer-policy-a:hover {
+  border-bottom: 2px solid white;
+}
+
+/* term policy a */
+
+.footer-term-condition-a {
+  color: white;
+  display: flex;
+  width: 57%;
+}
+
+.footer-term-condition-a:hover {
+  border-bottom: 2px solid white;
+}
+/* footer home anger */
 
 .footer-home-div {
   display: flex;
@@ -56,15 +83,49 @@ footer {
   gap: 2.5em;
 }
 
-.footer-home-div a {
-  color: white;
+/* home a */
+
+.footer-home-about {
+  display: flex;
   text-decoration: none;
-  width: 30px;
+  width: 24%;
+  transition: 0.4s;
+  color: white;
 }
 
-.footer-home-div a:hover {
-  border-bottom: white 2px solid;
+.footer-home-about:hover {
+  border-bottom: 2px solid white;
 }
+
+/* download a */
+
+.footer-home-download {
+  display: flex;
+  text-decoration: none;
+  width: 24%;
+  transition: 0.4s;
+  color: white;
+}
+
+.footer-home-download:hover {
+  border-bottom: 2px solid white;
+}
+
+/* suport a */
+
+.footer-home-support {
+  display: flex;
+  text-decoration: none;
+  width: 22%;
+  transition: 0.4s;
+  color: white;
+}
+
+.footer-home-support:hover {
+  border-bottom: 2px solid white;
+}
+
+/* footer feature anger */
 .footer-features-div {
   display: flex;
   flex-direction: column;
@@ -72,10 +133,47 @@ footer {
   gap: 2.5em;
 }
 
-.footer-features-div a {
-  color: white;
+/* footer-still-a */
+.footer-still-a {
+  display: flex;
   text-decoration: none;
+  width: 12%;
+  transition: 0.4s;
+  color: white;
 }
+
+.footer-still-a:hover {
+  border-bottom: 2px solid white;
+}
+
+/* footer-nest-a */
+
+.footer-nest-a {
+  display: flex;
+  text-decoration: none;
+  width: 13%;
+  transition: 0.4s;
+  color: white;
+}
+
+.footer-nest-a:hover {
+  border-bottom: 2px solid white;
+}
+
+/* footer-rolling-a */
+.footer-rolling-a {
+  display: flex;
+  text-decoration: none;
+  width: 19%;
+  transition: 0.4s;
+  color: white;
+}
+
+.footer-rolling-a:hover {
+  border-bottom: 2px solid white;
+}
+
+/* footer download anger */
 
 .footer-download-div {
   display: flex;
@@ -84,11 +182,50 @@ footer {
   gap: 2em;
 }
 
-.footer-download-div a {
-  color: white;
+/* footer-download-anger */
+/* footer-mac-a */
+
+.footer-mac-a {
+  display: flex;
   text-decoration: none;
+  width: 21%;
+  transition: 0.4s;
+  color: white;
 }
 
+.footer-mac-a:hover {
+  border-bottom: 2px solid white;
+}
+
+/* footer-iphone-a */
+
+.footer-iphone-a {
+  display: flex;
+  text-decoration: none;
+  width: 19%;
+  transition: 0.4s;
+  color: white;
+}
+
+.footer-iphone-a:hover {
+  border-bottom: 2px solid white;
+}
+
+/* footer-android-a */
+
+.footer-android-a {
+  display: flex;
+  text-decoration: none;
+  width: 22%;
+  transition: 0.4s;
+  color: white;
+}
+
+.footer-android-a:hover {
+  border-bottom: 2px solid white;
+}
+
+/* footer anger and social media css */
 .footer-social-media-div {
   display: flex;
   flex-direction: column;
@@ -96,9 +233,13 @@ footer {
   gap: 2.5em;
 }
 
-.footer-social-media-div a {
-  color: white;
+footer a {
   text-decoration: none;
+  color: white;
+}
+
+footer a:hover {
+  border-bottom: 2px solid white;
 }
 
 .footer-social-media-div-twitter-div {

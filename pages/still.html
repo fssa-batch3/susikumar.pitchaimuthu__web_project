@@ -8,20 +8,18 @@
     <link rel="stylesheet" href="../assets/css/nav.css" />
     <link rel="stylesheet" href="../assets/css/footer.css" />
     <link rel="stylesheet" href="../assets/css/still.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
   </head>
   <body>
     <header>
       <nav>
         <div class="nav-logo-div">
-          <img
-            class="nav-logo-div-image"
-            src="../assets/images/common/Fresh-nest-logo-black.png"
-            alt="logo-image"
-          />
+          <a href="http://127.0.0.1:5500/index.html">
+            <img
+              class="nav-logo-div-image"
+              src="./assets/images/common/Fresh-nest-logo-black.png"
+              alt="logo-image"
+            />
+          </a>
         </div>
 
         <div class="nav-link-div">
@@ -35,7 +33,7 @@
             <div class="nav-link-div-features-div-dropdown-div">
               <img
                 class="nav-link-div-features-div-features-exploremore"
-                src="../assets/images/nav-bar/arrow-down-16px.png "
+                src="../assets/images/nav-bar/Down arrow blue.png "
                 alt="down-arrow-for-explore-our-features"
               />
               <div
@@ -46,7 +44,7 @@
                 >
                   <a
                     class="nav-link-div-features-div-features-exploremore-dropdown-content-div-stil"
-                    href="#"
+                    href="http://127.0.0.1:5500/pages/still.html"
                     >Still</a
                   >
                 </div>
@@ -55,7 +53,7 @@
                 >
                   <a
                     class="nav-link-div-features-div-features-exploremore-dropdown-content-nest"
-                    href="#"
+                    href="http://127.0.0.1:5500/pages/nest.html"
                     >Nest</a
                   >
                 </div>
@@ -79,15 +77,20 @@
           <div><a class="nav-link-div-support" href="#">Support</a></div>
         </div>
 
-        <div class="nav-button-div">
-          <a href="#"
-            ><button class="nav-button-div-sign-up-button">Sign Up</button></a
-          >
-          <a href="#"
-            ><button class="nav-button-div-sign-up-button-log-in-button">
-              Log In
-            </button></a
-          >
+        <div class="nav-button-div-container">
+          <div class="sign-up-button-div">
+            <p class="sign-up-button-div-text">SIGN</p>
+            <div class="swip-up-button-div">
+              <p class="swip-up-button-div-up">UP</p>
+            </div>
+          </div>
+
+          <div class="sign-up-button-div">
+            <p class="sign-up-button-div-text">LOG</p>
+            <div class="swip-up-button-div">
+              <p class="swip-up-button-div-up">IN</p>
+            </div>
+          </div>
         </div>
       </nav>
     </header>
@@ -171,9 +174,12 @@
               </p>
             </div>
             <div>
-              <a href="http://127.0.0.1:5500/pages/webcam.html"
-                ><button>Try yourself Now<span>&#8594;</span></button></a
-              >
+              <a href="#">
+                <button class="hero-section-button">
+                  <p>Try Nest for free</p>
+                  <span>&#8594;</span>
+                </button>
+              </a>
             </div>
           </div>
         </div>

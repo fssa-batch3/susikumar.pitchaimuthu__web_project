@@ -1,3 +1,8 @@
+body {
+  background-color: #f7faff;
+  font-family: kanit;
+}
+
 :root {
   --nav-brown: #d1e8e2;
   --violet: #25274d;
@@ -48,7 +53,6 @@ body {
   width: 46%;
   display: flex;
   align-items: center;
-  padding-top: 23px;
 }
 
 .nav-link-main-div {

@@ -14,16 +14,24 @@
       href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ewert&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <header>
       <nav>
         <div class="nav-logo-div">
-          <img
-            class="nav-logo-div-image"
-            src="./assets/images/common/Fresh-nest-logo-black.png"
-            alt="logo-image"
-          />
+          <a href="http://127.0.0.1:5500/index.html">
+            <img
+              class="nav-logo-div-image"
+              src="./assets/images/common/Fresh-nest-logo-black.png"
+              alt="logo-image"
+            />
+          </a>
         </div>
 
         <div class="nav-link-div">
@@ -48,7 +56,7 @@
                 >
                   <a
                     class="nav-link-div-features-div-features-exploremore-dropdown-content-div-stil"
-                    href="#"
+                    href="http://127.0.0.1:5500/pages/still.html"
                     >Still</a
                   >
                 </div>
@@ -81,15 +89,28 @@
           <div><a class="nav-link-div-support" href="#">Support</a></div>
         </div>
 
-        <div class="nav-button-div">
-          <a href="http://127.0.0.1:5500/pages/signup.html"
-            ><button class="nav-button-div-sign-up-button">Sign Up</button></a
-          >
-          <a href="http://127.0.0.1:5500/pages/login.html"
-            ><button class="nav-button-div-sign-up-button-log-in-button">
-              Log In
-            </button></a
-          >
+        <div class="nav-button-div-container">
+          <div class="sign-up-button-div">
+            <a href="http://127.0.0.1:5500/pages/signup.html">
+              <p class="sign-up-button-div-text">SIGN</p>
+            </a>
+            <div class="swip-up-button-div">
+              <a href="http://127.0.0.1:5500/pages/signup.html">
+                <p class="swip-up-button-div-up">UP</p></a
+              >
+            </div>
+          </div>
+
+          <div class="sign-up-button-div">
+            <a href="http://127.0.0.1:5500/pages/login.html">
+              <p class="sign-up-button-div-text">LOG</p>
+            </a>
+            <div class="swip-up-button-div">
+              <a href="http://127.0.0.1:5500/pages/login.html">
+                <p class="swip-up-button-div-up">IN</p>
+              </a>
+            </div>
+          </div>
         </div>
       </nav>
 
@@ -105,15 +126,18 @@
                   src="./assets/images/Hero section/Gif/hello hand.gif"
                   alt="hello-hand-for-users"
                 />
-                <span>Hello users</span>
+                <span class="header-hello-user-div-content">Hello users</span>
               </div>
             </div>
 
-            <div>
-              <p>This Browser for Joyful users</p>
+            <div class="joyfull-div">
+              <p class="joyfull-div-content">
+                This Browser for
+                <span class="joyfull-user-content-word">Joyful users</span>
+              </p>
             </div>
-            <div>
-              <p>
+            <div class="header-first-para-div">
+              <p class="header-first-para-div-para">
                 Build your joyful more and more as soon as extreme cheerful.
                 Because our world routate with happy motive. It's rotating for
                 happy living. If we are cheerful our earth also get joy and
@@ -155,6 +179,10 @@
     </header>
 
     <!-- section-start -->
+
+    <div>
+      <a><img /></a>
+    </div>
 
     <section>
       <!-- section-first -->
@@ -208,6 +236,8 @@
               </p>
             </div>
           </div>
+
+          <!-- Rolling feature div -->
 
           <div class="first-section-container-rolling-div">
             <div class="first-section-container-rolling-div-image-div">
@@ -434,7 +464,7 @@
         <div class="footer-logo-div">
           <img
             class="footer-logo-div-image"
-            src="/assests/images/footer/fresh-nest-logo-white.png"
+            src="./assets/images/footer/fresh-nest-logo-white.png"
             alt="footer-website-logo"
           />
           <p>The browser for entertainment</p>
@@ -447,27 +477,27 @@
             <p>2022 Fresh Nest</p>
           </div>
           <div class="footer-term-policy-div">
-            <a href="#">Privacy</a>
-            <a href="#">Terms and Conditions</a>
+            <a class="footer-policy-a" href="#">Privacy</a>
+            <a class="footer-term-condition-a" href="#">Terms and Conditions</a>
           </div>
         </div>
         <div class="footer-home-div">
           <h3>Home</h3>
-          <a href="#">About us</a>
-          <a href="#">Download</a>
-          <a href="#">Support</a>
+          <a class="footer-home-about" href="#">About us</a>
+          <a class="footer-home-download" href="#">Download</a>
+          <a class="footer-home-support" href="#">Support</a>
         </div>
         <div class="footer-features-div">
           <h3>Features</h3>
-          <a href="#">Still</a>
-          <a href="#">Nest</a>
-          <a href="#">Rolling</a>
+          <a class="footer-still-a" href="#">Still</a>
+          <a class="footer-nest-a" href="#">Nest</a>
+          <a class="footer-rolling-a" href="#">Rolling</a>
         </div>
         <div class="footer-download-div">
           <h3>Download</h3>
-          <a href="#">Mac/Pc</a>
-          <a href="#">Iphone</a>
-          <a href="#">Android</a>
+          <a class="footer-mac-a" href="#">Mac/Pc</a>
+          <a class="footer-iphone-a" href="#">Iphone</a>
+          <a class="footer-android-a" href="#">Android</a>
         </div>
         <div class="footer-social-media-div">
           <h3>Social Media contacts</h3>
