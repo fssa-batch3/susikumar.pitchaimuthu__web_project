@@ -32,6 +32,49 @@ body {
   padding-top: 25px;
 }
 
+/* celebration div */
+
+.celebration-div {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+/* first ballon */
+
+.first-ballon-div {
+  display: flex;
+  width: 23%;
+}
+
+.first-ballon-div-image {
+  width: 100%;
+  height: 100%;
+}
+
+/* cake image */
+
+.cake-div {
+  display: flex;
+  width: 23%;
+}
+
+.cake-div-image {
+  width: 100%;
+  height: 100%;
+}
+
+/* last ballon */
+
+.last-ballon-div {
+  display: flex;
+  width: 23%;
+}
+
+.last-ballon-div-image {
+  width: 100%;
+  height: 100%;
+}
 #date-of-birth {
   padding: 10px 10px;
   font-size: 18px;
@@ -40,6 +83,7 @@ body {
 .next-back-div {
   display: flex;
   justify-content: space-around;
+  align-items: center;
 }
 
 .next-button {
@@ -50,5 +94,11 @@ body {
 
 .back-button {
   display: flex;
+  width: 11%;
   align-items: center;
+}
+
+.previous-arrow {
+  width: 100%;
+  height: 100%;
 }

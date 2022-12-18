@@ -68,12 +68,11 @@ body {
 /* gallery div */
 .gallery-div {
   display: flex;
-  justify-content: flex-end;
+  width: 4%;
 }
 
 .gallery-div-image {
-  display: flex;
-  width: 3.3%;
+  width: 100%;
   padding-right: 11%;
   padding-top: 3%;
 }

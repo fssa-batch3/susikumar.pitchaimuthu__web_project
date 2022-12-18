@@ -8,6 +8,9 @@ body {
   padding: 0;
 }
 
+* a {
+  text-decoration: none;
+}
 section {
   padding: 5em 3em;
 }
@@ -43,13 +46,18 @@ section {
 
 .joyfull-div {
   display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .joyfull-div-content {
   font-size: 38px;
+  font-weight: 800;
 }
 
 .joyfull-user-content-word {
+  font-size: 38px;
+  padding-top: 9px;
   color: rgb(44 87 151 / 75%);
   font-family: "Ewert", cursive;
 }
@@ -170,11 +178,24 @@ section {
 
 /* section-first-div */
 
+.section-whole-container {
+  padding: 4em;
+}
+
 .section-first-heading-div {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-bottom: 4em;
+}
+
+.everything-para {
+  font-size: 18px;
+}
+
+.jolly-heading {
+  font-size: 24px;
+  font-weight: 600;
 }
 
 .first-section-container {
@@ -198,7 +219,7 @@ section {
 }
 
 .first-section-container-still-div-image-div-image {
-  width: 62%;
+  width: 230px;
   transform: perspective(1500px) rotateY(15deg);
   border-radius: 1rem;
 
@@ -239,7 +260,7 @@ section {
 }
 
 .first-section-container-nest-div-image-div-image {
-  width: 62%;
+  width: 260px;
   transform: perspective(1500px) rotateY(15deg);
   border-radius: 1rem;
 
@@ -273,14 +294,13 @@ section {
 }
 
 .first-section-container-rolling-div-image-div {
-  width: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .first-section-container-rolling-div-image-div-image {
-  width: 27%;
+  width: 112px;
   transform: perspective(1500px) rotateY(15deg);
   border-radius: 1rem;
 
@@ -434,8 +454,10 @@ section {
 
 .user-review-2-image-div-image {
   display: flex;
-  width: 59%;
-  height: 57%;
+  justify-content: center;
+  align-items: center;
+  width: 53px;
+  height: 53px;
   border-radius: 41px;
 }
 
@@ -592,15 +614,17 @@ section {
 
 .user-review-5-image-div {
   display: flex;
-  width: 20%;
-  height: 63%;
+  width: 23%;
+  height: 49%;
 }
 
 .user-review-5-image-div-image {
   display: flex;
-  width: 73%;
-  height: 82%;
-  border-radius: 30px;
+  justify-content: center;
+  align-items: center;
+  width: 53px;
+  height: 53px;
+  border-radius: 41px;
 }
 
 /* Review user No.6 */
@@ -647,14 +671,16 @@ section {
 
 .user-review-6-image-div {
   display: flex;
-  width: 20%;
-  height: 87%;
+  width: 22%;
+  height: 52%;
 }
 
 .user-review-6-image-div-image {
-  width: 74%;
   display: flex;
-  height: 68%;
+  justify-content: center;
+  align-items: center;
+  width: 53px;
+  height: 53px;
   border-radius: 41px;
 }
 

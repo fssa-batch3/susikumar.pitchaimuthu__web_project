@@ -47,12 +47,8 @@ body {
   align-items: center;
 }
 
-.nav-link-main-div {
-  padding-right: 30px;
-}
-
 .nav-link-main-div-image {
-  width: 72%;
+  width: 40%;
 }
 
 .nav-link-main-div a {
@@ -76,6 +72,21 @@ section {
   background-color: #f3efe0;
   box-shadow: 0px 0px 16px;
 }
+
+/* back-arrow */
+
+.back-arrow-div {
+  display: flex;
+  margin: 1em 0em 0em 1em;
+  width: 13%;
+}
+
+.previous-image {
+  width: 100%;
+  height: auto;
+}
+
+/* side content */
 
 .side-content {
   display: flex;

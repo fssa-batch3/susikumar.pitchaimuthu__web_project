@@ -1,4 +1,4 @@
-sbody {
+body {
   background-color: #f7faff;
   font-family: "Kanit", sans-serif;
 }
@@ -40,12 +40,13 @@ body::-webkit-scrollbar {
 
 /* user div */
 
-.use-div {
+.user-div {
   display: flex;
+  width: 3.5%;
 }
 
 .user-div-image {
-  width: 65%;
+  width: 100%;
 }
 
 /* rolling section */
@@ -96,9 +97,17 @@ body::-webkit-scrollbar {
   gap: 3.2%;
 }
 
+.edit-image {
+  width: 11%;
+}
+
 .sticker-div {
   display: flex;
   gap: 3.2%;
+}
+
+.sticker-image {
+  width: 11%;
 }
 
 /* button */
@@ -134,6 +143,10 @@ body::-webkit-scrollbar {
   border-radius: 50px;
 
   transition: all 0.4s ease-in-out;
+}
+
+.send-image {
+  width: 20%;
 }
 
 /* send button focus */
@@ -211,14 +224,26 @@ body::-webkit-scrollbar {
   align-items: center;
 }
 
+.crop-image {
+  width: 30%;
+}
+
 .saturation-div {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+.saturation-image {
+  width: 30%;
+}
+
 .filters-div {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.filter-image {
+  width: 30%;
 }

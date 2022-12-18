@@ -22,10 +22,10 @@
     <header>
       <nav>
         <div class="nav-logo-div">
-          <a href="http://127.0.0.1:5500/index.html">
+          <a href="http://127.0.0.1:5500/pages/home.html">
             <img
               class="nav-logo-div-image"
-              src="./assets/images/common/Fresh-nest-logo-black.png"
+              src="../assets/images/common/Fresh-nest-logo-black.png"
               alt="logo-image"
             />
           </a>
@@ -83,22 +83,22 @@
             <a class="nav-link-div-download-div-download" href="">Download</a>
           </div>
 
-          <div><a class="nav-link-div-support" href="#">Support</a></div>
+          <div>
+            <a
+              class="nav-link-div-support"
+              href="http://127.0.0.1:5500/pages/support.html"
+              >Support</a
+            >
+          </div>
         </div>
 
-        <div class="nav-button-div-container">
-          <div class="sign-up-button-div">
-            <p class="sign-up-button-div-text">SIGN</p>
-            <div class="swip-up-button-div">
-              <p class="swip-up-button-div-up">UP</p>
-            </div>
-          </div>
-
-          <div class="sign-up-button-div">
-            <p class="sign-up-button-div-text">LOG</p>
-            <div class="swip-up-button-div">
-              <p class="swip-up-button-div-up">IN</p>
-            </div>
+        <div class="nav-user-div-container">
+          <div class="nav-user-div">
+            <img
+              class="nav-user-div-image"
+              src="../assets/images/chat/user.png"
+              alt="user-image"
+            />
           </div>
         </div>
       </nav>
@@ -183,7 +183,7 @@
               </p>
             </div>
             <div>
-              <a href="#">
+              <a href="http://127.0.0.1:5500/pages/webcam.html">
                 <button class="hero-section-button">
                   <p>Try Nest for free</p>
                   <span>&#8594;</span>
@@ -195,15 +195,23 @@
       </section>
     </section>
 
+    <!-- footer -->
     <footer>
       <div class="footer-container">
         <div class="footer-logo-div">
-          <img
-            class="footer-logo-div-image"
-            src="../assets/images/footer/fresh-nest-logo-white.png"
-            alt="footer-website-logo"
-          />
-          <p>The browser for entertainment</p>
+          <div class="logo-div-footer">
+            <div class="logo-image-div">
+              <img
+                class="footer-logo-div-image-white"
+                src="../assets/images/footer/fresh-nest-logo-white.png"
+                alt="footer-website-logo"
+              />
+            </div>
+            <div>
+              <p>The browser for entertainment</p>
+            </div>
+          </div>
+
           <div class="footer-copyright-div">
             <img
               class="footer-copyright-div-image"
@@ -213,30 +221,30 @@
             <p>2022 Fresh Nest</p>
           </div>
           <div class="footer-term-policy-div">
-            <a href="#">Privacy</a>
-            <a href="#">Terms and Conditions</a>
+            <a class="footer-policy-a" href="#">Privacy</a>
+            <a class="footer-term-condition-a" href="#">Terms and Conditions</a>
           </div>
         </div>
         <div class="footer-home-div">
-          <h3>Home</h3>
-          <a href="#">About us</a>
-          <a href="#">Download</a>
-          <a href="#">Support</a>
+          <p class="footer-home-head">Page</p>
+          <a class="footer-home-about" href="#">About us</a>
+          <a class="footer-home-download" href="#">Download</a>
+          <a class="footer-home-support" href="#">Support</a>
         </div>
         <div class="footer-features-div">
-          <h3>Features</h3>
-          <a href="#">Still</a>
-          <a href="#">Nest</a>
-          <a href="#">Rolling</a>
+          <p>Features</p>
+          <a class="footer-still-a" href="#">Still</a>
+          <a class="footer-nest-a" href="#">Nest</a>
+          <a class="footer-rolling-a" href="#">Rolling</a>
         </div>
         <div class="footer-download-div">
-          <h3>Download</h3>
-          <a href="#">Mac/Pc</a>
-          <a href="#">Iphone</a>
-          <a href="#">Android</a>
+          <p>Download</p>
+          <a class="footer-mac-a" href="#">Mac/Pc</a>
+          <a class="footer-iphone-a" href="#">Iphone</a>
+          <a class="footer-android-a" href="#">Android</a>
         </div>
         <div class="footer-social-media-div">
-          <h3>Social Media contacts</h3>
+          <p>Social Media contacts</p>
           <div class="footer-social-media-div-twitter-div">
             <img
               class="footer-social-media-div-twitter-div-image"
@@ -264,7 +272,7 @@
           <div class="footer-social-media-div-whatsapp-div">
             <img
               class="footer-social-media-div-whatsapp-div-image"
-              src="../assets/images/footer/Whatsapp-logo.png"
+              src="../assets/images/footer/whatsapp-logo.png"
               alt="whatsapp-logo"
             />
             <a href="#">freshnest</a>
