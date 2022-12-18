@@ -1,12 +1,79 @@
-/* CSS code to style the button and canvas */
-button {
-  background-color: #4caf50;
-  color: white;
-  padding: 15px;
-  border: none;
-  cursor: pointer;
+body {
+  background-color: #f7faff;
+  font-family: kanit;
 }
 
-canvas {
-  border: 1px solid black;
+* body {
+  margin: 0;
+  padding: 0;
+}
+
+.whole-div-container {
+  display: flex;
+  flex-direction: column;
+  padding: 1em 2em 2em 1em;
+}
+
+.video-div {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5em;
+}
+/* camera div */
+
+#video {
+  position: relative;
+  display: flex;
+  border: 3px solid black;
+  width: 78%;
+  border-radius: 10px;
+}
+
+/* camera setting */
+
+.camera-setting-div {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 4%;
+  right: 12%;
+  gap: 1em;
+}
+
+/* brightness icon */
+
+.camera-setting-div-brightness-image {
+  width: 60%;
+}
+
+/* frame icon */
+.camera-setting-div-frame-image {
+  width: 57%;
+}
+/* capture button */
+
+#capture {
+  display: flex;
+  justify-content: center;
+}
+
+/* sticker filter cotainer */
+
+.stickers-filter-div-container {
+  display: flex;
+  justify-content: center;
+  gap: 30%;
+}
+
+/* gallery div */
+.gallery-div {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.gallery-div-image {
+  display: flex;
+  width: 3.3%;
+  padding-right: 11%;
+  padding-top: 3%;
 }

@@ -6,11 +6,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="../assets/css/practice.css" />
-    <link rel="stysheet" href="../assets/js/practice.js" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <!-- HTML code to create a button to take a photo and a canvas to display the photo -->
-    <button id="take-photo">Take Photo</button>
-    <canvas id="photo"></canvas>
+    <div class="whole-div-container">
+      <div class="video-div">
+        <video id="video" autoplay></video>
+        <div class="camera-setting-div">
+          <img
+            class="camera-setting-div-brightness-image"
+            src="../assets/images/still/brightness.png"
+            class="brightness"
+          />
+          <img
+            class="camera-setting-div-frame-image"
+            src="../assets/images/still/Frame.png"
+            alt="frame"
+          />
+        </div>
+      </div>
+
+      <div id="capture">
+        <img
+          src="../assets/images/still/Round capture button.png"
+          alt="capture-image"
+        />
+      </div>
+
+      <div class="stickers-filter-div-container">
+        <div>
+          <button>stickers</button>
+        </div>
+        <div>
+          <select>
+            <option>None</option>
+            <option>Grayscale</option>
+            <option>Sepia</option>
+            <option>Invert</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="gallery-div">
+        <img
+          class="gallery-div-image"
+          src="../assets/images/still/gallery black.png"
+          alt="gallery-image"
+        />
+      </div>
+    </div>
   </body>
 </html>
