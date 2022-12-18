@@ -1,6 +1,6 @@
 sbody {
   background-color: #f7faff;
-  font-family: kanit;
+  font-family: "Kanit", sans-serif;
 }
 
 * body {
@@ -203,4 +203,22 @@ body::-webkit-scrollbar {
 .edit-option-div {
   display: flex;
   flex-direction: column;
+}
+
+.crop-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.saturation-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.filters-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

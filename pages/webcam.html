@@ -4,11 +4,64 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Webcam</title>
+    <title>Document</title>
+    <link rel="stylesheet" href="../assets/css/webcam.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800&display=swap");
+    </style>
   </head>
   <body>
-    <script src="../assets/js/wwebcam.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/clmtrackr@1.1.2/build/clmtrackr.min.js"></script>
+    <div class="whole-div-container">
+      <div class="video-div">
+        <video id="video" autoplay></video>
+        <div class="camera-setting-div">
+          <img
+            class="camera-setting-div-brightness-image"
+            src="../assets/images/still/brightness.png"
+            alt="brightness"
+          />
+          <img
+            class="camera-setting-div-frame-image"
+            src="../assets/images/still/Frame.png"
+            alt="frame"
+          />
+        </div>
+      </div>
+
+      <div id="capture">
+        <img
+          src="../assets/images/still/Round capture button.png"
+          alt="capture-image"
+        />
+      </div>
+
+      <div class="stickers-filter-div-container">
+        <div>
+          <button>stickers</button>
+        </div>
+        <div>
+          <select>
+            <option>None</option>
+            <option>Grayscale</option>
+            <option>Sepia</option>
+            <option>Invert</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="gallery-div">
+        <img
+          class="gallery-div-image"
+          src="../assets/images/still/gallery black.png"
+          alt="gallery-image"
+        />
+      </div>
+    </div>
   </body>
 </html>

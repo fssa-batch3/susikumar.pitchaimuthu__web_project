@@ -1,6 +1,6 @@
 body {
   background-color: #f7faff;
-  font-family: kanit;
+  font-family: "Kanit", sans-serif;
 }
 
 :root {
@@ -16,13 +16,6 @@ body {
 
 * a {
   text-decoration: none;
-}
-
-body {
-  background-image: linear-gradient(#d7e1ec, #ffffff);
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 100%;
 }
 
 * header {
@@ -56,6 +49,10 @@ body {
 
 .nav-link-main-div {
   padding-right: 30px;
+}
+
+.nav-link-main-div-image {
+  width: 72%;
 }
 
 .nav-link-main-div a {
