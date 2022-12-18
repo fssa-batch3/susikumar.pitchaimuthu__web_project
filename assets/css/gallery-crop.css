@@ -1,4 +1,4 @@
-body {
+sbody {
   background-color: #f7faff;
   font-family: kanit;
 }
@@ -46,6 +46,12 @@ body::-webkit-scrollbar {
 
 .user-div-image {
   width: 65%;
+}
+
+/* rolling section */
+
+.rolling-section-container {
+  display: flex;
 }
 
 /* section first side bar */
@@ -196,4 +202,5 @@ body::-webkit-scrollbar {
 
 .edit-option-div {
   display: flex;
+  flex-direction: column;
 }

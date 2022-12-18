@@ -19,7 +19,6 @@ section {
 
 .header-first-main-container-control-div {
   display: flex;
-
   flex: 0.45;
 }
 
@@ -96,9 +95,7 @@ section {
   text-align: center;
   border: none;
   background-size: 300% 100%;
-
   border-radius: 50px;
-
   transition: all 0.4s ease-in-out;
 }
 
@@ -136,6 +133,39 @@ section {
 .header-video-container-div-video {
   display: flex;
   width: 101%;
+}
+
+/* message me */
+
+.message-me-div-image {
+  top: 85%;
+  background-image: linear-gradient(
+    to right,
+    #25aae1,
+    #4481eb,
+    #04befe,
+    #3f86ed
+  );
+  box-shadow: 0 4px 15px 0 rgb(65 132 234 / 75%);
+  width: 80px;
+  height: 80px;
+  background-size: 300% 100%;
+  border-radius: 50px;
+  position: fixed;
+  right: 1%;
+  transition: all 0.4s ease-in-out;
+}
+
+.message-me-div-image:hover {
+  background-position: 100% 0;
+
+  transition: all 0.4s ease-in-out;
+}
+
+/* free use button focus */
+
+.message-me-div-image:focus {
+  outline: none;
 }
 
 /* section-first-div */

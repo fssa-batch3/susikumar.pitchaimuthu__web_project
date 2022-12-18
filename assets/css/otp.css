@@ -1,5 +1,6 @@
 body {
-  background-image: linear-gradient(#ead6ef, #a0f1ea);
+  background-color: #f7faff;
+  font-family: kanit;
 }
 
 * body a {
