@@ -3,6 +3,10 @@ body {
   font-family: "Kanit", sans-serif;
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
 * body {
   margin: 0;
   padding: 0;
@@ -176,6 +180,11 @@ section {
   outline: none;
 }
 
+.head-its-trial-para {
+  font-size: 18px;
+  font-weight: 400;
+}
+
 /* section-first-div */
 
 .section-whole-container {
@@ -190,12 +199,20 @@ section {
 }
 
 .everything-para {
-  font-size: 18px;
+  font-size: 19px;
+  font-weight: 500;
 }
 
 .jolly-heading {
-  font-size: 24px;
+  font-size: 28px;
   font-weight: 600;
+}
+
+.feature-head-para {
+  font-size: 22px;
+  font-weight: 400;
+  text-align: justify;
+  width: 80%;
 }
 
 .first-section-container {
@@ -242,6 +259,7 @@ section {
 .first-section-still-about-div-para {
   width: 80%;
   text-align: justify;
+  font-size: 18px;
 }
 
 /* first section nest feature */
@@ -283,6 +301,7 @@ section {
 .first-section-nest-about-div-para {
   width: 90%;
   text-align: justify;
+  font-size: 18px;
 }
 
 /* first section rolling feature */
@@ -327,6 +346,7 @@ section {
 .first-section-rolling-about-div-para {
   width: 90%;
   text-align: justify;
+  font-size: 18px;
 }
 
 /* Review section css */
@@ -342,6 +362,16 @@ section {
   flex-direction: column;
   align-items: center;
   padding-bottom: 4em;
+}
+
+.our-user-head {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.our-user-para {
+  font-size: 22px;
+  font-weight: 500;
 }
 
 .user-review-section-container {
@@ -695,6 +725,16 @@ section {
 
 .thank-saying-div-container {
   display: flex;
+}
+
+.special-thank-head {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.special-thank-para {
+  font-size: 22px;
+  font-weight: 500;
 }
 
 .whatsapp-logo-div {

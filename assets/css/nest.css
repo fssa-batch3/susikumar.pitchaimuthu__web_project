@@ -7,6 +7,9 @@ body {
   margin: 0;
   padding: 0;
 }
+* a {
+  text-decoration: none;
+}
 
 .head-div-container {
   display: flex;
@@ -18,6 +21,21 @@ body {
   display: flex;
   flex: 0.8;
   flex-direction: column;
+  gap: 2em;
+}
+
+/* nest heading */
+
+.nest-heading {
+  display: flex;
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.slogan {
+  font-size: 22px;
+  font-weight: 400;
 }
 
 .head-content-para-gif-div {
@@ -29,7 +47,6 @@ body {
   display: flex;
   flex-direction: column;
   font-size: 18px;
-  width: 38%;
 }
 
 .head-content-para-div-para {
@@ -86,18 +103,22 @@ body {
 .section-first-para-div {
   display: flex;
   flex-direction: column;
+  gap: 2em;
 }
 
 /* head-2 */
 
 .section-first-para-div-head2 {
-  display: flex;
-  justify-content: center;
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
 }
 
 .section-first-para-div-para {
   display: flex;
-  width: 80%;
+  font-weight: 400;
+  font-size: 22px;
+  width: 90%;
 }
 
 .section-first-video-container {
@@ -171,7 +192,27 @@ body {
 .second-section-para-container {
   display: flex;
   flex-direction: column;
+  gap: 2em;
   flex: 1;
+}
+
+/* chat party */
+
+.chat-party-heading {
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.chat-party-div {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3em;
+}
+
+.chat-party-para {
+  font-size: 22px;
+  font-weight: 400;
 }
 
 .second-section-video-container {

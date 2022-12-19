@@ -1,7 +1,6 @@
 body {
   background-color: #f7faff;
-  font-family: 'Kanit', sans-serif;
-
+  font-family: "Kanit", sans-serif;
 }
 
 * body {
@@ -45,10 +44,11 @@ body::-webkit-scrollbar {
 
 .nav-user-div {
   display: flex;
+  width: 3%;
 }
 
 .nav-user-div-image {
-  width: 70%;
+  width: 100%;
 }
 
 /* section */

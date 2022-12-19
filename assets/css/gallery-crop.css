@@ -42,7 +42,7 @@ body::-webkit-scrollbar {
 
 .user-div {
   display: flex;
-  width: 3.5%;
+  width: 3%;
 }
 
 .user-div-image {

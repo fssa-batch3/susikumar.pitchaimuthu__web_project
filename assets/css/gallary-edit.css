@@ -40,12 +40,13 @@ body::-webkit-scrollbar {
 
 /* user div */
 
-.use-div {
+.user-div {
   display: flex;
+  width: 3%;
 }
 
 .user-div-image {
-  width: 65%;
+  width: 100%;
 }
 
 /* section first side bar */
@@ -90,9 +91,17 @@ body::-webkit-scrollbar {
   gap: 3.2%;
 }
 
+.edit-image {
+  width: 11%;
+}
+
 .sticker-div {
   display: flex;
   gap: 3.2%;
+}
+
+.sticker-image {
+  width: 11%;
 }
 
 /* button */
@@ -130,6 +139,9 @@ body::-webkit-scrollbar {
   transition: all 0.4s ease-in-out;
 }
 
+.send-image {
+  width: 20%;
+}
 /* send button focus */
 
 .button-div-send-btn:hover {

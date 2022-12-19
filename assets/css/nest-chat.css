@@ -23,6 +23,16 @@ body::-webkit-scrollbar {
   margin: 1em 1em 0em 1em;
 }
 
+.previous-div {
+  display: flex;
+  width: 3%;
+}
+
+.previous-div-image {
+  width: 100%;
+  height: auto;
+}
+
 /* user profile div */
 .profile-user-div {
   display: flex;
