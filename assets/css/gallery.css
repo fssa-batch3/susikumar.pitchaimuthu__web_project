@@ -116,9 +116,12 @@ body::-webkit-scrollbar {
 .second-section-container {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   padding-left: 20.5%;
   padding-top: 6.5%;
   gap: 2em;
+  max-width: 100%;
+  overflow-x: scroll;
 }
 
 /* first-image div*/
@@ -145,7 +148,7 @@ body::-webkit-scrollbar {
 .second-image-div {
   display: flex;
   width: 100%;
-  height: 100%;
+  height: auto;
 }
 
 .second-image-div-image {
@@ -235,4 +238,72 @@ body::-webkit-scrollbar {
 .eighth-image-div-image {
   width: 234px;
   height: 235px;
+}
+
+/* media Quary */
+@media only screen and (max-width: 600px) {
+  * body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  /* navigation bar */
+
+  .nav-bar-container {
+    display: flex;
+    margin: 3em;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* nav-logo */
+
+  .nav-logo-div {
+    display: flex;
+    width: 100%;
+  }
+
+  .nav-logo-div-image {
+    width: 23%;
+  }
+
+  /* nav uer logo */
+
+  .nav-user-div {
+    display: flex;
+    width: 8%;
+  }
+
+  .nav-user-div-image {
+    width: 100%;
+  }
+
+  /* section */
+
+  .main-section-container {
+    display: flex;
+    width: 100%;
+  }
+
+  .side-bar-section-container {
+    display: flex;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 11%;
+  }
+
+  #side-bar-anger {
+    display: none;
+  }
+
+  .side-bar-option-div {
+    margin: 64% 1% 0% 16%;
+    gap: 6%;
+    padding: 0;
+  }
 }

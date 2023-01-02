@@ -310,3 +310,22 @@ footer a:hover {
 .footer-social-media-div-instagram-div-image {
   width: 10%;
 }
+
+@media only screen and (max-width: 600px) {
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  footer {
+    box-sizing: border-box;
+    width: 100%;
+    display: block;
+    margin: 0;
+    padding: 0;
+  }
+
+  .footer-container {
+    display: block;
+  }
+}

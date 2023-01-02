@@ -21,78 +21,118 @@
   <body>
     <header>
       <nav>
+        <!-- monile-menu-icon -->
+        <div class="mobile-menu-div">
+          <img
+            class="mobile-menu-icon"
+            src="../assets/images/nav-bar/Menu-dot.png"
+            alt="menuList-icon"
+            onclick="togglemenu()"
+          />
+        </div>
+
+        <!-- nav-logo -->
         <div class="nav-logo-div">
           <a href="http://127.0.0.1:5500/pages/home.html">
             <img
               class="nav-logo-div-image"
               src="../assets/images/common/Fresh-nest-logo-black.png"
-              alt="logo-image"
+              alt="fresh-nest-logo"
             />
           </a>
         </div>
 
+        <!-- nav-links -->
         <div class="nav-link-div">
-          <div class="nav-link-div-about-us-div">
-            <a class="nav-link-div-about-us-div-about" href="">About Us</a>
-          </div>
-          <div class="nav-link-div-features-div">
-            <div>
-              <a class="nav-link-div-features-div-features" href="">Features</a>
-            </div>
-            <div class="nav-link-div-features-div-dropdown-div">
-              <img
-                class="nav-link-div-features-div-features-exploremore"
-                src="../assets/images/nav-bar/Down arrow blue.png "
-                alt="down-arrow-for-explore-our-features"
-              />
-              <div
-                class="nav-link-div-features-div-features-exploremore-dropdown-content"
-              >
-                <div
-                  class="nav-link-features-div-features-exploremore-dropdown-content-div"
-                >
-                  <a
-                    class="nav-link-div-features-div-features-exploremore-dropdown-content-div-stil"
-                    href="http://127.0.0.1:5500/pages/still.html"
-                    >Still</a
-                  >
-                </div>
-                <div
-                  class="nav-link-features-div-features-exploremore-dropdown-content-nest-div"
-                >
-                  <a
-                    class="nav-link-div-features-div-features-exploremore-dropdown-content-nest"
-                    href="http://127.0.0.1:5500/pages/nest.html"
-                    >Nest</a
-                  >
+          <ul id="menuList">
+            <li><a href="#">About Us</a></li>
+            <li class="feature-li">
+              <a href="#">Features</a>
+              <div class="dropdown">
+                <img
+                  class="down-arrow"
+                  src="../assets/images/nav-bar/Down arrow blue.png"
+                  alt="down-arrow"
+                />
+                <div class="dropdown-content">
+                  <ol id="feature-dropdown-ol">
+                    <li class="still-li">
+                      <a
+                        class="still-a"
+                        href="http://127.0.0.1:5500/pages/still.html"
+                        >Still</a
+                      >
+                    </li>
+                    <li class="Nest-li">
+                      <a
+                        class="nest-a"
+                        href="http://127.0.0.1:5500/pages/nest.html"
+                        >Nest</a
+                      >
+                    </li>
+                  </ol>
                 </div>
               </div>
+            </li>
+            <li><a href="#">App</a></li>
+            <li>
+              <a href="http://127.0.0.1:5500/pages/support.html">Support</a>
+            </li>
+          </ul>
+        </div>
+
+        <!--Nav-signin and login button  -->
+        <div class="nav-button-div-container" id="sign-log">
+          <div class="sign-up-button-div">
+            <a href="http://127.0.0.1:5500/pages/signup.html">
+              <p class="sign-up-button-div-text">SIGN</p>
+            </a>
+            <div class="swip-up-button-div">
+              <a href="http://127.0.0.1:5500/pages/signup.html">
+                <p class="swip-up-button-div-up">UP</p></a
+              >
             </div>
           </div>
 
-          <div class="nav-link-div-download-div">
-            <a class="nav-link-div-download-div-download" href="">Download</a>
-          </div>
-
-          <div>
-            <a
-              class="nav-link-div-support"
-              href="http://127.0.0.1:5500/pages/support.html"
-              >Support</a
-            >
+          <div class="sign-up-button-div">
+            <a href="http://127.0.0.1:5500/pages/login.html">
+              <p class="sign-up-button-div-text">LOG</p>
+            </a>
+            <div class="swip-up-button-div">
+              <a href="http://127.0.0.1:5500/pages/login.html">
+                <p class="swip-up-button-div-up">IN</p>
+              </a>
+            </div>
           </div>
         </div>
 
-        <div class="nav-user-div-container">
-          <div class="nav-user-div">
-            <img
-              class="nav-user-div-image"
-              src="../assets/images/chat/user.png"
-              alt="user-image"
-            />
-          </div>
+        <!-- mobile profile image -->
+
+        <div class="user-div">
+          <img
+            class="user-icon"
+            src="../assets/images/nav-bar/user.png"
+            alt="mobile-profile-icon"
+            onclick="togglemenu()"
+          />
         </div>
       </nav>
+
+      <script>
+        var menuList = document.getElementById("menuList");
+
+        menuList.style.maxHeight = "0px";
+
+        function togglemenu() {
+          if (menuList.style.maxHeight == "0px") {
+            menuList.style.maxHeight = "130px";
+          } else {
+            menuList.style.maxHeight = "0px";
+          }
+        }
+
+        // signin login togglemenu
+      </script>
     </header>
 
     <!--section -start-->

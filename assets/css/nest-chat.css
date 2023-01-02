@@ -36,23 +36,28 @@ body::-webkit-scrollbar {
 /* user profile div */
 .profile-user-div {
   display: flex;
-  gap: 2em;
 }
 
 /* setting image */
 
+.setting-div {
+  width: 100%;
+}
+
 .setting-image {
   display: flex;
-  width: 22%;
-  height: 69%;
+  width: 35%;
 }
 
 /* user profile image */
 
+.profile-div {
+  width: 100%;
+}
+
 .user-profile-image {
   display: flex;
-  width: 22%;
-  height: 69%;
+  width: 35%;
 }
 
 /* head profile finish */
@@ -64,6 +69,12 @@ body::-webkit-scrollbar {
   display: flex;
   margin: 0.5em 2em 1em 2em;
   border-radius: 20px;
+  max-width: 100%;
+  overflow-x: scroll;
+}
+
+.rolling-section-container::-webkit-scrollbar {
+  display: none;
 }
 
 .rolling-members-div {
@@ -355,4 +366,30 @@ button[type="submit"]:hover {
 .send-div-mike-image {
   display: flex;
   width: 24%;
+}
+
+@media only screen and (max-width: 600px) {
+  * body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* rolling */
+
+  .rolling-section-container {
+    display: flex;
+    max-width: 500px;
+    overflow-x: scroll;
+  }
+
+  .trending-bird-div {
+    width: 100%;
+  }
+
+  /* chatting area */
+
+  .chat-container {
+    display: none;
+  }
 }
