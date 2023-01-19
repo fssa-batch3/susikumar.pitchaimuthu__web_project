@@ -1,0 +1,227 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.background-div {
+  background-image: linear-gradient(#000000, #923cb5);
+  height: 350px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.top-content-div {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+}
+
+.top-user-div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.top-user-div-image {
+  width: 30px;
+  border-radius: 20px;
+}
+
+/* profile */
+
+.profile-and-content-div {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin: 5em 0em 0em 2em;
+}
+
+/* our static bio div */
+
+.our-static-bio-div {
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+.profile-card-div {
+  display: flex;
+  background-color: #f5f5f5;
+  width: 450px;
+  border-radius: 5px;
+  height: auto;
+  margin-right: 2em;
+}
+
+.profile-card-content-div {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  gap: 2em;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-connect-message-div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-image {
+  width: 226px;
+  border-radius: 8em;
+  cursor: pointer;
+}
+
+/* profile- button */
+
+.connect-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 120px;
+}
+
+.message-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 120px;
+}
+
+.connect-button,
+.message-button,
+.edit-button,
+.setting-button {
+  border: none;
+  height: 2em;
+  width: 6em;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.connect-button {
+  background-color: #4481eb;
+}
+
+.message-button {
+  background-color: darkviolet;
+}
+
+/* user experience in our website */
+
+.user-experience-div {
+  display: flex;
+  gap: 2em;
+}
+
+.friends-div,
+.photos-div,
+.videos-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+}
+
+.user-h2 {
+  margin: 0;
+}
+
+.user-para {
+  margin: 0;
+}
+
+/* information div */
+
+.account-container {
+  display: flex;
+  width: 63%;
+  margin: 2em 0em 0em 1em;
+  border-radius: 10px;
+  background-color: #f5f5f5;
+}
+
+.account-div {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  width: 100%;
+}
+
+.my-account-div {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* button */
+
+.edit-setting-div {
+  display: flex;
+  gap: 2em;
+}
+
+.edit-button {
+  background-color: #4481eb;
+}
+
+.setting-button {
+  background-color: #073d5e;
+}
+
+/* information */
+
+.information-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 1.2em;
+}
+
+.information-flex-div {
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
+}
+
+.information-div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* input */
+
+.input-div {
+  background-color: white;
+  width: 330px;
+  height: 37px;
+  border-radius: 6px;
+}
+
+input {
+  background-color: transparent;
+  border: 0px solid;
+  height: 30px;
+  width: 260px;
+  font-size: 16px;
+  margin-left: 10px;
+}
+input:focus {
+  outline: none;
+}

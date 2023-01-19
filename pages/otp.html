@@ -32,20 +32,21 @@
           </div>
 
           <div>
-            <label for="otp">Enter OTP</label>
-            <input
-              type="text"
-              inputmode="numeric"
-              id="otp"
-              autocomplete="one-time-code"
-              pattern="/d{6}"
-              required
-            />
+            <form>
+              <label for="otp">Enter OTP</label>
+              <input
+                type="text"
+                inputmode="numeric"
+                id="otp"
+                autocomplete="one-time-code"
+                placeholder="989423"
+                pattern="/d{6}"
+                required
+              />
+            </form>
 
             <div class="confirm-button">
-              <button class="confirm">
-                <a href="http://127.0.0.1:5500/pages/home.html">Confirm</a>
-              </button>
+              <button class="confirm" onclick="submit()">Confirm</button>
             </div>
           </div>
 
@@ -58,5 +59,19 @@
         </div>
       </div>
     </div>
+
+    <script>
+      function submit() {
+        const otp = document.getElementById("otp").value;
+
+        console.log(otp);
+
+        // dataStorage
+
+        localStorage.setItem("OTP_number", otp);
+
+        window.location.href = "./home.html";
+      }
+    </script>
   </body>
 </html>

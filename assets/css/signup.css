@@ -51,9 +51,9 @@ body {
   justify-content: space-between;
 }
 
-#fname,
-#lname,
-#uname,
+#firstname,
+#lastname,
+#username,
 #password {
   padding: 10px 10px;
   margin-left: 35px;

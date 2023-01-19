@@ -55,7 +55,7 @@
 
           <div>
             <label for="date-of-birth">Add your date of birth</label>
-            <input type="date" id="date-of-birth" />
+            <input type="date" id="birthday" />
           </div>
 
           <div class="next-back-div">
@@ -68,13 +68,22 @@
               /></a>
             </div>
             <div>
-              <a href="http://127.0.0.1:5500/pages/otp.html">
-                <button class="next-button">Next</button></a
-              >
+              <button class="next-button" onclick="submit()">Next</button>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+    <script>
+      function submit() {
+        const birthday = document.getElementById("birthday").value;
+        console.log(birthday);
+
+        localStorage.setItem("birthday", birthday);
+
+        window.location.href = "./otp.html";
+      }
+    </script>
   </body>
 </html>

@@ -306,4 +306,15 @@ body::-webkit-scrollbar {
     gap: 6%;
     padding: 0;
   }
+
+  .section-second-first-image-container {
+    display: flex;
+    width: 100%;
+    height: auto;
+  }
+
+  .first-image-div-image {
+    width: 150px;
+    height: 160px;
+  }
 }

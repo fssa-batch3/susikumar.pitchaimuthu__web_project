@@ -32,7 +32,12 @@
             <form>
               <div>
                 <label for="inputtel">Enter OTP</label>
-                <input type="tel" id="inputtel" placeholder="OTP" />
+                <input
+                  type="tel"
+                  id="inputtel"
+                  placeholder="OTP"
+                  placeholder="otp"
+                />
               </div>
 
               <div class="label-div">
@@ -41,6 +46,7 @@
                   type="password"
                   id="inputpassword"
                   placeholder="Password"
+                  placeholder="password"
                 />
               </div>
               <div>
@@ -49,11 +55,11 @@
                   type="password"
                   id="inputpassword2"
                   placeholder="Password"
+                  placeholder="Re enter password"
                 />
               </div>
-
-              <button type="submit" id="submit">Submit</button>
             </form>
+            <button type="submit" id="submit" onclick="submit()">Submit</button>
           </div>
 
           <div>
@@ -65,5 +71,25 @@
         </div>
       </div>
     </div>
+
+    <script>
+      function submit() {
+        const otp = document.getElementById("inputtel").value;
+        const newPassword = document.getElementById("inputpassword").value;
+        const confirmPassword = document.getElementById("inputpassword2").value;
+
+        console.log(otp);
+        console.log(newPassword);
+        console.log(confirmPassword);
+
+        // dataStorage
+
+        localStorage.setItem("otp_number", otp);
+        localStorage.setItem("User_NewPassword", newPassword);
+        localStorage.setItem("confimationation_password", confirmPassword);
+
+        window.location.href = "";
+      }
+    </script>
   </body>
 </html>

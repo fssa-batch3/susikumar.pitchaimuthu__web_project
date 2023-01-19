@@ -215,7 +215,7 @@
                 </div>
 
                 <div class="name">
-                  <p>Naveena Sri</p>
+                  <p id="user_name">Naveena Sri</p>
                   <p>Enna pantringa Naina ma....</p>
                 </div>
               </div>
@@ -425,5 +425,13 @@
 
       <!-- final div-->
     </div>
+
+    <script>
+      const userName = localStorage.setItem("username");
+
+      console.log(userName);
+
+      document.getElementById("user_name").innerText = userName;
+    </script>
   </body>
 </html>

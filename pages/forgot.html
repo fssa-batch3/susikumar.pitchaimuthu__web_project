@@ -28,14 +28,17 @@
             />
           </div>
           <div class="label-div">
-            <label for="email">Email or Mobile no.</label> <br />
-            <input
-              type="text"
-              id="email"
-              placeholder="@gmail.com"
-              name="email"
-            /><br />
-            <button class="get-otp-div">Get OTP</button>
+            <form>
+              <label for="email">Email or Mobile no.</label> <br />
+              <input
+                type="text"
+                id="email"
+                placeholder="@gmail.com"
+                name="email"
+              />
+            </form>
+
+            <button class="get-otp-div" onclick="submit()">Get OTP</button>
           </div>
 
           <div class="back-div">
@@ -48,5 +51,15 @@
         </div>
       </div>
     </div>
+
+    <script>
+      function submit() {
+        const mobileNumberOrEmail = document.getElementById("email");
+
+        console.log(mobileNumberOrEmail);
+
+        window.location.href = "./confirm.html";
+      }
+    </script>
   </body>
 </html>

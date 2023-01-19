@@ -81,49 +81,6 @@ section {
   line-height: 1.2em;
   text-align: justify;
 }
-/* try for free button */
-
-.hero-section-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2em;
-
-  background-image: linear-gradient(
-    to right,
-    #25aae1,
-    #4481eb,
-    #04befe,
-    #3f86ed
-  );
-  box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
-  width: 210px;
-  font-size: 16px;
-  font-weight: 600;
-  color: #fff;
-  cursor: pointer;
-  margin: 20px;
-  height: 55px;
-  text-align: center;
-  border: none;
-  background-size: 300% 100%;
-  border-radius: 50px;
-  transition: all 0.4s ease-in-out;
-}
-
-/* free use button hover */
-
-.hero-section-button:hover {
-  background-position: 100% 0;
-
-  transition: all 0.4s ease-in-out;
-}
-
-/* free use button focus */
-
-.hero-section-button:focus {
-  outline: none;
-}
 
 /* free use button over */
 
@@ -149,6 +106,11 @@ section {
 
 /* message me */
 
+.message-me-div {
+  position: relative;
+  cursor: pointer;
+}
+
 .message-me-div-image {
   top: 85%;
   background-image: linear-gradient(
@@ -159,12 +121,12 @@ section {
     #3f86ed
   );
   box-shadow: 0 4px 15px 0 rgb(65 132 234 / 75%);
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   background-size: 300% 100%;
   border-radius: 50px;
   position: fixed;
-  right: 1%;
+  right: 2%;
   transition: all 0.4s ease-in-out;
 }
 
