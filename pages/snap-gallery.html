@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery</title>
+    <link rel="stylesheet" href="../assets/css/gallery.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="../pages/snap-edit.html" />
+    <link rel="stylesheet" href="../pages/snap-details.html" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800&display=swap");
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="nav-bar-container">
+        <div class="nav-logo-div">
+          <img
+            class="nav-logo-div-image"
+            src="../assets/images/common/Fresh-nest-logo-black.png"
+            alt="fresh-nest-logo"
+          />
+        </div>
+        <div class="nav-user-div">
+          <img
+            class="nav-user-div-image"
+            src="../assets/images/chat/user.png"
+            alt="user-profile"
+          />
+        </div>
+      </nav>
+    </header>
+    <section class="main-section-container">
+      <section class="side-bar-section-container">
+        <div class="side-bar-option-div">
+          <div class="recent-image-div">
+            <img src="../assets/images/gallery/recent.png" alt="recent-logo" />
+            <a id="side-bar-anger">Recent photos</a>
+          </div>
+          <div class="all-photos-div">
+            <img
+              src="../assets/images/gallery/all photos.png"
+              alt="all-photos"
+            />
+            <a id="side-bar-anger">All photos</a>
+          </div>
+
+          <div class="favourite-div">
+            <img src="../assets/images/gallery/favourite.png" alt="favourite" />
+            <a id="side-bar-anger">Favourite</a>
+          </div>
+
+          <div class="recent-delete-div">
+            <img
+              src="../assets/images/gallery/recently deleted.png"
+              alt="recent-delete"
+            /><a id="side-bar-anger">Recently deleted</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="second-section-container">
+        <div class="second-section-container-div"></div>
+      </section>
+    </section>
+
+    <script>
+      const imageGallery = [
+        {
+          image: {
+            source: "../assets/images/still/Snaps/1.jfif",
+            alt: "user-snap",
+          },
+        },
+        {
+          image: {
+            source: "../assets/images/still/Snaps/3.jpg",
+            alt: "user-snap",
+          },
+        },
+        {
+          image: {
+            source: "../assets/images/still/Snaps/3.jpg",
+            alt: "user-snap",
+          },
+        },
+        {
+          image: {
+            source: "../assets/images/still/Snaps/4.jfif",
+            alt: "user-snap",
+          },
+        },
+        {
+          image: {
+            source: "../assets/images/still/Snaps/5.jpg",
+            alt: "user-snap",
+          },
+        },
+        {
+          image: {
+            source: "../assets/images/still/Snaps/6.png",
+            alt: "user-snap",
+          },
+        },
+        {
+          image: {
+            source: "../assets/images/still/Snaps/7.jpg",
+            alt: "user-snap",
+          },
+        },
+        {
+          image: {
+            source: "../assets/images/still/Snaps/8.jpg",
+            alt: "user-snap",
+          },
+        },
+        {
+          image: {
+            source: "../assets/images/still/Snaps/1.jfif",
+            alt: "user-snap",
+          },
+        },
+        {
+          image: {
+            source: "../assets/images/still/Snaps/3.jpg",
+            alt: "user-snap",
+          },
+        },
+        {
+          image: {
+            source: "../assets/images/still/Snaps/3.jpg",
+            alt: "user-snap",
+          },
+        },
+        {
+          image: {
+            source: "../assets/images/still/Snaps/4.jfif",
+            alt: "user-snap",
+          },
+        },
+        {
+          image: {
+            source: "../assets/images/still/Snaps/5.jpg",
+            alt: "user-snap",
+          },
+        },
+        {
+          image: {
+            source: "../assets/images/still/Snaps/6.png",
+            alt: "user-snap",
+          },
+        },
+        {
+          image: {
+            source: "../assets/images/still/Snaps/7.jpg",
+            alt: "user-snap",
+          },
+        },
+        {
+          image: {
+            source: "../assets/images/still/Snaps/8.jpg",
+            alt: "user-snap",
+          },
+        },
+        {
+          image: {
+            source: "../assets/images/still/Snaps/1.jfif",
+            alt: "user-snap",
+          },
+        },
+        {
+          image: {
+            source: "../assets/images/still/Snaps/3.jpg",
+            alt: "user-snap",
+          },
+        },
+        {
+          image: {
+            source: "../assets/images/still/Snaps/3.jpg",
+            alt: "user-snap",
+          },
+        },
+        {
+          image: {
+            source: "../assets/images/still/Snaps/4.jfif",
+            alt: "user-snap",
+          },
+        },
+        {
+          image: {
+            source: "../assets/images/still/Snaps/5.jpg",
+            alt: "user-snap",
+          },
+        },
+        {
+          image: {
+            source: "../assets/images/still/Snaps/6.png",
+            alt: "user-snap",
+          },
+        },
+        {
+          image: {
+            source: "../assets/images/still/Snaps/7.jpg",
+            alt: "user-snap",
+          },
+        },
+        {
+          image: {
+            source: "../assets/images/still/Snaps/8.jpg",
+            alt: "user-snap",
+          },
+        },
+        {
+          image: {
+            source: "../assets/images/still/Snaps/1.jfif",
+            alt: "user-snap",
+          },
+        },
+        {
+          image: {
+            source: "../assets/images/still/Snaps/3.jpg",
+            alt: "user-snap",
+          },
+        },
+        {
+          image: {
+            source: "../assets/images/still/Snaps/3.jpg",
+            alt: "user-snap",
+          },
+        },
+        {
+          image: {
+            source: "../assets/images/still/Snaps/4.jfif",
+            alt: "user-snap",
+          },
+        },
+        {
+          image: {
+            source: "../assets/images/still/Snaps/5.jpg",
+            alt: "user-snap",
+          },
+        },
+        {
+          image: {
+            source: "../assets/images/still/Snaps/6.png",
+            alt: "user-snap",
+          },
+        },
+        {
+          image: {
+            source: "../assets/images/still/Snaps/7.jpg",
+            alt: "user-snap",
+          },
+        },
+        {
+          image: {
+            source: "../assets/images/still/Snaps/8.jpg",
+            alt: "user-snap",
+          },
+        },
+      ];
+
+      let imageGallery_string = JSON.stringify(imageGallery);
+      console.log(imageGallery_string);
+      localStorage.setItem("imageGallery", imageGallery_string);
+      let imageGallery_obj = JSON.parse(imageGallery_string);
+
+      for (let i = 0; i <= imageGallery.length - 1; i++) {
+        const snap = imageGallery[i]["image"];
+
+        const imageContainer = document.createElement("div");
+        imageContainer.setAttribute("class", "section-second-image-container");
+
+        const imageDiv = document.createElement("div");
+        imageDiv.setAttribute("class", "image-div");
+        imageContainer.append(imageDiv);
+
+        const image = document.createElement("img");
+        image.setAttribute("src", snap["source"]);
+        image.setAttribute("alt", snap["alt"]);
+        image.setAttribute("class", "image-div-image");
+        imageDiv.append(image);
+
+        const a = document.createElement("a");
+        a.append(image);
+        a.setAttribute(
+          "href",
+          "../pages/snap-details.html?image=" + snap["source"]
+        );
+        imageDiv.append(a);
+
+        document
+          .querySelector(".second-section-container-div")
+          .append(imageContainer);
+      }
+    </script>
+  </body>
+</html>

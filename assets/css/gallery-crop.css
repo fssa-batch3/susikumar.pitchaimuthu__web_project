@@ -66,7 +66,7 @@ body::-webkit-scrollbar {
   top: 0;
   bottom: 0;
   left: 0;
-  width: 37vh;
+  width: 16%;
   background-color: #d4f1f4;
 }
 
@@ -164,8 +164,8 @@ body::-webkit-scrollbar {
 
 .section-second-container {
   display: flex;
-  width: 100vw;
-  height: 100vw;
+  margin-left: 3em;
+  gap: 20em;
 }
 
 /* picture div contaner */
@@ -173,43 +173,36 @@ body::-webkit-scrollbar {
 .picture-div-container {
   display: flex;
   justify-content: center;
-  gap: 6vw;
+  gap: 5em;
+  margin-left: 20em;
   align-items: center;
-  width: 100vw;
-  height: 100vh;
 }
 
 /* left arrow */
-
-.left-arrow-div {
-  display: flex;
-}
-
-.left-arrow-div-image {
-  width: 50%;
-}
 
 /* picture div */
 
 .picture-div {
   display: flex;
-  width: 100vw;
-  height: 100vh;
 }
 
 .picture-div-image {
-  width: 100vh;
-  height: 94vh;
+  width: 430px;
+  height: 500px;
 }
 
 /* right arrow */
 
-.right-arrow-div {
+.right-arrow-div,
+.left-arrow-div {
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.right-arrow-div-image {
-  width: 50%;
+.right-arrow-div-image,
+.left-arrow-div-image {
+  width: 32px;
 }
 
 /* picture editing option */
@@ -217,7 +210,8 @@ body::-webkit-scrollbar {
 .edit-option-div {
   display: flex;
   flex-direction: column;
-  width: 7vw;
+  gap: 1.4em;
+  width: 7em;
 }
 
 .crop-div {

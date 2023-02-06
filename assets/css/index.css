@@ -113,6 +113,7 @@ section {
 
 .message-me-div-image {
   top: 85%;
+  transform: rotate(-5deg);
   background-image: linear-gradient(
     to right,
     #25aae1,
@@ -339,13 +340,16 @@ section {
 .user-review-section-container {
   display: flex;
   gap: 2em;
+  flex-wrap: wrap;
 }
 
 /* Review user No.1 */
 
 .user-1-review-section-div {
   display: flex;
+  width: 356px;
   flex-direction: column;
+  flex-wrap: wrap;
   border-radius: 10px;
   background-color: #fbfbfb;
   padding: 2em 1em 1em 2em;
@@ -361,6 +365,7 @@ section {
   flex-direction: column;
   background-color: #107db5;
   color: white;
+
   padding: 2em 1em 1em 2em;
   transform: scale(102%);
   border-radius: 10px;
@@ -462,218 +467,6 @@ section {
   transition: 1s;
   box-shadow: 0 0 0 1px rgb(0 0 0 / 3%), 0 1px 0 0 rgb(0 0 0 / 5%),
     0 0 8px 0 rgb(0 0 0 / 3%), 0 20px 30px 0 rgb(0 0 0 / 10%);
-}
-
-/* Review user No.3 */
-
-.user-3-review-section-div:hover {
-  display: flex;
-  flex-direction: column;
-  background-color: #107db5;
-  color: white;
-  transform: scale(102%);
-  padding: 2em 1em 1em 2em;
-  border-radius: 10px;
-  box-shadow: 0 0 0 1px rgb(0 0 0 / 3%), 0 1px 0 0 rgb(0 0 0 / 5%),
-    0 0 8px 0 rgb(0 0 0 / 3%), 0 20px 30px 0 rgb(0 0 0 / 10%);
-}
-
-.user-3-review-div {
-  display: flex;
-}
-
-.user-3-review-div-para {
-  display: flex;
-  width: 100%;
-}
-
-.user-review-3-image-about-div {
-  display: flex;
-  align-items: center;
-}
-
-.user-review-3-image-div {
-  display: flex;
-  width: 20%;
-}
-
-.user-review-3-image-div-image {
-  width: 67%;
-  height: 70%;
-  border-radius: 41px;
-}
-
-.user-review-section-container-2 {
-  display: flex;
-  padding-top: 2em;
-  gap: 2em;
-}
-
-/* Review user No.4 */
-.user-4-review-section-div {
-  display: flex;
-  flex-direction: column;
-  background-color: #107db5;
-  color: white;
-  border-radius: 10px;
-  width: 79%;
-  transition: 1s;
-  padding: 2em 1em 1em 2em;
-  box-shadow: 0 0 0 1px rgb(0 0 0 / 3%), 0 1px 0 0 rgb(0 0 0 / 5%),
-    0 0 8px 0 rgb(0 0 0 / 3%), 0 20px 30px 0 rgb(0 0 0 / 10%);
-}
-
-/* Review user No.4 hover */
-
-.user-4-review-section-div:hover {
-  display: flex;
-  flex-direction: column;
-  background-color: #fbfbfb;
-  color: black;
-  transform: scale(102%);
-  border-radius: 10px;
-  padding: 2em 1em 1em 2em;
-  box-shadow: 0 0 0 1px rgb(0 0 0 / 3%), 0 1px 0 0 rgb(0 0 0 / 5%),
-    0 0 8px 0 rgb(0 0 0 / 3%), 0 20px 30px 0 rgb(0 0 0 / 10%);
-}
-
-.user-4-review-div {
-  display: flex;
-}
-
-.user-4-review-div-para {
-  display: flex;
-  width: 100%;
-}
-
-.user-review-4-image-about-div {
-  display: flex;
-  align-items: center;
-}
-
-.user-review-4-image-div {
-  display: flex;
-  width: 20%;
-}
-
-.user-review-4-image-div-image {
-  width: 62%;
-  height: 65%;
-  border-radius: 41px;
-}
-
-/* user review 5 */
-.user-5-review-section-div {
-  display: flex;
-  flex-direction: column;
-  background-color: #fbfbfb;
-  border-radius: 10px;
-  transition: 1s;
-  width: 75%;
-  padding: 2em 1em 1em 2em;
-  box-shadow: 0 0 0 1px rgb(0 0 0 / 3%), 0 1px 0 0 rgb(0 0 0 / 5%),
-    0 0 8px 0 rgb(0 0 0 / 3%), 0 20px 30px 0 rgb(0 0 0 / 10%);
-}
-
-/* Review user No.5 hover */
-
-.user-5-review-section-div:hover {
-  display: flex;
-  flex-direction: column;
-  background-color: #107db5;
-  color: white;
-  transform: scale(102%);
-  padding: 2em 1em 1em 2em;
-  border-radius: 10px;
-  box-shadow: 0 0 0 1px rgb(0 0 0 / 3%), 0 1px 0 0 rgb(0 0 0 / 5%),
-    0 0 8px 0 rgb(0 0 0 / 3%), 0 20px 30px 0 rgb(0 0 0 / 10%);
-}
-
-.user-5-review-div {
-  display: flex;
-  width: 100%;
-}
-
-.user-5-review-div-para {
-  display: flex;
-  width: 100%;
-}
-
-.user-review-5-image-about-div {
-  display: flex;
-  align-items: center;
-}
-
-.user-review-5-image-div {
-  display: flex;
-  width: 23%;
-  height: 49%;
-}
-
-.user-review-5-image-div-image {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 53px;
-  height: 53px;
-  border-radius: 41px;
-}
-
-/* Review user No.6 */
-.user-6-review-section-div {
-  display: flex;
-  flex-direction: column;
-  background-color: #107db5;
-  color: white;
-  width: 80%;
-  border-radius: 10px;
-  transition: 1s;
-  padding: 2em 1em 1em 2em;
-  box-shadow: 0 0 0 1px rgb(0 0 0 / 3%), 0 1px 0 0 rgb(0 0 0 / 5%),
-    0 0 8px 0 rgb(0 0 0 / 3%), 0 20px 30px 0 rgb(0 0 0 / 10%);
-}
-
-/* Review user No.6 hover */
-
-.user-6-review-section-div:hover {
-  display: flex;
-  flex-direction: column;
-  background-color: #fbfbfb;
-  transform: scale(102%);
-  color: black;
-  border-radius: 10px;
-  padding: 2em 1em 1em 2em;
-  box-shadow: 0 0 0 1px rgb(0 0 0 / 3%), 0 1px 0 0 rgb(0 0 0 / 5%),
-    0 0 8px 0 rgb(0 0 0 / 3%), 0 20px 30px 0 rgb(0 0 0 / 10%);
-}
-
-.user-6-review-div {
-  display: flex;
-}
-
-.user-6-review-div-para {
-  display: flex;
-  width: 100%;
-}
-
-.user-review-6-image-about-div {
-  display: flex;
-  align-items: center;
-}
-
-.user-review-6-image-div {
-  display: flex;
-  width: 22%;
-  height: 52%;
-}
-
-.user-review-6-image-div-image {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 53px;
-  height: 53px;
-  border-radius: 41px;
 }
 
 /* Thank saying div */

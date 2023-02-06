@@ -3,6 +3,7 @@ body {
   padding: 0;
   display: flex;
   flex-wrap: wrap;
+  font-family: "Montserrat", sans-serif;
 }
 
 .background-div {
@@ -18,16 +19,21 @@ body {
   position: absolute;
   width: 100%;
   display: flex;
-  justify-content: center;
   align-items: center;
   justify-content: space-between;
   color: white;
+}
+
+.user-profile-div {
+  display: flex;
+  margin-left: 2em;
 }
 
 .top-user-div {
   display: flex;
   align-items: center;
   gap: 10px;
+  margin-right: 2em;
 }
 
 .top-user-div-image {

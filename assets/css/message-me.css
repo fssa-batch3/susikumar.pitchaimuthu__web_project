@@ -1,21 +1,24 @@
 body {
   margin: 0;
   padding: 0;
-
-  min-height: 600px;
-  min-width: 380px;
-  z-index: 1110;
 }
 
 #popup {
   display: none;
+  height: 650px;
+  width: 500px;
+  z-index: 110;
+  position: absolute;
+  right: 2%;
+  top: 11.3%;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+  border-radius: 9px;
 }
 
 /* message me nav */
 
 .message-me-nav-div {
   display: flex;
-
   flex-wrap: wrap;
   background-image: linear-gradient(
     to right,
@@ -33,14 +36,14 @@ body {
   align-items: center;
   flex-wrap: wrap;
   width: 100%;
-  height: auto;
+  height: 44px;
   margin: 0.5% 2%;
 }
 
 .bird-div {
   display: flex;
   align-items: center;
-  width: 3%;
+  width: 7%;
 }
 
 .bird-div-image {
@@ -51,7 +54,7 @@ body {
 .message-div {
   display: flex;
   align-items: center;
-  width: 3%;
+  width: 7%;
 }
 
 .message-div-image {
@@ -62,7 +65,7 @@ body {
 .minus-div {
   display: flex;
   align-items: center;
-  width: 3%;
+  width: 7%;
 }
 .minus-div-image {
   width: 100%;
@@ -74,7 +77,8 @@ body {
 .text-place-container {
   display: flex;
   width: 100%;
-  height: 730px;
+  height: 530px;
+  background-color: #f8f8ff;
 }
 
 .text-place-container-div {
@@ -104,17 +108,17 @@ body {
 .text-div {
   display: flex;
   align-items: center;
-  width: 80%;
+  width: 70%;
   flex-wrap: wrap;
-  padding-bottom: 0.75rem;
-  padding-top: 0.75rem;
+  padding-bottom: 7px;
+  padding-top: 7px;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
     rgba(17, 17, 26, 0.05) 0px 8px 32px;
   border-radius: 0.5em;
 }
 
 #textarea {
-  width: 100%;
+  width: 95%;
   padding: 6px 7px;
   border-radius: 5px;
   resize: none;
@@ -124,13 +128,14 @@ body {
   border-color: transparent;
   border: none;
   outline: none;
-  margin-left: 20px;
+  margin-left: 7px;
   font-size: 17px;
+  background-color: transparent;
 }
 
 .send-option-div {
   display: flex;
-  width: 3%;
+  width: 7%;
   align-items: center;
   cursor: pointer;
 }
@@ -141,7 +146,7 @@ body {
 
 .emoji-option-div {
   display: flex;
-  width: 3%;
+  width: 7%;
   align-items: center;
   cursor: pointer;
 }

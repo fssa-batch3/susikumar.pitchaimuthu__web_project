@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery edit</title>
+    <link rel="stylesheet" href="../assets/css/gallary-edit.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script src="../assets/js/gallery.js"></script>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800&display=swap");
+    </style>
+  </head>
+  <body>
+    <heder>
+      <nav class="nav-container">
+        <div class="logo-div">
+          <img
+            class="logo-div-image"
+            src="../assets/images/common/Fresh-nest-logo-black.png"
+            alt="fresh-nest-logo"
+          />
+        </div>
+        <div class="user-div">
+          <img
+            class="user-div-image"
+            src="../assets/images/chat/user.png"
+            alt="user-profile"
+          />
+        </div>
+      </nav>
+    </heder>
+    <!-- header end -->
+
+    <!-- sectin start -->
+
+    <section class="whole-section-container">
+      <section class="section-side-bar-container">
+        <div class="side-bar-content-div">
+          <div class="side-bar-a-container">
+            <div class="edit-div">
+              <img
+                class="edit-image"
+                src="../assets/images/gallery/edit.png"
+                alt="edit-option"
+              />
+
+              <a href="http://127.0.0.1:5500/pages/gallery-crop.html">Edit</a>
+            </div>
+            <div class="sticker-div">
+              <img
+                class="sticker-image"
+                src="../assets/images/gallery/sticker.png"
+                alt="stickers"
+              />
+              <a>Stickers</a>
+            </div>
+          </div>
+
+          <div class="button-div">
+            <button class="button-div-send-btn">
+              <a>Send</a>
+              <img
+                class="send-image"
+                src="../assets/images/gallery/send.png"
+                alt="send-option"
+              />
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- center-section -->
+      <section class="picture-div-container">
+        <div class="left-arrow-div">
+          <img
+            class="left-arrow-div-image"
+            src="../assets/images/gallery/left-arrow.png"
+            alt="left-arrow"
+          />
+        </div>
+        <div class="picture-div"></div>
+
+        <div class="right-arrow-div">
+          <img
+            class="right-arrow-div-image"
+            src="../assets/images/gallery/right-arrow.png"
+            alt="right-arrow"
+          />
+        </div>
+      </section>
+    </section>
+  </body>
+  <script>
+    const url = window.location.search;
+    const urlParams = new URLSearchParams(url);
+
+    const urlImage = urlParams.get("image");
+
+    // Array.find(  function(variableName){} )
+    const snap = imageGallery.find(function (userObj) {
+      //   userObj = {name : , "image": {}, "text": ""}
+
+      const image = userObj["image"];
+
+      if (urlImage === image) {
+        return true;
+      } else {
+        return false;
+      }
+      console.log(image);
+    });
+
+    const snapshot = document.createElement("img");
+    snapshot.setAttribute("src", urlImage);
+    snapshot.setAttribute("class", "picture-div-image");
+    document.querySelector(".picture-div").append(snapshot);
+
+    console.log(window.location.href);
+  </script>
+</html>

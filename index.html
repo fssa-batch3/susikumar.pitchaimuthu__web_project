@@ -213,14 +213,28 @@
     <!-- section-start -->
 
     <section class="section-whole-container">
-      <div class="message-me-div" onclick="popup()">
+      <div class="message-me-div">
         <img
           class="message-me-div-image"
           src="../assets/images/Hero section/message me.png"
           alt="message-me"
+          onclick="popup()"
         />
       </div>
 
+      <script>
+        function popup() {
+          const messageMe = (document.getElementById("popup").style.display =
+            "block");
+          $(".message-me-div-image").hide();
+        }
+
+        function closepopup() {
+          const messageMe = (document.getElementById("popup").style.display =
+            "none");
+          $(".message-me-div-image").show();
+        }
+      </script>
       <div id="popup">
         <!-- nav message me image -->
 
@@ -246,6 +260,7 @@
                 class="minus-div-image"
                 src="../assets/images/chat/message me/minus.png"
                 alt="exit-image"
+                onclick="closepopup()"
               />
             </div>
           </div>
@@ -284,19 +299,6 @@
         </div>
       </div>
 
-      <script>
-        var messageMe = document.getElementById("popup");
-
-        messageMe.style.maxHeight = "0px";
-
-        function popup() {
-          if (messageMe.style.maxHeight == "0px") {
-            messageMe.style.maxHeight = "130px";
-          } else {
-            messageMe.style.maxHeight = "0px";
-          }
-        }
-      </script>
       <!-- section-first -->
       <section>
         <div class="section-first-heading-div">
@@ -381,143 +383,8 @@
             They are our user and they gives some review about our browser
           </p>
         </div>
-        <div class="user-review-section-container">
-          <div class="user-1-review-section-div">
-            <div class="user-1-review-div">
-              <p class="user-1-review-div-para">
-                The Nest browser was very useful to us. It's was very joyful and
-                funny. When we are think to make aconversation between me and my
-                friend's. It's very useful.
-              </p>
-            </div>
-            <div class="user-review-1-image-about-div">
-              <div class="user-review-1-image-div">
-                <img
-                  class="user-review-1-image-div-image"
-                  src="./assets/images/Hero section/User-review/1.jpg"
-                  alt="user-review-1"
-                />
-              </div>
-              <div>
-                <h3>Bagath Paisal</h3>
-                <p>From canada</p>
-              </div>
-            </div>
-          </div>
-          <div class="user-2-review-section-div">
-            <div class="user-2-review-div">
-              <p class="user-2-review-div-para">
-                The nest is the best. Whenever I want to take photos with
-                filters it was very helpful to me. There is very funny filters
-                also here. It's was very nice to me.
-              </p>
-            </div>
-            <div class="user-review-2-image-about-div">
-              <div class="user-review-2-image-div">
-                <img
-                  class="user-review-2-image-div-image"
-                  src="./assets/images/Hero section/User-review/2.jpg"
-                  alt="user-review-2"
-                />
-              </div>
-              <div>
-                <h3>Hema Dsouza</h3>
-                <p>From Chennai</p>
-              </div>
-            </div>
-          </div>
-          <div class="user-3-review-section-div">
-            <div class="user-3-review-div">
-              <p class="user-3-review-div-para">
-                I am from US. When I was heard the word of fresh nest, I never
-                think It's very useful. At the first time, I came to the browser
-                for visit. Now I am became one of user.
-              </p>
-            </div>
-            <div class="user-review-3-image-about-div">
-              <div class="user-review-3-image-div">
-                <img
-                  class="user-review-3-image-div-image"
-                  src="./assets/images/Hero section/User-review/3.jpg"
-                  alt="user-review-3"
-                />
-              </div>
-              <div>
-                <h3>John</h3>
-                <p>From United States</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="user-review-section-container-2">
-          <div class="user-4-review-section-div">
-            <div class="user-4-review-div">
-              <p class="user-4-review-div-para">
-                Hi.. This is Alexa. I never seen browser like that before. This
-                browser was very helpful to me. If wanna a picture My mind say
-                to fresh nest. It was very helpful to me.
-              </p>
-            </div>
-            <div class="user-review-4-image-about-div">
-              <div class="user-review-4-image-div">
-                <img
-                  class="user-review-4-image-div-image"
-                  src="./assets/images/Hero section/User-review/4.jpg"
-                  alt="user-review-4"
-                />
-              </div>
-              <div>
-                <h3>Alexa Susee</h3>
-                <p>From Australia</p>
-              </div>
-            </div>
-          </div>
-          <div class="user-5-review-section-div">
-            <div class="user-5-review-div">
-              <p class="user-5-review-div-para">
-                Fresh nest... What a word. It was very very friendly to me. I
-                was used this browser for chatting and stills. It was very
-                Friendly to me.
-              </p>
-            </div>
-            <div class="user-review-5-image-about-div">
-              <div class="user-review-5-image-div">
-                <img
-                  class="user-review-5-image-div-image"
-                  src="./assets/images/Hero section/User-review/5.png"
-                  alt="user-review-5"
-                />
-              </div>
-              <div>
-                <h3>Abdul Riyaz</h3>
-                <p>From England</p>
-              </div>
-            </div>
-          </div>
 
-          <div class="user-6-review-section-div">
-            <div class="user-6-review-div">
-              <p class="user-6-review-div-para">
-                What I say for fresh nest I don't have words. Nest was very help
-                to me to make convo to my friends. Stills Helps to take picture.
-                So I have two benefit.
-              </p>
-            </div>
-            <div class="user-review-6-image-about-div">
-              <div class="user-review-6-image-div">
-                <img
-                  class="user-review-6-image-div-image"
-                  src="./assets/images/Hero section/User-review/6.jpg"
-                  alt="user-review-6"
-                />
-              </div>
-              <div>
-                <h3>Jacklyn Rose</h3>
-                <p>From Russia</p>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div class="user-review-section-container"></div>
       </section>
 
       <!-- Special thanks div-->
@@ -667,5 +534,97 @@
         </div>
       </div>
     </footer>
+
+    <script>
+      const userReview = [
+        {
+          review:
+            "The Nest browser was very useful to us. It's was very joyful and funny. When we are think to make aconversation between me and my friend's. It's very useful",
+          profile: "./assets/images/Hero section/User-review/1.jpg",
+          userName: "Bagath Paisal",
+          From: "Canada",
+        },
+        {
+          review:
+            "The nest is the best. Whenever I want to take photos with filters it was very helpful to me. There is very funny filters also here. It's was very nice to me.",
+          profile: "./assets/images/Hero section/User-review/2.jpg",
+          userName: "Hema Dzouza",
+          From: "Chennai",
+        },
+        {
+          review:
+            "I am from US. When I was heard the word of fresh nest, I never think It's very useful. At the first time, I came to the browser for visit. Now I am became one of user.",
+          profile: "./assets/images/Hero section/User-review/3.jpg",
+          userName: "John",
+          From: "United States",
+        },
+        {
+          review:
+            "Hi.. This is Alexa. I never seen browser like that before. This browser was very helpful to me. If wanna a picture My mind say to fresh nest. It was very helpful to me.",
+          profile: "./assets/images/Hero section/User-review/4.jpg",
+          userName: "Alexa susee",
+          From: "Australia",
+        },
+        {
+          review:
+            "Fresh nest... What a word. It was very very friendly to me. I was used this browser for chatting and stills. It was very Friendly to me.",
+          profile: "./assets/images/Hero section/User-review/5.png",
+          userName: "Abdul Riyaz",
+          From: "England",
+        },
+        {
+          review:
+            "What I say for fresh nest I don't have words. Nest was very help to me to make convo to my friends. Stills Helps to take picture. So I have two benefit.",
+          profile: "./assets/images/Hero section/User-review/6.jpg",
+          userName: "Jacklyn Rose",
+          From: "Russia",
+        },
+      ];
+
+      for (let i = 0; i <= userReview.length; i++) {
+        const userReviewCard1 = document.createElement("div");
+        userReviewCard1.setAttribute("class", "user-1-review-section-div");
+
+        const userReviewDiv = document.createElement("div");
+        userReviewDiv.setAttribute("class", "user-1-review-div");
+        userReviewCard1.append(userReviewDiv);
+
+        const userReviewPara = document.createElement("p");
+        userReviewPara.setAttribute("class", "user-1-review-div-para");
+        userReviewPara.innerText = userReview[i]["review"];
+        userReviewDiv.append(userReviewPara);
+
+        const userImageContainer = document.createElement("div");
+        userImageContainer.setAttribute(
+          "class",
+          "user-review-1-image-about-div"
+        );
+        userReviewCard1.append(userImageContainer);
+
+        const userImageDiv = document.createElement("div");
+        userImageDiv.setAttribute("class", "user-review-1-image-div");
+        userImageContainer.append(userImageDiv);
+
+        const userImage = document.createElement("img");
+        userImage.setAttribute("src", userReview[i]["profile"]);
+        userImage.setAttribute("class", "user-review-1-image-div-image");
+        userImageDiv.append(userImage);
+
+        const div = document.createElement("div");
+        userImageContainer.append(div);
+
+        const h3 = document.createElement("h3");
+        h3.innerText = userReview[i]["userName"];
+        div.append(h3);
+
+        const from = document.createElement("p");
+        from.innerText = userReview[i]["From"];
+        div.append(from);
+
+        document
+          .querySelector(".user-review-section-container")
+          .append(userReviewCard1);
+      }
+    </script>
   </body>
 </html>
