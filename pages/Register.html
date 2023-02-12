@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <link rel="stylesheet" href="../assets/css/register.css" />
+  </head>
+  <body>
+    <section class="register-section">
+      <div class="register-container">
+        <div class="register-div">
+          <h1>Registration form</h1>
+
+          <form id="form">
+            <div class="input-container">
+              <div class="input-label-div">
+                <label id="label" for="text">First name</label>
+                <input
+                  id="firstname"
+                  type="text"
+                  name="fname"
+                  placeholder="Enter name"
+                  autocomplete="hfshfksdkbkj"
+                  title="enter first name"
+                  required
+                  type="text"
+                />
+              </div>
+
+              <div class="input-label-div">
+                <label id="label" for="text">Last Name </label>
+                <input
+                  id="lastname"
+                  type="text"
+                  name="lastname"
+                  placeholder="Enter name"
+                  autocomplete="hfshfksdkbkj"
+                  title="enter first name"
+                  required
+                  type="text"
+                />
+              </div>
+            </div>
+
+            <div class="input-container">
+              <div class="input-label-div">
+                <label id="label" for="text">Email ID</label>
+                <input
+                  id="email"
+                  type="email"
+                  name="email"
+                  placeholder="@mail.com"
+                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                  title="Enter your Email id"
+                  required
+                  type="text"
+                />
+              </div>
+
+              <div class="input-label-div">
+                <label id="label" for="text"> Password</label>
+                <input
+                  id="password"
+                  type="password"
+                  name="password"
+                  placeholder="password"
+                  autocomplete="54962782"
+                  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                  title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters"
+                  required
+                  type="text"
+                />
+              </div>
+            </div>
+
+            <div class="input-container">
+              <div class="input-label-div">
+                <label id="label" for="text">User name</label>
+                <input id="username" type="text" />
+              </div>
+
+              <div class="input-label-div">
+                <label id="label" for="text"> Mobile number</label>
+                <input id="mobilenumber" type="text" />
+              </div>
+            </div>
+
+            <div class="input-container">
+              <div class="input-label-div">
+                <label id="label" for="text">Age</label>
+                <input id="age" type="text" />
+              </div>
+
+              <div class="input-label-div">
+                <h4 class="mb-2 pb-1">Gender:</h4>
+
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="inlineRadioOptions"
+                    id="femaleGender"
+                    value="option1"
+                    checked
+                  />
+                  <label class="form-check-label" for="femaleGender"
+                    >Female</label
+                  >
+                </div>
+
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="inlineRadioOptions"
+                    id="maleGender"
+                    value="option2"
+                  />
+                  <label class="form-check-label" for="maleGender">Male</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="inlineRadioOptions"
+                    id="otherGender"
+                    value="option3"
+                  />
+                  <label class="form-check-label" for="otherGender"
+                    >Other</label
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="button-div">
+              <button id="button" type="submit" value="submit">Submit</button>
+            </div>
+          </form>
+
+          <div class="logIn-container">
+            <div class="logIn-div">
+              <p>
+                Have already an account?
+                <a href="../pages/logIn.html"><span> Login here</span></a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="../assets/js/register.js"></script>
+  </body>
+</html>

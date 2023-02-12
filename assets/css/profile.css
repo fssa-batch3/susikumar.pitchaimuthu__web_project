@@ -172,6 +172,7 @@ body {
 .my-account-div {
   display: flex;
   justify-content: space-between;
+  margin-right: 4em;
 }
 
 /* button */
@@ -201,20 +202,28 @@ body {
 
 .information-flex-div {
   display: flex;
+  align-items: center;
   width: 90%;
   justify-content: space-between;
 }
 
 .information-div {
   display: flex;
-  flex-direction: column;
+  align-items: center;
   gap: 8px;
 }
 
+.name {
+  display: flex;
+  width: 8em;
+}
 /* input */
 
-.input-div {
-  background-color: white;
+#firstName,
+#lastName,
+#email,
+#userName,
+#input-div {
   width: 330px;
   height: 37px;
   border-radius: 6px;

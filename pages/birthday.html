@@ -52,37 +52,53 @@
               />
             </div>
           </div>
-
-          <div>
-            <label for="date-of-birth">Add your date of birth</label>
-            <input type="date" id="birthday" />
-          </div>
-
-          <div class="next-back-div">
-            <div class="back-button">
-              <a href="http://127.0.0.1:5500/pages/birthday.html">
-                <img
-                  class="previous-arrow"
-                  src="../assets/images/common/previous.png"
-                  alt="back-arrow"
-              /></a>
-            </div>
+          <form action="" onclick="submitDateOfBirth()">
             <div>
-              <button class="next-button" onclick="submit()">Next</button>
+              <label for="date-of-birth">Add your date of birth</label>
+              <input type="date" id="birthday" />
+
+              <button type="submit" class="next-button">Next</button>
             </div>
+          </form>
+        </div>
+
+        <div class="next-back-div">
+          <div class="back-button">
+            <a href="http://127.0.0.1:5500/pages/birthday.html">
+              <img
+                class="previous-arrow"
+                src="../assets/images/common/previous.png"
+                alt="back-arrow"
+            /></a>
           </div>
+          <div></div>
         </div>
       </div>
     </div>
 
     <script>
-      function submit() {
-        const birthday = document.getElementById("birthday").value;
-        console.log(birthday);
+      function submitDateOfBirth() {
+        addEventListener("submit", function (event) {
+          event.preventDefault();
+          const arr = [];
+          if (localStorage.getItem("dateOfBirth") != null) {
+            userData = JSON.parse(localStorage.getItem("dateOfBirth"));
+          }
 
-        localStorage.setItem("birthday", birthday);
+          const birthday = document.getElementById("birthday").value;
 
-        window.location.href = "./otp.html";
+          let birthDay = {
+            dateOfBirth: birthday,
+          };
+
+          arr.push(birthDay);
+
+          const str = JSON.stringify(arr);
+          let form = localStorage.setItem("dateOfBirth", str);
+
+          console.log(form);
+          window.location.href = "./otp.html";
+        });
       }
     </script>
   </body>

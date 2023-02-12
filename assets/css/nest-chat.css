@@ -270,7 +270,7 @@ button[type="submit"]:hover {
 .emoji-image,
 .file-image,
 .mike-image,
-.send-image {
+#send-image {
   width: 36px;
   height: 33px;
   cursor: pointer;
@@ -317,7 +317,7 @@ button[type="submit"]:hover {
   border-bottom-left-radius: 10px;
   border-top-right-radius: 10px;
 }
-.reply-msg-chat {
+#reply-msg-chat {
   color: white;
   margin: 0.3em;
   background-size: cover;
@@ -375,7 +375,7 @@ button[type="submit"]:hover {
   outline: none;
   margin-left: 7px;
   font-size: 17px;
-  background-color: transparent;
+  background: transparent;
 }
 
 .chat-option-div {

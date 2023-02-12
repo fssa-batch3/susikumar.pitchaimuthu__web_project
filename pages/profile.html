@@ -38,8 +38,7 @@
       <!-- center content -->
       <div class="profile-and-content-div">
         <div class="our-static-bio-div">
-          <h1>Hello Alexandra daddario</h1>
-
+          <h1 id="profile-head"></h1>
           <p>
             This is your profile image.you can see the your's activity and you
             can modify yours profile bio and settings.
@@ -171,16 +170,20 @@
 
           <div class="information-flex-div">
             <div class="information-div">
-              <label>First name</label>
-              <div class="input-div">
-                <input />
+              <div class="name">
+                <label>First name</label>
+              </div>
+              <div class="firstname-div">
+                <input id="firstName" />
               </div>
             </div>
 
             <div class="information-div">
-              <label>Last name</label>
-              <div class="input-div">
-                <input id="input" />
+              <div class="name">
+                <label>Last name</label>
+              </div>
+              <div class="lastname-div">
+                <input id="lastName" />
               </div>
             </div>
           </div>
@@ -188,16 +191,20 @@
           <!-- second information -->
           <div class="information-flex-div">
             <div class="information-div">
-              <label>User name</label>
-              <div class="input-div">
-                <input />
+              <div class="name">
+                <label>User name</label>
+              </div>
+              <div class="username">
+                <input id="userName" />
               </div>
             </div>
 
             <div class="information-div">
-              <label>Email address</label>
-              <div class="input-div">
-                <input id="input" />
+              <div class="name">
+                <label>Email address</label>
+              </div>
+              <div class="email-div">
+                <input id="email" />
               </div>
             </div>
           </div>
@@ -213,7 +220,9 @@
             </div>
 
             <div class="information-div">
-              <label>Phone number</label>
+              <div>
+                <label>Phone number</label>
+              </div>
               <div class="input-div">
                 <input id="input" />
               </div>
@@ -233,7 +242,7 @@
             <div class="information-div">
               <label>Date of birth</label>
               <div class="input-div">
-                <input id="input" />
+                <input id="birthDay" />
               </div>
             </div>
           </div>
@@ -242,4 +251,24 @@
       </div>
     </div>
   </body>
+
+  <script>
+    let info = JSON.parse(window.localStorage.getItem("user_data"));
+    console.log(info);
+
+    const name1 = (document.getElementById("firstName").value =
+      info[0]["firstName"]);
+
+    const name2 = (document.getElementById("lastName").value =
+      info[0]["lastName"]);
+    console.log(name2);
+    const uname = (document.getElementById("userName").value =
+      info[0]["userName"]);
+    const mail = (document.getElementById("email").value = info[0]["Email"]);
+
+    const head = (document.getElementById("profile-head").innerText =
+      "Hello" + "   " + info[0]["userName"]);
+
+    console.log(head);
+  </script>
 </html>

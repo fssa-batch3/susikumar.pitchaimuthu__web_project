@@ -145,7 +145,7 @@
               />
             </div>
             <div class="text-div">
-              <form id="text-form">
+              <form id="text-form" onclick="chatsend()">
                 <input type="text" id="textarea" name="text" />
 
                 <img
@@ -363,7 +363,7 @@
         // Last seen div
 
         const timeAgo = document.createElement("div");
-        timeAgo.setAttribute("class", "time-ago");
+        timeAgo.setAttribute("id", "time-ago");
         // document.querySelector(".members").append(timeAgo);
         div.append(timeAgo);
 
@@ -406,7 +406,7 @@
         div.setAttribute("class", "reply-msg");
 
         const replyChatPara = document.createElement("p");
-        replyChatPara.setAttribute("class", "reply-msg-chat");
+        replyChatPara.setAttribute("id", "reply-msg-chat");
         replyChatPara.innerText = sendingChat[i]["chat"];
         div.append(replyChatPara);
 
@@ -420,6 +420,7 @@
 
       // reply chat
 
+      // querySelector("form").reset();
       const replyChat = [
         { chatReply: "hello", timing: "7.35pm" },
         { chatReply: "hello", timing: "7.35pm" },
@@ -427,22 +428,99 @@
         { chatReply: "hello", timing: "7.35pm" },
       ];
 
-      var jsonForm = document.getElementById("text-form");
-      var jsonText = document.getElementById("textarea");
-      var jsonBtn = document.getElementById("send-image");
+      // let jsonForm = document.getElementById("text-form");
+      // let jsonText = document.getElementById("textarea");
+      // let jsonBtn = document.getElementById("send-image");
 
-      jsonBtn.addEventListener("click", function () {
-        var sendChat = {
-          chat: jsonText.value,
-          // timing: t  iming.value,
-        };
+      // const d = new Date();
+      // console.log(d);
+      // let jsonTime = (document.getElementById("time-ago").innerHTML =
+      //   d.toLocaleTimeString("en-US", {
+      //     hour: "2-digit",
+      //     minute: "2-digit",
+      //   }));
 
-        console.log(sendChat);
-        let result = sendingChat.push(sendChat);
-        console.log(result);
-      });
+      // console.log(jsonTime);
 
-      sendingChat.push(sendChat);
+      function chatsend() {
+        addEventListener("click", function (event) {
+          event.preventDefault();
+
+          let arr = [];
+          console.log("Arr as MT");
+
+          if (localStorage.getItem("sendingChat") != null) {
+            arr = JSON.parse(localStorage.getItem("sendingChat"));
+          }
+
+          const chat = document.getElementById("textarea").value;
+          // const d = new Date();
+          // console.log(d);
+          // let jsonTime = (document.getElementById("time-ago").innerHTML =
+          //   d.toLocaleTimeString("en-US", {
+          //     hour: "2-digit",
+          //     minute: "2-digit",
+          //   }));
+
+          let chatObj = {
+            chat,
+            // timing: jsonTime,
+          };
+
+          console.log(chatObj);
+          arr.push(chatObj);
+
+          const str = JSON.stringify(arr);
+          localStorage.setItem("sendingChat", str);
+          // console.log(local);
+        });
+      }
+
+      //
+
+      for (let i = 0; i < sendingChat.length; i++) {
+        const div = document.createElement("div");
+        div.setAttribute("class", "reply-msg");
+
+        const replyChatPara = document.createElement("p");
+        replyChatPara.setAttribute("id", "reply-msg-chat");
+        replyChatPara.innerText = sendingChat[i]["chat"];
+        div.append(replyChatPara);
+
+        const replyChatTime = document.createElement("p");
+        replyChatTime.setAttribute("class", "reply-msg-time");
+        replyChatTime.innerText = sendingChat[i]["timing"];
+        div.append(replyChatTime);
+
+        document.querySelector(".right-side-container").append(div);
+      }
+      // const signUpFrom = document.getElementById("text-form");
+      // signUpFrom.addEventListener("click", function (event) {
+      //   event.preventDefault();
+
+      //   let userData = [];
+      //   if (localStorage.getItem("sendingChat") != null) {
+      //     userData = JSON.parse(localStorage.getItem("sendingChat"));
+      //   }
+      //   const chat = document.getElementById("textarea").value;
+      //   // const time = document.getElementById("timing").value;
+      //   // const userName = document.getElementById("username").value;
+      //   // const password = document.getElementById("password").value;
+
+      //   let userObj = {
+      //     chat,
+      //   };
+      //   // console.log(userObj + "fghjxgfjxfgj");
+
+      //   userData.push(userObj);
+      //   const str = JSON.stringify(userData);
+      //   localStorage.setItem("sendingChat", str);
+      //   // sendingChat.push(userData);
+      //   let get = JSON.parse(localStorage.getItem("sendingChat"));
+      //   sendingChat.push(get);
+
+      // window.location.href = "./birthday.html";
+      // });
     </script>
   </body>
 </html>

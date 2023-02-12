@@ -4,115 +4,111 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Log In</title>
     <link rel="stylesheet" href="../assets/css/login.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800&display=swap");
-    </style>
+    <link rel="stylesheet" href="../pages/logIn.html" />
   </head>
   <body>
-    <div class="div-container">
-      <div class="main-div">
-        <div class="content-container">
-          <div>
-            <img
-              class="content-container-logo"
-              src="../assets/images/common/Fresh-nest-logo-black.png"
-              alt="freshnest-logo"
-            />
-          </div>
+    <section class="login-section">
+      <div class="whole-container">
+        <div class="welcome-container">
+          <h1 class="welcome-head">welcome to Fresh Nest</h1>
 
-          <div class="label-form">
-            <form action="http://127.0.0.1:5500/pages/home.html">
+          <p class="login-paragraph">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet,
+            itaque accusantium odio, soluta, corrupti aliquam quibusdam tempora
+            at cupiditate quis eum maiores libero veritatis? Dicta facilis sint
+            aliquid ipsum atque?
+          </p>
+        </div>
+        <div class="login-container">
+          <h2 class="sign-in-head">Sign In</h2>
+
+          <form id="form">
+            <div class="input-container">
               <div>
-                <label for="inputemail">Email ID</label>
-                <input
-                  type="email"
-                  id="inputemail"
-                  name="email"
-                  placeholder="@gmail.com"
-                  value="susikumar.pitchaimuthu@fssa.freshworks.com"
-                />
-              </div>
-
-              <div>
-                <label for="inputpassword">Password</label>
-                <input
-                  type="password"
-                  id="inputpassword"
-                  name="password"
-                  value="password"
-                  placeholder="12345@M"
-                />
-              </div>
-
-              <div>
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  value="check-box"
-                  id="invalidCheck2"
-                  required
-                />
-                <label class="form-check-label" for="invalidCheck2">
-                  Agree to terms and conditions
-                </label>
-              </div>
-              <a href="http://127.0.0.1:5500/pages/home.html">
-                <button type="submit" value="submit" id="submit">
-                  Submit
-                </button></a
-              >
-            </form>
-
-            <a href="#">Forgot my Password</a>
-          </div>
-
-          <p>---------------------OR--------------------</p>
-
-          <div class="google-facebook">
-            <button class="google-button">
-              <img
-                src="../assets//images/common/google icon.png"
-                alt="google-logo"
-              />Log in with Google
-            </button>
-            <button class="facebook-button">
-              <img
-                src="../assets//images/common/facebook.png"
-                alt="facebook-logo"
-              />Log in Facebook
-            </button>
-          </div>
-
-          <div>
-            <div>
-              <p>
-                Don't haven't an account
-                <span
-                  ><a href="http://127.0.0.1:5500/pages/signup.html"
-                    >Sign up</a
-                  ></span
+                <label class="label">
+                  <input
+                    type="email"
+                    id="inputemail"
+                    name="email"
+                    autocomplete="hdfhshjfj"
+                    required
+                  />
+                  <span class="placeholder">Email ID</span></label
                 >
-              </p>
+              </div>
+
+              <div>
+                <label class="label">
+                  <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    required
+                  />
+                  <span class="placeholder">Password</span></label
+                >
+              </div>
+
+              <div>
+                <label class="label">
+                  <input
+                    type="password"
+                    id="confirm-password"
+                    name="password"
+                    required
+                  />
+                  <span class="placeholder">Confirm Password</span></label
+                >
+              </div>
             </div>
+
+            <div class="button-error-container">
+              <div><h3></h3></div>
+              <div class="button-div">
+                <button class="login-button" type="submit">Log in</button>
+              </div>
+            </div>
+          </form>
+
+          <div class="or-div">
+            <p>-----------------------</p>
+            <span>OR</span>
+            <p>-----------------------</p>
+          </div>
+
+          <div class="button-content-container">
+            <div>
+              <h3>Sign with</h3>
+            </div>
+            <div class="button-container">
+              <button class="sign-button">
+                <i class="fa fa-twitter fa-2x"></i>
+              </button>
+              <button class="sign-button">
+                <i class="fa fa-google fa-2x"></i>
+              </button>
+              <button class="sign-button">
+                <i class="fa fa-facebook fa-2x"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="sign-up-div">
+            <h4 class="sign-up-link">
+              Don't have an account?
+              <a href="../pages/Register.html"><span>Register here</span></a>
+            </h4>
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <script>
-      const email = document.getElementById("inputemail").value;
-      const password = document.getElementById("inputpassword").value;
-
-      console.log(email);
-      console.log(password);
-    </script>
+    <script src="../assets/js/logIn.js"></script>
   </body>
 </html>
