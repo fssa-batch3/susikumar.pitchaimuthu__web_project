@@ -39,12 +39,13 @@ for (let i = 0; i < reelProfile.length; i++) {
 
   const trendingBirdDivImage = document.createElement("img");
   trendingBirdDivImage.setAttribute("class", "reel-member-div-image");
+  // console.log(reelProfile[i]["reelImage"]);
   trendingBirdDivImage.setAttribute("src", reelProfile[i].reelImage);
   trendingBirdDiv.append(trendingBirdDivImage);
 
   document.querySelector(".reel-container").append(trendingBirdDiv);
 }
-// chat user chat box JSON details
+// // chat user chat box JSON details
 const userChatBox = [
   {
     image: "https://ca.slack-edge.com/T032648LE-U041S902NTF-f7590b25c46b-512",
@@ -187,93 +188,31 @@ for (let i = 0; i < userChatBox.length; i++) {
   document.querySelector(".chat-member-container").append(div);
 }
 
-// chat message div
-
-// sending message
-
-const sendingChat = [
-  { chat: "Hi", timing: "7.22am" },
-  {
-    chat: "Where are my friend, I wanna to go trip to USA",
-    timing: "7.22am",
-  },
-  { chat: "Can you join with me", timing: "7.22am" },
-  { chat: "Hi", timing: "7.22am" },
-  { chat: "Hi", timing: "7.22am" },
-  { chat: "Hi", timing: "7.22am" },
-  {
-    chat: "Where are my friend, I wanna to go trip to USA",
-    timing: "7.22am",
-  },
-  { chat: "Can you join with me", timing: "7.22am" },
-  { chat: "Hi", timing: "7.22am" },
-  { chat: "Hi", timing: "7.22am" },
-  { chat: "test", timing: "8.22am" },
-];
-
-for (let i = 0; i < sendingChat.length; i++) {
-  const div = document.createElement("div");
-  div.setAttribute("class", "reply-msg");
-
-  const replyChatPara = document.createElement("p");
-  replyChatPara.setAttribute("id", "reply-msg-chat");
-  replyChatPara.innerText = sendingChat[i]["chat"];
-  div.append(replyChatPara);
-
-  const replyChatTime = document.createElement("p");
-  replyChatTime.setAttribute("class", "reply-msg-time");
-  replyChatTime.innerText = sendingChat[i]["timing"];
-  div.append(replyChatTime);
-
-  document.querySelector(".right-side-container").append(div);
-}
-
-// reply chat
-
-// querySelector("form").reset();
-const replyChat = [
-  { chatReply: "hello", timing: "7.35pm" },
-  { chatReply: "hello", timing: "7.35pm" },
-  { chatReply: "hello", timing: "7.35pm" },
-  { chatReply: "hello", timing: "7.35pm" },
-];
-
-// let jsonForm = document.getElementById("text-form");
-// let jsonText = document.getElementById("textarea");
-// let jsonBtn = document.getElementById("send-image");
-
-// const d = new Date();
-// console.log(d);
-// let jsonTime = (document.getElementById("time-ago").innerHTML =
-//   d.toLocaleTimeString("en-US", {
-//     hour: "2-digit",
-//     minute: "2-digit",
-//   }));
-
-// console.log(jsonTime);
+// chat sender message popup javascript
 
 function chatsend() {
-  addEventListener("click", function (event) {
-    event.preventDefault();
+  let arr = [];
 
-    let arr = [];
-    console.log("Arr as MT");
+  if (localStorage.getItem("senderMessage") != null) {
+    arr = JSON.parse(localStorage.getItem("senderMessage"));
+  }
 
-    if (localStorage.getItem("sendingChat") != null) {
-      arr = JSON.parse(localStorage.getItem("sendingChat"));
-    }
+  const chat = document.getElementById("chat-input").value;
 
-    const chat = document.getElementById("textarea").value;
-    // const d = new Date();
-    // console.log(d);
-    // let jsonTime = (document.getElementById("time-ago").innerHTML =
-    //   d.toLocaleTimeString("en-US", {
-    //     hour: "2-digit",
-    //     minute: "2-digit",
-    //   }));
+  if (chat === "" || chat === null) {
+    return;
+  } else {
+    const d = new Date();
+    console.log(d);
+    let jsonTime = (document.getElementById("time-ago").innerHTML =
+      d.toLocaleTimeString("en-US", {
+        hour: "2-digit",
+        minute: "2-digit",
+      }));
 
     let chatObj = {
-      chat,
+      chat: chat,
+      timing: jsonTime,
       // timing: jsonTime,
     };
 
@@ -281,25 +220,29 @@ function chatsend() {
     arr.push(chatObj);
 
     const str = JSON.stringify(arr);
-    localStorage.setItem("sendingChat", str);
-    // console.log(local);
-  });
+    localStorage.setItem("senderMessage", str);
+    location.reload();
+  }
 }
 
-//
+// send the message fro the chat sender message
 
-for (let i = 0; i < sendingChat.length; i++) {
+let sender = JSON.parse(localStorage.getItem("senderMessage"));
+
+console.log(sender);
+
+for (let i = 0; i < sender.length; i++) {
   const div = document.createElement("div");
   div.setAttribute("class", "reply-msg");
 
   const replyChatPara = document.createElement("p");
   replyChatPara.setAttribute("id", "reply-msg-chat");
-  replyChatPara.innerText = sendingChat[i]["chat"];
+  replyChatPara.innerText = sender[i]["chat"];
   div.append(replyChatPara);
 
   const replyChatTime = document.createElement("p");
   replyChatTime.setAttribute("class", "reply-msg-time");
-  replyChatTime.innerText = sendingChat[i]["timing"];
+  replyChatTime.innerText = sender[i]["timing"];
   div.append(replyChatTime);
 
   document.querySelector(".right-side-container").append(div);

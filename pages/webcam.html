@@ -15,57 +15,84 @@
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800&display=swap");
     </style>
+    <script
+      src="https://kit.fontawesome.com/a06ff6477a.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css"
+    />
   </head>
   <body>
-    <div class="whole-div-container">
-      <div class="video-div">
-        <video id="video" autoplay></video>
-        <div class="camera-setting-div">
-          <img
-            class="camera-setting-div-brightness-image"
-            src="../assets/images/still/brightness.png"
-            alt="brightness"
-          />
-          <img
-            class="camera-setting-div-frame-image"
-            src="../assets/images/still/Frame.png"
-            alt="frame"
+    <!-- <button id="start-camera" onclick="startCamera()">Start Camera</button> -->
+    <div class="camera-div">
+      <video id="start" width="1650" height="885" autoplay></video>
+    </div>
+    <div class="option-div">
+      <!-- <i class="fa-solid fa-brightness fa-2x"></i> -->
+      <!-- <i class="fa-solid fa-sparkles fa-2x"></i> -->
+      <i onclick="bright()" class="bi bi-brightness-high-fill"></i>
+      <i class="fas fa-photo-video"></i>
+      <div class="adjustment-div">
+        <canvas id="canvas" width="500" height="400"></canvas>
+        <div id="brightness-container">
+          <label>Brightness</label>
+          <input
+            id="brightnessRange"
+            type="range"
+            style="width: 250px; min-width: 50px; max-width: 500px"
           />
         </div>
-      </div>
 
-      <div id="capture">
-        <img
-          onclick="capture()"
-          src="../assets/images/still/Round capture button.png"
-          alt="capture-image"
-        />
-      </div>
-
-      <div class="stickers-filter-div-container">
-        <div>
-          <button>stickers</button>
-        </div>
-        <div>
-          <select>
-            <option>None</option>
-            <option>Grayscale</option>
-            <option>Sepia</option>
-            <option>Invert</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="gallery-div">
-        <a href="http://127.0.0.1:5500/pages/gallery.html">
-          <img
-            class="gallery-div-image"
-            src="../assets/images/still/gallery black.png"
-            alt="gallery-image"
+        <div id="contrast-container">
+          <label>Contrast</label>
+          <input
+            id="ContrastRange"
+            type="range"
+            style="width: 250px; min-width: 50px; max-width: 500px"
           />
-        </a>
+        </div>
       </div>
     </div>
+    <div class="capture-div"><i class="fa-solid fa-camera fa-2x"></i></div>
+
+    <div class="filter-capture">
+      <select name="" id="photo-filters">
+        <option value="none">
+          None
+          <!-- <i class="fa-solid fa-circle"></i> -->
+        </option>
+        <option value="blur(10px)">
+          Blur
+          <!-- <i class="fa-solid fa-circle"></i> -->
+        </option>
+        <option value="sepia(100%)">
+          Sepia
+          <!-- <i class="fa-solid fa-circle"></i> -->
+        </option>
+        <option value="grayscale(100%)">
+          Grayscale
+          <!-- <i class="fa-solid fa-circle"></i> -->
+        </option>
+
+        <option value="invert(100%)">
+          invert
+          <!-- <i class="fa-solid fa-circle"></i> -->
+        </option>
+        <option value="hue-rotate(90deg)">
+          hue-rotate
+          <!-- <i class="fa-solid fa-circle"></i> -->
+        </option>
+        <option value="contrast(200%)">
+          cotrast
+          <!-- <i class="fa-solid fa-circle"></i> -->
+        </option>
+      </select>
+    </div>
+
+    <!-- <canvas id="canvas"></canvas> -->
+
     <script src="../assets/js/webcam.js"></script>
   </body>
 </html>

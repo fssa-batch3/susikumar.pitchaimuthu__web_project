@@ -7,9 +7,10 @@ body {
   /* 
   background: -webkit-linear-gradient(
     to bottom right,
-    rgba(240, 147, 251, 1),
-    rgba(245, 87, 108, 1)
-  ); */
+    #2EAFFA
+,
+#1F2F98
+  ); 
 
   /* background: linear-gradient(
     to bottom right,
@@ -53,7 +54,6 @@ body {
 .input-label-div {
   display: flex;
   align-items: center;
-
   gap: 2em;
 }
 
@@ -63,9 +63,9 @@ body {
 #password,
 #age,
 #username,
-#mobileNumber {
+#mobilenumber {
   width: 200px;
-  height: 23px;
+  height: 30px;
   outline: none;
 }
 
