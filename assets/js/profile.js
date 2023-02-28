@@ -29,3 +29,9 @@ const phone = (document.getElementById("phone").value = found["mobileNumber"]);
 
 const age = (document.getElementById("age").value = found["age"]);
 const nation = (document.getElementById("nation").value = found["nationality"]);
+
+// profile image
+
+let profileImage = (document.getElementById("profile-image").value =
+  found["userImage"]["name"]);
+console.log(profileImage);

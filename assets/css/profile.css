@@ -84,12 +84,37 @@ body {
   justify-content: center;
 }
 
-.profile-image {
+/* profile image css */
+
+.profile-image-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgb(250, 228, 250);
+}
+
+#profile-image {
   width: 226px;
   border-radius: 8em;
   cursor: pointer;
+  position: relative;
 }
 
+.profile-option-div {
+  display: none;
+  position: absolute;
+  bottom: -21%;
+  background-color: #fff;
+  transition: 0.5s ease ease;
+}
+
+.choose-photo {
+  cursor: pointer;
+}
+
+#file {
+  display: none;
+}
 /* profile- button */
 
 .connect-div {

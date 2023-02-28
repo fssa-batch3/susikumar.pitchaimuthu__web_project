@@ -31,7 +31,7 @@ logIn.addEventListener("submit", (event) => {
 
   if (match == true) {
     alert("Success");
-    window.location.href = "home.html";
+    window.location.href = "after_home.html";
   } else {
     alert("Failed");
   }

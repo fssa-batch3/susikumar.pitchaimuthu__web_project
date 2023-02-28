@@ -33,19 +33,20 @@ changes.addEventListener("submit", function (e) {
   };
 
   const returnData = JSON.parse(localStorage.getItem("user_data"));
+  console.log(returnData);
 
-  const check = returnData.find((e) => e.Email == gmail);
+  let check = returnData.find((e) => e.Email == gmail);
 
   if (check.Email != gmail) {
     alert("Email ID not found");
   } else {
-    const objestAssign = Object.assign(check, editObj);
+    let objestAssign = Object.assign(check, editObj);
     console.log(objestAssign);
-    const regisData = JSON.parse(localStorage.getItem("register"));
+    let regisData = JSON.parse(localStorage.getItem("register"));
 
-    const FEmail = regisData.find((e) => e.Email == check.Email);
+    let FEmail = regisData.find((e) => e.Email == check.Email);
 
-    const finalFind = regisData.indexOf(FEmail);
+    let finalFind = regisData.indexOf(FEmail);
 
     regisData[finalFind] = objestAssign;
 
@@ -70,3 +71,55 @@ function dele() {
     localStorage.setItem("register", JSON.stringify(whatMean));
   }
 }
+
+// profile option
+
+let file = document.getElementById("file");
+
+let image = document.getElementById("profile-image");
+
+let ProfileOption = document.querySelector(".profile-option-div");
+
+// onclick function for option display block
+
+image.addEventListener("click", () => {
+  if ((ProfileOption.style.display = "none")) {
+    ProfileOption.style.display = "block";
+  }
+});
+
+// profile photo chanage photo function
+
+file.addEventListener("change", function () {
+  let choosePhoto = this.files[0];
+  console.log(choosePhoto["name"]);
+
+  if (choosePhoto) {
+    let reader = new FileReader();
+    // console.log(reader.result);
+
+    reader.addEventListener("load", function () {
+      image.setAttribute("src", reader.result);
+    });
+    reader.readAsDataURL(choosePhoto);
+  }
+
+  let userProfileObj = {
+    userImage: choosePhoto["name"],
+  };
+
+  console.log(found);
+
+  let objestAssign = Object.assign(found, userProfileObj);
+  console.log(objestAssign);
+
+  let findanother = JSON.parse(localStorage.getItem("register"));
+
+  let profind = findanother.find((e) => e.Email == objestAssign.Email);
+  console.log(profind);
+
+  let proIndex = findanother.indexOf(profind);
+  console.log(profind);
+  findanother[proIndex] = objestAssign;
+  localStorage.setItem("register", JSON.stringify(findanother));
+});

@@ -1,36 +1,5 @@
 const reelProfile = [
   { reelImage: "../assets/images/still/Snaps/1.jfif", alt: "user-image" },
-  { reelImage: "../assets/images/still/Snaps/2.jpg", alt: "user-image" },
-  { reelImage: "../assets/images/still/Snaps/3.jpg", alt: "user-image" },
-  { reelImage: "../assets/images/still/Snaps/4.jfif", alt: "user-image" },
-  { reelImage: "../assets/images/still/Snaps/5.jpg", alt: "user-image" },
-  { reelImage: "../assets/images/still/Snaps/6.png", alt: "user-image" },
-  { reelImage: "../assets/images/still/Snaps/7.jpg", alt: "user-image" },
-  { reelImage: "../assets/images/still/Snaps/8.jpg", alt: "user-image" },
-  { reelImage: "../assets/images/still/Snaps/1.jfif", alt: "user-image" },
-  { reelImage: "../assets/images/still/Snaps/2.jpg", alt: "user-image" },
-  { reelImage: "../assets/images/still/Snaps/3.jpg", alt: "user-image" },
-  { reelImage: "../assets/images/still/Snaps/4.jfif", alt: "user-image" },
-  { reelImage: "../assets/images/still/Snaps/5.jpg", alt: "user-image" },
-  { reelImage: "../assets/images/still/Snaps/6.png", alt: "user-image" },
-  { reelImage: "../assets/images/still/Snaps/7.jpg", alt: "user-image" },
-  { reelImage: "../assets/images/still/Snaps/8.jpg", alt: "user-image" },
-  { reelImage: "../assets/images/still/Snaps/1.jfif", alt: "user-image" },
-  { reelImage: "../assets/images/still/Snaps/2.jpg", alt: "user-image" },
-  { reelImage: "../assets/images/still/Snaps/3.jpg", alt: "user-image" },
-  { reelImage: "../assets/images/still/Snaps/4.jfif", alt: "user-image" },
-  { reelImage: "../assets/images/still/Snaps/5.jpg", alt: "user-image" },
-  { reelImage: "../assets/images/still/Snaps/6.png", alt: "user-image" },
-  { reelImage: "../assets/images/still/Snaps/7.jpg", alt: "user-image" },
-  { reelImage: "../assets/images/still/Snaps/8.jpg", alt: "user-image" },
-  { reelImage: "../assets/images/still/Snaps/1.jfif", alt: "user-image" },
-  { reelImage: "../assets/images/still/Snaps/2.jpg", alt: "user-image" },
-  { reelImage: "../assets/images/still/Snaps/3.jpg", alt: "user-image" },
-  { reelImage: "../assets/images/still/Snaps/4.jfif", alt: "user-image" },
-  { reelImage: "../assets/images/still/Snaps/5.jpg", alt: "user-image" },
-  { reelImage: "../assets/images/still/Snaps/6.png", alt: "user-image" },
-  { reelImage: "../assets/images/still/Snaps/7.jpg", alt: "user-image" },
-  { reelImage: "../assets/images/still/Snaps/8.jpg", alt: "user-image" },
 ];
 
 for (let i = 0; i < reelProfile.length; i++) {
@@ -45,7 +14,9 @@ for (let i = 0; i < reelProfile.length; i++) {
 
   document.querySelector(".reel-container").append(trendingBirdDiv);
 }
-// // chat user chat box JSON details
+
+// chat user chat box JSON details
+
 const userChatBox = [
   {
     image: "https://ca.slack-edge.com/T032648LE-U041S902NTF-f7590b25c46b-512",
@@ -191,6 +162,7 @@ for (let i = 0; i < userChatBox.length; i++) {
 // chat sender message popup javascript
 
 function chatsend() {
+  event.preventDefault();
   let arr = [];
 
   if (localStorage.getItem("senderMessage") != null) {
@@ -198,6 +170,7 @@ function chatsend() {
   }
 
   const chat = document.getElementById("chat-input").value;
+  console.log(chat);
 
   if (chat === "" || chat === null) {
     return;
@@ -210,16 +183,20 @@ function chatsend() {
         minute: "2-digit",
       }));
 
+    let chatId = Date.now();
+
     let chatObj = {
       chat: chat,
       timing: jsonTime,
+      chatId: chatId,
       // timing: jsonTime,
     };
 
     console.log(chatObj);
     arr.push(chatObj);
 
-    const str = JSON.stringify(arr);
+    let str = JSON.stringify(arr);
+    console.log(str);
     localStorage.setItem("senderMessage", str);
     location.reload();
   }
@@ -229,7 +206,7 @@ function chatsend() {
 
 let sender = JSON.parse(localStorage.getItem("senderMessage"));
 
-console.log(sender);
+// console.log(sender);
 
 for (let i = 0; i < sender.length; i++) {
   const div = document.createElement("div");
@@ -245,5 +222,117 @@ for (let i = 0; i < sender.length; i++) {
   replyChatTime.innerText = sender[i]["timing"];
   div.append(replyChatTime);
 
+  let chatidPara = document.createElement("p");
+  chatidPara.setAttribute("class", "chatId");
+  chatidPara.innerText = sender[i]["chatId"];
+  div.append(chatidPara);
+
+  let chatEditdiv = document.createElement("div");
+  chatEditdiv.setAttribute("class", "edit-option-div");
+  div.append(chatEditdiv);
+
+  let emojiFa = document.createElement("i");
+  emojiFa.setAttribute("class", "bi bi-emoji-heart-eyes-fill");
+  emojiFa.setAttribute("onclick", "emoji()");
+  chatEditdiv.append(emojiFa);
+
+  let editFa = document.createElement("i");
+  editFa.setAttribute("class", "bi-pen-fill");
+  editFa.setAttribute("id", sender[i]["chatId"]);
+  editFa.setAttribute("onclick", "updateChat(this.id)");
+  chatEditdiv.append(editFa);
+
+  let deleteFa = document.createElement("i");
+  deleteFa.setAttribute("class", "bi-trash");
+  deleteFa.setAttribute("onclick", "deleteChat()");
+  chatEditdiv.append(deleteFa);
+
+  // chat Edit input feild
+
   document.querySelector(".right-side-container").append(div);
+}
+
+// edit data getting through this function
+
+function chatEditForm() {
+  event.preventDefault();
+  let EditChatArray = [];
+  let getEditChat = document
+    .querySelector("#chat-edit-input-area")
+    .value.trim();
+
+  if (getEditChat == "" || getEditChat == null) {
+    return;
+  } else {
+    console.log(getEditChat);
+
+    let chatEditObject = {
+      chat: getEditChat,
+    };
+    console.log(chatEditObject);
+    EditChatArray.push(chatEditObject);
+    let EditDataStringify = JSON.stringify(EditChatArray);
+    console.log(EditDataStringify);
+
+    let EdiTDataStoreLocal = localStorage.setItem(
+      "editChatData",
+      EditDataStringify
+    );
+  }
+}
+
+// update chat option
+
+function updateChat(e) {
+  console.log(e);
+  event.preventDefault();
+  let chatDataParse = JSON.parse(localStorage.getItem("senderMessage"));
+  console.log(chatDataParse);
+
+  let chatIdFind = chatDataParse.find((f) => f.chatId == e);
+
+  console.log(chatIdFind);
+
+  chatEditInput();
+
+  chatEditForm();
+
+  let editChatParse = JSON.parse(localStorage.getItem("editChatData"));
+  console.log(editChatParse);
+
+  let lastEditData = editChatParse[editChatParse.length - 1];
+  console.log(lastEditData);
+
+  let assaignEditObjData = Object.assign(chatIdFind, lastEditData);
+  console.log(assaignEditObjData);
+
+  let findChatIndex = chatDataParse.indexOf(chatIdFind);
+  console.log(findChatIndex);
+  chatDataParse[findChatIndex] = assaignEditObjData;
+
+  localStorage.setItem("senderMessage", JSON.stringify(chatDataParse));
+  // location.reload();
+}
+
+function chatEditInput() {
+  let setInputId = document.querySelector(".edit-option-div");
+  // console.log(setInputId);
+
+  let chatEditInputDiv = document.createElement("div");
+  chatEditInputDiv.setAttribute("id", "chat-input-container");
+  setInputId.append(chatEditInputDiv);
+
+  let chatEditForm = document.createElement("form");
+  chatEditForm.setAttribute("id", "chat-edit-form");
+  chatEditInputDiv.append(chatEditForm);
+
+  let chatEditInputArea = document.createElement("input");
+  chatEditInputArea.setAttribute("id", "chat-edit-input-area");
+  chatEditForm.append(chatEditInputArea);
+
+  let chatEditButton = document.createElement("button");
+  chatEditButton.setAttribute("id", "chatEditButton");
+  chatEditButton.setAttribute("onclick", "chatEditForm()");
+  chatEditButton.innerText = "Send";
+  chatEditForm.append(chatEditButton);
 }

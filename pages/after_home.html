@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="../assets/css/nav-sideBar.css" />
+    <link rel="stylesheet" href="../assets/css/after-home.css" />
+
+    <!-- fa fa icon link -->
+
+    <script
+      src="https://kit.fontawesome.com/a06ff6477a.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
+    />
+  </head>
+  <body>
+    <nav>
+      <!-- logo image -->
+      <div class="logo-div">
+        <img
+          class="logo-image"
+          src="../assets/images/logos/bird-logo.png"
+          alt="fresh-nest-logo"
+        />
+      </div>
+
+      <!-- nav link -->
+      <div class="link-container">
+        <ul>
+          <li>About us</li>
+          <li>Features</li>
+          <li>Download</li>
+          <li>Suport</li>
+          <li>Guide</li>
+        </ul>
+      </div>
+
+      <!-- search bar  and web language-->
+
+      <div class="input-globe-container">
+        <div class="form">
+          <i class="fa fa-search"></i>
+          <input
+            type="text"
+            class="form-control form-input"
+            placeholder="Search anything..."
+          />
+          <span class="left-pan"><i class="fa-solid fa-feather"></i></span>
+        </div>
+        <div><i class="fa-sharp fa-solid fa-globe"></i></div>
+      </div>
+    </nav>
+
+    <link rel="stylesheet" href="../index.html" />
+    <!-- side bar -->
+
+    <div class="side-bar">
+      <!-- side profile -->
+      <div class="chat-profile-area-container">
+        <div class="side-bar-profile-div">
+          <i class="fa-solid fa-circle-user" onclick="profile()"></i>
+        </div>
+
+        <div class="side-bar-control-div">
+          <i class="bi bi-house" onclick="home()"></i>
+          <i class="fa-solid fa-at" onclick="mention()"></i>
+          <i class="fa-solid fa-message" onclick="freshChat()"></i>
+          <i class="fa-solid fa-camera" onclick="freshCam()"></i>
+          <i class="fa-brands fa-battle-net" onclick="invite()"></i>
+          <i class="bi bi-bell" onclick="notification()"></i>
+          <i class="bi bi-gear" onclick="setting()"></i>
+        </div>
+
+        <div class="log-out-div">
+          <i class="bi bi-box-arrow-left"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- prompt message box -->
+
+    <div id="chat-agree-box">
+      <div class="box-inside-box">
+        <!-- left side box -->
+
+        <div class="logo-chat-container">
+          <div class="logo-content-div">
+            <div class="logo-div">
+              <img
+                class="logo"
+                src="../assets/images/logos/chat.png"
+                alt="fresh-chat-imge"
+              />
+            </div>
+
+            <div>
+              <h2>Welcome to Nest</h2>
+
+              <p>
+                We need some confirmation for are you agree to our terms and
+                conditions
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="content-box-container">
+          <!-- Right side box -->
+
+          <div class="condition-div-container">
+            <div class="condition-div">
+              <p>This is a chat feature pages</p>
+              <p>Are you in the age 18+</p>
+              <p>Are you ok for our terms and conditions</p>
+            </div>
+
+            <div class="input-div">
+              <button id="close">Close</button>
+              <button id="accept">Accept</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- script sources link -->
+    <script src="../assets/js/page-direction.js"></script>
+  </body>
+</html>
