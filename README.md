@@ -11,3 +11,20 @@ Wireframe:https://drive.google.com/drive/folders/1EgnN5uFrtDhcSdPNSjPbNSzoWkC0eF
 
 Sonar Cloud:
 [![Quality Gate Status]https://sonarcloud.io/project/overview?id=fssa-batch3_susikumar.pitchaimuthu__web_project
+
+
+// My web progress table
+
+  CRUD For User signning page
+  => Create user account [completed]
+  => Read User Data For Profile Page [completed]
+  => Update user details For Edit Page [completed]
+  => Delete user details For deactivate [completed]
+  
+  
+  
+  CRUD For User Features page
+  => Create chat Feature [completed]
+  => Read chat Feature [completed]
+  => Update chat feature [completed]
+  => Delete chat feature [completed]
