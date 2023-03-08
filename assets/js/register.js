@@ -5,6 +5,7 @@ signUpFrom.addEventListener("submit", function (event) {
   let userData = [];
   console.log(userData);
   console.log(userData);
+
   if (localStorage.getItem("register") != null) {
     userData = JSON.parse(localStorage.getItem("register"));
   }

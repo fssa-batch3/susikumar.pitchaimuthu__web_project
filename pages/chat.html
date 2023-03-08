@@ -73,10 +73,11 @@
         </div>
 
         <div class="log-out-div">
-          <i class="bi bi-box-arrow-left"></i>
+          <i class="bi bi-box-arrow-left" onclick="logOutUser()"></i>
         </div>
       </div>
     </div>
+    <link rel="stylesheet" href="../index.html" />
 
     <!-- chat area -->
     <section class="section-container">
@@ -88,10 +89,7 @@
           <!-- reels -->
           <div class="whole-reel-container">
             <!-- Reel and setting -->
-            <div class="reel-name-div">
-              <div class="Reel-name-div"><h3>Reels</h3></div>
-              <div class="setting-div"><i class="bi bi-gear"></i></div>
-            </div>
+
             <!-- reel profile -->
 
             <div class="reel-container"></div>
@@ -102,10 +100,6 @@
           <!-- message area -->
           <div class="message-member-container">
             <!-- message setting div -->
-            <div class="reel-name-div">
-              <div class="Reel-name-div"><h3>Members</h3></div>
-              <div class="setting-div"><i class="bi bi-gear"></i></div>
-            </div>
 
             <div class="chat-member-container"></div>
           </div>
@@ -115,69 +109,49 @@
       <!-- chat area box -->
 
       <div class="chat-box-container">
-        <!-- chat profile are -->
-        <div class="chat-member-option-div">
-          <div class="user-name-lastseen-div">
-            <div class="chat-person-profile-div">
-              <img
-                class="chat-user-image"
-                src="../assets/images/Hero section/User-review/4.jpg"
-                alt="user-image"
-              />
-            </div>
-            <div class="chat-person-name-lastseen-div">
-              <h3>Alexa susi</h3>
-              <p>Last seen 4 minutes ago</p>
+        <div class="chat-box-inside-container">
+          <!-- chat profile are -->
+          <div class="chat-member-option-div"></div>
+
+          <!-- chat showing message box css -->
+
+          <div class="chat-place-container">
+            <div class="chat-place-div">
+              <div class="right-side-container"></div>
             </div>
           </div>
-          <div class="profile-option-container">
-            <div class="profile-option-div">
-              <i class="bi bi-telephone"></i>
-              <i class="bi bi-camera-video"></i>
 
-              <i class="bi bi-gear"></i>
-            </div>
+          <!-- chat message input container css -->
+
+          <div class="chat-input-option-div">
+            <form id="chat-input-form">
+              <div class="emoji-div">
+                <i class="fa-regular fa-face-smile"></i>
+              </div>
+
+              <div><input id="chat-input" type="text" /></div>
+
+              <div class="chat-file-option-div">
+                <i class="fa fa-file" aria-hidden="true"></i>
+                <i class="fa fa-microphone" aria-hidden="true"></i>
+              </div>
+
+              <div class="chat-submit-button-div">
+                <button id="chat-submit" type="submit" onclick="chatsend()">
+                  <span>Submit</span
+                  ><i class="fa fa-paper-plane" aria-hidden="true"></i>
+                </button>
+              </div>
+            </form>
           </div>
-        </div>
-
-        <!-- chat showing message box css -->
-
-        <div class="chat-place-container">
-          <div class="chat-place-div">
-            <div class="right-side-container"></div>
-            <div class="left-side-container"></div>
-          </div>
-        </div>
-
-        <!-- chat message input container css -->
-
-        <div class="chat-input-option-div">
-          <form id="chat-input-form">
-            <div class="emoji-div">
-              <i class="fa-regular fa-face-smile"></i>
-            </div>
-
-            <div><input id="chat-input" type="text" /></div>
-
-            <div class="chat-file-option-div">
-              <i class="fa fa-file" aria-hidden="true"></i>
-              <i class="fa fa-microphone" aria-hidden="true"></i>
-            </div>
-
-            <div class="chat-submit-button-div">
-              <button id="chat-submit" type="submit" onclick="chatsend()">
-                <span>Submit</span
-                ><i class="fa fa-paper-plane" aria-hidden="true"></i>
-              </button>
-            </div>
-          </form>
         </div>
       </div>
     </section>
 
     <!-- script -->
 
-    <script src="../assets/js/chat.js"></script>
+    <!-- <script src="../assets/js/chat.js"></script> -->
+    <script src="../assets/js/chatAdditional.js"></script>
     <script src="../assets/js/page-direction.js"></script>
   </body>
 </html>

@@ -1,19 +1,11 @@
-// let camera = document.getElementById("video");
-
-// const media = MediaDevices.getUserMedia();
-
-// let camera_button = document.querySelector("#start-camera");
 let video = document.querySelector("#start");
 let brightness = document.getElementById("brightnessRange");
 let brightness_input = document.getElementById("brightness-container");
 let adjusment = document.querySelector(".adjustment-div");
 let snap = document.querySelector(".capture-div");
 let canvas = document.getElementById("canvas");
-let imageData = [];
+
 let filterButton = document.getElementById("photo-filters");
-// let snap = document.querySelector("#click-photo");
-// let canvas = document.querySelector("#canvas");
-// let button = document.getElementById("click-photo");
 
 let conditions = {
   Audio: true,
@@ -39,22 +31,29 @@ navigator.mediaDevices.getUserMedia(conditions).then((stream) => {
 // Draw image
 
 snap.addEventListener("click", () => {
+  let imageData = [];
+
+  if (localStorage.getItem("image_url") !== null) {
+    imageData = JSON.parse(localStorage.getItem("image_url"));
+  }
+
   canvas.getContext("2d").drawImage(video, 0, 0, canvas.width, canvas.height);
+
   canvas.style.filter = filter;
   let imageUrl = canvas.toDataURL("image/jpeg");
+  // console.log(imageUrl);
+  let imageName = Date.now();
 
-  console.log(imageUrl);
+  let imageObject = {
+    imageLink: imageUrl,
+    imageName: "image" + imageName,
+    imageId: imageName,
+  };
+  console.log(imageObject);
 
-  const img = document.createElement("img");
-  img.setAttribute("src", imageUrl);
-  img.style.filter = filter;
-  console.log(img);
+  imageData.push(imageObject);
 
-  // let urlAll = imageData.push(imageUrl);
-  // console.log(urlAll);
-
-  // let set = localStorage.setItem("image_url", JSON.stringify(imageUrl));
-  // console.log(set);
+  let set = localStorage.setItem("image_url", JSON.stringify(imageData));
 });
 
 // filter selection
@@ -74,3 +73,11 @@ function bright() {
     adjusment.style.display = "none";
   }
 }
+
+// gallery page direction function
+
+function gallery() {
+  window.location.href = "../pages/snap-gallery.html";
+}
+
+// image update feature javascript

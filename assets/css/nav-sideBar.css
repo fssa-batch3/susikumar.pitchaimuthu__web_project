@@ -152,7 +152,8 @@ nav {
 .fa-battle-net,
 .bi-bell,
 .fa-circle-user,
-.bi-gear {
+.bi-gear,
+.bi-box-arrow-left {
   font-size: 1.5em;
   cursor: pointer;
 }

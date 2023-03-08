@@ -22,11 +22,14 @@ body::-webkit-scrollbar {
 .bi-brightness-high-fill {
   color: #fff;
   font-size: 2em;
+  cursor: pointer;
 }
 
-.fa-photo-video {
+.fa-photo-video,
+.bi-folder {
   color: #fff;
   font-size: 1.5em;
+  cursor: pointer;
 }
 
 .camera-div {
@@ -116,3 +119,9 @@ body::-webkit-scrollbar {
   width: 200px;
   height: 30px;
 }
+
+/* canvas css */
+
+/* #canvas {
+  display: none;
+} */

@@ -81,7 +81,7 @@ nameOne.append(para);
 // chat para attribute
 
 const paragraph = document.createElement("p");
-paragraph.innerText = sender[0]["chat"];
+// paragraph.innerText = sender[0]["chat"];
 // document.querySelector(".name").append(paragraph);
 nameOne.append(paragraph);
 
@@ -104,15 +104,20 @@ document.querySelector(".chat-member-container").append(div);
 // chatuser select option
 
 function userSelector(userSelect) {
-  console.log(userSelect);
-
   let userSelectionParse = JSON.parse(localStorage.getItem("register"));
 
   let userSelectionIdFind = userSelectionParse.find((e) => e.id == userSelect);
   console.log(userSelectionIdFind);
 
-  console.log(userSelectionIdFind["userName"]);
+  let allChatIdArr = [];
 
+  let allChatIdObject = {
+    userChatId: userSelectionIdFind["id"],
+  };
+
+  allChatIdArr.push(allChatIdObject);
+
+  localStorage.setItem("userPersonChatId", JSON.stringify(allChatIdArr));
   let checkUserData = document.querySelector(".user-name-lastseen-div");
 
   if (checkUserData !== null) {
@@ -175,19 +180,76 @@ function userSelector(userSelect) {
     biGear.setAttribute("class", "bi bi-gear");
     profileOptionDiv.append(biGear);
   }
-  //  function chatsend(event)
-}
 
-// chat user showing container
+  // user checking for individual users
+
+  let checkChatToShow = sender.filter(function (f) {
+    return (
+      f.chatPersonId ==
+      chatUserIdCheck[chatUserIdCheck.length - 1]["userChatId"]
+    );
+  });
+
+  console.log(checkChatToShow);
+
+  for (let i = 0; i < checkChatToShow.length; i++) {
+    const div = document.createElement("div");
+    div.setAttribute("class", "reply-msg");
+    div.setAttribute("id", sender[i]["chatId"]);
+    div.setAttribute("onmouseover", "editOptionMouseOver(this.className)");
+    div.setAttribute("onmouseout", "editoptionMouseOut()");
+
+    const replyChatPara = document.createElement("p");
+    replyChatPara.setAttribute("id", "reply-msg-chat");
+    replyChatPara.innerText = sender[i]["chat"];
+    div.append(replyChatPara);
+
+    const replyChatTime = document.createElement("p");
+    replyChatTime.setAttribute("class", "reply-msg-time");
+    replyChatTime.innerText = sender[i]["timing"];
+    div.append(replyChatTime);
+
+    let chatidPara = document.createElement("p");
+    chatidPara.setAttribute("class", "chatId");
+    chatidPara.innerText = sender[i]["chatId"];
+    div.append(chatidPara);
+
+    let chatEditdiv = document.createElement("div");
+    chatEditdiv.setAttribute("class", "edit-option-div");
+    div.append(chatEditdiv);
+
+    let emojiFa = document.createElement("i");
+    emojiFa.setAttribute("class", "bi bi-emoji-heart-eyes-fill");
+    emojiFa.setAttribute("onclick", "emoji(this.id)");
+    chatEditdiv.append(emojiFa);
+
+    let editFa = document.createElement("i");
+    editFa.setAttribute("class", "bi bi-pen-fill");
+    editFa.setAttribute("id", sender[i]["chatId"]);
+    editFa.setAttribute("onclick", "updateChat(this.id)");
+    chatEditdiv.append(editFa);
+
+    let deleteFa = document.createElement("i");
+    deleteFa.setAttribute("class", "bi bi-trash");
+    deleteFa.setAttribute("id", sender[i]["chatId"]);
+    deleteFa.setAttribute("onclick", "deleteChat(this.id)");
+    chatEditdiv.append(deleteFa);
+
+    // chat Edit input feild
+
+    document.querySelector(".right-side-container").append(div);
+  }
+}
+//  function chatsend(event)
+
+// chat selection for inditual person and chat showing function
 
 // chat sender message popup javascript
 
+let chatUserIdCheck = JSON.parse(localStorage.getItem("userPersonChatId"));
+let commonArray = [];
 function chatsend(event) {
-  let arr = [];
-
-  if (localStorage.getItem("senderMessage") != null) {
-    arr = JSON.parse(localStorage.getItem("senderMessage"));
-  }
+  //   console.log(userSelectionIdFind);
 
   const chat = document.getElementById("chat-input").value;
   console.log(chat);
@@ -209,65 +271,35 @@ function chatsend(event) {
       chat: chat,
       timing: jsonTime,
       chatId: chatId,
+      chatPersonId: chatUserIdCheck[chatUserIdCheck.length - 1]["userChatId"],
     };
+    let arr = [];
 
-    console.log(chatObj);
+    if (localStorage.getItem("senderMessage") != null) {
+      arr = JSON.parse(localStorage.getItem("senderMessage"));
+    }
+
     arr.push(chatObj);
 
-    let str = JSON.stringify(arr);
-    console.log(str);
-    localStorage.setItem("senderMessage", str);
+    localStorage.setItem("senderMessage", JSON.stringify(arr));
+  }
+}
+// mouseOver function for chat options
+
+function editOptionMouseOver(mouseOverclass) {
+  console.log(mouseOverclass);
+  let editOptionDiv = document.querySelector(".edit-option-div");
+  if ((editOptionDiv.style.display = "none")) {
+    editOptionDiv.style.display = "block";
   }
 }
 
-// send the message fro the chat sender message
-
-for (let i = 0; i < sender.length; i++) {
-  const div = document.createElement("div");
-  div.setAttribute("class", "reply-msg");
-
-  const replyChatPara = document.createElement("p");
-  replyChatPara.setAttribute("id", "reply-msg-chat");
-  replyChatPara.innerText = sender[i]["chat"];
-  div.append(replyChatPara);
-
-  const replyChatTime = document.createElement("p");
-  replyChatTime.setAttribute("class", "reply-msg-time");
-  replyChatTime.innerText = sender[i]["timing"];
-  div.append(replyChatTime);
-
-  let chatidPara = document.createElement("p");
-  chatidPara.setAttribute("class", "chatId");
-  chatidPara.innerText = sender[i]["chatId"];
-  div.append(chatidPara);
-
-  let chatEditdiv = document.createElement("div");
-  chatEditdiv.setAttribute("class", "edit-option-div");
-  div.append(chatEditdiv);
-
-  let emojiFa = document.createElement("i");
-  emojiFa.setAttribute("class", "bi bi-emoji-heart-eyes-fill");
-  emojiFa.setAttribute("onclick", "emoji(this.id)");
-  chatEditdiv.append(emojiFa);
-
-  let editFa = document.createElement("i");
-  editFa.setAttribute("class", "bi bi-pen-fill");
-  editFa.setAttribute("id", sender[i]["chatId"]);
-  editFa.setAttribute("onclick", "updateChat(this.id)");
-  chatEditdiv.append(editFa);
-
-  let deleteFa = document.createElement("i");
-  deleteFa.setAttribute("class", "bi bi-trash");
-  deleteFa.setAttribute("id", sender[i]["chatId"]);
-  deleteFa.setAttribute("onclick", "deleteChat(this.id)");
-  chatEditdiv.append(deleteFa);
-
-  // chat Edit input feild
-
-  document.querySelector(".right-side-container").append(div);
+function editoptionMouseOut() {
+  let editOptionDiv = document.querySelector(".edit-option-div");
+  if ((editOptionDiv.style.display = "block")) {
+    editOptionDiv.style.display = "none";
+  }
 }
-
-// edit data getting through this function
 
 function chatEditForm(eventChat) {
   let EditChatArray = [];
@@ -299,17 +331,6 @@ function chatEditForm(eventChat) {
     );
   }
 }
-
-// mouseOver function for chat options
-
-let chatcontent = document.querySelector(".reply-msg");
-
-chatcontent.addEventListener("mouseover", () => {
-  let editOptionDiv = document.querySelector(".edit-option-div");
-  if (editOptionDiv.style.disply == "none") {
-    editOptionDiv.style.disply == "block";
-  }
-});
 
 // update chat option
 
@@ -344,56 +365,52 @@ function updateChat(e) {
   // location.reload();
 }
 
-// /*
-
 // Chat edit option dynamic element creations
 
-// */
+function chatEditInput() {
+  let setInputId = document.querySelector(".edit-option-div");
+  // console.log(setInputId);
 
-// function chatEditInput() {
-//   let setInputId = document.querySelector(".edit-option-div");
-//   // console.log(setInputId);
+  let chatEditInputDiv = document.createElement("div");
+  chatEditInputDiv.setAttribute("id", "chat-input-container");
+  setInputId.append(chatEditInputDiv);
 
-//   let chatEditInputDiv = document.createElement("div");
-//   chatEditInputDiv.setAttribute("id", "chat-input-container");
-//   setInputId.append(chatEditInputDiv);
+  let chatEditForm = document.createElement("form");
+  chatEditForm.setAttribute("id", "chat-edit-form");
+  chatEditInputDiv.append(chatEditForm);
 
-//   let chatEditForm = document.createElement("form");
-//   chatEditForm.setAttribute("id", "chat-edit-form");
-//   chatEditInputDiv.append(chatEditForm);
+  let chatEditInputArea = document.createElement("input");
+  chatEditInputArea.setAttribute("id", "chat-edit-input-area");
+  chatEditForm.append(chatEditInputArea);
 
-//   let chatEditInputArea = document.createElement("input");
-//   chatEditInputArea.setAttribute("id", "chat-edit-input-area");
-//   chatEditForm.append(chatEditInputArea);
+  let chatEditButton = document.createElement("button");
+  chatEditButton.setAttribute("id", "chatEditButton");
+  chatEditButton.setAttribute("onclick", "chatEditForm()");
+  chatEditButton.innerText = "Send";
+  chatEditForm.append(chatEditButton);
+}
 
-//   let chatEditButton = document.createElement("button");
-//   chatEditButton.setAttribute("id", "chatEditButton");
-//   chatEditButton.setAttribute("onclick", "chatEditForm()");
-//   chatEditButton.innerText = "Send";
-//   chatEditForm.append(chatEditButton);
-// }
+// delete chat
 
-// // delete chat
+function deleteChat(d) {
+  // console.log(d);
 
-// function deleteChat(d) {
-//   // console.log(d);
+  let deleteDataParse = JSON.parse(localStorage.getItem("senderMessage"));
+  console.log(deleteDataParse);
 
-//   let deleteDataParse = JSON.parse(localStorage.getItem("senderMessage"));
-//   console.log(deleteDataParse);
+  let deleteFind = deleteDataParse.find((e) => e.chatId == d);
+  console.log(deleteFind);
 
-//   let deleteFind = deleteDataParse.find((e) => e.chatId == d);
-//   console.log(deleteFind);
+  let deleteIndexFind = deleteDataParse.indexOf(deleteFind);
+  console.log(deleteIndexFind);
 
-//   let deleteIndexFind = deleteDataParse.indexOf(deleteFind);
-//   console.log(deleteIndexFind);
+  let deleteChat = confirm("Are sure to Delete your account in Fresh Nest?");
 
-//   let deleteChat = confirm("Are sure to Delete your account in Fresh Nest?");
-
-//   if (deleteChat !== true) {
-//     return;
-//   } else {
-//     deleteDataParse.splice(deleteIndexFind, 1);
-//     localStorage.setItem("senderMessage", JSON.stringify(deleteDataParse));
-//     location.reload();
-//   }
-// }
+  if (deleteChat !== true) {
+    return;
+  } else {
+    deleteDataParse.splice(deleteIndexFind, 1);
+    localStorage.setItem("senderMessage", JSON.stringify(deleteDataParse));
+    location.reload();
+  }
+}

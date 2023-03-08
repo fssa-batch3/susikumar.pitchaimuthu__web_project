@@ -33,24 +33,42 @@ function setting() {
 }
 // chat page dirction location
 
-// function freshChat() {
-//   let pop = document.getElementById("chat-agree-box");
-//   let accept = document.getElementById("accept");
-//   let close = document.getElementById("close");
+function freshChat() {
+  let pop = document.getElementById("chat-agree-box");
+  let accept = document.getElementById("accept");
+  let close = document.getElementById("close");
 
-//   pop.style.display = "block";
+  pop.style.display = "block";
 
-//   accept.addEventListener("click", () => {
-//     window.location.href = "../pages/chat.html";
-//   });
+  accept.addEventListener("click", () => {
+    window.location.href = "../pages/chat.html";
+  });
 
-//   close.addEventListener("click", () => {
-//     return;
-//   });
-// }
+  close.addEventListener("click", () => {
+    return;
+  });
+}
 
 // profile picture direction
 
 function profile() {
   window.location.href = "../pages/profile.html";
+}
+
+// log out option javascript
+
+function logOutUser() {
+  let logOutValue = JSON.parse(localStorage.getItem("user_data"));
+
+  if (logOutValue !== null) {
+    let message = confirm("Are sure to log out your account in Fresh Nest?");
+
+    if (message !== true) {
+      return;
+    } else {
+      logOutValue.splice(logOutValue[0], 1);
+      localStorage.setItem("user_data", JSON.stringify(logOutValue));
+      window.location.href = "../index.html";
+    }
+  }
 }

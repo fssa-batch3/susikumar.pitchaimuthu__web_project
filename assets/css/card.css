@@ -1,0 +1,80 @@
+.card-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid grey;
+  height: 272px;
+  width: 240px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.image-name-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 226px;
+  height: 261px;
+}
+
+.taking-image {
+  position: relative;
+  width: 226px;
+  height: 231px;
+}
+
+.snap-name {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+/* hide details css */
+
+.hide-image-details-container {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  width: 220px;
+  top: 17%;
+  height: 150px;
+}
+
+.side-option-div {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4em;
+  justify-content: flex-end;
+}
+
+.heart-div,
+.three-dot-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  width: 2.6em;
+  height: 2em;
+  border-radius: 4px;
+}
+
+.bi-heart,
+.bi-three-dots {
+  font-size: 1.3em;
+}
+
+/* date showing div */
+
+.date-showing-div {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 210px;
+  height: 139px;
+}
+
+.photo-date {
+  margin: 0;
+  padding: 0;
+}

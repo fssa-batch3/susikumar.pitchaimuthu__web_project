@@ -32,6 +32,6 @@ const nation = (document.getElementById("nation").value = found["nationality"]);
 
 // profile image
 
-let profileImage = (document.getElementById("profile-image").value =
-  found["userImage"]["name"]);
-console.log(profileImage);
+// let profileImage = (document.getElementById("profile-image").value =
+//   found["userImage"]);
+// console.log(profileImage);

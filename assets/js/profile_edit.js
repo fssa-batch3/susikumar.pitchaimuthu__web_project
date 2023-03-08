@@ -47,6 +47,7 @@ changes.addEventListener("submit", function (e) {
     let FEmail = regisData.find((e) => e.Email == check.Email);
 
     let finalFind = regisData.indexOf(FEmail);
+    console.log(finalFind);
 
     regisData[finalFind] = objestAssign;
 
