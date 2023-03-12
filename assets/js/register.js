@@ -1,5 +1,5 @@
 const signUpFrom = document.getElementById("form");
-signUpFrom.addEventListener("submit", function (event) {
+signUpFrom.addEventListener("submit", (event) => {
   event.preventDefault();
 
   let userData = [];
@@ -9,14 +9,47 @@ signUpFrom.addEventListener("submit", function (event) {
   if (localStorage.getItem("register") != null) {
     userData = JSON.parse(localStorage.getItem("register"));
   }
-  const firstName = document.getElementById("firstname").value.trim();
-  const lastName = document.getElementById("lastname").value.trim();
+
+  let firstElement = document.getElementById("firstname").value.trim();
+  let lastElememt = document.getElementById("lastname").value.trim();
   const userName = document.getElementById("username").value.trim();
   const userEmail = document.getElementById("email").value.trim();
   const password = document.getElementById("password").value.trim();
   const number = document.getElementById("mobilenumber").value.trim();
   const age = document.getElementById("age").value.trim();
   let cryptoValue = self.crypto.randomUUID();
+
+  //
+  let avatarText = firstElement.charAt(0);
+  console.log(avatarText);
+
+  // avatar create
+
+  let avatarCanva = document.createElement("canvas");
+  let avatarContext = avatarCanva.getContext("2d");
+
+  avatarCanva.width = 200;
+  avatarCanva.height = 200;
+
+  // draw background
+  avatarContext.fillStyle = "green";
+  avatarContext.fillRect = (0, 0, avatarCanva.width, avatarCanva.height);
+
+  // draw text
+
+  avatarContext.font = "bold 100px Assistant";
+  avatarContext.fillStyle = "#fff";
+  avatarContext.textAlign = "center";
+  avatarContext.textBaseline = "middle";
+  avatarContext.fillText(
+    avatarText,
+    avatarCanva.width / 2,
+    avatarCanva.height / 2
+  );
+
+  // return
+
+  let imageUrl = avatarCanva.toDataURL("image/png");
 
   // let checkUser = JSON.parse(localStorage.getItem("register"));
 
@@ -34,17 +67,17 @@ signUpFrom.addEventListener("submit", function (event) {
 
   if (match === true) {
     alert("User already exit");
-    console.log(cryptoValue);
   } else {
     let userObj = {
       id: cryptoValue,
-      firstName: firstName,
-      lastName: lastName,
+      firstName: firstElement,
+      lastName: lastElememt,
       userName: userName,
       Email: userEmail.toLowerCase(),
       password: password,
       mobileNumber: number,
       age: age,
+      avatarUrl: imageUrl,
     };
 
     console.log(userObj);

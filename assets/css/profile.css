@@ -98,6 +98,7 @@ body {
   border-radius: 8em;
   cursor: pointer;
   position: relative;
+  height: 14em;
 }
 
 .profile-option-div {

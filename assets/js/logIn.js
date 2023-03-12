@@ -1,3 +1,5 @@
+// getting value from the logIn javascript
+
 let logIn = document.getElementById("form");
 
 let doSomething = [];

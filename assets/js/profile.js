@@ -12,6 +12,9 @@ const found = info.find(function (what) {
 
 console.log(found);
 
+let foundIndex = info.indexOf(found);
+console.log(foundIndex);
+
 const name1 = (document.getElementById("firstName").value = found.firstName);
 
 const name2 = (document.getElementById("lastName").value = found["lastName"]);
@@ -32,6 +35,6 @@ const nation = (document.getElementById("nation").value = found["nationality"]);
 
 // profile image
 
-// let profileImage = (document.getElementById("profile-image").value =
-//   found["userImage"]);
-// console.log(profileImage);
+let profileImage = (document.getElementById("profile-image").src =
+  found["avatarUrl"]);
+console.log(profileImage);

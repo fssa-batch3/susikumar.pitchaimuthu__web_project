@@ -12,7 +12,7 @@ function edit() {
 
 const changes = document.getElementById("change-form");
 changes.addEventListener("submit", function (e) {
-  event.preventDefault();
+  e.preventDefault();
 
   const fname = document.getElementById("firstName").value.trim();
   const lname = document.getElementById("lastName").value.trim();
@@ -40,7 +40,7 @@ changes.addEventListener("submit", function (e) {
   if (check.Email != gmail) {
     alert("Email ID not found");
   } else {
-    let objestAssign = Object.assign(check, editObj);
+    let objestAssign = Object.assign(found, editObj);
     console.log(objestAssign);
     let regisData = JSON.parse(localStorage.getItem("register"));
 
@@ -93,7 +93,8 @@ image.addEventListener("click", () => {
 
 file.addEventListener("change", function () {
   let choosePhoto = this.files[0];
-  console.log(choosePhoto["name"]);
+
+  console.log("Manisha");
 
   if (choosePhoto) {
     let reader = new FileReader();
@@ -101,26 +102,58 @@ file.addEventListener("change", function () {
 
     reader.addEventListener("load", function () {
       image.setAttribute("src", reader.result);
+
+      let ProfileImagesChange = [];
+
+      if (localStorage.getItem("profileImagesData") !== null) {
+        ProfileImagesChange = JSON.parse(
+          localStorage.getItem("profileImagesData")
+        );
+      }
+      let userProfileObj = {
+        avatarUrl: reader.result,
+      };
+
+      ProfileImagesChange.push(found["avatarUrl"]);
+
+      localStorage.setItem(
+        "profileImagesData",
+        JSON.stringify(ProfileImagesChange)
+      );
+
+      console.log(userProfileObj);
+      console.log(found);
+
+      let avatarUrlAssaign = Object.assign(found, userProfileObj);
+      console.log(avatarUrlAssaign);
+      console.log(foundIndex);
+
+      info[foundIndex] = avatarUrlAssaign;
+
+      console.log((info[foundIndex] = avatarUrlAssaign));
+      localStorage.setItem("register", JSON.stringify(info));
     });
+
     reader.readAsDataURL(choosePhoto);
   }
+});
 
-  let userProfileObj = {
-    userImage: choosePhoto["name"],
-  };
+// Transform to default profile image
 
+function defaultProfile() {
   console.log(found);
 
-  let objestAssign = Object.assign(found, userProfileObj);
-  console.log(objestAssign);
+  let getImageUrl = JSON.parse(localStorage.getItem("profileImagesData"));
+  console.log(getImageUrl);
 
-  let findanother = JSON.parse(localStorage.getItem("register"));
+  let currentUrl = getImageUrl[0];
+  console.log(currentUrl);
 
-  let profind = findanother.find((e) => e.Email == objestAssign.Email);
-  console.log(profind);
+  let imageUrlAssaign = Object.assign(found, currentUrl);
 
-  let proIndex = findanother.indexOf(profind);
-  console.log(profind);
-  findanother[proIndex] = objestAssign;
-  localStorage.setItem("register", JSON.stringify(findanother));
-});
+  console.log(imageUrlAssaign);
+
+  info[foundIndex] = imageUrlAssaign;
+
+  localStorage.setItem("register", JSON.stringify(info));
+}

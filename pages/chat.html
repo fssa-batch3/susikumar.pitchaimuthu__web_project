@@ -59,7 +59,7 @@
       <!-- side profile -->
       <div class="chat-profile-area-container">
         <div class="side-bar-profile-div">
-          <i class="fa-solid fa-circle-user" onclick="profile()"></i>
+          <img id="user-image" src="" onclick="profile()" alt="" />
         </div>
 
         <div class="side-bar-control-div">
@@ -153,5 +153,80 @@
     <!-- <script src="../assets/js/chat.js"></script> -->
     <script src="../assets/js/chatAdditional.js"></script>
     <script src="../assets/js/page-direction.js"></script>
+    <script src="../node_modules/moment/moment.js"></script>
+    <script src="../assets/js/home.js"></script>
+    <script>
+      console.log(moment());
+      let sendTime = moment().format("LT");
+
+      let sender = JSON.parse(localStorage.getItem("senderMessage"));
+      console.log(sender);
+
+      //
+
+      // first div
+      const div = document.createElement("div");
+      div.setAttribute("class", "members");
+      div.setAttribute("id", foundChatter["id"]);
+      div.setAttribute("onclick", "userSelector(this.id)");
+
+      // second div
+
+      const image_div = document.createElement("div");
+      image_div.setAttribute("class", "image-name");
+      // document.querySelector(".members").append(image_div);
+      div.append(image_div);
+
+      // third div
+
+      const image = document.createElement("div");
+      image.setAttribute("class", "image");
+      // document.querySelector(".image-name").append(image);
+      image_div.append(image);
+
+      // image attribute
+
+      const img = document.createElement("img");
+      img.setAttribute("class", "member-image");
+      // img.setAttribute("src", userChatBox["image"]);
+      // document.querySelector(".image").append(img);
+      image.append(img);
+
+      // name div
+
+      const nameOne = document.createElement("div");
+      nameOne.setAttribute("class", "name");
+      // document.querySelector(".image-name").append(name);
+      image_div.append(nameOne);
+
+      // name para attribute
+
+      const para = document.createElement("p");
+      para.innerText = foundChatter["userName"];
+      // document.querySelector(".name").append(para);
+      nameOne.append(para);
+
+      // chat para attribute
+
+      const paragraph = document.createElement("p");
+      paragraph.innerText = sender[sender.length - 1]["chat"];
+      nameOne.append(paragraph);
+
+      // Last seen div
+
+      const timeAgo = document.createElement("div");
+      timeAgo.setAttribute("id", "time-ago");
+      timeAgo.innerHTML = sendTime;
+      div.append(timeAgo);
+
+      // Last seen paragraph
+
+      const time = document.createElement("p");
+      // time.innerText = userChatBox["lastseen"];
+      // document.querySelector(".time-ago").append(time);
+      timeAgo.append(time);
+
+      document.querySelector(".chat-member-container").append(div);
+    </script>
   </body>
 </html>

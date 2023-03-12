@@ -52,6 +52,7 @@ body {
   flex-direction: column;
   width: 90%;
 }
+
 /* condition-div */
 .content-box-container {
   display: flex;

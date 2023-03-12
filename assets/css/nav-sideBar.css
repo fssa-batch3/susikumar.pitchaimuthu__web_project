@@ -122,9 +122,18 @@ nav {
   align-items: center;
   justify-content: center;
   border: 2px solid #e5e4e2;
-  width: 2em;
-  height: 2em;
+  width: 2.5em;
+  height: 2.4em;
   border-radius: 2em;
+}
+
+/* user image */
+
+#user-image {
+  width: 2em;
+  height: 1.9em;
+  border-radius: 15px;
+  cursor: pointer;
 }
 
 .chat-profile-area-container {
