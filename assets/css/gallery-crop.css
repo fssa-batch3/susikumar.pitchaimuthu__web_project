@@ -14,48 +14,109 @@ body::-webkit-scrollbar {
   display: none;
 }
 
-.nav-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 70px;
+/* nav css */
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  width: 100%;
+}
+
+.nav-inside-div {
   display: flex;
   align-items: center;
+  width: 90%;
   justify-content: space-between;
-  background: hsla(0, 0%, 100%, 0);
-  background-color: white;
-  z-index: 10;
-  box-shadow: 0 0 0 rgb(0 40 100 / 0%);
-  transition: all 0.25s ease-in-out;
-  transform: translateZ(1000px);
-  padding: 0em 1.7em;
 }
 
 .logo-div {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 6em;
+  height: 4em;
 }
 
-.logo-div-image {
-  width: 40%;
+.logo {
+  width: 8em;
+  height: 2.9em;
 }
 
-/* user div */
-
-.user-div {
+.user-avatar-div {
   display: flex;
-  width: 3%;
+  align-items: center;
+  justify-content: center;
+  width: 4.3em;
+  height: 3.5em;
+  border: 1px solid red;
+  border-radius: 2.4em;
 }
 
-.user-div-image {
-  width: 100%;
+.user-avatar-image {
+  width: 3.7em;
+  height: 3em;
+  border-radius: 2em;
 }
 
-/* side bar div container */
+/* side bar div */
 
 .whole-section-container {
   display: flex;
-  margin-top: 4em;
-  background-color: aquamarine;
-  flex: 1;
+}
+
+.side-bar-div-container {
+  display: flex;
+  justify-content: center;
+  width: 13em;
+  height: 37em;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
+
+.side-bar-option-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* image edit option */
+
+.crop-option-div,
+.emoji-edit-div,
+.sticker-edit-div,
+.filters-edit-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 15em;
+  height: 2.5em;
+}
+
+/* image chage option div container */
+
+.image-change-option-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 30em;
+  height: 40em;
+}
+
+/* image div */
+
+.image-div-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  width: 90%;
+}
+
+.image-div {
+  width: 20em;
+  height: 25em;
 }
