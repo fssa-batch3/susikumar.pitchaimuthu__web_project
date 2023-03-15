@@ -48,25 +48,40 @@
         <div class="side-bar-option-div">
           <!-- inside options -->
 
-          <div class="crop-option-div">
-            <i class="bi bi-crop"></i>
-            <p>Adjustment</p>
+          <div class="crop-div-container">
+            <div class="crop-option-div">
+              <i class="bi bi-crop"></i>
+              <p>Adjustment</p>
+            </div>
+
+            <div><i class="bi bi-arrow-right"></i></div>
           </div>
 
-          <div class="emoji-edit-div">
-            <i class="bi bi-emoji-heart-eyes"></i>
-            <p>Emoji</p>
+          <div class="crop-div-container">
+            <div class="emoji-edit-div">
+              <i class="bi bi-emoji-heart-eyes"></i>
+              <p>Emoji</p>
+            </div>
+            <div><i class="bi bi-arrow-right"></i></div>
+
+            <!-- sticker div -->
           </div>
 
-          <div class="sticker-edit-div">
-            <i class="bi bi-reddit"></i>
+          <div class="crop-div-container">
+            <div class="sticker-edit-div">
+              <i class="bi bi-reddit"></i>
 
-            <p>Stickers</p>
+              <p>Stickers</p>
+            </div>
+            <div><i class="bi bi-arrow-right"></i></div>
           </div>
 
-          <div class="filters-edit-div">
-            <i class="bi bi-emoji-laughing"></i>
-            <p>Filters</p>
+          <div class="crop-div-container">
+            <div class="filters-edit-div">
+              <i class="bi bi-emoji-laughing"></i>
+              <p>Filters</p>
+            </div>
+            <div><i class="bi bi-arrow-right"></i></div>
           </div>
         </div>
       </div>
@@ -75,7 +90,7 @@
 
       <div class="image-change-option-div">
         <!-- image div -->
-        <div class="">
+        <div class="image-div-container">
           <div class="image-div"></div>
         </div>
 
@@ -86,7 +101,121 @@
 
       <!-- event listener dynamic element  -->
 
-      <div></div>
+      <div class="clicking-option-div-container">
+        <div class="clicking-option-inside-div">
+          <!-- option div -->
+
+          <div class="option-name-div">
+            <h3 class="name-h3">Adjustment options</h3>
+          </div>
+
+          <div class="all-option-div-container">
+            <!-- crop button -->
+            <div class="crop-image-div">
+              <p>Crop image</p>
+              <button><i class="bi bi-crop"></i></button>
+            </div>
+
+            <!-- rotate button dvi -->
+
+            <div class="rotate-image-div">
+              <div class="rotate-name-div">
+                <p>Rotate Image</p>
+              </div>
+              <div class="rotate-button-div">
+                <button><i class="bi bi-arrow-clockwise"></i></button>
+
+                <button><i class="bi bi-arrow-counterclockwise"></i></button>
+              </div>
+            </div>
+
+            <!-- erase the some content -->
+
+            <div class="erase-div">
+              <p>Erase</p>
+
+              <button><i class="bi bi-eraser"></i></button>
+            </div>
+
+            <!-- edit option div -->
+
+            <div class="random-filter-div">
+              <p>Make beauty</p>
+              <i class="bi bi-caret-down"></i>
+            </div>
+
+            <!-- contrast and brightness option -->
+
+            <div class="beauty-div-container">
+              <div class="brightness-div">
+                <p>Brightness</p>
+                <input
+                  id="brightness-range"
+                  type="range"
+                  min="0"
+                  max="200"
+                  value="100"
+                />
+              </div>
+
+              <div class="contrast-div">
+                <p>Contrast</p>
+
+                <input
+                  id="contrast-range"
+                  type="range"
+                  min="0"
+                  max="200"
+                  value="100"
+                />
+              </div>
+
+              <div class="contrast-div">
+                <p>Saturation</p>
+
+                <input
+                  id="contrast-range"
+                  type="range"
+                  min="0"
+                  max="200"
+                  value="100"
+                />
+              </div>
+            </div>
+
+            <div class="random-filter-div">
+              <p>Fill some color</p>
+              <i class="bi bi-caret-down"></i>
+            </div>
+
+            <!-- next div -->
+
+            <div class="normal-filter-option-div-container">
+              <!-- input div -->
+
+              <div class="input-div">
+                <i class="bi bi-search-heart"></i>
+
+                <input type="text" />
+              </div>
+
+              <!-- filter showing option div -->
+
+              <div class="filter-showing-div-container">
+                <div class="filter-inside-div">
+                  <!-- <div class="each-filter-div">
+                    <img
+                      class="filter-image"
+                      src="../assets/images/Hero section/User-review/3.jpg"
+                      alt="filter-image"
+                    />
+                  </div> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
     <!-- sectin start -->
 

@@ -69,3 +69,19 @@ next_p.innerHTML = "Next";
 nextButton.append(next_p);
 
 document.querySelector(".image-option-next-option-div").append(imageControlDiv);
+
+// normal filter element creation
+
+let getFilterUrl = JSON.parse(localStorage.getItem("image_url"));
+
+for (let i = 0; i < getFilterUrl.length; i++) {
+  let filterDiv = document.createElement("div");
+  filterDiv.setAttribute("class", "each-filter-div");
+
+  let filterImage = document.createElement("img");
+  filterImage.setAttribute("class", "filter-image");
+  filterImage.setAttribute("src", getFilterUrl[i]["imageLink"]);
+  filterDiv.append(filterImage);
+
+  document.querySelector(".filter-inside-div").append(filterDiv);
+}

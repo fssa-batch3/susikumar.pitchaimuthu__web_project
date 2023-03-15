@@ -70,8 +70,8 @@ nav {
 .side-bar-div-container {
   display: flex;
   justify-content: center;
-  width: 13em;
-  height: 37em;
+  flex: 1;
+  height: 51em;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
     rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
 }
@@ -80,6 +80,16 @@ nav {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 90%;
+  margin-top: 3em;
+  gap: 1.4em;
+}
+
+.crop-div-container {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  justify-content: space-between;
 }
 
 /* image edit option */
@@ -91,8 +101,6 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 15em;
-  height: 2.5em;
 }
 
 /* image chage option div container */
@@ -101,8 +109,9 @@ nav {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 30em;
-  height: 40em;
+  flex: 4.2;
+  align-items: center;
+  gap: 1.4em;
 }
 
 /* image div */
@@ -111,12 +120,230 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
-    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
   width: 90%;
+  height: 40em;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
+    rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
 }
 
 .image-div {
-  width: 20em;
-  height: 25em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  height: auto;
+}
+
+.user-still {
+  width: 43em;
+  height: 35em;
+}
+
+/* option div container */
+
+.image-option-next-option-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.image-next-option-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+}
+
+/* button */
+
+.option-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  height: 2.8em;
+  width: 8.8em;
+  border: 1px solid rgb(189, 216, 250);
+  border-radius: 12px;
+  gap: 1em;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* clicking option div */
+
+.clicking-option-div-container {
+  display: flex;
+  justify-content: center;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  flex: 1.7;
+}
+
+.clicking-option-inside-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  margin-top: 4em;
+  gap: 2em;
+}
+
+.option-name-div {
+  display: flex;
+  align-items: center;
+  width: 99%;
+}
+
+/* all option div container */
+
+.all-option-div-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2em;
+  width: 88%;
+  height: 700px;
+  overflow-y: scroll;
+}
+
+.all-option-div-container::-webkit-scrollbar {
+  display: none;
+}
+.crop-image-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rotate-image-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rotate-name-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rotate-button-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2em;
+}
+
+/* erase div */
+
+.erase-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* beauty div container */
+
+.beauty-div-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+  gap: 1.2em;
+}
+
+.brightness-div,
+.contrast-div {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+#brightness-range,
+#contrast-range {
+  width: 16em;
+}
+
+.random-filter-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* optional filter option */
+
+.normal-filter-option-div-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 3em;
+}
+
+.input-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input,
+select {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  outline: none;
+  border: 2px solid grey;
+}
+
+input {
+  margin-top: 1.5%;
+  padding: 0 0 5px 0;
+  background: rgb(232, 243, 247);
+  border: none;
+  outline: none;
+  border-bottom: 2px solid rgb(107, 106, 106);
+  font-size: 1.1em;
+  font-weight: 300;
+}
+
+/* filter div container */
+
+.filter-showing-div-container {
+  display: flex;
+  justify-content: center;
+}
+
+.filter-inside-div {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  height: 300px;
+  gap: 1.3em;
+  overflow-y: scroll;
+}
+
+.filter-inside-div::-webkit-scrollbar {
+  display: none;
+}
+
+.each-filter-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1.3em;
+  height: 4.5em;
+  border: 1px solid rgb(251, 209, 216);
+  width: 5em;
+}
+
+.filter-image {
+  width: 4em;
+  height: 4em;
+  border-radius: 14px;
+  padding: 3px;
 }
