@@ -48,7 +48,7 @@
         <div class="side-bar-option-div">
           <!-- inside options -->
 
-          <div class="crop-div-container">
+          <div class="crop-div-container" onclick="clickAdjustment()">
             <div class="crop-option-div">
               <i class="bi bi-crop"></i>
               <p>Adjustment</p>
@@ -76,7 +76,7 @@
             <div><i class="bi bi-arrow-right"></i></div>
           </div>
 
-          <div class="crop-div-container">
+          <div class="crop-div-container" onclick="addFilter()">
             <div class="filters-edit-div">
               <i class="bi bi-emoji-laughing"></i>
               <p>Filters</p>
@@ -96,7 +96,16 @@
 
         <!-- image changing option div -->
 
-        <div class="image-option-next-option-div"></div>
+        <div class="image-option-next-option-div">
+          <button class="option-div">
+            <i class="bi bi-skip-backward-btn"></i>
+            <p>Previous</p>
+          </button>
+          <button class="option-div">
+            <i class="bi bi-skip-forward-btn"></i>
+            <p>Next</p>
+          </button>
+        </div>
       </div>
 
       <!-- event listener dynamic element  -->
@@ -139,7 +148,7 @@
 
             <!-- edit option div -->
 
-            <div class="random-filter-div">
+            <div class="random-filter-div" onclick="beauty()">
               <p>Make beauty</p>
               <i class="bi bi-caret-down"></i>
             </div>
@@ -183,7 +192,7 @@
               </div>
             </div>
 
-            <div class="random-filter-div">
+            <div class="random-filter-div-container" onclick="filter()">
               <p>Fill some color</p>
               <i class="bi bi-caret-down"></i>
             </div>
@@ -202,21 +211,38 @@
               <!-- filter showing option div -->
 
               <div class="filter-showing-div-container">
-                <div class="filter-inside-div">
-                  <!-- <div class="each-filter-div">
-                    <img
-                      class="filter-image"
-                      src="../assets/images/Hero section/User-review/3.jpg"
-                      alt="filter-image"
-                    />
-                  </div> -->
-                </div>
+                <div class="filter-inside-div"></div>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      <!-- filter showing and hiding div -->
+
+      <div class="clicking-filter-showing-div-container">
+        <div class="filter-inside-div-container">
+          <!-- head and input container -->
+          <div class="filter-inside-head-div">
+            <div class="input-div">
+              <i class="bi bi-search-heart"></i>
+
+              <input type="text" />
+            </div>
+            <div>
+              <p>Choose your filter</p>
+            </div>
+          </div>
+
+          <!-- all filter div contaiiner -->
+
+          <div class="filter-div-container">
+            <div class="filter-div-showing-container"></div>
+          </div>
+        </div>
+      </div>
     </section>
+
     <!-- sectin start -->
 
     <!-- script -->

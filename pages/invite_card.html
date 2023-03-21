@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Invite Card</title>
+  </head>
+  <body>
+    <section>
+      <!-- invite card image div container -->
+
+      <div></div>
+
+      <!-- invite details showing container -->
+      <div>
+        <form>
+          <div>
+            <!-- invites input and lable -->
+
+            <div>
+              <label for="text">Invite name</label>
+              <input class="inviteInput" id="inviteName" type="text" disabled />
+            </div>
+
+            <div>
+              <label for="text">Invite date</label>
+              <input class="inviteInput" id="inviteDate" type="text" disabled />
+            </div>
+
+            <div>
+              <label for="text">Invite time</label>
+              <input class="inviteInput" id="inviteTime" type="text" disabled />
+            </div>
+
+            <div>
+              <label for="text">Special person </label>
+              <input
+                class="inviteInput"
+                id="specialPerson"
+                type="text"
+                disabled
+              />
+            </div>
+
+            <div>
+              <label for="text">Invite glimpse</label>
+              <textarea
+                class="inviteInput"
+                name=""
+                id="inviteGlimpse"
+                cols="30"
+                rows="10"
+                disabled
+              ></textarea>
+            </div>
+
+            <div>
+              <label for="text">Invite explanation</label>
+              <textarea
+                class="inviteInput"
+                name=""
+                id="inviteExplanation"
+                cols="30"
+                rows="10"
+                disabled
+              ></textarea>
+            </div>
+          </div>
+
+          <div>
+            <button id="delete-invite-button">Delete</button>
+            <button id="edit-button">Edit</button>
+            <button id="save-button">Save</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- scirpts -->
+
+    <script src="../assets/js/invite_card.js"></script>
+    <script src="../assets/js/invite_card_update.js"></script>
+  </body>
+</html>

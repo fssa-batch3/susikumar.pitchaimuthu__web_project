@@ -34,19 +34,19 @@ function setting() {
 // chat page dirction location
 
 function freshChat() {
-  let pop = document.getElementById("chat-agree-box");
-  let accept = document.getElementById("accept");
-  let close = document.getElementById("close");
+  // let pop = document.getElementById("chat-agree-box");
+  // let accept = document.getElementById("accept");
+  // let close = document.getElementById("close");
 
-  pop.style.display = "block";
+  // pop.style.display = "block";
 
-  accept.addEventListener("click", () => {
-    window.location.href = "../pages/chat.html";
-  });
+  // accept.addEventListener("click", () => {
+  window.location.href = "../pages/chat.html";
+  // });
 
-  close.addEventListener("click", () => {
-    return;
-  });
+  // close.addEventListener("click", () => {
+  //   return;
+  // });
 }
 
 // profile picture direction
@@ -72,3 +72,13 @@ function logOutUser() {
     }
   }
 }
+
+// invite page event listener
+
+let addElement = document.querySelector(".invite-adding-div-container");
+
+addElement.addEventListener("click", () => {
+  window.location.href = "../pages/add_invite_form.html";
+});
+
+// This function for redirect to notification page

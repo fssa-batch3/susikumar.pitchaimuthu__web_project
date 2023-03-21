@@ -15,7 +15,7 @@ console.log(found);
 let foundIndex = info.indexOf(found);
 console.log(foundIndex);
 
-const name1 = (document.getElementById("firstName").value = found.firstName);
+const name1 = (document.getElementById("firstName").value = found["firstName"]);
 
 const name2 = (document.getElementById("lastName").value = found["lastName"]);
 // console.log(name2);

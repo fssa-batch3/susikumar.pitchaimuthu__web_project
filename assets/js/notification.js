@@ -1,6 +1,9 @@
-let n = 10;
+// writing find method to know who's notification is this
 
-for (let i = 0; i <= n; i++) {
+let notiData = JSON.parse(localStorage.getItem("inviteNotificationData"));
+console.log(notiData);
+
+for (let i = 0; i <= notiData.length; i++) {
   let whole_div = document.createElement("div");
   whole_div.setAttribute("class", "mention-box-div");
 
@@ -18,6 +21,7 @@ for (let i = 0; i <= n; i++) {
 
   let pro_image = document.createElement("img");
   pro_image.setAttribute("class", "mention-profile-image");
+  pro_image.setAttribute("src", notiData[i]["invite_person_url"]);
   pro_image_div.append(pro_image);
 
   let name_content_div = document.createElement("div");
@@ -25,9 +29,11 @@ for (let i = 0; i <= n; i++) {
   image_name_div.append(name_content_div);
 
   let h3 = document.createElement("h3");
+  h3.innerHTML = notiData[i]["inviter_person"];
   name_content_div.append(h3);
 
   let p = document.createElement("p");
+  p.innerHTML = notiData[i]["inviteChat"];
   name_content_div.append(p);
 
   let user_mention_media_div = document.createElement("div");

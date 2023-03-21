@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add-invite</title>
+    <link rel="stylesheet" href="../assets/css/add-invite.css" />
+  </head>
+  <body>
+    <section class="whole-div-control-section">
+      <div class="section-inside-div-container">
+        <!-- about invite page our side details -->
+
+        <div class="about-invite-div-container">
+          <div class="about-inside-div">
+            <img class="about-image" src="../image (5).png" alt="about-image" />
+          </div>
+        </div>
+
+        <!-- invite form area div container -->
+
+        <div class="invite-form-div-container">
+          <div class="invite-form-inside-div">
+            <form id="invite-form">
+              <div>
+                <label for="">Invite name</label>
+                <input id="party_name" type="text" />
+              </div>
+              <div>
+                <label for="">Party Time</label>
+                <input id="party_time" type="text" />
+              </div>
+              <div>
+                <label for="">Party Date</label>
+                <input id="party_date" type="text" />
+              </div>
+
+              <div>
+                <label for="">Special Person</label>
+                <input id="special_person" type="text" />
+              </div>
+              <div>
+                <label for="file">Party Image</label>
+                <input id="party_image" type="file" />
+              </div>
+
+              <div>
+                <textarea
+                  name="text"
+                  id="party_short_note"
+                  cols="30"
+                  rows="10"
+                ></textarea>
+              </div>
+
+              <div>
+                <textarea
+                  name="text"
+                  id="party_expand_passage"
+                  cols="30"
+                  rows="10"
+                ></textarea>
+              </div>
+              <div>
+                <button type="submit">Invite</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="../assets/js/add_invite.js"></script>
+  </body>
+</html>

@@ -1,0 +1,52 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.whole-div-control-section {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+  background-color: aliceblue;
+  height: 55em;
+}
+
+.section-inside-div-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 95%;
+  height: 30em;
+}
+
+/* about invite div container */
+
+.about-invite-div-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 50em;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.about-inside-div {
+  display: flex;
+  width: 100%;
+}
+
+.about-image {
+  width: 100%;
+  height: 40em;
+  opacity: 2;
+}
+
+/* invite form div container */
+
+.invite-form-div-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 50em;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}

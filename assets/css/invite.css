@@ -13,10 +13,10 @@ body {
   flex: 1;
   gap: 4em;
 }
-
-section .section-user-invite-section {
+.section-user-invite-section {
   display: flex;
   width: 100%;
+  gap: 1.5em;
 }
 
 .user-invite-box-container {
@@ -25,7 +25,7 @@ section .section-user-invite-section {
   justify-content: center;
   width: 90%;
   border-radius: 12px;
-  background-color: 5px solid #ffffff;
+  background-color: 5px solid #000000;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
@@ -37,11 +37,50 @@ section .section-user-invite-section {
   justify-content: space-between;
 }
 
-/* invite and showing container */
+/* invite adding div container */
 
-.invite-and-details-showing-container {
+.invite-adding-div-container {
   display: flex;
-  gap: 3em;
+  justify-content: space-between;
+  align-items: center;
+  width: 9em;
+  height: 5.4em;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 1em;
+}
+
+.invite-inside-div-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 90%;
+  gap: 5px;
+}
+
+.invite-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.bi-plus-square-dotted {
+  font-size: 34px;
+}
+
+.add-invite-head-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.add-invite-head {
+  margin: 0;
+  padding: 0;
 }
 
 /* invites showing container */
@@ -89,6 +128,134 @@ section .section-user-invite-section {
   gap: 2em;
 }
 
+/* invite and showing container */
+
+.invite-details-div-container-section {
+  display: flex;
+  gap: 3em;
+  width: 97%;
+}
+
+/* invites card showing container */
+
+.invite-and-details-showing-container {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.friends-inside-invite-and-details-showing-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 97%;
+  margin-top: 8px;
+  gap: 1em;
+  max-height: 590px;
+  overflow-y: scroll;
+}
+
+.friends-inside-invite-and-details-showing-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* friends invite card creation */
+.friends-invites-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+  border-radius: 5px;
+}
+
+.friends-invite-inside-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 99%;
+}
+
+.picture-and-name-div-container {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  gap: 1.4em;
+}
+
+.friends-invites-image-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 4.5em;
+  height: 3.4em;
+  border: 2px solid red;
+  border-radius: 50%;
+}
+
+.friends-invite-image {
+  width: 4em;
+  height: 3em;
+  border-radius: 50%;
+}
+
+/* friends-party name and glimpse showing showing container */
+
+.friends-party-name-glimpse-div {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.inviting-user-name {
+  margin: 0;
+  padding: 0;
+}
+
+.invite-glimpse {
+  margin: 0;
+  padding: 0;
+}
+
+/* reply option div */
+
+.invite-showing-div-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  height: 5em;
+  cursor: pointer;
+}
+
+.invite-inside-div {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  width: 14em;
+  gap: 0.6em;
+  height: 2.2em;
+}
+
+.invite-yes-no-div {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.chat-time-div {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 80%;
+}
+
+.invite-chat-time-para {
+  margin: 0;
+  padding: 0;
+}
 /* hr bar div */
 
 .hr-bar-div {
@@ -104,13 +271,147 @@ section .section-user-invite-section {
   height: 600px;
   width: 3px;
 }
+
 /* details showing container */
 
-.details-showing-container {
+.invite-details-showing-container {
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   width: 500px;
   height: 600px;
+  flex: 1.4;
+}
+
+.invite-inside-details-div-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 590px;
+}
+
+.invite-details-showing-inside-div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  /* background-color: aqua; */
+  height: 590px;
+  position: relative;
+}
+
+/* invite type video  */
+
+.like-comment-option-whole-div-container {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  width: 46%;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 4em;
+  top: 64%;
+}
+
+.like-comment-div-container {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}
+
+.like-comment-inside-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2em;
+}
+
+.heart-div,
+.ok-div,
+.sorry-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bi-heart,
+.bi-hand-thumbs-up,
+.bi-hand-thumbs-down,
+.bi-keyboard {
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+/* inviter profile showing div container */
+
+.invite-profile-name-div-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.invite-profile-name-inside-div {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 2em;
+}
+
+.inviter-user-profile-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 4em;
+  height: 3.3em;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+.inviter-image {
+  width: 3.5em;
+  height: 3em;
+  border-radius: 50%;
+}
+
+/* message or reply sending for inviter */
+
+.invite-message-emoji-reply-div {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  height: 3em;
+  gap: 1.3em;
+}
+
+.input-emoji-div-container {
+  display: flex;
+  justify-content: center;
+  width: 92%;
+}
+
+.invite-reply-emoji-inside-div {
+  width: 100%;
+  height: 3em;
+  display: none;
+}
+#invite-reply-input {
+  width: 75%;
+  border-radius: 10px;
+  border: none;
+  height: 2.5em;
+  border: 1.5px solid rgb(210, 208, 208);
+}
+
+.bi-emoji-heart-eyes,
+.bi-arrow-up-right-circle {
+  font-size: 1.4em;
+  cursor: pointer;
+  margin-left: 1em;
+}
+
+.keyboard-div {
+  display: flex;
+  justify-content: center;
 }

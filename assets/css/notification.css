@@ -2,3 +2,111 @@ body {
   margin: 0;
   padding: 0;
 }
+
+.mention-whole-container {
+  display: flex;
+  align-items: center;
+  margin: 3em 0em 0em 4.9em;
+}
+
+.mention-box-container {
+  display: flex;
+  justify-content: center;
+  flex: 1.5;
+  height: 829px;
+}
+
+.mention-box-inside-container {
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  height: 815px;
+  overflow-y: scroll;
+  margin-left: 2.5em;
+  align-items: center;
+  padding: 4px;
+  gap: 1em;
+}
+
+.mention-box-inside-container::-webkit-scrollbar {
+  display: none;
+}
+
+.mention-box-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border: 1px solid rgb(237, 206, 211);
+  width: 90%;
+  border-radius: 10px;
+}
+
+.mention-box-inside-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 0.95;
+  padding: 8px;
+}
+
+/* Pro image css */
+
+.image-and-name-div {
+  display: flex;
+  align-items: center;
+  gap: 2em;
+}
+
+.pro-image-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid greenyellow;
+  width: 4em;
+  height: 3.9em;
+  border-radius: 2em;
+}
+
+.name-content-div {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.name-content-div h3,
+.name-content-div p {
+  margin: 0;
+}
+
+.mention-profile-image {
+  width: 3.4em;
+  height: 3em;
+  border-radius: 2em;
+}
+
+/* user mention media css */
+
+.user-mention-media-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgb(118, 177, 248);
+  width: 5em;
+  height: 4em;
+  border-radius: 8px;
+}
+
+.user-mention-media {
+  width: 4em;
+  height: 3.5em;
+}
+
+#hr {
+  height: 900px;
+}
+/* display area css */
+.display-container {
+  display: flex;
+  flex: 0.8;
+}
