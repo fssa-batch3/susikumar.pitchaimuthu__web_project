@@ -6,23 +6,22 @@ body {
 .mention-whole-container {
   display: flex;
   align-items: center;
-  margin: 3em 0em 0em 4.9em;
+  margin: 5.2em 0em 0em 4.9em;
 }
 
 .mention-box-container {
   display: flex;
   justify-content: center;
   flex: 1.5;
-  height: 829px;
+  height: 773px;
 }
 
 .mention-box-inside-container {
   display: flex;
   flex-direction: column;
   width: 95%;
-  height: 815px;
+  height: 773px;
   overflow-y: scroll;
-  margin-left: 2.5em;
   align-items: center;
   padding: 4px;
   gap: 1em;
@@ -103,7 +102,7 @@ body {
 }
 
 #hr {
-  height: 900px;
+  height: 770px;
 }
 /* display area css */
 .display-container {

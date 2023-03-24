@@ -32,13 +32,12 @@ signUpFrom.addEventListener("submit", (event) => {
   avatarCanva.height = 200;
 
   // draw background
-  avatarContext.fillStyle = "green";
+  avatarContext.fillStyle = "blue";
   avatarContext.fillRect = (0, 0, avatarCanva.width, avatarCanva.height);
 
   // draw text
 
   avatarContext.font = "bold 100px Assistant";
-  avatarContext.fillStyle = "#fff";
   avatarContext.textAlign = "center";
   avatarContext.textBaseline = "middle";
   avatarContext.fillText(
@@ -46,6 +45,7 @@ signUpFrom.addEventListener("submit", (event) => {
     avatarCanva.width / 2,
     avatarCanva.height / 2
   );
+  avatarContext.fillStyle = "#fff";
 
   // return
 

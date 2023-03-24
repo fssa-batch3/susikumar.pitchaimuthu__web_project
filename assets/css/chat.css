@@ -16,13 +16,11 @@ body {
 .chat-member-left-container {
   display: flex;
   width: 500px;
-  flex-direction: column;
   height: 800px;
-  gap: 2em;
+  justify-content: center;
 }
 
 .chat-inside-member-left-div {
-  margin: 1em;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -37,9 +35,8 @@ body {
 
 .whole-reel-container {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   width: 450px;
-
   gap: 0.4em;
   border: 1.3px solid #e5e4e2;
   margin-bottom: 1.3em;
@@ -49,10 +46,11 @@ body {
 
 .reel-container {
   display: flex;
-  gap: 1.5em;
-  width: 430px;
+  width: 438px;
+  height: 5.4em;
   overflow-x: scroll;
-  padding: 0.7em;
+  align-items: center;
+  gap: 0.6em;
 }
 
 .reel-container::-webkit-scrollbar {
@@ -63,24 +61,24 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 61px;
-  height: 57px;
-  border-radius: 2em;
   border: 2px rgb(108, 156, 180) solid;
+  border-radius: 50%;
 }
 
 .reel-member-div-image {
-  width: 52px;
-  height: 49px;
-  border-radius: 4em;
+  width: 61px;
+  height: 52px;
+  border-radius: 50%;
+  padding: 3px;
 }
 
 /* message member area */
 
 .message-member-container {
   display: flex;
-  flex-direction: column;
-  width: 96%;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   height: 660px;
   border: 1px solid #e5e4e2;
   border-radius: 10px;
@@ -89,10 +87,11 @@ body {
 .chat-member-container {
   display: flex;
   flex-direction: column;
-  width: 95%;
-  height: 590px;
+  width: 98.6%;
+  height: 649px;
   overflow-y: scroll;
-  padding: 0.7em;
+  gap: 7px;
+  align-items: center;
 }
 
 .chat-member-container::-webkit-scrollbar {
@@ -103,7 +102,7 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 2em;
-  width: 100%;
+  width: 99%;
   border: 1px solid #e5e4e2;
   height: 5em;
   border-radius: 10px;
@@ -119,6 +118,19 @@ body {
   width: 50px;
   height: 49px;
   border-radius: 2em;
+}
+
+#time-ago {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 65px;
+  height: 63px;
+}
+
+#time-ago p {
+  margin: 0;
+  padding: 0;
 }
 
 /* chat box container area */
@@ -144,11 +156,18 @@ body {
 
 .chat-member-option-div {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   height: 4em;
   align-items: center;
   padding: 5px;
   background-color: #fff;
+}
+
+.user-profile-show-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 97%;
 }
 
 .user-name-lastseen-div {
@@ -357,11 +376,79 @@ body {
   align-items: center;
   justify-content: center;
   margin-right: 6px;
+  position: relative;
 }
 .fa-face-smile {
   font-size: 1.5em;
 }
 
+/* emoji file div */
+
+.emoji-input-div-container {
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+  width: 20em;
+  border-radius: 8px;
+  height: 21em;
+  position: absolute;
+  bottom: 160%;
+  left: 2%;
+  display: none;
+}
+
+.emoji-input-inside-div-container {
+  display: flex;
+  flex-direction: column;
+  width: 97%;
+  height: 21.3em;
+  align-items: center;
+
+  gap: 0.8em;
+}
+
+/* input div */
+
+.input-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 3em;
+}
+
+#emoji-input {
+  height: 2em;
+  width: 21em;
+  border: 1px solid grey;
+  border-radius: 8px;
+}
+.emoji-div-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.emoji-div-for {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 16em;
+  height: 16em;
+  background-color: #fff;
+  border: 2px solid grey;
+  border-radius: 5px;
+  overflow-y: scroll;
+}
+
+.emoji-div-for::-webkit-scrollbar {
+  display: none;
+}
+
+.emoji-div-for li {
+  list-style-type: none;
+  cursor: pointer;
+}
 #chat-input {
   width: 580px;
   height: 40px;

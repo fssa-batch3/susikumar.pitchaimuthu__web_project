@@ -91,7 +91,6 @@
             <!-- Reel and setting -->
 
             <!-- reel profile -->
-
             <div class="reel-container"></div>
           </div>
 
@@ -123,38 +122,21 @@
 
           <!-- chat message input container css -->
 
-          <div class="chat-input-option-div">
-            <form id="chat-input-form">
-              <div class="emoji-div">
-                <i class="fa-regular fa-face-smile"></i>
-              </div>
-
-              <div><input id="chat-input" type="text" /></div>
-
-              <div class="chat-file-option-div">
-                <i class="fa fa-file" aria-hidden="true"></i>
-                <i class="fa fa-microphone" aria-hidden="true"></i>
-              </div>
-
-              <div class="chat-submit-button-div">
-                <button id="chat-submit" type="submit" onclick="chatsend()">
-                  <span>Submit</span
-                  ><i class="fa fa-paper-plane" aria-hidden="true"></i>
-                </button>
-              </div>
-            </form>
-          </div>
+          <div class="chat-input-option-div"></div>
         </div>
       </div>
     </section>
 
     <!-- script -->
-
-    <!-- <script src="../assets/js/chat.js"></script> -->
+    <script src="../assets/js/home.js"></script>
+    <script src="../node_modules/emoji-picker-element/"></script>
+    <script src="../assets/js/chat_static_users.js"></script>
+    <script src="../assets/js/chat_input_function.js"></script>
+    <script src="../assets/js/user_friend_reel.js"></script>
     <script src="../assets/js/chatAdditional.js"></script>
     <script src="../assets/js/page-direction.js"></script>
     <script src="../node_modules/moment/moment.js"></script>
-    <script src="../assets/js/home.js"></script>
+
     <script>
       console.log(moment());
       let sendTime = moment().format("LT");
@@ -164,69 +146,88 @@
 
       //
 
-      // first div
-      const div = document.createElement("div");
-      div.setAttribute("class", "members");
-      div.setAttribute("id", foundChatter["id"]);
-      div.setAttribute("onclick", "userSelector(this.id)");
+      for (let i = 0; i < chatStaticUser.length; i++) {
+        // let findChatToShow = sender.filter(
+        //   (send) => send["userId"] == chatStaticUser[i]["userId"]
+        // );
+        // console.log(findChatToShow);
+        // first div
+        const div = document.createElement("div");
+        div.setAttribute("class", "members");
+        div.setAttribute("id", chatStaticUser[i]["userId"]);
+        div.setAttribute("onclick", "userSelector(this.id)");
 
-      // second div
+        // second divf
 
-      const image_div = document.createElement("div");
-      image_div.setAttribute("class", "image-name");
-      // document.querySelector(".members").append(image_div);
-      div.append(image_div);
+        const image_div = document.createElement("div");
+        image_div.setAttribute("class", "image-name");
+        div.append(image_div);
 
-      // third div
+        // third div
 
-      const image = document.createElement("div");
-      image.setAttribute("class", "image");
-      // document.querySelector(".image-name").append(image);
-      image_div.append(image);
+        const image = document.createElement("div");
+        image.setAttribute("class", "image");
+        image_div.append(image);
 
-      // image attribute
+        // image attribute
 
-      const img = document.createElement("img");
-      img.setAttribute("class", "member-image");
-      // img.setAttribute("src", userChatBox["image"]);
-      // document.querySelector(".image").append(img);
-      image.append(img);
+        const img = document.createElement("img");
+        img.setAttribute("class", "member-image");
+        img.setAttribute("src", chatStaticUser[i]["user_image"]);
+        image.append(img);
 
-      // name div
+        // name div
 
-      const nameOne = document.createElement("div");
-      nameOne.setAttribute("class", "name");
-      // document.querySelector(".image-name").append(name);
-      image_div.append(nameOne);
+        const nameOne = document.createElement("div");
+        nameOne.setAttribute("class", "name");
+        image_div.append(nameOne);
 
-      // name para attribute
+        // name para attribute
 
-      const para = document.createElement("p");
-      para.innerText = foundChatter["userName"];
-      // document.querySelector(".name").append(para);
-      nameOne.append(para);
+        const para = document.createElement("p");
+        para.innerHTML = chatStaticUser[i]["user_name"];
+        nameOne.append(para);
 
-      // chat para attribute
+        // chat para attribute
 
-      const paragraph = document.createElement("p");
-      paragraph.innerText = sender[sender.length - 1]["chat"];
-      nameOne.append(paragraph);
+        const paragraph = document.createElement("p");
+        paragraph.innerText = chatStaticUser[i]["chat"];
+        nameOne.append(paragraph);
 
-      // Last seen div
+        // Last seen div
 
-      const timeAgo = document.createElement("div");
-      timeAgo.setAttribute("id", "time-ago");
-      timeAgo.innerHTML = sendTime;
-      div.append(timeAgo);
+        const timeAgo = document.createElement("div");
+        timeAgo.setAttribute("id", "time-ago");
+        div.append(timeAgo);
 
-      // Last seen paragraph
+        // Last seen paragraph
 
-      const time = document.createElement("p");
-      // time.innerText = userChatBox["lastseen"];
-      // document.querySelector(".time-ago").append(time);
-      timeAgo.append(time);
+        const time = document.createElement("p");
+        time.innerHTML = chatStaticUser[i]["chat_time"];
+        timeAgo.append(time);
 
-      document.querySelector(".chat-member-container").append(div);
+        document.querySelector(".chat-member-container").append(div);
+      }
+
+      // user reel div creation
+
+      let PresentUserData = JSON.parse(localStorage.getItem("user_data"));
+
+      let allUserData = JSON.parse(localStorage.getItem("register"));
+
+      let findUserData = allUserData.find(
+        (ill) => ill["id"] == PresentUserData[0]["id"]
+      );
+
+      let reelDiv = document.createElement("div");
+      reelDiv.setAttribute("class", "reel-member-div");
+
+      let reelUserImage = document.createElement("img");
+      reelUserImage.setAttribute("class", "reel-member-div-image");
+      reelUserImage.setAttribute("src", findUserData["avatarUrl"]);
+      reelDiv.append(reelUserImage);
+
+      document.querySelector(".reel-container").prepend(reelDiv);
     </script>
   </body>
 </html>

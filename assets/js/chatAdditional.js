@@ -1,138 +1,204 @@
-const reelProfile = [
-  { reelImage: "../assets/images/still/Snaps/1.jfif", alt: "user-image" },
-];
-
-for (let i = 0; i < reelProfile.length; i++) {
-  const trendingBirdDiv = document.createElement("div");
-  trendingBirdDiv.setAttribute("class", "reel-member-div");
-
-  const trendingBirdDivImage = document.createElement("img");
-  trendingBirdDivImage.setAttribute("class", "reel-member-div-image");
-  trendingBirdDivImage.setAttribute("src", reelProfile[i].reelImage);
-  trendingBirdDiv.append(trendingBirdDivImage);
-
-  document.querySelector(".reel-container").append(trendingBirdDiv);
-}
-
-// let user profile data using the getItem
-
-let userDetailsForChatBox = JSON.parse(localStorage.getItem("user_data"));
-console.log(userDetailsForChatBox);
-
-let infoRegis = JSON.parse(window.localStorage.getItem("register"));
-// console.log(info);
-
-const foundChatter = infoRegis.find(function (what) {
-  let thinkEmail = what["Email"];
-  if (userDetailsForChatBox[0]["Email"] == thinkEmail) {
-    return true;
-  }
-});
-
-console.log(foundChatter);
-// user chat box div
-
-// chatuser select option
+// writing a function get a indidual user by clicking their respective chat box
 
 function userSelector(userSelect) {
-  let userSelectionParse = JSON.parse(localStorage.getItem("register"));
+  console.log(userSelect);
+  let userSelectionParse = JSON.parse(localStorage.getItem("userStaticData"));
 
-  let userSelectionIdFind = userSelectionParse.find((e) => e.id == userSelect);
+  let userSelectionIdFind = userSelectionParse.find(
+    (e) => e["userId"] == userSelect
+  );
   console.log(userSelectionIdFind);
 
-  let allChatIdArr = [];
-
-  let allChatIdObject = {
-    userChatId: userSelectionIdFind["id"],
-  };
-
-  allChatIdArr.push(allChatIdObject);
-
-  localStorage.setItem("userPersonChatId", JSON.stringify(allChatIdArr));
-  let checkUserData = document.querySelector(".user-name-lastseen-div");
+  let checkUserData = document.querySelector(".user-profile-show-div");
+  console.log(checkUserData);
 
   if (checkUserData !== null) {
-    return;
-  } else {
-    // Elelements are created for showing chat user Datails in the top of the chat
+    document.querySelector(".user-profile-show-div").remove();
+  }
+  // Elelements are created for showing chat user Datails in the top of the chat
 
-    let checkUserBox = document.querySelector(".user-name-lastseen-div");
+  let userNameDivContainer = document.createElement("div");
+  userNameDivContainer.setAttribute("class", "user-profile-show-div");
 
-    let userNameDiv = document.createElement("div");
-    userNameDiv.setAttribute("class", "user-name-lastseen-div");
+  let userNameDiv = document.createElement("div");
+  userNameDiv.setAttribute("class", "user-name-lastseen-div");
+  userNameDivContainer.append(userNameDiv);
 
-    document.querySelector(".chat-member-option-div").append(userNameDiv);
+  let chatPersonDiv = document.createElement("div");
+  chatPersonDiv.setAttribute("class", "chat-person-profile-div");
+  userNameDiv.append(chatPersonDiv);
 
-    let chatPersonDiv = document.createElement("div");
-    chatPersonDiv.setAttribute("class", "chat-person-profile-div");
-    userNameDiv.append(chatPersonDiv);
+  let chatUserImage = document.createElement("img");
+  chatUserImage.setAttribute("class", "chat-user-image");
+  chatUserImage.setAttribute("src", userSelectionIdFind["user_image"]);
+  chatPersonDiv.append(chatUserImage);
 
-    let chatUserImage = document.createElement("img");
-    chatUserImage.setAttribute("class", "chat-user-image");
-    chatPersonDiv.append(chatUserImage);
+  let chatPersonContentDiv = document.createElement(
+    "div",
+    "chat-person-name-lastseen-div"
+  );
+  chatPersonContentDiv.setAttribute("class", "chat-person-name-lastseen-div");
+  userNameDiv.append(chatPersonContentDiv);
 
-    let chatPersonContentDiv = document.createElement(
-      "div",
-      "chat-person-name-lastseen-div"
-    );
-    chatPersonContentDiv.setAttribute("class", "chat-person-name-lastseen-div");
-    userNameDiv.append(chatPersonContentDiv);
+  let nameH3 = document.createElement("h3");
+  nameH3.setAttribute("id", "chat-user-name");
+  nameH3.innerHTML = userSelectionIdFind["user_name"];
+  chatPersonContentDiv.append(nameH3);
 
-    let nameH3 = document.createElement("h3");
-    nameH3.setAttribute("id", "chat-user-name");
-    nameH3.innerHTML = userSelectionIdFind["userName"];
-    chatPersonContentDiv.append(nameH3);
+  let contentPara = document.createElement("p");
+  contentPara.setAttribute("id", "chat-user-last-content");
+  chatPersonContentDiv.append(contentPara);
 
-    let contentPara = document.createElement("p");
-    contentPara.setAttribute("id", "chat-user-last-content");
-    chatPersonContentDiv.append(contentPara);
+  // profile setting and call option elements
 
-    // profile setting and call option elements
+  let profileOptionContainer = document.createElement("div");
+  profileOptionContainer.setAttribute("class", "profile-option-container");
+  userNameDivContainer.append(profileOptionContainer);
 
-    let profileOptionContainer = document.createElement("div");
-    profileOptionContainer.setAttribute("class", "profile-option-container");
-    document
-      .querySelector(".chat-member-option-div")
-      .append(profileOptionContainer);
+  let profileOptionDiv = document.createElement("div");
+  profileOptionDiv.setAttribute("class", "profile-option-div");
+  profileOptionContainer.append(profileOptionDiv);
 
-    let profileOptionDiv = document.createElement("div");
-    profileOptionDiv.setAttribute("class", "profile-option-div");
-    profileOptionContainer.append(profileOptionDiv);
+  let biTelephone = document.createElement("i");
+  biTelephone.setAttribute("class", "bi bi-telephone");
+  profileOptionDiv.append(biTelephone);
 
-    let biTelephone = document.createElement("i");
-    biTelephone.setAttribute("class", "bi bi-telephone");
-    profileOptionDiv.append(biTelephone);
+  let biCamera = document.createElement("i");
+  biCamera.setAttribute("class", "bi bi-camera-video");
+  profileOptionDiv.append(biCamera);
 
-    let biCamera = document.createElement("i");
-    biCamera.setAttribute("class", "bi bi-camera-video");
-    profileOptionDiv.append(biCamera);
+  let biGear = document.createElement("i");
+  biGear.setAttribute("class", "bi bi-gear");
+  profileOptionDiv.append(biGear);
 
-    let biGear = document.createElement("i");
-    biGear.setAttribute("class", "bi bi-gear");
-    profileOptionDiv.append(biGear);
+  document
+    .querySelector(".chat-member-option-div")
+    .append(userNameDivContainer);
+
+  // write the code to null the data
+
+  let nullInput = document.querySelector("#chat-input-form");
+
+  if (nullInput !== null) {
+    document.querySelector("#chat-input-form").remove();
   }
 
-  // user checking for individual users
+  // create dynamic element for the input field
 
-  let checkChatToShow = sender.filter(function (f) {
-    return (
-      f.chatPersonId ==
-      chatUserIdCheck[chatUserIdCheck.length - 1]["userChatId"]
-    );
-  });
+  let inputForm = document.createElement("form");
+  inputForm.setAttribute("id", "chat-input-form");
 
-  console.log(checkChatToShow);
+  let emojiDiv = document.createElement("div");
+  emojiDiv.setAttribute("class", "emoji-div");
+  // emojiDiv.setAttribute("onClick", "setShowPicker()");
+  inputForm.append(emojiDiv);
 
-  for (let i = 0; i < checkChatToShow.length; i++) {
+  let smileI = document.createElement("i");
+  smileI.setAttribute("class", "fa-regular fa-face-smile");
+  emojiDiv.append(smileI);
+
+  let emojiInputDiv = document.createElement("div");
+  emojiInputDiv.setAttribute("class", "emoji-input-div-container");
+  emojiDiv.append(emojiInputDiv);
+
+  let emojiInsideDiv = document.createElement("div");
+  emojiInsideDiv.setAttribute("class", "emoji-input-inside-div-container");
+  emojiInputDiv.append(emojiInsideDiv);
+
+  let InputDiv = document.createElement("div");
+  InputDiv.setAttribute("class", "input-div");
+  emojiInsideDiv.append(InputDiv);
+
+  let emojiInpt = document.createElement("input");
+  emojiInpt.setAttribute("id", "emoji-input");
+  emojiInpt.setAttribute("placeholder", "Search");
+  InputDiv.append(emojiInpt);
+
+  let emojiDivContainer = document.createElement("div");
+  emojiDivContainer.setAttribute("class", "emoji-div-container");
+  emojiInsideDiv.append(emojiDivContainer);
+
+  let emojiShowDiv = document.createElement("ul");
+  emojiShowDiv.setAttribute("class", "emoji-div-for");
+  emojiDivContainer.append(emojiShowDiv);
+
+  let chatInputDiv = document.createElement("div");
+  chatInputDiv.setAttribute("class", "chat-input-div");
+  inputForm.append(chatInputDiv);
+
+  let chatInput = document.createElement("input");
+  chatInput.setAttribute("id", "chat-input");
+  chatInputDiv.append(chatInput);
+
+  let chatFileOptionDiv = document.createElement("div");
+  chatFileOptionDiv.setAttribute("class", "chat-file-option-div");
+  inputForm.append(chatFileOptionDiv);
+
+  let fileI = document.createElement("i");
+  fileI.setAttribute("class", "fa fa-file");
+  chatFileOptionDiv.append(fileI);
+
+  let mikeI = document.createElement("i");
+  mikeI.setAttribute("class", "fa fa-microphone");
+  chatFileOptionDiv.append(mikeI);
+
+  let chatSubmitDiv = document.createElement("div");
+  chatSubmitDiv.setAttribute("class", "chat-submit-button-div");
+  chatSubmitDiv.setAttribute("id", userSelectionIdFind["userId"]);
+  chatSubmitDiv.setAttribute("onclick", "chatsend(this.id)");
+  inputForm.append(chatSubmitDiv);
+
+  let sendButton = document.createElement("button");
+  sendButton.setAttribute("id", "chat-submit");
+  sendButton.setAttribute("type", "submit");
+  chatSubmitDiv.append(sendButton);
+
+  let Span = document.createElement("span");
+  Span.setAttribute("class", "submit-span");
+  Span.innerHTML = "Submit";
+  sendButton.append(Span);
+
+  let sendI = document.createElement("i");
+  sendI.setAttribute("class", "send-i");
+  sendButton.append(sendI);
+
+  document.querySelector(".chat-input-option-div").append(inputForm);
+
+  // checking the chats for to show the respective chat to respective person
+
+  let senderFind = JSON.parse(localStorage.getItem("senderMessage"));
+  console.log(senderFind);
+
+  if (senderFind == null) {
+    return;
+  }
+
+  let sender = senderFind.filter(
+    (senderId) => senderId["chatUserId"] === userSelect
+  );
+  console.log(sender);
+
+  let chageChat = document.querySelector(".right-side-container");
+  console.log(chageChat);
+
+  if (chageChat.hasChildNodes()) {
+    let chatFistchild = document.querySelectorAll(".reply-msg");
+
+    for (let i = 0; i < chatFistchild.length; i++) {
+      chatFistchild[i].remove();
+    }
+  }
+
+  for (let i = 0; i < sender.length; i++) {
     const div = document.createElement("div");
     div.setAttribute("class", "reply-msg");
     div.setAttribute("id", sender[i]["chatId"]);
-    div.setAttribute("onmouseover", "editOptionMouseOver(this.className)");
-    div.setAttribute("onmouseout", "editoptionMouseOut()");
+    // div.setAttribute("onmouseover", "editOptionMouseOver(this.className)");
+    // div.setAttribute("onmouseout", "editoptionMouseOut()");
 
     const replyChatPara = document.createElement("p");
     replyChatPara.setAttribute("id", "reply-msg-chat");
-    replyChatPara.innerText = sender[i]["chat"];
+    replyChatPara.innerHTML = sender[i]["chat"];
     div.append(replyChatPara);
 
     const replyChatTime = document.createElement("p");
@@ -171,66 +237,23 @@ function userSelector(userSelect) {
     document.querySelector(".right-side-container").append(div);
   }
 }
-//  function chatsend(event)
 
-// chat selection for inditual person and chat showing function
+// mouseOver function for delete, update chat options
 
-// chat sender message popup javascript
+// function editOptionMouseOver(mouseOverclass) {
+//   console.log(mouseOverclass);
+//   let editOptionDiv = document.querySelector(".edit-option-div");
+//   if ((editOptionDiv.style.display = "none")) {
+//     editOptionDiv.style.display = "block";
+//   }
+// }
 
-let chatUserIdCheck = JSON.parse(localStorage.getItem("userPersonChatId"));
-let commonArray = [];
-function chatsend(event) {
-  //   console.log(userSelectionIdFind);
-
-  const chat = document.getElementById("chat-input").value;
-  console.log(chat);
-
-  if (chat === "" || chat === null) {
-    return;
-  } else {
-    const d = new Date();
-    console.log(d);
-    let jsonTime = (document.getElementById("time-ago").innerHTML =
-      d.toLocaleTimeString("en-US", {
-        hour: "2-digit",
-        minute: "2-digit",
-      }));
-
-    let chatId = Date.now();
-
-    let chatObj = {
-      chat: chat,
-      timing: jsonTime,
-      chatId: chatId,
-      chatPersonId: chatUserIdCheck[chatUserIdCheck.length - 1]["userChatId"],
-    };
-    let arr = [];
-
-    if (localStorage.getItem("senderMessage") != null) {
-      arr = JSON.parse(localStorage.getItem("senderMessage"));
-    }
-
-    arr.push(chatObj);
-
-    localStorage.setItem("senderMessage", JSON.stringify(arr));
-  }
-}
-// mouseOver function for chat options
-
-function editOptionMouseOver(mouseOverclass) {
-  console.log(mouseOverclass);
-  let editOptionDiv = document.querySelector(".edit-option-div");
-  if ((editOptionDiv.style.display = "none")) {
-    editOptionDiv.style.display = "block";
-  }
-}
-
-function editoptionMouseOut() {
-  let editOptionDiv = document.querySelector(".edit-option-div");
-  if ((editOptionDiv.style.display = "block")) {
-    editOptionDiv.style.display = "none";
-  }
-}
+// function editoptionMouseOut() {
+//   let editOptionDiv = document.querySelector(".edit-option-div");
+//   if ((editOptionDiv.style.display = "block")) {
+//     editOptionDiv.style.display = "none";
+//   }
+// }
 
 function chatEditForm(eventChat) {
   let EditChatArray = [];

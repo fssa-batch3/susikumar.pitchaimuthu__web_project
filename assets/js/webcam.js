@@ -39,7 +39,11 @@ snap.addEventListener("click", () => {
 
   canvas.getContext("2d").drawImage(video, 0, 0, canvas.width, canvas.height);
 
-  canvas.style.filter = filter;
+  let checkFilter = canvas.style.filter;
+  if (checkFilter) {
+    canvas.style.filter = filter;
+  }
+
   let imageUrl = canvas.toDataURL("image/jpeg");
   // console.log(imageUrl);
   let imageName = Date.now();

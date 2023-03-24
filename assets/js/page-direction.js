@@ -1,7 +1,7 @@
 // home page direction location
 
 function home() {
-  window.location.href = "../index.html";
+  window.location.href = "../pages/after_home.html";
 }
 
 // camera page direction location
