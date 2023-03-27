@@ -11,17 +11,88 @@ User flow: https://drive.google.com/drive/folders/1ht0gbsZSYR-7TPDyu83UFrvXjn3e5
 
 Sonar Cloud: [![Quality Gate Status]https://sonarcloud.io/project/overview?id=fssa-batch3_susikumar.pitchaimuthu__web_project
 
+
 // My web progress table
 
-CRUD For User signning page => Create user account [completed] => Read User Data For Profile Page [completed] => Update user details For Edit Page [completed] => Delete user details For deactivate [completed]
 
-CRUD For User Features page => Create chat Feature [completed] => Read chat Feature [completed] => Update chat feature [completed] => Delete chat feature [completed]
+### Create an account
+  - Scenario 1: Successfully create an account
+      Steps:
+         1. Navigate to the registration page.
+         2. Enter the required information such as name, email, and password.
+         3. Click the "Create Account" button.
+   - Expected Result:
+         1. The user is redirected to the login page.
 
 
-CRUD For User chat page => create user chat [completed] => List user chat [completed] => Update user chat [completed] => Delete user  chat [completed]
+### Create an account
+   - Scenario 1: Successfully login in to account
+     Steps:
+         1. Navigate to the login page.
+         2. Enter the required information such as email, and password.
+         3. Click the "login" button.
+   - Expected Result:
+         1. The user is redirected to the user profile page.
 
-CRUD For User reel page => Create reel Feature [completed] => List reel Feature [completed] => Delete reel feature [completed]
 
-CRUD For User profile avatar page => create profile avatar  [completed] => List profile avatar  [completed] => Update profile avatar  [completed] => Delete profile avatar  [completed]
 
-CRUD For User invite page => Create  User invite  [completed] => List  User invite  [completed] => Delete  User invite  [completed]
+### create profile / avatar 
+
+   - Scenario 1: Successfully create avatar / profile
+      Steps:
+           1. Navigate to user local file.
+           2. click the file option.
+           3. choose the photo.
+   - Expected Result:
+           1. The user can create and their profile image.
+
+
+### Send message 
+
+   - Scenario 1: Successfully view chat
+      Steps:
+           1. Navigate to chat page.
+           2. click the user box.
+           3. View the respective person chat.
+   - Expected Result:
+           1. The user can chat with their friends.
+           
+ 
+### create reel
+
+   - Scenario 1: Successfully create reel
+      Steps:
+           1. click 'add' button.
+           2. navigate to local file.
+           3. choose and file (video).
+           4. click the "ok" button
+   - Expected Result:
+           1. The user can create their reel. 
+           
+           
+           
+### create invite
+
+   - Scenario 1: Successfully create invite
+      Steps:
+           1. Navigate to inviting adding page.
+           2. fill all details.
+           3. click the "invite" button.
+   - Expected Result:
+           1. The user can create their invite.
+           
+           
+           
+### send notification
+
+   - Scenario 1: Successfully send notification
+      Steps:
+           1. send notification to the friends.
+           2. click the user invite box.
+           3. Type message.
+           4. click the "send" button
+   - Expected Result:
+           1. The user can send message.
+
+
+
