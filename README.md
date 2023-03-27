@@ -16,3 +16,12 @@ Sonar Cloud: [![Quality Gate Status]https://sonarcloud.io/project/overview?id=fs
 CRUD For User signning page => Create user account [completed] => Read User Data For Profile Page [completed] => Update user details For Edit Page [completed] => Delete user details For deactivate [completed]
 
 CRUD For User Features page => Create chat Feature [completed] => Read chat Feature [completed] => Update chat feature [completed] => Delete chat feature [completed]
+
+
+CRUD For User chat page => create user chat [completed] => List user chat [completed] => Update user chat [completed] => Delete user  chat [completed]
+
+CRUD For User reel page => Create reel Feature [completed] => List reel Feature [completed] => Delete reel feature [completed]
+
+CRUD For User profile avatar page => create profile avatar  [completed] => List profile avatar  [completed] => Update profile avatar  [completed] => Delete profile avatar  [completed]
+
+CRUD For User invite page => Create  User invite  [completed] => List  User invite  [completed] => Delete  User invite  [completed]
