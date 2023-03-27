@@ -20,7 +20,6 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  justify-content: center;
   background-color: #fff;
   width: 100%;
 }
@@ -174,8 +173,6 @@ nav {
 /* clicking option div */
 
 .clicking-option-div-container {
-  display: flex;
-  justify-content: center;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
     rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
   flex: 1.7;
@@ -276,10 +273,6 @@ nav {
 /* optional filter option */
 
 .normal-filter-option-div-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   width: 100%;
   gap: 3em;
   display: none;

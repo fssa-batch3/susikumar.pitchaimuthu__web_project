@@ -410,7 +410,6 @@ body {
 #invite-reply-input {
   width: 75%;
   border-radius: 10px;
-  border: none;
   height: 2.5em;
   border: 1.5px solid rgb(210, 208, 208);
 }
