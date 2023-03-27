@@ -102,6 +102,17 @@ body {
 .invite-image-div {
   display: flex;
   align-items: center;
+  justify-content: center;
+  width: 4em;
+  height: 3.5em;
+  border: 1px solid grey;
+  border-radius: 50%;
+}
+
+.invite-image {
+  width: 3.5em;
+  height: 3em;
+  border-radius: 50%;
 }
 
 .invite-name-content-div {

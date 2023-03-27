@@ -20,7 +20,7 @@ for (let i = 0; i < GetInviteDetails.length; i++) {
 
   let inviteImage = document.createElement("img");
   inviteImage.setAttribute("class", "invite-image");
-  inviteImage.setAttribute("src", "../assets/images/chat/Smile-i on-black.png");
+  inviteImage.setAttribute("src", GetInviteDetails[i]["inviteImage"]);
   inviteImageDiv.append(inviteImage);
 
   let inviteNameContentDiv = document.createElement("div");

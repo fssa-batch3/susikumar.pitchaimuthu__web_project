@@ -108,4 +108,183 @@ body {
 .display-container {
   display: flex;
   flex: 0.8;
+  justify-content: center;
+  height: 47em;
+}
+
+.display-inside-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.notification-profile-name-div {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  gap: 2em;
+}
+
+.notification-user-profile-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 4em;
+  height: 3.5em;
+  border: 1px solid red;
+}
+
+.notification-person-image {
+  width: 3.5em;
+  height: 3em;
+  border-radius: 50%;
+}
+
+.person-name-div {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+.person-name {
+  margin: 0;
+  padding: 0;
+  font-size: 1.4em;
+}
+
+/* notification show div container */
+
+.notification-show-div-container {
+  display: flex;
+  align-items: center;
+  gap: 2em;
+  width: 96%;
+}
+
+.notification-picture-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 9em;
+  height: 8em;
+  border: 1px solid rgb(188, 37, 62);
+}
+
+.notification-picture {
+  width: 8.5em;
+  height: 7.5em;
+}
+
+/* notification side details */
+
+.notification-side-details-div-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.notification-data-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* related notification h3 */
+
+.related-head-div {
+  display: flex;
+  width: 95%;
+}
+
+/* related notification div container css */
+
+.related-notification-div-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.related-notification-inside-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 95%;
+  height: 20em;
+  overflow-y: scroll;
+  gap: 1em;
+}
+
+.related-notification-inside-div::-webkit-scrollbar {
+  display: none;
+}
+
+/* notification div */
+
+.notification-div-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 97.5%;
+  border: 1px solid grey;
+  height: 4em;
+  border-radius: 7px;
+}
+
+.notification-inside-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 97%;
+}
+
+.user-profile-and-name-div {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.user-profile-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3em;
+  height: 2.5em;
+  border-radius: 50%;
+  border: 1px solid grey;
+}
+
+.user-profile-image {
+  width: 2.5em;
+  height: 2em;
+  border-radius: 50%;
+}
+
+.user-name-and-noti-div {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  justify-content: center;
+}
+
+.user-name-h3,
+.user-name-p {
+  margin: 0;
+  padding: 0;
+}
+
+.user-invite-image-div {
+  width: 3.5em;
+  height: 3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid red;
+}
+
+.image-of-invite {
+  width: 3em;
+  height: 2.5em;
 }

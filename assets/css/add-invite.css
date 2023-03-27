@@ -8,8 +8,42 @@ body {
   justify-content: center;
   width: 100%;
   align-items: center;
-  background-color: aliceblue;
-  height: 55em;
+  /* background-color: aliceblue; */
+  height: auto;
+  flex-direction: column;
+}
+
+/*user profile div */
+
+.invite-above-content-div {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 4em;
+}
+
+.invite-inside-profile-div {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 2em;
+  width: 96%;
+}
+.user-profile-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3.5em;
+  height: 2.8em;
+  border-radius: 50%;
+  border: 1px solid grey;
+  cursor: pointer;
+}
+
+.profile-image {
+  width: 3em;
+  height: 2.4em;
+  border-radius: 50%;
 }
 
 .section-inside-div-container {
@@ -17,7 +51,9 @@ body {
   align-items: center;
   justify-content: center;
   width: 95%;
-  height: 30em;
+  height: 50em;
+  border-radius: 10px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 /* about invite div container */
@@ -27,7 +63,7 @@ body {
   justify-content: center;
   width: 100%;
   height: 50em;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 20px;
 }
 
 .about-inside-div {
@@ -37,8 +73,10 @@ body {
 
 .about-image {
   width: 100%;
-  height: 40em;
-  opacity: 2;
+  height: 50em;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  background-color: #fff;
 }
 
 /* invite form div container */
@@ -46,7 +84,113 @@ body {
 .invite-form-div-container {
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 100%;
   height: 50em;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.invite-form-inside-div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 47em;
+  gap: 2em;
+  border-radius: 10px;
+}
+
+/* our side invite */
+
+.our-side-head-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.fresh-logo-div {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.fresh-logo {
+  width: 60%;
+}
+
+.content {
+  margin: 0;
+  padding: 0;
+  font-size: 19px;
+}
+/* invite form div */
+#invite-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 1.4em;
+}
+
+.invite-content-div {
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.invite-label {
+  font-size: 1.36em;
+}
+
+.party-page-input {
+  border-radius: 8px;
+  border: 1px solid grey;
+  width: 24em;
+  height: 3em;
+  /* box-shadow: rgb(99, 11, 176) 1px 0 10px; */
+  /* box-shadow: 1px 1px 2px black, 0 0 1em rgb(202, 202, 251),
+    0 0 0.2em rgb(180, 228, 254); */
+}
+
+/* .party-page-input:invalid {
+  box-shadow: rgb(99, 11, 176) 1px 0 10px;
+} */
+
+.party-slogan-textarea {
+  resize: none;
+  width: 24em;
+  height: 6em;
+  border-radius: 8px;
+}
+
+.party-page-textarea {
+  resize: none;
+  width: 24em;
+  height: 12em;
+  border-radius: 8px;
+}
+
+/* inivte button css */
+
+.invite-button-div {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+}
+
+#invite-button {
+  width: 10em;
+  height: 1.7em;
+  border-radius: 5px;
+  border: none;
+  background-color: rgb(65, 138, 202);
+  color: white;
+  font-weight: bold;
+  font-size: 1.3em;
+  cursor: pointer;
 }

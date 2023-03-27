@@ -25,6 +25,7 @@ function inviteChatNotification(noti) {
   let inviteDate = moment().format("L");
   let invite_person_url = findObjectInvites["inviter_url"];
   let inviter_person = findObjectInvites["invite_user"];
+  let inviter_id = findObjectInvites["invite_id"];
 
   let inviteObject = {
     inviteChat,
@@ -33,6 +34,7 @@ function inviteChatNotification(noti) {
     inviteDate,
     inviter_person,
     invite_person_url,
+    inviter_id: inviter_id + inviteNotiId,
   };
 
   console.log(inviteObject);

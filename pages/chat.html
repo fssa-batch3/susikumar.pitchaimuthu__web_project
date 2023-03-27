@@ -90,6 +90,16 @@
           <div class="whole-reel-container">
             <!-- Reel and setting -->
 
+            <!-- add reel  -->
+
+            <div class="add-reel-div">
+              <p class="add">Add</p>
+              <input type="file" id="file" class="reel-input" />
+              <label for="file">
+                <i class="bi bi-plus-square-dotted"></i
+              ></label>
+            </div>
+
             <!-- reel profile -->
             <div class="reel-container"></div>
           </div>
@@ -101,6 +111,15 @@
             <!-- message setting div -->
 
             <div class="chat-member-container"></div>
+
+            <!-- chat member adding button -->
+            <div class="chat-adding-div-container">
+              <div class="chat-person-add-div">
+                <div class="add-image-div">
+                  <i id="add-image" class="bi bi-chat-left-text-fill"></i>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -119,7 +138,6 @@
               <div class="right-side-container"></div>
             </div>
           </div>
-
           <!-- chat message input container css -->
 
           <div class="chat-input-option-div"></div>
@@ -129,7 +147,6 @@
 
     <!-- script -->
     <script src="../assets/js/home.js"></script>
-    <script src="../node_modules/emoji-picker-element/"></script>
     <script src="../assets/js/chat_static_users.js"></script>
     <script src="../assets/js/chat_input_function.js"></script>
     <script src="../assets/js/user_friend_reel.js"></script>
@@ -229,5 +246,6 @@
 
       document.querySelector(".reel-container").prepend(reelDiv);
     </script>
+    <script src="../assets/js/reel_access.js"></script>
   </body>
 </html>

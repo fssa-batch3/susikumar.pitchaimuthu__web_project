@@ -9,12 +9,23 @@
   </head>
   <body>
     <section class="whole-div-control-section">
+      <!-- user profile div -->
+      <div class="invite-above-content-div">
+        <div class="invite-inside-profile-div"></div>
+      </div>
+
+      <!-- user invite double div container -->
+
       <div class="section-inside-div-container">
         <!-- about invite page our side details -->
 
         <div class="about-invite-div-container">
           <div class="about-inside-div">
-            <img class="about-image" src="../image (5).png" alt="about-image" />
+            <img
+              class="about-image"
+              src="../assets/images/Home/Wallpaper (1).jpg"
+              alt="about-image"
+            />
           </div>
         </div>
 
@@ -22,48 +33,73 @@
 
         <div class="invite-form-div-container">
           <div class="invite-form-inside-div">
+            <!-- user welcome from our side -->
+
+            <div class="our-side-head-div">
+              <div class="fresh-logo-div">
+                <img
+                  class="fresh-logo"
+                  src="../assets/images/logos/bird-logo.png"
+                  alt="fresh-logo"
+                />
+
+                <p class="content">
+                  Declare your Party invite to your intimacies
+                </p>
+              </div>
+            </div>
+            <!-- user invite form div -->
+
             <form id="invite-form">
-              <div>
-                <label for="">Invite name</label>
-                <input id="party_name" type="text" />
+              <div class="invite-content-div">
+                <label for="text" class="invite-label">Invite name</label>
+                <input class="party-page-input" id="party_name" type="text" />
               </div>
-              <div>
-                <label for="">Party Time</label>
-                <input id="party_time" type="text" />
+              <div class="invite-content-div">
+                <label for="text" class="invite-label">Party Time</label>
+                <input class="party-page-input" id="party_time" type="text" />
               </div>
-              <div>
-                <label for="">Party Date</label>
-                <input id="party_date" type="text" />
+              <div class="invite-content-div">
+                <label for="text" class="invite-label">Party Date</label>
+                <input class="party-page-input" id="party_date" type="text" />
               </div>
 
-              <div>
-                <label for="">Special Person</label>
-                <input id="special_person" type="text" />
+              <div class="invite-content-div">
+                <label for="text" class="invite-label">Special Person</label>
+                <input
+                  class="party-page-input"
+                  id="special_person"
+                  type="text"
+                />
               </div>
-              <div>
-                <label for="file">Party Image</label>
+              <div class="invite-content-div">
+                <label class="invite-label" for="file">Party file</label>
                 <input id="party_image" type="file" />
               </div>
 
-              <div>
+              <div class="invite-content-div">
+                <p class="invite-label">Invite's slogan</p>
                 <textarea
                   name="text"
                   id="party_short_note"
                   cols="30"
                   rows="10"
+                  class="party-slogan-textarea"
                 ></textarea>
               </div>
 
-              <div>
+              <div class="invite-content-div">
+                <p class="invite-label">Invite era</p>
                 <textarea
+                  class="party-page-textarea"
                   name="text"
                   id="party_expand_passage"
                   cols="30"
                   rows="10"
                 ></textarea>
               </div>
-              <div>
-                <button type="submit">Invite</button>
+              <div class="invite-button-div">
+                <button id="invite-button" type="submit">Invite</button>
               </div>
             </form>
           </div>
@@ -71,6 +107,9 @@
       </div>
     </section>
 
+    <!-- script files -->
+
+    <script src="../assets/js/profile_user_find.js"></script>
     <script src="../assets/js/add_invite.js"></script>
   </body>
 </html>
