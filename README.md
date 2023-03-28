@@ -70,52 +70,43 @@ Sonar Cloud: [![Quality Gate Status]https://sonarcloud.io/project/overview?id=fs
 ### create Reel  
    - Scenario 1: Successfully create reel.  
       Steps:  
-          1.Click "add" button.  
-          2.Navigate to local file.  
-          3.Choose file (video).  
-          4.Click the "ok" button.  
+          1.  Click "add" button.  
+          2.  Navigate to local file.  
+          3.  Choose file (video).  
+          4.  Click the "ok" button.  
    - Expected Result:  
-          1. The user can create their reel.  
+          1.  The user can create their reel.  
 
 
 
            
  
-### create reel
+### Create invite  
+   - Scenario 1: Successfully create invite.  
+           Steps:  
+               1.  Navigate to invite adding form page.  
+               2.  Fill the details.  
+               3.  Click the "invite" button.  
+   - Expected Result:  
+               1.  The suer can create their invite.  
+              
+              
+           
+           
+           
+### Send notification  
+   - Scenario 1: Successfully send notification.  
+      Steps:  
+          1.  Click user invites box.  
+          2.  Type message.  
+          3.  click the "send" icon.  
+   - Expected Result:  
+          1.  The message will show to that user.  
+         
+         
+           
+           
 
-   - Scenario 1: Successfully create reel
-      Steps:
-           1. click 'add' button.
-           2. navigate to local file.
-           3. choose and file (video).
-           4. click the "ok" button
-   - Expected Result:
-           1. The user can create their reel. 
-           
-           
-           
-### create invite
-
-   - Scenario 1: Successfully create invite
-      Steps:
-           1. Navigate to inviting adding page.
-           2. fill all details.
-           3. click the "invite" button.
-   - Expected Result:
-           1. The user can create their invite.
-           
-           
-           
-### send notification
-
-   - Scenario 1: Successfully send notification
-      Steps:
-           1. send notification to the friends.
-           2. click the user invite box.
-           3. Type message.
-           4. click the "send" button
-   - Expected Result:
-           1. The user can send message.
 
 
 
