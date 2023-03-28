@@ -16,7 +16,7 @@ Sonar Cloud: [![Quality Gate Status]https://sonarcloud.io/project/overview?id=fs
 
 
 ### Create an account  
-    - Scenario 1: Successfully create an account  
+   - Scenario 1: Successfully create an account  
           Steps:  
               1. Navigate to the registration page.  
               2. Enter the required information such as name, email and password.  
@@ -26,30 +26,32 @@ Sonar Cloud: [![Quality Gate Status]https://sonarcloud.io/project/overview?id=fs
                
                   
                   
+### Create an account  
+   - Scenario 2: Successfully login in to account.  
+        Steps:  
+            1. Navigate to the login page.  
+            2. Enter the required information such as email and password.  
+            3. Click the "login" button.  
+   - Expected Result:  
+            1. The user is redirected to the user profile page.  
+
+ 
+
+### Create Profile avatar  
+   - Scenario 1: Sucessfully create profile avatar.  
+       Steps:  
+            1. Click the file option button. 
+            2. Choose any photo.  
+            3. Click the "ok" button.  
+   - Expected Result:  
+            1. The user can create their profile image.  
+              
+              
+            
 
 
 
 
-### Create an account
-   - Scenario 1: Successfully login in to account
-     Steps:
-         1. Navigate to the login page.
-         2. Enter the required information such as email, and password.
-         3. Click the "login" button.
-   - Expected Result:
-         1. The user is redirected to the user profile page.
-
-
-
-### create profile / avatar 
-
-   - Scenario 1: Successfully create avatar / profile
-      Steps:
-           1. Navigate to user local file.
-           2. click the file option.
-           3. choose the photo.
-   - Expected Result:
-           1. The user can create and their profile image.
 
 
 ### Send message 
