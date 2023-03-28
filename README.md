@@ -40,12 +40,26 @@ Sonar Cloud: [![Quality Gate Status]https://sonarcloud.io/project/overview?id=fs
 ### Create Profile avatar  
    - Scenario 1: Sucessfully create profile avatar.  
        Steps:  
-            1. Click the file option button. 
-            2. Choose any photo.  
-            3. Click the "ok" button.  
+            1. Click the file option button.  
+            2. Choose any Photo.  
+            3. Click "ok" button.  
    - Expected Result:  
-            1. The user can create their profile image.  
-              
+            1. The user can create their profile image.   
+           
+            
+       
+       
+ ### Send Message  
+   - Scenario 1: Successfully view message.  
+       Steps:  
+           1. Navigate to chat page.  
+           2. Click the user chat box.  
+           3. View the respective person chat.  
+   - Expected Result:  
+           1. The user can view their friends chat.  
+       
+       
+       
               
             
 
@@ -53,16 +67,18 @@ Sonar Cloud: [![Quality Gate Status]https://sonarcloud.io/project/overview?id=fs
 
 
 
+### create Reel  
+   - Scenario 1: Successfully create reel.  
+      Steps:  
+          1.Click "add" button.  
+          2.Navigate to local file.  
+          3.Choose file (video).  
+          4.Click the "ok" button.  
+   - Expected Result:  
+          1. The user can create their reel.  
 
-### Send message 
 
-   - Scenario 1: Successfully view chat
-      Steps:
-           1. Navigate to chat page.
-           2. click the user box.
-           3. View the respective person chat.
-   - Expected Result:
-           1. The user can chat with their friends.
+
            
  
 ### create reel
