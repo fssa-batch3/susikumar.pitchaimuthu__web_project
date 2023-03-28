@@ -15,14 +15,19 @@ Sonar Cloud: [![Quality Gate Status]https://sonarcloud.io/project/overview?id=fs
 // My web progress table
 
 
-### Create an account
-  - Scenario 1: Successfully create an account
-      Steps:
-         1. Navigate to the registration page.
-         2. Enter the required information such as name, email, and password.
-         3. Click the "Create Account" button.
-   - Expected Result:
-         1. The user is redirected to the login page.
+### Create an account  
+   - Scenario 1: Successfully create an account  
+        Steps:  
+            1. Navigate to the registration page.  
+            2. Enter the required information such as name, email and password.  
+            3. Click the "Create account" button.  
+   - Expected Result:  
+            1. This user is redirected to the login page.  
+               
+                  
+                  
+
+
 
 
 ### Create an account
