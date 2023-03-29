@@ -107,7 +107,7 @@ Sonar Cloud: [![Quality Gate Status]https://sonarcloud.io/project/overview?id=fs
            
            
 ### Take a photo  
-    - Scenario 1: Succesfull take photo.  
+   - Scenario 1: Succesfull take photo.  
          Steps:  
              1.  Click the camera icon.  
              2.  Navaigate to fresh cam page.  
