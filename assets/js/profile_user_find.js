@@ -1,13 +1,15 @@
+// get user from the url
+
+let userUrl = window.location.search;
+let userUrlParams = new URLSearchParams(userUrl);
+
+console.log(userUrlParams);
+let urlId = userUrlParams.get("user");
+console.log(urlId);
+
 let info = JSON.parse(window.localStorage.getItem("register"));
-// console.log(info);
-let log = JSON.parse(window.localStorage.getItem("user_data"));
-console.log(log[0]["Email"]);
 
-const found = info.find(function (what) {
-  let thinkEmail = what["Email"];
-  if (log[0]["Email"] == thinkEmail) {
-    return true;
-  }
-});
+// usin find method for find the user
 
-console.log(found);
+let findUser = info.find((user) => user["userId"] == urlId);
+console.log(findUser);

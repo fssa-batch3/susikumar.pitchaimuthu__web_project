@@ -5,187 +5,111 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
-    <link rel="stylesheet" href="../assets/css/home.css" />
-    <link rel="stylesheet" href="../assets/css/message-me.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="stylesheet" href="../assets/css/button.css" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
+
+    <!-- bootstrap link -->
+
     <link
       rel="stylesheet"
-      href="../assets/fonts/adobe-clean-cufonfonts/AdobeCleanBoldSemiCn.otf"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
     />
 
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap");
-    </style>
+    <script
+      src="https://kit.fontawesome.com/a06ff6477a.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!----===== Boxicons CSS ===== -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- css links -->
+
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="../assets/css/after-home.css" />
   </head>
   <body>
-    <nav class="nav-bar">
-      <div class="logo-link-container">
-        <div>
-          <img
-            class="logo-image"
-            src="../assets/images/common/Fresh-nest-logo-black.png"
-            alt="logo-image"
-          />
+    <nav class="sidebar close">
+      <header>
+        <div class="image-text">
+          <span class="image">
+            <!-- <img src="logo.png" alt="" /> -->
+          </span>
+
+          <div class="text logo-text">
+            <span class="name">Codinglab</span>
+            <span class="profession">Web developer</span>
+          </div>
         </div>
-        <div class="link-container">
-          <ul class="link-ul">
-            <a><li>About-us</li></a>
-            <a><li>Application</li></a>
-            <a><li>Features</li></a>
-            <a><li>Guide</li></a>
-            <a><li>Support</li></a>
+
+        <i class="bx bx-chevron-right toggle"></i>
+      </header>
+
+      <div class="menu-bar">
+        <div class="menu">
+          <li class="search-box">
+            <i class="bx bx-search icon"></i>
+            <input type="text" placeholder="Search Ganes..." />
+          </li>
+
+          <ul class="menu-links">
+            <li class="nav-link" id="home">
+              <i class="bx bx-home-alt icon"></i>
+              <span class="text nav-text">Dashboard</span>
+            </li>
+
+            <li class="nav-link" id="chat">
+              <i class="bi bi-chat-right icon"></i>
+              <span class="text nav-text">freshChat</span>
+            </li>
+
+            <li class="nav-link" id="camera">
+              <i class="bi bi-camera icon"></i>
+              <span class="text nav-text">fresh cam</span>
+            </li>
+
+            <li class="nav-link" id="invite">
+              <i class="fa-brands fa-battle-net icon"></i>
+              <span class="text nav-text">fresh invite</span>
+            </li>
+
+            <li class="nav-link" id="notification">
+              <i class="bx bx-bell icon"></i>
+              <span class="text nav-text">Notification</span>
+            </li>
+
+            <li class="nav-link" id="setting">
+              <i class="bi bi-gear icon"></i>
+              <span class="text nav-text">Setting</span>
+            </li>
           </ul>
         </div>
-      </div>
 
-      <div class="search-bar-div">
-        <form id="search-form" action="">
-          <input
-            id="search-input"
-            type="text"
-            placeholder="Search.."
-            name="search"
-          />
-        </form>
-        <a href="http://127.0.0.1:5500/pages/profile.html">
-          <img
-            class="profile-image"
-            src="../assets/images/chat/user.png"
-            alt="profile-image"
-          />
-        </a>
+        <div class="bottom-content">
+          <li class="logOut">
+            <i class="bx bx-log-out icon"></i>
+            <span class="text nav-text">Logout</span>
+          </li>
+
+          <li class="mode">
+            <div class="sun-moon">
+              <i class="bx bx-moon icon moon"></i>
+              <i class="bx bx-sun icon sun"></i>
+            </div>
+            <span class="mode-text text">Dark mode</span>
+
+            <div class="toggle-switch">
+              <span class="switch"></span>
+            </div>
+          </li>
+        </div>
       </div>
     </nav>
 
-    <!-- Hero section -->
-
-    <section class="hero-section">
-      <div class="hero-section-div">
-        <div class="hero-section-content-div">
-          <div class="hero-section-content-inside-div">
-            <h1 class="hero-section-head">
-              Use me for chat with your close relation.
-            </h1>
-            <p>Express your imagination and express your feelings.</p>
-
-            <button class="hero-section-button">
-              <p class="try-para">Try Nest for free</p>
-              <span>&#8594;</span>
-            </button>
-          </div>
-        </div>
-
-        <div class="hero-section-video-container">
-          <div class="hero-section-video-div">
-            <video class="hero-section-video" autoplay loop playsinline muted>
-              <source
-                src="../assets/videos/home/video chat.mp4"
-                type="video/mp4"
-              />
-            </video>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- second-section -->
-
-    <section class="second-section">
-      <div class="">
-        <h2>What is we have</h2>
-
-        <p>
-          Here you can chat with your friends, show your plan and trip and
-          finally you can you can invite your friends to your party or a
-          meeting.
-        </p>
-
-        <div class="card-div">
-          <div class="card-color-div">
-            <div class="image-background-div">
-              <img
-                class="card-image"
-                src="../assets/images/card/chat.svg"
-                alt="chat-image"
-              />
-            </div>
-          </div>
-          <div class="card-content-div">
-            <div class="card-content-inside-div">
-              <h2>Bond with friends</h2>
-              <p>
-                Friends are those rare people who ask how we are and then wait
-                to hear the answer
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="third-section">
-      <div class="first-feature-div">
-        <div class="chat-content-contaier">
-          <div class="schedule-content-div">
-            <h2>Schedule your time</h2>
-
-            <p>
-              In our chat page you can schedule your time for chat or meeting.
-              you can utilize our chat page as a meeting page.
-            </p>
-          </div>
-        </div>
-        <div class="chat-image-container">
-          <img
-            class="chat-image"
-            src="../assets/images/chat/chat image.png"
-            alt=""
-          />
-        </div>
-      </div>
-
-      <!-- second -->
-      <div class="schedule-div">
-        <div class="schedule-image-container">
-          <img
-            class="schedule-image"
-            src="../assets/images/chat/Time image.png"
-            alt="time-image"
-          />
-        </div>
-        <div class="schedule-content-div">
-          <h2>Schedule time for chat</h2>
-
-          <p>
-            Hey! user you can schedule chat time to your bestie or profession
-            related friends. You can use me as a alarm.
-          </p>
-        </div>
-      </div>
-
-      <!-- third -->
-      <div>
-        <div>
-          <h2>Take photo with filters</h2>
-
-          <p>
-            Hi.. User, I am also have one more feature which is called Fesh
-            Still. In that you can take photo with filters which you want.
-          </p>
-        </div>
-        <div>
-          <img
-            src="../assets/images/Hero section/still-image.png"
-            alt="still-image"
-          />
-        </div>
-      </div>
-    </section>
+    <!-- scripts -->
+    <script src="../assets/js/profile_user_find.js"></script>
+    <script src="../assets/js/side-bar.js"></script>
+    <script src="../assets/js/page-direction.js"></script>
   </body>
 </html>

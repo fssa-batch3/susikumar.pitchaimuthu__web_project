@@ -8,8 +8,6 @@
     <link rel="stylesheet" href="../assets/css/gallery.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="../pages/snap-edit.html" />
-    <link rel="stylesheet" href="../pages/snap-details.html" />
 
     <link
       href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;500;600;700;800;900&display=swap"
@@ -26,60 +24,113 @@
   </head>
   <body>
     <header>
-      <nav class="nav-bar-container">
-        <div class="nav-logo-div">
-          <img
-            class="nav-logo-div-image"
-            src="../assets/images/common/Fresh-nest-logo-black.png"
-            alt="fresh-nest-logo"
-          />
-        </div>
-        <div class="nav-user-div">
-          <img
-            class="nav-user-div-image"
-            src="../assets/images/chat/user.png"
-            alt="user-profile"
-          />
+      <nav>
+        <!-- nav inside div container -->
+
+        <div class="nav-div-container">
+          <div class="nav-inside-div-container">
+            <!-- logo div -->
+            <div class="logo-div">
+              <img
+                class="logo-image"
+                src="../assets/images/logos/bird-logo.png"
+                alt="logo-image"
+              />
+              <link
+                rel="stylesheet"
+                href="../assets/images/logos/bird-logo.png"
+              />
+            </div>
+
+            <!-- profile div container -->
+
+            <div class="profile-name-image-div-container">
+              <!-- profile div -->
+              <div class="profile-name-inside-container">
+                <!-- profile name div -->
+                <div class="profile-naem-div">
+                  <p>Manisha susikumar</p>
+                </div>
+
+                <!-- profile image div -->
+
+                <div class="profile-div">
+                  <img
+                    class="profile-image"
+                    src="../assets/images/Hero section/User-review/2.jpg"
+                    alt="profile-image"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </nav>
     </header>
     <section class="main-section-container">
       <section class="side-bar-section-container">
-        <div class="side-bar-option-div">
-          <div class="recent-image-div">
-            <img src="../assets/images/gallery/recent.png" alt="recent-logo" />
-            <a id="side-bar-anger">Recent photos</a>
-          </div>
-          <div class="all-photos-div">
-            <img
-              src="../assets/images/gallery/all photos.png"
-              alt="all-photos"
-            />
+        <ul class="side-bar-option-div">
+          <li class="all-photo-option-li">
+            <i class="bi bi-unity heart"></i>
             <a id="side-bar-anger">All photos</a>
-          </div>
+          </li>
+          <li class="latest-photo-option-li">
+            <i class="bi bi-yelp heart"></i>
+            <a id="side-bar-anger">Latest</a>
+          </li>
 
-          <div class="favourite-div">
-            <img src="../assets/images/gallery/favourite.png" alt="favourite" />
+          <li class="favourite-photo-option-li">
+            <i class="bi bi-suit-heart-fill heart"></i>
             <a id="side-bar-anger">Favourite</a>
-          </div>
+          </li>
 
-          <div class="recent-delete-div">
-            <img
-              src="../assets/images/gallery/recently deleted.png"
-              alt="recent-delete"
-            /><a id="side-bar-anger">Recently deleted</a>
-          </div>
+          <li class="recent-photo-option-li">
+            <i class="bi bi-recycle heart"></i>
+            <a id="side-bar-anger">Recently deleted</a>
+          </li>
 
-          <div><p onclick="freshCam()">Fresh cam</p></div>
-        </div>
+          <li class="back-to-cam-li" id="go-to-camera">
+            <i class="bi bi-camera-fill heart"></i>
+            <a>Fresh cam</a>
+          </li>
+        </ul>
       </section>
 
       <section class="second-section-container">
-        <div class="second-section-container-div"></div>
+        <div class="image-filter-div-container">
+          <div class="filter-image-div">
+            <!--  filter image input and label-->
+
+            <div class="filter-head-div">
+              <p class="filter-head">Filter your images</p>
+            </div>
+            <div class="filter-input-label-div">
+              <div class="filter-input-div">
+                <label for="text">from</label>
+                <input class="filter-input" type="date" />
+              </div>
+              <div class="filter-input-div">
+                <label for="text">to</label>
+                <input class="filter-input" type="date" />
+              </div>
+            </div>
+            <div class="filter-button-div">
+              <button class="filter-button">Filter</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="still-showing-div-container">
+          <div class="second-section-container-div"></div>
+        </div>
       </section>
     </section>
 
+    <!-- script files -->
+
+    <script src="../assets/js/profile_user_find.js"></script>
+    <script src="../assets/js/gallery_redirection.js"></script>
     <script src="../assets/js/gallery.js"></script>
-    <script src="../assets/js/page-direction.js"></script>
+    <!-- <script src="../assets/js/page-direction.js"></script> -->
   </body>
 </html>

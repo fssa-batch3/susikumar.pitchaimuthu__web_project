@@ -1,29 +1,40 @@
-body {
-  margin: 0;
-  background-color: #fff;
-  padding: 0;
-}
-
 .section-container {
   display: flex;
   flex-direction: column;
-  margin: 6em 0em 0em 8em;
+  margin: 2em 0em 0em 7.3em;
   align-items: center;
   justify-content: center;
-  flex: 1;
   gap: 4em;
+  background-color: var(--body-color);
 }
 .section-user-invite-section {
   display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  gap: 1.5em;
+}
+
+.invitation-inside-control-div {
+  display: flex;
+  gap: 1.1em;
+  align-items: center;
+  width: 97%;
+}
+
+.invitation-showing-area-container {
+  display: flex;
+  width: 90%;
+  justify-content: center;
+  align-items: center;
+  height: 5.5em;
 }
 
 .user-invite-box-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 90%;
+  width: 93%;
+  height: 5.4em;
   border-radius: 12px;
   background-color: 5px solid #000000;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -154,6 +165,7 @@ body {
   justify-content: center;
   flex: 1;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 6px;
 }
 
 .friends-inside-invite-and-details-showing-container {
@@ -163,7 +175,7 @@ body {
   width: 97%;
   margin-top: 8px;
   gap: 1em;
-  max-height: 590px;
+  max-height: 653px;
   overflow-y: scroll;
 }
 
@@ -291,7 +303,7 @@ body {
   justify-content: center;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   width: 500px;
-  height: 600px;
+  height: 660px;
   flex: 1.4;
 }
 
@@ -322,7 +334,7 @@ body {
   flex-direction: column;
   justify-content: flex-end;
   gap: 4em;
-  top: 64%;
+  top: 61%;
 }
 
 .like-comment-div-container {

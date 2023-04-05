@@ -17,8 +17,7 @@ signUpFrom.addEventListener("submit", (event) => {
   const password = document.getElementById("password").value.trim();
   const number = document.getElementById("mobilenumber").value.trim();
   const age = document.getElementById("age").value.trim();
-  let cryptoValue = self.crypto.randomUUID();
-
+  let cryptoValue = Date.now();
   //
   let avatarText = firstElement.charAt(0);
   console.log(avatarText);
@@ -69,7 +68,7 @@ signUpFrom.addEventListener("submit", (event) => {
     alert("User already exit");
   } else {
     let userObj = {
-      id: cryptoValue,
+      userId: cryptoValue,
       firstName: firstElement,
       lastName: lastElememt,
       userName: userName,

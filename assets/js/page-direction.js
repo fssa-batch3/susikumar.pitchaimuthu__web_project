@@ -1,63 +1,60 @@
+// Page redirection elements
+
+let home = document.querySelector("#home");
+let camera = document.querySelector("#camera");
+let chat = document.querySelector("#chat");
+let invite = document.querySelector("#invite");
+let setting = document.querySelector("#setting");
+let notification = document.querySelector("#notification");
+let profile = document.querySelector("#profile");
+let logOut = document.querySelector(".logOut");
+
 // home page direction location
 
-function home() {
-  window.location.href = "../pages/after_home.html";
-}
+home.addEventListener("click", () => {
+  window.location.href = "../pages/after_home.html?user=" + findUser["userId"];
+});
 
 // camera page direction location
 
-function freshCam() {
-  window.location.href = "../pages/webcam.html";
-}
-// mention page direction location
-
-function mention() {
-  window.location.href = "../pages/mention.html";
-}
+camera.addEventListener("click", () => {
+  window.location.href = "../pages/webcam.html?user=" + findUser["userId"];
+});
 
 // notification page direction location
 
-function notification() {
-  window.location.href = "../pages/notification.html";
-}
+notification.addEventListener("click", () => {
+  window.location.href =
+    "../pages/notification.html?user=" + findUser["userId"];
+});
+
 // invite page direction location
 
-function invite() {
-  window.location.href = "../pages/invite.html";
-}
+invite.addEventListener("click", () => {
+  window.location.href = "../pages/invite.html?user=" + findUser["userId"];
+});
 
 // settings page direction
 
-function setting() {
-  window.location.href = "../pages/support.html";
-}
+setting.addEventListener("click", () => {
+  window.location.href = "../pages/setting.html?user=" + findUser["userId"];
+});
+
 // chat page dirction location
 
-function freshChat() {
-  // let pop = document.getElementById("chat-agree-box");
-  // let accept = document.getElementById("accept");
-  // let close = document.getElementById("close");
-
-  // pop.style.display = "block";
-
-  // accept.addEventListener("click", () => {
-  window.location.href = "../pages/chat.html";
-  // });
-
-  // close.addEventListener("click", () => {
-  //   return;
-  // });
-}
+chat.addEventListener("click", () => {
+  window.location.href = "../pages/chat.html?user=" + findUser["userId"];
+});
 
 // profile picture direction
 
-function profile() {
+profile.addEventListener("click", () => {
   window.location.href = "../pages/profile.html";
-}
+});
 
 // log out option javascript
 
-function logOutUser() {
+logOut.addEventListener("click", () => {
   let logOutValue = JSON.parse(localStorage.getItem("user_data"));
 
   if (logOutValue !== null) {
@@ -71,14 +68,14 @@ function logOutUser() {
       window.location.href = "../index.html";
     }
   }
-}
+});
 
 // invite page event listener
 
-let addElement = document.querySelector(".invite-adding-div-container");
+// let addElement = document.querySelector(".invite-adding-div-container");
 
-addElement.addEventListener("click", () => {
-  window.location.href = "../pages/add_invite_form.html";
-});
+// addElement.addEventListener("click", () => {
+//   window.location.href = "../pages/add_invite_form.html";
+// });
 
 // This function for redirect to notification page

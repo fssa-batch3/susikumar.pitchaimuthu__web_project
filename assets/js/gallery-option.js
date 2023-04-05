@@ -1,6 +1,13 @@
-let imageGallery = JSON.parse(localStorage.getItem("image_url"));
+// side bar options elements
 
-for (let i = 0; i < imageGallery.length; i++) {
+let allPhoto = document.querySelector(".all-photo-option-li");
+let latest = document.querySelector(".latest-photo-option-li");
+let favourite = document.querySelector(".favourite-photo-option-li");
+let recentDelete = document.querySelector(".recent-photo-option-li");
+
+// element creation eventListener function for all photo
+
+allPhoto.addEventListener("click", () => {
   let imageContainer = document.createElement("div");
   imageContainer.setAttribute("class", "card-container");
   imageContainer.setAttribute("id", imageGallery[i]["imageId"]);
@@ -34,23 +41,4 @@ for (let i = 0; i < imageGallery.length; i++) {
   document
     .querySelector(".second-section-container-div")
     .append(imageContainer);
-}
-
-// saving the image id for the update and feature
-
-function deleteImage(imageId) {
-  console.log(imageId);
-
-  let imageIdArr = [];
-
-  if (localStorage.getItem("imageIdData") !== null) {
-    imageIdArr = JSON.parse(localStorage.getItem("imageIdData"));
-  }
-
-  let imageIdObject = {
-    imageId: imageId,
-  };
-  imageIdArr.push(imageIdObject);
-
-  localStorage.setItem("imageIdData", JSON.stringify(imageIdArr));
-}
+});

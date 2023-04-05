@@ -4,8 +4,18 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fresh Chat</title>
+    <title>freshchat</title>
+
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="../assets/css/style.css" />
     <link rel="stylesheet" href="../assets/css/chat.css" />
+
+    <!----===== Boxicons CSS ===== -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
     <script
       src="https://kit.fontawesome.com/a06ff6477a.js"
       crossorigin="anonymous"
@@ -15,237 +25,207 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
     />
-    <link rel="stylesheet" href="../assets/css/nav-sideBar.css" />
   </head>
+
   <body>
-    <nav>
-      <!-- logo image -->
-      <div class="logo-div">
-        <img
-          class="logo-image"
-          src="../assets/images/logos/bird-logo.png"
-          alt="fresh-nest-logo"
-        />
-      </div>
+    <nav class="sidebar close">
+      <header>
+        <div class="image-text">
+          <span class="image">
+            <!-- <img src="logo.png" alt="" /> -->
+          </span>
 
-      <!-- nav link -->
-      <div class="link-container">
-        <ul>
-          <li>About us</li>
-          <li>Features</li>
-          <li>Download</li>
-          <li>Suport</li>
-          <li>Guide</li>
-        </ul>
-      </div>
-
-      <!-- search bar  and web language-->
-
-      <div class="input-globe-container">
-        <div class="form">
-          <i class="fa fa-search"></i>
-          <input
-            type="text"
-            class="form-control form-input"
-            placeholder="Search anything..."
-          />
-          <span class="left-pan"><i class="fa-solid fa-feather"></i></span>
+          <div class="text logo-text">
+            <span class="name">Codinglab</span>
+            <span class="profession">Web developer</span>
+          </div>
         </div>
-        <div><i class="fa-sharp fa-solid fa-globe"></i></div>
+
+        <i class="bx bx-chevron-right toggle"></i>
+      </header>
+
+      <div class="menu-bar">
+        <div class="menu">
+          <li class="search-box">
+            <i class="bx bx-search icon"></i>
+            <input type="text" placeholder="Search Ganes..." />
+          </li>
+
+          <ul class="menu-links">
+            <li class="nav-link" id="home">
+              <i class="bx bx-home-alt icon"></i>
+              <span class="text nav-text">Dashboard</span>
+            </li>
+
+            <li class="nav-link" id="chat">
+              <i class="bi bi-chat-right icon"></i>
+              <span class="text nav-text">freshChat</span>
+            </li>
+
+            <li class="nav-link" id="camera">
+              <i class="bi bi-camera icon"></i>
+              <span class="text nav-text">fresh cam</span>
+            </li>
+
+            <li class="nav-link" id="invite">
+              <i class="fa-brands fa-battle-net icon"></i>
+              <span class="text nav-text">fresh invite</span>
+            </li>
+
+            <li class="nav-link" id="notification">
+              <i class="bx bx-bell icon"></i>
+              <span class="text nav-text">Notification</span>
+            </li>
+
+            <li class="nav-link" id="setting">
+              <i class="bi bi-gear icon"></i>
+              <span class="text nav-text">Setting</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bottom-content">
+          <li class="logOut">
+            <i class="bx bx-log-out icon"></i>
+            <span class="text nav-text">Logout</span>
+          </li>
+
+          <li class="mode">
+            <div class="sun-moon">
+              <i class="bx bx-moon icon moon"></i>
+              <i class="bx bx-sun icon sun"></i>
+            </div>
+            <span class="mode-text text">Dark mode</span>
+
+            <div class="toggle-switch">
+              <span class="switch"></span>
+            </div>
+          </li>
+        </div>
       </div>
     </nav>
 
-    <div class="side-bar">
-      <!-- side profile -->
-      <div class="chat-profile-area-container">
-        <div class="side-bar-profile-div">
-          <img id="user-image" src="" onclick="profile()" alt="" />
-        </div>
-
-        <div class="side-bar-control-div">
-          <i class="bi bi-house" onclick="home()"></i>
-          <i class="fa-solid fa-at" onclick="mention()"></i>
-          <i class="fa-solid fa-message" onclick="freshChat()"></i>
-          <i class="fa-solid fa-camera" onclick="freshCam()"></i>
-          <i class="fa-brands fa-battle-net" onclick="invite()"></i>
-          <i class="bi bi-bell" onclick="notification()"></i>
-          <i class="bi bi-gear" onclick="setting()"></i>
-        </div>
-
-        <div class="log-out-div">
-          <i class="bi bi-box-arrow-left" onclick="logOutUser()"></i>
-        </div>
-      </div>
-    </div>
-    <link rel="stylesheet" href="../index.html" />
-
-    <!-- chat area -->
     <section class="section-container">
-      <div class="chat-member-left-container">
-        <div class="chat-inside-member-left-div">
-          <!-- search bar -->
-          <div></div>
+      <div class="text-section-container">
+        <div class="chat-member-left-container">
+          <div class="chat-inside-member-left-div">
+            <!-- search bar -->
 
-          <!-- reels -->
-          <div class="whole-reel-container">
-            <!-- Reel and setting -->
+            <!-- reels -->
+            <div class="whole-reel-container">
+              <!-- Reel and setting -->
 
-            <!-- add reel  -->
+              <div class="reel-inside-div-container">
+                <!-- add reel  -->
 
-            <div class="add-reel-div">
-              <p class="add">Add</p>
-              <input type="file" id="file" class="reel-input" />
-              <label for="file">
-                <i class="bi bi-plus-square-dotted"></i
-              ></label>
+                <div class="add-reel-div">
+                  <p class="add">Add</p>
+                  <input type="file" id="file" class="reel-input" />
+                  <label for="file"> <i class="bi bi-bookmark-plus"></i></label>
+                </div>
+
+                <!-- reel profile -->
+                <div class="reel-container"></div>
+              </div>
             </div>
 
-            <!-- reel profile -->
-            <div class="reel-container"></div>
-          </div>
+            <!-- chat member area -->
 
-          <!-- chat member area -->
+            <div class="message-member-and-add-div-container">
+              <!-- chatter person adding option div -->
 
-          <!-- message area -->
-          <div class="message-member-container">
-            <!-- message setting div -->
+              <div class="members-showing-to-select-div-container">
+                <div class="members-showing-inside-div-container">
+                  <div class="members-and-input-div">
+                    <!-- input div for select the chat persons -->
 
-            <div class="chat-member-container"></div>
+                    <div class="chat-members-selecting-input-div">
+                      <div class="input-button-head-div">
+                        <!-- select member head -->
 
-            <!-- chat member adding button -->
-            <div class="chat-adding-div-container">
-              <div class="chat-person-add-div">
-                <div class="add-image-div">
-                  <i id="add-image" class="bi bi-chat-left-text-fill"></i>
+                        <div class="add-member-head-div">
+                          <h3 class="select-member-head">Select friends</h3>
+                        </div>
+
+                        <div class="input-button-div">
+                          <input id="person-adding-input" type="text" />
+                          <button class="search-button">
+                            <i class="bi bi-search"></i>
+                          </button>
+                        </div>
+
+                        <!-- members div container -->
+
+                        <div class="showing-all-members-div-container">
+                          <div class="showing-member-div">
+                            <!-- member-div -->
+
+                            <!-- member div -->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- div for showing the chat members -->
+                </div>
+              </div>
+
+              <!-- show and creating message persong div -->
+
+              <!-- message area -->
+              <div class="message-member-container">
+                <!-- message setting div -->
+
+                <div class="chat-member-container">
+                  <div class="chat-member-inside-container"></div>
+                </div>
+
+                <!-- chat member adding button -->
+                <div class="chat-adding-div-container">
+                  <div class="chat-adding-inside-div-container">
+                    <div class="chat-person-add-div">
+                      <div class="add-image-div" onclick="addMembers()">
+                        <i id="add-image" class="bi bi-chat-left-text-fill"></i>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- chat area box -->
+        <!-- chat area box -->
 
-      <div class="chat-box-container">
-        <div class="chat-box-inside-container">
-          <!-- chat profile are -->
-          <div class="chat-member-option-div"></div>
+        <div class="chat-box-container">
+          <div class="chat-box-inside-container">
+            <!-- chat profile are -->
+            <div class="chat-member-option-div"></div>
 
-          <!-- chat showing message box css -->
+            <!-- chat showing message box css -->
 
-          <div class="chat-place-container">
-            <div class="chat-place-div">
-              <div class="right-side-container"></div>
+            <div class="chat-place-container">
+              <div class="chat-place-div">
+                <div class="right-side-container"></div>
+              </div>
             </div>
-          </div>
-          <!-- chat message input container css -->
+            <!-- chat message input container css -->
 
-          <div class="chat-input-option-div"></div>
+            <div class="chat-input-option-div"></div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- script -->
-    <script src="../assets/js/home.js"></script>
-    <script src="../assets/js/chat_static_users.js"></script>
-    <script src="../assets/js/user_friend_reel.js"></script>
-    <script src="../assets/js/chatAdditional.js"></script>
-    <script src="../assets/js/chat_input_function.js"></script>
+    <!-- scripts link source -->
+    <script src="../assets/js/side-bar.js"></script>
+    <script src="https://momentjs.com/downloads/moment.js"></script>
+    <script src="../assets/js/profile_user_find.js"></script>
     <script src="../assets/js/page-direction.js"></script>
-    <script src="../node_modules/moment/moment.js"></script>
-
-    <script>
-      console.log(moment());
-      let sendTime = moment().format("LT");
-
-      let sender = JSON.parse(localStorage.getItem("senderMessage"));
-      console.log(sender);
-
-      //
-
-      for (let i = 0; i < chatStaticUser.length; i++) {
-        // let findChatToShow = sender.filter(
-        //   (send) => send["userId"] == chatStaticUser[i]["userId"]
-        // );
-        // console.log(findChatToShow);
-        // first div
-        const div = document.createElement("div");
-        div.setAttribute("class", "members");
-        div.setAttribute("id", chatStaticUser[i]["userId"]);
-        div.setAttribute("onclick", "userSelector(this.id)");
-
-        // second div
-
-        const image_div = document.createElement("div");
-        image_div.setAttribute("class", "image-name");
-        div.append(image_div);
-
-        // third div
-
-        const image = document.createElement("div");
-        image.setAttribute("class", "image");
-        image_div.append(image);
-
-        // image attribute
-
-        const img = document.createElement("img");
-        img.setAttribute("class", "member-image");
-        img.setAttribute("src", chatStaticUser[i]["user_image"]);
-        image.append(img);
-
-        // name div
-
-        const nameOne = document.createElement("div");
-        nameOne.setAttribute("class", "name");
-        image_div.append(nameOne);
-
-        // name para attribute
-
-        const para = document.createElement("p");
-        para.innerHTML = chatStaticUser[i]["user_name"];
-        nameOne.append(para);
-
-        // chat para attribute
-
-        const paragraph = document.createElement("p");
-        paragraph.innerText = chatStaticUser[i]["chat"];
-        nameOne.append(paragraph);
-
-        // Last seen div
-
-        const timeAgo = document.createElement("div");
-        timeAgo.setAttribute("id", "time-ago");
-        div.append(timeAgo);
-
-        // Last seen paragraph
-
-        const time = document.createElement("p");
-        time.innerHTML = chatStaticUser[i]["chat_time"];
-        timeAgo.append(time);
-
-        document.querySelector(".chat-member-container").append(div);
-      }
-
-      // user reel div creation
-
-      let PresentUserData = JSON.parse(localStorage.getItem("user_data"));
-
-      let allUserData = JSON.parse(localStorage.getItem("register"));
-
-      let findUserData = allUserData.find(
-        (ill) => ill["id"] == PresentUserData[0]["id"]
-      );
-
-      let reelDiv = document.createElement("div");
-      reelDiv.setAttribute("class", "reel-member-div");
-
-      let reelUserImage = document.createElement("img");
-      reelUserImage.setAttribute("class", "reel-member-div-image");
-      reelUserImage.setAttribute("src", findUserData["avatarUrl"]);
-      reelDiv.append(reelUserImage);
-
-      document.querySelector(".reel-container").prepend(reelDiv);
-    </script>
-    <script src="../assets/js/reel_access.js"></script>
+    <script src="../assets/js/chat_static_users.js"></script>
+    <script src="../assets/js/add_user_friends.js"></script>
+    <script src="../assets/js/addMember.js"></script>
+    <script src="../assets/js/freshchat.js"></script>
   </body>
 </html>

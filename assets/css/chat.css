@@ -1,15 +1,18 @@
-body {
-  padding: 0;
-  margin: 0;
-  background-color: #fafafa;
-}
-
 /* section */
 
 .section-container {
   display: flex;
-  margin-top: 4.5em;
   margin-left: 5.5em;
+  width: 93%;
+  justify-content: center;
+  align-items: center;
+  height: 54.3em;
+}
+
+.text-section-container {
+  display: flex;
+  width: 99%;
+  height: 49em;
 }
 /* chat area container */
 
@@ -37,9 +40,21 @@ body {
   display: flex;
   justify-content: center;
   width: 450px;
-  gap: 0.4em;
+  height: 87px;
   border: 1.3px solid #e5e4e2;
   margin-bottom: 1.3em;
+  border-radius: 8px;
+  align-items: center;
+}
+
+.reel-inside-div-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 440px;
+  height: 80px;
+  gap: 0.4em;
+  border-radius: 8px;
 }
 
 /* setting div */
@@ -52,7 +67,7 @@ body {
   width: 4em;
   align-items: center;
   border: 1px solid #e5e4e2;
-  height: 5em;
+  height: 4.7em;
 }
 
 .add {
@@ -95,28 +110,34 @@ body {
   padding: 3px;
 }
 
-/* message member area */
+/* message member and add contaienr */
 
-.message-member-container {
+.message-member-and-add-div-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 660px;
-  border: 1px solid #e5e4e2;
-  border-radius: 10px;
-  position: relative;
+  gap: 1em;
+  border: 1.4px solid #e5e4e2;
+  border-radius: 7px;
 }
 
 /* chat ad person */
 
 .chat-adding-div-container {
-  display: flex;
+  display: block;
   width: 96%;
   position: absolute;
+  height: 37em;
+  /* display: none; */
+}
+
+.chat-adding-inside-div-container {
+  display: flex;
+  align-items: center;
   flex-direction: column;
   justify-content: flex-end;
-  height: 37em;
+  width: 97%;
+  height: 36em;
 }
 
 .chat-person-add-div {
@@ -145,9 +166,122 @@ body {
   color: #fff;
 }
 
+/* chat adding person */
+
+.members-showing-to-select-div-container {
+  display: none;
+  width: 100%;
+  height: auto;
+}
+
+.members-showing-inside-div-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.members-and-input-div {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  width: 99%;
+}
+
+.chat-members-selecting-input-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.input-button-head-div {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1.3em;
+  width: 100%;
+}
+
+.add-member-head-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.select-member-head {
+  margin: 0;
+  padding: 0;
+}
+
+.input-button-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+#person-adding-input {
+  width: 20em;
+  height: 2.6em;
+  border: 1px solid #707070;
+  border-radius: 5px;
+}
+
+.search-button {
+  width: 3em;
+  height: 2.3em;
+  border: 1px solid #707070;
+  background-color: transparent;
+  border-radius: 7px;
+}
+
+/* showing all the member */
+
+.showing-all-members-div-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 585px;
+}
+
+.showing-member-div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  justify-content: center;
+  width: 98%;
+  height: 579px;
+  overflow: scroll;
+}
+
+.showing-member-div::-webkit-scrollbar {
+  display: none;
+}
+
 /* chat perosn showing div */
 
+/* message member area */
+
+.message-member-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 690px;
+  position: relative;
+}
+
 .chat-member-container {
+  display: block;
+  width: 98.6%;
+  height: 684px;
+  z-index: 2;
+}
+
+.chat-member-inside-container {
   display: flex;
   flex-direction: column;
   width: 98.6%;
@@ -155,10 +289,9 @@ body {
   overflow-y: scroll;
   gap: 7px;
   align-items: center;
-  z-index: 2;
 }
 
-.chat-member-container::-webkit-scrollbar {
+.chat-member-inside-container::-webkit-scrollbar {
   display: none;
 }
 .members {
@@ -166,7 +299,7 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 2em;
-  width: 99%;
+  width: 100%;
   border: 1px solid #e5e4e2;
   height: 5em;
   border-radius: 10px;
@@ -210,9 +343,9 @@ body {
   display: flex;
   flex-direction: column;
   width: 880px;
-  height: 770px;
+  height: 800px;
   border: 1px solid #e5e4e2;
-  background-image: url("https://mobimg.b-cdn.net/v3/fetch/05/05eeb93a2e41734ecb6044146351f11e.jpeg");
+  background-image: url("https://unsplash.com/photos/uGcDWKN91Fs");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   border-radius: 10px;
@@ -449,6 +582,7 @@ body {
 /* emoji file div */
 
 .emoji-input-div-container {
+  display: none;
   background-color: #fff;
   width: 20em;
   border-radius: 8px;
@@ -456,7 +590,6 @@ body {
   position: absolute;
   bottom: 160%;
   left: 2%;
-  display: none;
 }
 
 .emoji-input-inside-div-container {

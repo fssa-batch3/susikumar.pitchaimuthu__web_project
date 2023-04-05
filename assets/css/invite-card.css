@@ -102,10 +102,34 @@
 .result-inside-div {
   display: flex;
   align-items: center;
+  justify-content: center;
   width: 77%;
   height: 6.6em;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
   border-radius: 12px;
+}
+
+/* chart div container */
+
+.chart-div-container {
+  display: flex;
+  width: 95%;
+  gap: 5em;
+  height: 6.49em;
+}
+
+.chart-percentage-para {
+  position: absolute;
+  top: 35.9%;
+  right: 27%;
+  margin: 0;
+  padding: 0;
+}
+
+.chart-div,
+.chart-div-three,
+.chart-div-two {
+  position: relative;
 }
 
 /* invite update option div */

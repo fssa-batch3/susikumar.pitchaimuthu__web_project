@@ -13,12 +13,15 @@ logIn.addEventListener("submit", (event) => {
 
   let match = false;
 
+  let successUser;
+
   for (let i = 0; i < defaultData.length; i++) {
     if (
       userEmail == defaultData[i]["Email"] &&
       password == defaultData[i]["password"]
     ) {
       match = true;
+      successUser = defaultData[i];
 
       let which = doSomething.push(defaultData[i]);
       console.log(which);
@@ -33,7 +36,7 @@ logIn.addEventListener("submit", (event) => {
 
   if (match == true) {
     alert("Success");
-    window.location.href = "../pages/after_home.html";
+    window.location.href = "../pages/home.html?user=" + successUser["userId"];
   } else {
     alert("Failed");
   }

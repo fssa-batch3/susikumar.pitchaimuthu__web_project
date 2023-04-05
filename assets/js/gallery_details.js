@@ -5,6 +5,8 @@ console.log(urlParams);
 let urlImage = urlParams.get("image");
 console.log(urlImage);
 
+// parsing gallery data for add details adding option
+
 let imageGallery = JSON.parse(localStorage.getItem("image_url"));
 console.log(imageGallery);
 
@@ -40,7 +42,13 @@ let imageEditDiv = document.createElement("div");
 imageEditDiv.setAttribute("class", "image-edit-option-div");
 
 let a = document.createElement("a");
-a.setAttribute("href", "../pages/snap-edit.html?image=" + snap["imageId"]);
+a.setAttribute(
+  "href",
+  "../pages/snap-edit.html?user=" +
+    findUser["userId"] +
+    "&image=" +
+    snap["imageId"]
+);
 imageEditDiv.append(a);
 
 let editButton = document.createElement("button");
@@ -60,7 +68,7 @@ editButton.append(edit_p);
 
 let likeButton = document.createElement("button");
 likeButton.setAttribute("id", snap["imageId"]);
-likeButton.setAttribute("class", "option-div");
+likeButton.setAttribute("class", "option-div like-option");
 imageEditDiv.append(likeButton);
 
 let like_i = document.createElement("i");

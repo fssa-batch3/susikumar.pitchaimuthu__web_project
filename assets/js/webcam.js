@@ -58,6 +58,7 @@ snap.addEventListener("click", () => {
     imageId: imageName,
     imageDate: imageDate,
     imageTime: imageTime,
+    userId: findUser["userId"],
   };
   console.log(imageObject);
 
@@ -84,10 +85,11 @@ function bright() {
   }
 }
 
-// gallery page direction function
+// gallery page urlparameter sending definition code
 
-function gallery() {
-  window.location.href = "../pages/snap-gallery.html";
-}
+let gallery = document.querySelector(".gallery");
 
-// image update feature javascript
+gallery.addEventListener("click", () => {
+  window.location.href =
+    "../pages/snap-gallery.html?user=" + findUser["userId"];
+});

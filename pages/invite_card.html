@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Invite Card</title>
 
+    <!-- easy pie chart script files -->
+
     <!-- css links -->
     <link
       rel="stylesheet"
@@ -33,7 +35,20 @@
         <div class="invite-result-input-div-container">
           <div class="invite-result-inside-div-container">
             <div class="invite-result-showing-div">
-              <div class="result-inside-div"></div>
+              <div class="result-inside-div">
+                <!-- result chart div container -->
+                <div class="chart-div-container">
+                  <div class="chart-div" data-percent="43">
+                    <p class="chart-percentage-para">43%</p>
+                  </div>
+                  <div class="chart-div-three" data-percent="53">
+                    <p class="chart-percentage-para">53%</p>
+                  </div>
+                  <div class="chart-div-two" data-percent="63">
+                    <p class="chart-percentage-para">63%</p>
+                  </div>
+                </div>
+              </div>
             </div>
             <form class="form-div">
               <div class="invite-input-div-container">
@@ -134,6 +149,44 @@
     <!-- scirpts -->
     <script src="../assets/js/profile_user_find.js"></script>
     <script src="../assets/js/invite_card.js"></script>
+    <script src="../assets/js/easy_pie_chart.js"></script>
     <script src="../assets/js/invite_card_update.js"></script>
+
+    <!-- script for show the percent -->
+    <script>
+      // first element chart div
+
+      let element = document.querySelector(".chart-div");
+      let element_three = document.querySelector(".chart-div-three");
+      let element_two = document.querySelector(".chart-div-two");
+
+      console.log(element);
+      new EasyPieChart(element, {
+        barColor: "#A2D2FF",
+        lineWidth: 14,
+        lineCap: "circle",
+        size: 95,
+      });
+
+      // second element of chart second div
+
+      console.log(element_two);
+      new EasyPieChart(element_two, {
+        barColor: "#A2D2FF",
+        lineWidth: 14,
+        lineCap: "circle",
+        size: 95,
+      });
+
+      // Third element of the chart third div
+
+      console.log(element_three);
+      new EasyPieChart(element_three, {
+        barColor: "#A2D2FF",
+        lineWidth: 14,
+        lineCap: "circle",
+        size: 95,
+      });
+    </script>
   </body>
 </html>

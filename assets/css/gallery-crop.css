@@ -20,44 +20,72 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #fff;
   width: 100%;
+  position: fixed;
+  height: 4em;
+  left: 0;
+  right: 0;
+  top: 0;
+  background-color: var(--sidebar-color);
+  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.2);
 }
 
-.nav-inside-div {
+.nav-div-container {
   display: flex;
+  justify-content: center;
   align-items: center;
-  width: 90%;
+  width: 99%;
+  height: 3.92em;
+}
+
+.nav-inside-div-container {
+  display: flex;
   justify-content: space-between;
+  align-items: center;
+  width: 99%;
+  height: 3.8em;
 }
 
 .logo-div {
   display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-image {
+  width: 10em;
+  height: 2.5em;
+}
+
+/* logo and name div */
+
+.profile-name-image-div-container {
+  display: flex;
   justify-content: center;
   align-items: center;
-  width: 6em;
-  height: 4em;
 }
 
-.logo {
-  width: 8em;
-  height: 2.9em;
+.profile-name-inside-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.4em;
 }
 
-.user-avatar-div {
+.profile-div {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 4.3em;
-  height: 3.5em;
-  border: 1px solid red;
-  border-radius: 2.4em;
+  border-radius: 50%;
+  border: 1px solid grey;
+  width: 3.5em;
+  height: 3em;
 }
 
-.user-avatar-image {
-  width: 3.7em;
-  height: 3em;
-  border-radius: 2em;
+.profile-image {
+  width: 3em;
+  height: 2.5em;
+  border-radius: 50%;
 }
 
 /* side bar div */

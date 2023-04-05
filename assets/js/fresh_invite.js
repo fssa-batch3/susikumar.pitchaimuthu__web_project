@@ -101,5 +101,7 @@ for (let i = 0; i < GetInviteDetails.length; i++) {
   updateI.setAttribute("class", "bi bi-credit-card-2-front");
   updateOptionDiv.append(updateI);
 
-  document.querySelector(".section-user-invite-section").prepend(userInviteBox);
+  document
+    .querySelector(".invitation-showing-area-container")
+    .append(userInviteBox);
 }

@@ -1,108 +1,137 @@
 <!DOCTYPE html>
+<!-- Coding by CodingLab | www.codinglabweb.com -->
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>mention</title>
-    <link rel="stylesheet" href="../assets/css/nav-sideBar.css" />
 
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="../assets/css/style.css" />
     <link rel="stylesheet" href="../assets/css/notification.css" />
-    <!-- fa fa icon link -->
+
+    <!----===== Boxicons CSS ===== -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- fa fa icons link -->
+    <!-- bootstrap link -->
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
+    />
 
     <script
       src="https://kit.fontawesome.com/a06ff6477a.js"
       crossorigin="anonymous"
     ></script>
 
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
-    />
+    <!--<title>Dashboard Sidebar Menu</title>-->
   </head>
   <body>
-    <nav>
-      <!-- logo image -->
-      <div class="logo-div">
-        <img
-          class="logo-image"
-          src="../assets/images/logos/bird-logo.png"
-          alt="fresh-nest-logo"
-        />
-      </div>
+    <nav class="sidebar close">
+      <header>
+        <div class="image-text">
+          <span class="image">
+            <!-- <img src="logo.png" alt="" /> -->
+          </span>
 
-      <!-- nav link -->
-      <div class="link-container">
-        <ul>
-          <li>About us</li>
-          <li>Features</li>
-          <li>Download</li>
-          <li>Suport</li>
-          <li>Guide</li>
-        </ul>
-      </div>
-
-      <!-- search bar  and web language-->
-
-      <div class="input-globe-container">
-        <div class="form">
-          <i class="fa fa-search"></i>
-          <input
-            type="text"
-            class="form-control form-input"
-            placeholder="Search anything..."
-          />
-          <span class="left-pan"><i class="fa-solid fa-feather"></i></span>
+          <div class="text logo-text">
+            <span class="name">Codinglab</span>
+            <span class="profession">Web developer</span>
+          </div>
         </div>
-        <div><i class="fa-sharp fa-solid fa-globe"></i></div>
+
+        <i class="bx bx-chevron-right toggle"></i>
+      </header>
+
+      <div class="menu-bar">
+        <div class="menu">
+          <li class="search-box">
+            <i class="bx bx-search icon"></i>
+            <input type="text" placeholder="Search Ganes..." />
+          </li>
+
+          <ul class="menu-links">
+            <li class="nav-link" id="home">
+              <i class="bx bx-home-alt icon"></i>
+              <span class="text nav-text">Dashboard</span>
+            </li>
+
+            <li class="nav-link" id="chat">
+              <i class="bi bi-chat-right icon"></i>
+              <span class="text nav-text">freshChat</span>
+            </li>
+
+            <li class="nav-link" id="camera">
+              <i class="bi bi-camera icon"></i>
+              <span class="text nav-text">fresh cam</span>
+            </li>
+
+            <li class="nav-link" id="invite">
+              <i class="fa-brands fa-battle-net icon"></i>
+              <span class="text nav-text">fresh invite</span>
+            </li>
+
+            <li class="nav-link" id="notification">
+              <i class="bx bx-bell icon"></i>
+              <span class="text nav-text">Notification</span>
+            </li>
+
+            <li class="nav-link" id="setting">
+              <i class="bi bi-gear icon"></i>
+              <span class="text nav-text">Setting</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bottom-content">
+          <li class="logOut">
+            <i class="bx bx-log-out icon"></i>
+            <span class="text nav-text">Logout</span>
+          </li>
+
+          <li class="mode">
+            <div class="sun-moon">
+              <i class="bx bx-moon icon moon"></i>
+              <i class="bx bx-sun icon sun"></i>
+            </div>
+            <span class="mode-text text">Dark mode</span>
+
+            <div class="toggle-switch">
+              <span class="switch"></span>
+            </div>
+          </li>
+        </div>
       </div>
     </nav>
 
-    <!-- side bar -->
+    <section class="home">
+      <!-- inside div container -->
 
-    <div class="side-bar">
-      <!-- side profile -->
-      <div class="chat-profile-area-container">
-        <div class="side-bar-profile-div">
-          <i class="fa-solid fa-circle-user" onclick="profile()"></i>
+      <div class="mention-whole-container">
+        <!-- notification boxes -->
+
+        <div class="mention-box-container">
+          <!-- inside area -->
+
+          <div class="mention-box-inside-container"></div>
         </div>
 
-        <div class="side-bar-control-div">
-          <i class="bi bi-house" onclick="home()"></i>
-          <i class="fa-solid fa-at" onclick="mention()"></i>
-          <i class="fa-solid fa-message" onclick="freshChat()"></i>
-          <i class="fa-solid fa-camera" onclick="freshCam()"></i>
-          <i class="fa-brands fa-battle-net" onclick="invite()"></i>
-          <i class="bi bi-bell" onclick="notification()"></i>
-          <i class="bi bi-gear" onclick="setting()"></i>
-        </div>
+        <hr id="hr" />
 
-        <div class="log-out-div">
-          <i class="bi bi-box-arrow-left"></i>
-        </div>
+        <!-- display side -->
+
+        <div class="display-container"></div>
       </div>
-    </div>
+    </section>
 
-    <!-- whole container -->
-
-    <div class="mention-whole-container">
-      <!-- notification boxes -->
-
-      <div class="mention-box-container">
-        <!-- inside area -->
-
-        <div class="mention-box-inside-container"></div>
-      </div>
-
-      <hr id="hr" />
-
-      <!-- display side -->
-
-      <div class="display-container"></div>
-    </div>
-
-    <!-- script source links -->
-    <script src="../node_modules/moment/moment.js"></script>
+    <!-- script files -->
+    <script src="../assets/js/side-bar.js"></script>
+    <script src="../assets/js/profile_user_find.js"></script>
     <script src="../assets/js/page-direction.js"></script>
     <script src="../assets/js/notification.js"></script>
   </body>
