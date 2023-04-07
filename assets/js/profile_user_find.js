@@ -13,3 +13,11 @@ let info = JSON.parse(window.localStorage.getItem("register"));
 
 let findUser = info.find((user) => user["userId"] == urlId);
 console.log(findUser);
+
+// profile image and details adding elements
+
+let profile_image = document.querySelector("#profile-image");
+let profile_name = document.querySelector(".name");
+
+profile_image.setAttribute("src", findUser["avatarUrl"]);
+profile_name.innerHTML = findUser["userName"];

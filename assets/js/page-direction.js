@@ -6,7 +6,7 @@ let chat = document.querySelector("#chat");
 let invite = document.querySelector("#invite");
 let setting = document.querySelector("#setting");
 let notification = document.querySelector("#notification");
-let profile = document.querySelector("#profile");
+let profile = document.querySelector(".image-text");
 let logOut = document.querySelector(".logOut");
 
 // home page direction location
