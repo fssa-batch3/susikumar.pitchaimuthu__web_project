@@ -6,7 +6,6 @@ let chat = document.querySelector("#chat");
 let invite = document.querySelector("#invite");
 let setting = document.querySelector("#setting");
 let notification = document.querySelector("#notification");
-let profile = document.querySelector(".image-text");
 let logOut = document.querySelector(".logOut");
 
 // home page direction location
@@ -44,12 +43,6 @@ setting.addEventListener("click", () => {
 
 chat.addEventListener("click", () => {
   window.location.href = "../pages/chat.html?user=" + findUser["userId"];
-});
-
-// profile picture direction
-
-profile.addEventListener("click", () => {
-  window.location.href = "../pages/profile.html";
 });
 
 // log out option javascript

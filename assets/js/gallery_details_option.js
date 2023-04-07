@@ -27,19 +27,49 @@ if (snap["imageFav"]) {
 // click to change the color
 
 likeOption.addEventListener("click", () => {
-  likeOption.style.backgroundColor = "red";
-  likeIcon.style.color = "white";
+  if (likeOption.style.backgroundColor === "transparent") {
+    likeOption.style.backgroundColor = "red";
+    likeIcon.style.color = "white";
 
-  let imageFavObject = {
-    imageFav: "favourite",
-  };
+    let imageFavObject = {
+      imageFav: "favourite",
+    };
 
-  let favObjectAssaign = Object.assign(snap, imageFavObject);
-  console.log(favObjectAssaign);
+    let favObjectAssaign = Object.assign(snap, imageFavObject);
+    console.log(favObjectAssaign);
 
-  let findImageIndex = imageGallery.indexOf(snap);
-  console.log(findImageIndex);
+    let findImageIndex = imageGallery.indexOf(snap);
+    console.log(findImageIndex);
 
-  (imageGallery[findImageIndex] = favObjectAssaign),
-    localStorage.setItem("image_url", JSON.stringify(imageGallery));
+    (imageGallery[findImageIndex] = favObjectAssaign),
+      localStorage.setItem("image_url", JSON.stringify(imageGallery));
+  } else {
+    likeOption.style.backgroundColor = "transparent";
+    likeIcon.style.color = "black";
+    let imageFavObject = {
+      imageFav: null,
+    };
+
+    let favObjectAssaign = Object.assign(snap, imageFavObject);
+    console.log(favObjectAssaign);
+
+    let findImageIndex = imageGallery.indexOf(snap);
+    console.log(findImageIndex);
+
+    (imageGallery[findImageIndex] = favObjectAssaign),
+      localStorage.setItem("image_url", JSON.stringify(imageGallery));
+  }
+
+  // let imageFavObject = {
+  //   imageFav: "favourite",
+  // };
+
+  // let favObjectAssaign = Object.assign(snap, imageFavObject);
+  // console.log(favObjectAssaign);
+
+  // let findImageIndex = imageGallery.indexOf(snap);
+  // console.log(findImageIndex);
+
+  // (imageGallery[findImageIndex] = favObjectAssaign),
+  //   localStorage.setItem("image_url", JSON.stringify(imageGallery));
 });

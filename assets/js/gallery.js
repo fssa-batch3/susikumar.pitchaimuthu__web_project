@@ -1,4 +1,6 @@
-let imageGallery = JSON.parse(localStorage.getItem("image_url"));
+let images = JSON.parse(localStorage.getItem("image_url"));
+
+let imageGallery = images.filter((e) => e["userId"] == findUser["userId"]);
 
 for (let i = 0; i < imageGallery.length; i++) {
   let imageContainer = document.createElement("div");

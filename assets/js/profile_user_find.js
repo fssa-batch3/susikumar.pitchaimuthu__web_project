@@ -21,3 +21,11 @@ let profile_name = document.querySelector(".name");
 
 profile_image.setAttribute("src", findUser["avatarUrl"]);
 profile_name.innerHTML = findUser["userName"];
+
+// profile picture direction
+
+let profile = document.querySelector(".image-text");
+
+profile.addEventListener("click", () => {
+  window.location.href = "../pages/profile.html";
+});

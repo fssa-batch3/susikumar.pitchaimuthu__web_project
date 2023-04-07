@@ -65,7 +65,7 @@ nav {
   align-items: center;
 }
 
-.profile-name-inside-container {
+.image-text {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -82,7 +82,7 @@ nav {
   height: 3em;
 }
 
-.profile-image {
+#profile-image {
   width: 3em;
   height: 2.5em;
   border-radius: 50%;
