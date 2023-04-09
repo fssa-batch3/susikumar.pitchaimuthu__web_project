@@ -127,7 +127,7 @@
   display: block;
   width: 96%;
   position: absolute;
-  height: 37em;
+  height: 30em;
   /* display: none; */
 }
 
@@ -167,6 +167,13 @@
 }
 
 /* chat adding person */
+
+.message-input-select-div-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  justify-content: center;
+}
 
 .members-showing-to-select-div-container {
   display: none;
@@ -251,7 +258,6 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
-  justify-content: center;
   width: 98%;
   height: 579px;
   overflow: scroll;
@@ -267,17 +273,19 @@
 
 .message-member-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 690px;
+  height: 697px;
   position: relative;
+  gap: 2em;
 }
 
 .chat-member-container {
   display: block;
   width: 98.6%;
-  height: 684px;
+  height: 590px;
   z-index: 2;
 }
 
@@ -285,7 +293,7 @@
   display: flex;
   flex-direction: column;
   width: 98.6%;
-  height: 649px;
+  height: 589px;
   overflow-y: scroll;
   gap: 7px;
   align-items: center;

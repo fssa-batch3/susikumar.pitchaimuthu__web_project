@@ -1,15 +1,29 @@
 // date filter image funtion
 
 // date getting elements
-let from = document.querySelector("#from");
-let to = document.querySelector("#to");
+
 let filterButton = document.querySelector(".filter-button");
 
 // filter button add eventListener
 
-filterButton.addEventListener("click", (from, to) => {
-  let diffrence = Math.abs(from - to);
-  console.log(diffrence);
+filterButton.addEventListener("click", () => {
+  let from = new Date(document.querySelector("#from").value);
+  let to = new Date(document.querySelector("#to").value);
+
+  let timeDifference = to.getTime() - from.getTime();
+  console.log(timeDifference);
+  let dayDifference = timeDifference / (1000 * 3600 * 24);
+  console.log(dayDifference);
+
+  // between dates
+
+  let days = [];
+
+  while (from.isSameOrBefore(to)) {
+    days.push(from.clone().format("DD/MM/YYYY"));
+    from.add(1, "days");
+  }
+  console.log(days);
 });
 
 // page redirection elements

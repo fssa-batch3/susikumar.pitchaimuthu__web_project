@@ -7,7 +7,10 @@ let addMemberDiv = document.querySelector(
 let chatterAdd = document.querySelector(".chat-adding-div-container");
 
 let memberShow = document.querySelector(".message-member-container");
-function addMembers(e) {
+
+let addImage = document.querySelector(".add-image-div");
+
+addImage.addEventListener("click", () => {
   console.log("susi");
 
   // make display none the add image
@@ -26,10 +29,15 @@ function addMembers(e) {
 
   console.log(chatStaticUser);
 
-  for (let i = 0; i < chatStaticUser.length; i++) {
+  // Getting data for all users to show to select the users for chat
+
+  let ourUsers = JSON.parse(localStorage.getItem("register"));
+  console.log(ourUsers);
+
+  for (let i = 0; i < ourUsers.length; i++) {
     let div = document.createElement("div");
     div.setAttribute("class", "members");
-    div.setAttribute("id", chatStaticUser[i]["userId"]);
+    div.setAttribute("id", ourUsers[i]["userId"]);
     div.setAttribute("onclick", "confirmUser(this.id)");
     // div.setAttribute("onclick", "userSelector(this.id)");
 
@@ -43,7 +51,7 @@ function addMembers(e) {
 
     let img = document.createElement("img");
     img.setAttribute("class", "member-image");
-    img.setAttribute("src", chatStaticUser[i]["user_image"]);
+    img.setAttribute("src", ourUsers[i]["user_image"]);
     image.append(img);
 
     let nameOne = document.createElement("div");
@@ -51,24 +59,16 @@ function addMembers(e) {
     image_div.append(nameOne);
 
     let para = document.createElement("p");
-    para.innerHTML = chatStaticUser[i]["user_name"];
+    para.innerHTML = ourUsers[i]["user_name"];
     nameOne.append(para);
 
     let paragraph = document.createElement("p");
-    paragraph.innerText = chatStaticUser[i]["chat"];
+    paragraph.innerText = ourUsers[i]["user_theme"];
     nameOne.append(paragraph);
-
-    let timeAgo = document.createElement("div");
-    timeAgo.setAttribute("id", "time-ago");
-    div.append(timeAgo);
-
-    let time = document.createElement("p");
-    time.innerHTML = chatStaticUser[i]["chat_time"];
-    timeAgo.append(time);
 
     document.querySelector(".showing-member-div").append(div);
   }
-}
+});
 
 // This function for  after selecting the user
 

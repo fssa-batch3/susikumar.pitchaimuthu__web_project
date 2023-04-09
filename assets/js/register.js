@@ -15,8 +15,6 @@ signUpFrom.addEventListener("submit", (event) => {
   const userName = document.getElementById("username").value.trim();
   const userEmail = document.getElementById("email").value.trim();
   const password = document.getElementById("password").value.trim();
-  const number = document.getElementById("mobilenumber").value.trim();
-  const age = document.getElementById("age").value.trim();
   let cryptoValue = Date.now();
   //
   let avatarText = firstElement.charAt(0);
@@ -74,9 +72,8 @@ signUpFrom.addEventListener("submit", (event) => {
       userName: userName,
       Email: userEmail.toLowerCase(),
       password: password,
-      mobileNumber: number,
-      age: age,
       avatarUrl: imageUrl,
+      userTheme: "Hey! I am using fresh nest",
     };
 
     console.log(userObj);
@@ -86,6 +83,6 @@ signUpFrom.addEventListener("submit", (event) => {
     const str = JSON.stringify(userData);
     localStorage.setItem("register", str);
     alert("Success");
-    window.location.href = "./login.html";
+    window.location.href = "./birthday.html?user=" + cryptoValue;
   }
 });

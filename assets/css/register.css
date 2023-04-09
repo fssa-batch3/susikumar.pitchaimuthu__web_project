@@ -35,13 +35,21 @@ body {
   border-radius: 0.8rem;
   box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px,
     rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
-  width: 850px;
+  width: 480px;
 }
 
 .register-div {
   display: flex;
   flex-direction: column;
   margin: 3em;
+}
+
+/* from css */
+
+#form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .input-container {

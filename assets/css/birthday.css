@@ -1,6 +1,5 @@
 body {
   background-color: #f7faff;
-  font-family: "Kanit", sans-serif;
 }
 
 .div-container {
@@ -16,20 +15,29 @@ body {
   height: 500px;
   flex-direction: column;
   justify-content: space-between;
-  margin: 20px;
 }
 
 .content-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   text-align: center;
   height: 480px;
+  gap: 3em;
+  margin: 20px;
 }
 
 .content-container-logo {
   width: 43%;
   padding-top: 25px;
+}
+
+/* birthday image and input container */
+
+.birthday-image-and-input-div-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3em;
 }
 
 /* celebration div */
@@ -75,9 +83,45 @@ body {
   width: 100%;
   height: 100%;
 }
+
+/* birthday page input container */
+
+.birthday-all-input-div-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+/* birthday input div  */
+
+.birthday-input-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
 #date-of-birth {
   padding: 10px 10px;
   font-size: 18px;
+}
+
+/* gender selection csss button */
+.input-label-div {
+  display: flex;
+  align-items: center;
+  gap: 2em;
+}
+
+.next-button {
+  width: 8em;
+  height: 2em;
+}
+
+/* next and previous button css */
+
+.submit-and-previous-button-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .next-back-div {
@@ -92,13 +136,6 @@ body {
   border: grey 1px solid;
 }
 
-.back-button {
-  display: flex;
-  width: 11%;
-  align-items: center;
-}
-
 .previous-arrow {
-  width: 100%;
-  height: 100%;
+  font-size: 2em;
 }
