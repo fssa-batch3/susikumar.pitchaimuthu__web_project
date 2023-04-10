@@ -4,7 +4,11 @@ console.log(GetInviteDetails);
 // dynamanic user invite box creation
 
 if (GetInviteDetails !== null) {
-  for (let i = 0; i < GetInviteDetails.length; i++) {
+  let thisUserInvite = GetInviteDetails.filter(
+    (e) => e["inviterId"] == findUser["userId"]
+  );
+
+  for (let i = 0; i < thisUserInvite.length; i++) {
     let userInviteBox = document.createElement("div");
     userInviteBox.setAttribute("class", "user-invite-box-container");
 
@@ -25,7 +29,7 @@ if (GetInviteDetails !== null) {
 
     let inviteImage = document.createElement("img");
     inviteImage.setAttribute("class", "invite-image");
-    inviteImage.setAttribute("src", GetInviteDetails[i]["inviteImage"]);
+    inviteImage.setAttribute("src", thisUserInvite[i]["inviteImage"]);
     inviteImageDiv.append(inviteImage);
 
     let inviteNameContentDiv = document.createElement("div");
@@ -34,12 +38,12 @@ if (GetInviteDetails !== null) {
 
     let inviteH3 = document.createElement("h3");
     inviteH3.setAttribute("class", "invite-h3");
-    inviteH3.innerHTML = GetInviteDetails[i]["inviteName"];
+    inviteH3.innerHTML = thisUserInvite[i]["inviteName"];
     inviteNameContentDiv.append(inviteH3);
 
     let invitePara = document.createElement("p");
     invitePara.setAttribute("class", "invite-para");
-    invitePara.innerHTML = GetInviteDetails[i]["inviteGlimpse"];
+    invitePara.innerHTML = thisUserInvite[i]["inviteGlimpse"];
     inviteNameContentDiv.append(invitePara);
 
     // reciever div container
@@ -62,7 +66,7 @@ if (GetInviteDetails !== null) {
 
     let receiverCount = document.createElement("p");
     receiverCount.setAttribute("class", "receiver-count");
-    receiverCount.innerHTML = GetInviteDetails.length;
+    receiverCount.innerHTML = thisUserInvite.length;
     receiverDiv.append(receiverCount);
 
     // receiver Notification count
@@ -93,7 +97,7 @@ if (GetInviteDetails !== null) {
     anger.setAttribute(
       "href",
       "../pages/invite_card.html?inviteId=" +
-        GetInviteDetails[i]["inviteId"] +
+        thisUserInvite[i]["inviteId"] +
         "&user=" +
         findUser["userId"]
     );
