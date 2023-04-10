@@ -65,12 +65,15 @@ editButton.addEventListener("click", (inv) => {
   let inviteEditObj = {
     inviteName,
     inviteDate,
-    inviteImage: image,
     inviteTime,
     inviteExplanation,
     inviteGlimpse,
     specialPerson,
   };
+
+  if (image !== null) {
+    inviteEditObj["inviteImage"] = image;
+  }
 
   console.log(inviteEditObj);
 

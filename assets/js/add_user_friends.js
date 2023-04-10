@@ -1,4 +1,10 @@
-let allUSerFriendsData = JSON.parse(localStorage.getItem("userChatFriends"));
+let freshChatUsers = JSON.parse(localStorage.getItem("userChatFriends"));
+console.log(freshChatUsers);
+
+console.log(findUser);
+let allUSerFriendsData = freshChatUsers.filter(
+  (e) => e["chooseUser"] == findUser["userId"]
+);
 console.log(allUSerFriendsData);
 
 if (allUSerFriendsData !== null) {

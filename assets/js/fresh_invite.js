@@ -2,106 +2,125 @@ let GetInviteDetails = JSON.parse(localStorage.getItem("userInvites"));
 console.log(GetInviteDetails);
 
 // dynamanic user invite box creation
-for (let i = 0; i < GetInviteDetails.length; i++) {
-  let userInviteBox = document.createElement("div");
-  userInviteBox.setAttribute("class", "user-invite-box-container");
 
-  let userInviteDiv = document.createElement("div");
-  userInviteDiv.setAttribute("class", "user-invite-div");
-  userInviteBox.append(userInviteDiv);
+if (GetInviteDetails !== null) {
+  for (let i = 0; i < GetInviteDetails.length; i++) {
+    let userInviteBox = document.createElement("div");
+    userInviteBox.setAttribute("class", "user-invite-box-container");
 
-  let inviteImageContentDiv = document.createElement("div");
-  inviteImageContentDiv.setAttribute("class", "invite-image-content-container");
-  userInviteDiv.append(inviteImageContentDiv);
+    let userInviteDiv = document.createElement("div");
+    userInviteDiv.setAttribute("class", "user-invite-div");
+    userInviteBox.append(userInviteDiv);
 
-  let inviteImageDiv = document.createElement("div");
-  inviteImageDiv.setAttribute("class", "invite-image-div");
-  inviteImageContentDiv.append(inviteImageDiv);
+    let inviteImageContentDiv = document.createElement("div");
+    inviteImageContentDiv.setAttribute(
+      "class",
+      "invite-image-content-container"
+    );
+    userInviteDiv.append(inviteImageContentDiv);
 
-  let inviteImage = document.createElement("img");
-  inviteImage.setAttribute("class", "invite-image");
-  inviteImage.setAttribute("src", GetInviteDetails[i]["inviteImage"]);
-  inviteImageDiv.append(inviteImage);
+    let inviteImageDiv = document.createElement("div");
+    inviteImageDiv.setAttribute("class", "invite-image-div");
+    inviteImageContentDiv.append(inviteImageDiv);
 
-  let inviteNameContentDiv = document.createElement("div");
-  inviteNameContentDiv.setAttribute("class", "invite-name-content-div");
-  inviteImageContentDiv.append(inviteNameContentDiv);
+    let inviteImage = document.createElement("img");
+    inviteImage.setAttribute("class", "invite-image");
+    inviteImage.setAttribute("src", GetInviteDetails[i]["inviteImage"]);
+    inviteImageDiv.append(inviteImage);
 
-  let inviteH3 = document.createElement("h3");
-  inviteH3.setAttribute("class", "invite-h3");
-  inviteH3.innerHTML = GetInviteDetails[i]["inviteName"];
-  inviteNameContentDiv.append(inviteH3);
+    let inviteNameContentDiv = document.createElement("div");
+    inviteNameContentDiv.setAttribute("class", "invite-name-content-div");
+    inviteImageContentDiv.append(inviteNameContentDiv);
 
-  let invitePara = document.createElement("p");
-  invitePara.setAttribute("class", "invite-para");
-  invitePara.innerHTML = GetInviteDetails[i]["inviteGlimpse"];
-  inviteNameContentDiv.append(invitePara);
+    let inviteH3 = document.createElement("h3");
+    inviteH3.setAttribute("class", "invite-h3");
+    inviteH3.innerHTML = GetInviteDetails[i]["inviteName"];
+    inviteNameContentDiv.append(inviteH3);
 
-  // reciever div container
+    let invitePara = document.createElement("p");
+    invitePara.setAttribute("class", "invite-para");
+    invitePara.innerHTML = GetInviteDetails[i]["inviteGlimpse"];
+    inviteNameContentDiv.append(invitePara);
 
-  let receiverEmojiContainer = document.createElement("div");
-  receiverEmojiContainer.setAttribute(
-    "class",
-    "receivers-notification-emoji-container"
-  );
-  userInviteDiv.append(receiverEmojiContainer);
+    // reciever div container
 
-  let receiverDiv = document.createElement("div");
-  receiverDiv.setAttribute("class", "receivers-div");
-  receiverEmojiContainer.append(receiverDiv);
+    let receiverEmojiContainer = document.createElement("div");
+    receiverEmojiContainer.setAttribute(
+      "class",
+      "receivers-notification-emoji-container"
+    );
+    userInviteDiv.append(receiverEmojiContainer);
 
-  let receiverPara = document.createElement("h3");
-  receiverPara.setAttribute("class", "receiver-name");
-  receiverPara.innerHTML = "Receivers";
-  receiverDiv.append(receiverPara);
+    let receiverDiv = document.createElement("div");
+    receiverDiv.setAttribute("class", "receivers-div");
+    receiverEmojiContainer.append(receiverDiv);
 
-  let receiverCount = document.createElement("p");
-  receiverCount.setAttribute("class", "receiver-count");
-  receiverCount.innerHTML = GetInviteDetails.length;
-  receiverDiv.append(receiverCount);
+    let receiverPara = document.createElement("h3");
+    receiverPara.setAttribute("class", "receiver-name");
+    receiverPara.innerHTML = "Receivers";
+    receiverDiv.append(receiverPara);
 
-  // receiver Notification count
+    let receiverCount = document.createElement("p");
+    receiverCount.setAttribute("class", "receiver-count");
+    receiverCount.innerHTML = GetInviteDetails.length;
+    receiverDiv.append(receiverCount);
 
-  let notificationDiv = document.createElement("div");
-  notificationDiv.setAttribute("class", "notification-div");
-  notificationDiv.setAttribute("onclick", "notification()");
-  receiverEmojiContainer.append(notificationDiv);
+    // receiver Notification count
 
-  let notificationI = document.createElement("i");
-  notificationI.setAttribute("class", "bi bi-bell");
-  notificationDiv.append(notificationI);
+    let notificationDiv = document.createElement("div");
+    notificationDiv.setAttribute("class", "notification-div");
+    notificationDiv.setAttribute("onclick", "notification()");
+    receiverEmojiContainer.append(notificationDiv);
 
-  // reaction
+    let notificationI = document.createElement("i");
+    notificationI.setAttribute("class", "bi bi-bell");
+    notificationDiv.append(notificationI);
 
-  let reactionDiv = document.createElement("div");
-  reactionDiv.setAttribute("class", "reaction-div");
-  reactionDiv.setAttribute("onclick", "notification()");
-  receiverEmojiContainer.append(reactionDiv);
+    // reaction
 
-  let reactionI = document.createElement("i");
-  reactionI.setAttribute("class", "bi bi-emoji-heart-eyes-fill");
-  reactionDiv.append(reactionI);
+    let reactionDiv = document.createElement("div");
+    reactionDiv.setAttribute("class", "reaction-div");
+    reactionDiv.setAttribute("onclick", "notification()");
+    receiverEmojiContainer.append(reactionDiv);
 
-  //   update option
+    let reactionI = document.createElement("i");
+    reactionI.setAttribute("class", "bi bi-emoji-heart-eyes-fill");
+    reactionDiv.append(reactionI);
 
-  let anger = document.createElement("a");
-  anger.setAttribute(
-    "href",
-    "../pages/invite_card.html?inviteId=" + GetInviteDetails[i]["inviteId"]
-  );
+    //   update option
 
-  receiverEmojiContainer.append(anger);
+    let anger = document.createElement("a");
+    anger.setAttribute(
+      "href",
+      "../pages/invite_card.html?inviteId=" +
+        GetInviteDetails[i]["inviteId"] +
+        "&user=" +
+        findUser["userId"]
+    );
 
-  let updateOptionDiv = document.createElement("div");
-  updateOptionDiv.setAttribute("class", "update-option-div");
+    receiverEmojiContainer.append(anger);
 
-  anger.append(updateOptionDiv);
+    let updateOptionDiv = document.createElement("div");
+    updateOptionDiv.setAttribute("class", "update-option-div");
 
-  let updateI = document.createElement("i");
-  updateI.setAttribute("class", "bi bi-credit-card-2-front");
-  updateOptionDiv.append(updateI);
+    anger.append(updateOptionDiv);
 
-  document
-    .querySelector(".invitation-showing-area-container")
-    .append(userInviteBox);
+    let updateI = document.createElement("i");
+    updateI.setAttribute("class", "bi bi-credit-card-2-front");
+    updateOptionDiv.append(updateI);
+
+    document
+      .querySelector(".invitation-showing-area-container")
+      .append(userInviteBox);
+  }
 }
+
+// page redirection function for to redirect to invite add page
+
+let invitePageElement = document.querySelector(".invite-inside-div-container");
+console.log(invitePageElement);
+
+invitePageElement.addEventListener("click", () => {
+  window.location.href =
+    "../pages/add_invite_form.html?user=" + findUser["userId"];
+});

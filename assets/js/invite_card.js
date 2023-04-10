@@ -1,14 +1,12 @@
 // create user profile div creation
 
-console.log(found);
-
 let profileNameDiv = document.createElement("div");
 profileNameDiv.setAttribute("class", "profile-user-nmae-div");
 document.querySelector(".invite-inside-profile-div").append(profileNameDiv);
 
 let profileName = document.createElement("p");
 profileName.setAttribute("class", "prfile-user-name");
-profileName.innerHTML = found["userName"];
+profileName.innerHTML = findUser["userName"];
 profileNameDiv.append(profileName);
 
 let profileDiv = document.createElement("div");
@@ -17,7 +15,7 @@ document.querySelector(".invite-inside-profile-div").append(profileDiv);
 
 let profileImg = document.createElement("img");
 profileImg.setAttribute("class", "profile-image");
-profileImg.setAttribute("src", found["avatarUrl"]);
+profileImg.setAttribute("src", findUser["avatarUrl"]);
 profileDiv.append(profileImg);
 
 // using url parameters for get a invite id
