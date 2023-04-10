@@ -175,19 +175,6 @@
   justify-content: center;
 }
 
-.members-showing-to-select-div-container {
-  display: none;
-  width: 100%;
-  height: auto;
-}
-
-.members-showing-inside-div-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-
 .members-and-input-div {
   display: flex;
   flex-direction: column;
@@ -247,9 +234,7 @@
 /* showing all the member */
 
 .showing-all-members-div-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: none;
   width: 100%;
   height: 585px;
 }
@@ -257,6 +242,7 @@
 .showing-member-div {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 4px;
   width: 98%;
   height: 579px;

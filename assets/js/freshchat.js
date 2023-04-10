@@ -2,7 +2,7 @@
 
 function userSelector(userSelect) {
   console.log(userSelect);
-  let userSelectionParse = JSON.parse(localStorage.getItem("userStaticData"));
+  let userSelectionParse = JSON.parse(localStorage.getItem("register"));
 
   let userSelectionIdFind = userSelectionParse.find(
     (e) => e["userId"] == userSelect
@@ -40,7 +40,7 @@ function userSelector(userSelect) {
 
   let chatUserImage = document.createElement("img");
   chatUserImage.setAttribute("class", "chat-user-image");
-  chatUserImage.setAttribute("src", userSelectionIdFind["user_image"]);
+  chatUserImage.setAttribute("src", userSelectionIdFind["avatarUrl"]);
   chatPersonDiv.append(chatUserImage);
 
   let chatPersonContentDiv = document.createElement(
@@ -52,7 +52,7 @@ function userSelector(userSelect) {
 
   let nameH3 = document.createElement("h3");
   nameH3.setAttribute("id", "chat-user-name");
-  nameH3.innerHTML = userSelectionIdFind["user_name"];
+  nameH3.innerHTML = userSelectionIdFind["userName"];
   chatPersonContentDiv.append(nameH3);
 
   let contentPara = document.createElement("p");

@@ -4,158 +4,120 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Register</title>
-    <link rel="stylesheet" href="../assets/css/register.css" />
+    <title>Log In</title>
+    <link rel="stylesheet" href="../assets/css/login.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
   </head>
   <body>
-    <section class="register-section">
-      <div class="register-container">
-        <div class="register-div">
-          <h1>Registration form</h1>
+    <section class="login-section">
+      <div class="whole-container">
+        <div class="welcome-container">
+          <h1 class="welcome-head">welcome to Fresh Nest</h1>
+
+          <p class="login-paragraph">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet,
+            itaque accusantium odio, soluta, corrupti aliquam quibusdam tempora
+            at cupiditate quis eum maiores libero veritatis? Dicta facilis sint
+            aliquid ipsum atque?
+          </p>
+        </div>
+        <div class="login-container">
+          <h2 class="sign-in-head">Sign Up</h2>
 
           <form id="form">
             <div class="input-container">
-              <div class="input-label-div">
-                <label id="label" for="text">First name</label>
-                <input
-                  id="firstname"
-                  type="text"
-                  name="fname"
-                  placeholder="Enter name"
-                  autocomplete="hfshfksdkbkj"
-                  title="enter first name"
-                  required
-                  type="text"
-                />
-              </div>
-            </div>
-
-            <div class="input-container">
-              <div class="input-label-div">
-                <label id="label" for="text">Last Name </label>
-                <input
-                  id="lastname"
-                  type="text"
-                  name="lastname"
-                  placeholder="Enter name"
-                  autocomplete="hfshfksdkbkj"
-                  title="enter first name"
-                  required
-                  type="text"
-                />
-              </div>
-            </div>
-
-            <div class="input-container">
-              <div class="input-label-div">
-                <label id="label" for="text">Email ID</label>
-                <input
-                  id="email"
-                  type="email"
-                  name="email"
-                  placeholder="@mail.com"
-                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-                  title="Enter your Email id"
-                  required
-                  type="text"
-                />
-              </div>
-            </div>
-
-            <div class="input-container">
-              <div class="input-label-div">
-                <label id="label" for="text"> Password</label>
-                <input
-                  id="password"
-                  type="password"
-                  name="password"
-                  placeholder="password"
-                  autocomplete="54962782"
-                  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                  title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters"
-                  required
-                  type="text"
-                />
-              </div>
-            </div>
-
-            <div class="input-container">
-              <div class="input-label-div">
-                <label id="label" for="text">User name</label>
-                <input
-                  id="username"
-                  type="text"
-                  name="lastname"
-                  placeholder="Enter name"
-                  autocomplete="hfshfksdkbkj"
-                  title="enter first name"
-                  required
-                  type="text"
-                />
-              </div>
-            </div>
-
-            <div class="input-container">
-              <div class="input-label-div">
-                <h4 class="mb-2 pb-1">Gender:</h4>
-
-                <div class="form-check form-check-inline">
+              <div>
+                <label class="label">
                   <input
-                    class="form-check-input"
-                    type="radio"
-                    name="inlineRadioOptions"
-                    id="femaleGender"
-                    value="option1"
-                    checked
+                    type="text"
+                    id="firstname"
+                    name="email"
+                    autocomplete="hdfhshjfj"
+                    required
                   />
-                  <label class="form-check-label" for="femaleGender"
-                    >Female</label
-                  >
-                </div>
+                  <span class="placeholder">First name</span></label
+                >
+              </div>
 
-                <div class="form-check form-check-inline">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="inlineRadioOptions"
-                    id="maleGender"
-                    value="option2"
-                  />
-                  <label class="form-check-label" for="maleGender">Male</label>
-                </div>
+              <div>
+                <label class="label">
+                  <input type="text" id="lastname" name="password" required />
+                  <span class="placeholder">Last name</span></label
+                >
+              </div>
 
-                <div class="form-check form-check-inline">
+              <div>
+                <label class="label">
+                  <input type="text" id="username" name="password" required />
+                  <span class="placeholder">User name</span></label
+                >
+              </div>
+
+              <div>
+                <label class="label">
+                  <input type="email" id="email" name="password" required />
+                  <span class="placeholder">Email ID</span></label
+                >
+              </div>
+              <div>
+                <label class="label">
                   <input
-                    class="form-check-input"
-                    type="radio"
-                    name="inlineRadioOptions"
-                    id="otherGender"
-                    value="option3"
+                    type="password"
+                    id="password"
+                    name="password"
+                    required
                   />
-                  <label class="form-check-label" for="otherGender"
-                    >Other</label
-                  >
-                </div>
+                  <span class="placeholder">Password</span></label
+                >
               </div>
             </div>
 
-            <div class="button-div">
-              <button id="button" type="submit" value="submit">Next</button>
+            <div class="button-error-container">
+              <div><h3></h3></div>
+              <div class="button-div">
+                <button class="login-button" type="submit">Next</button>
+              </div>
             </div>
           </form>
 
-          <div class="logIn-container">
-            <div class="logIn-div">
-              <p>
-                Have already an account?
-                <a href="../pages/logIn.html"><span> Login here</span></a>
-              </p>
+          <div class="or-div">
+            <p>-----------------------</p>
+            <span>OR</span>
+            <p>-----------------------</p>
+          </div>
+
+          <div class="button-content-container">
+            <div>
+              <h3>Sign with</h3>
             </div>
+            <div class="button-container">
+              <button class="sign-button">
+                <i class="fa fa-twitter fa-2x"></i>
+              </button>
+              <button class="sign-button">
+                <i class="fa fa-google fa-2x"></i>
+              </button>
+              <button class="sign-button">
+                <i class="fa fa-facebook fa-2x"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="sign-up-div">
+            <h4 class="sign-up-link">
+              Already have an account?
+              <a href="../pages/Register.html"><span>Log in here</span></a>
+            </h4>
           </div>
         </div>
       </div>
     </section>
-    <!-- <script src="../assets/js/user_crud.js"></script> -->
+
+    <!-- register script files -->
+
     <script src="../assets/js/register.js"></script>
   </body>
 </html>

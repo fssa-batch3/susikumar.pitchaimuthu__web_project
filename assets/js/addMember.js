@@ -1,22 +1,18 @@
 // adding user function
 
-let addMemberDiv = document.querySelector(
-  ".members-showing-to-select-div-container"
-);
+let addMemberDiv = document.querySelector(".showing-all-members-div-container");
 
-let chatterAdd = document.querySelector(".chat-adding-div-container");
+let memberShow = document.querySelector(".chat-member-container");
 
-let memberShow = document.querySelector(".message-member-container");
-
-let addImage = document.querySelector(".add-image-div");
+let addImage = document.querySelector(".chat-adding-div-container");
 
 addImage.addEventListener("click", () => {
   console.log("susi");
 
   // make display none the add image
 
-  if ((chatterAdd.style.display = "block")) {
-    chatterAdd.style.display = "none";
+  if ((addImage.style.display = "block")) {
+    addImage.style.display = "none";
   }
 
   if ((memberShow.style.display = "block")) {
@@ -27,17 +23,18 @@ addImage.addEventListener("click", () => {
     addMemberDiv.style.display = "block";
   }
 
-  console.log(chatStaticUser);
-
   // Getting data for all users to show to select the users for chat
 
   let ourUsers = JSON.parse(localStorage.getItem("register"));
   console.log(ourUsers);
 
-  for (let i = 0; i < ourUsers.length; i++) {
+  let exceptUser = ourUsers.filter((e) => e["userId"] !== findUser["userId"]);
+  console.log(exceptUser);
+
+  for (let i = 0; i < exceptUser.length; i++) {
     let div = document.createElement("div");
     div.setAttribute("class", "members");
-    div.setAttribute("id", ourUsers[i]["userId"]);
+    div.setAttribute("id", exceptUser[i]["userId"]);
     div.setAttribute("onclick", "confirmUser(this.id)");
     // div.setAttribute("onclick", "userSelector(this.id)");
 
@@ -51,7 +48,7 @@ addImage.addEventListener("click", () => {
 
     let img = document.createElement("img");
     img.setAttribute("class", "member-image");
-    img.setAttribute("src", ourUsers[i]["user_image"]);
+    img.setAttribute("src", exceptUser[i]["avatarUrl"]);
     image.append(img);
 
     let nameOne = document.createElement("div");
@@ -59,11 +56,11 @@ addImage.addEventListener("click", () => {
     image_div.append(nameOne);
 
     let para = document.createElement("p");
-    para.innerHTML = ourUsers[i]["user_name"];
+    para.innerHTML = exceptUser[i]["userName"];
     nameOne.append(para);
 
     let paragraph = document.createElement("p");
-    paragraph.innerText = ourUsers[i]["user_theme"];
+    paragraph.innerText = exceptUser[i]["userTheme"];
     nameOne.append(paragraph);
 
     document.querySelector(".showing-member-div").append(div);
@@ -75,8 +72,10 @@ addImage.addEventListener("click", () => {
 function confirmUser(e) {
   console.log(e);
 
+  console.log("manisha");
+
   let clickUserId = e;
-  let userSelectionParse = JSON.parse(localStorage.getItem("userStaticData"));
+  let userSelectionParse = JSON.parse(localStorage.getItem("register"));
   console.log(userSelectionParse);
 
   let findConfirmUser = userSelectionParse.find(
@@ -114,7 +113,13 @@ function confirmUser(e) {
   }
 
   console.log("Naan");
-  confirmFriendArr.push(findConfirmUser);
+
+  let choosedUseObject = {
+    chooseUser: findUser["userId"],
+  };
+
+  let findUserObject = Object.assign(choosedUseObject, findConfirmUser);
+  confirmFriendArr.push(findUserObject);
   console.log(confirmFriendArr);
 
   localStorage.setItem("userChatFriends", JSON.stringify(confirmFriendArr));
@@ -123,12 +128,12 @@ function confirmUser(e) {
     addMemberDiv.style.display = "none";
   }
 
-  if ((chatterAdd.style.display = "none")) {
-    chatterAdd.style.display = "block";
+  if ((addImage.style.display = "none")) {
+    addImage.style.display = "block";
   }
 
   if ((memberShow.style.display = "none")) {
     memberShow.style.display = "block";
   }
-  location.reload();
+  // location.reload();
 }
