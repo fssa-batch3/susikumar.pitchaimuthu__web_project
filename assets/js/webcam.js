@@ -48,7 +48,7 @@ snap.addEventListener("click", () => {
   // console.log(imageUrl);
   let imageName = Date.now();
 
-  let imageDate = moment().format("MMMM Do YYYY");
+  let imageDate = moment().format("l");
   let imageTime = moment().format("LT");
   console.log(imageTime);
 

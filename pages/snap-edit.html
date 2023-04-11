@@ -264,5 +264,13 @@
     <!-- script -->
     <script src="../assets/js/profile_user_find.js"></script>
     <script src="../assets/js/gallery_edit.js"></script>
+    <script src="https://github.com/fengyuanchen/cropperjs"></script>
+    <script>
+      let imagesCrop = document.querySelector(".user-still");
+      console.log(imagesCrop);
+      let crop = new Cropper(imagesCrop, {
+        aspectaRatio: 0,
+      });
+    </script>
   </body>
 </html>

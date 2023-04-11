@@ -73,3 +73,26 @@ likeOption.addEventListener("click", () => {
   // (imageGallery[findImageIndex] = favObjectAssaign),
   //   localStorage.setItem("image_url", JSON.stringify(imageGallery));
 });
+
+// image delete option eventListner function
+
+let deleteImage = document.querySelector(".delete-option");
+
+console.log(imageGallery);
+
+imageGallery.splice;
+
+deleteImage.addEventListener("click", () => {
+  console.log(imageGallery[imageIndexNumber]);
+  console.log(imageIndexNumber);
+  let message = confirm("Are sure to delete this image?");
+  if (message !== true) {
+    return;
+  } else {
+    imageGallery.splice(imageIndexNumber, 1);
+    console.log(imageGallery);
+    localStorage.setItem("image_url", JSON.stringify(imageGallery));
+    window.location.href =
+      "../pages/snap-gallery.html?user=" + findUser["userId"];
+  }
+});

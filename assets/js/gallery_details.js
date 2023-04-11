@@ -26,6 +26,10 @@ let snap = imageGallery.find(function (userObj) {
 
 console.log(snap);
 
+// image index number finding function
+
+let imageIndexNumber = imageGallery.indexOf(snap);
+console.log(imageIndexNumber);
 // image url element
 
 let snapshot = document.createElement("img");
@@ -83,15 +87,15 @@ likeButton.append(like_p);
 
 let shareButton = document.createElement("button");
 shareButton.setAttribute("id", snap["imageId"]);
-shareButton.setAttribute("class", "option-div");
+shareButton.setAttribute("class", "option-div delete-option");
 imageEditDiv.append(shareButton);
 
 let share_i = document.createElement("i");
-share_i.setAttribute("class", "bi bi-share");
+share_i.setAttribute("class", "bi bi-x-diamond");
 shareButton.append(share_i);
 
 let share_p = document.createElement("p");
-share_p.innerHTML = "Share";
+share_p.innerHTML = "Delete";
 shareButton.append(share_p);
 
 document.querySelector(".image-option-next-option-div").append(imageEditDiv);
