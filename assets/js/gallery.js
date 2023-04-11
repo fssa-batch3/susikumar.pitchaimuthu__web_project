@@ -40,19 +40,19 @@ for (let i = 0; i < imageGallery.length; i++) {
 
 // saving the image id for the update and feature
 
-function deleteImage(imageId) {
-  console.log(imageId);
+// function deleteImage(imageId) {
+//   console.log(imageId);
 
-  let imageIdArr = [];
+//   let imageIdArr = [];
 
-  if (localStorage.getItem("imageIdData") !== null) {
-    imageIdArr = JSON.parse(localStorage.getItem("imageIdData"));
-  }
+//   if (localStorage.getItem("imageIdData") !== null) {
+//     imageIdArr = JSON.parse(localStorage.getItem("imageIdData"));
+//   }
 
-  let imageIdObject = {
-    imageId: imageId,
-  };
-  imageIdArr.push(imageIdObject);
+//   let imageIdObject = {
+//     imageId: imageId,
+//   };
+//   imageIdArr.push(imageIdObject);
 
-  localStorage.setItem("imageIdData", JSON.stringify(imageIdArr));
-}
+//   localStorage.setItem("imageIdData", JSON.stringify(imageIdArr));
+// }

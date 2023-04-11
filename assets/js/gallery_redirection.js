@@ -7,17 +7,20 @@ let filterButton = document.querySelector(".filter-button");
 
 // filter button add eventListener
 
-Date.prototype.addDays = function (days) {
-  var date = new Date(this.valueOf());
-  date.setDate(date.getDate() + days);
-  return date;
-};
-
 filterButton.addEventListener("click", () => {
   let from = new Date(document.querySelector("#from").value);
   let to = new Date(document.querySelector("#to").value);
 
   let dateArray = [];
+
+  Date.prototype.addDays = function (days) {
+    var date = new Date(this.valueOf());
+    date.setDate(date.getDate() + days);
+    return date;
+  };
+
+  console.log(from);
+  console.log(to);
 
   while (from <= to) {
     let dateAndYear = new Date(from);
@@ -205,13 +208,15 @@ favourite_image.addEventListener("click", () => {
 latest.addEventListener("click", () => {
   if (imageContainer.hasChildNodes()) {
     let image_div = document.querySelectorAll(".card-container");
-
     for (let i = 0; i < image_div.length; i++) {
       image_div[i].remove();
     }
   }
+
+  let today = moment().format("l");
+  console.log(today);
+
   let IST = new Date();
-  console.log(IST);
   let priorDate = new Date(new Date().setDate(IST.getDate() - 7));
 
   console.log(priorDate);
@@ -228,17 +233,10 @@ latest.addEventListener("click", () => {
 
   let latestPicArray = [];
 
-  let today = moment().format("l");
-  console.log(today);
+  let currentDate = new Date(endDate);
 
-  Date.prototype.extraDays = function (days) {
-    let date = new Date(this.valueOf());
-    date.setDate(date.getDate() + days);
-    return date;
-  };
-
-  while (endDate <= today) {
-    let latesetDate = new Date(endDate);
+  while (currentDate <= new Date(today)) {
+    let latesetDate = new Date(currentDate);
     let latestPic =
       latesetDate.getMonth() +
       1 +
@@ -248,15 +246,146 @@ latest.addEventListener("click", () => {
       latesetDate.getFullYear();
     console.log(latestPic);
     latestPicArray.push(latestPic);
-    endDate = endDate.extraDays(1);
+    currentDate.setDate(currentDate.getDate() + 1);
   }
 
   console.log(latestPicArray);
+
+  // Creating for loop function find the all latest pics
+
+  let filterLatestImage = [];
+
+  for (let i = 0; i < latestPicArray.length; i++) {
+    for (let j = 0; j < images.length; j++) {
+      if (images[j]["imageDate"] == latestPicArray[i]) {
+        filterLatestImage.push(images[j]);
+      }
+    }
+  }
+  console.log(filterLatestImage);
+
+  for (let i = 0; i < filterLatestImage.length; i++) {
+    let imageContainer = document.createElement("div");
+    imageContainer.setAttribute("class", "card-container");
+    imageContainer.setAttribute("id", filterLatestImage[i]["imageId"]);
+
+    //
+    let image_name_container = document.createElement("div");
+    image_name_container.setAttribute("class", "image-name-container");
+    imageContainer.append(image_name_container);
+
+    let image = document.createElement("img");
+    image.setAttribute("id", filterLatestImage[i]["imageId"]);
+    image.setAttribute("src", filterLatestImage[i]["imageLink"]);
+    image.setAttribute("alt", "userSnaps");
+    image.setAttribute("class", "taking-image");
+    image_name_container.append(image);
+
+    let image_name = document.createElement("p");
+    image_name.setAttribute("class", "snap-name");
+    image_name.innerHTML = filterLatestImage[i]["imageName"];
+    image_name_container.append(image_name);
+
+    document
+      .querySelector(".second-section-container-div")
+      .append(imageContainer);
+  }
 });
 
 // recently deleted images add eventListener function
 
-recent.addEventListener("click", () => {});
+recent.addEventListener("click", () => {
+  if (imageContainer.hasChildNodes()) {
+    let image_div = document.querySelectorAll(".card-container");
+    for (let i = 0; i < image_div.length; i++) {
+      image_div[i].remove();
+    }
+  }
+
+  let now = moment().format("l");
+  console.log(now);
+
+  let last = new Date();
+  let lastDate = new Date(new Date().setDate(last.getDate() - 28));
+
+  console.log(lastDate);
+
+  let destiDate =
+    lastDate.getMonth() +
+    1 +
+    "/" +
+    lastDate.getDate() +
+    "/" +
+    lastDate.getFullYear();
+
+  console.log(destiDate);
+
+  let recentDeleteDateArray = [];
+
+  let startDate = new Date(destiDate);
+
+  while (startDate <= new Date(now)) {
+    let forDate = new Date(startDate);
+    let latestDeletePic =
+      forDate.getMonth() +
+      1 +
+      "/" +
+      forDate.getDate() +
+      "/" +
+      forDate.getFullYear();
+    console.log(latestDeletePic);
+    recentDeleteDateArray.push(latestDeletePic);
+    startDate.setDate(startDate.getDate() + 1);
+  }
+
+  console.log(recentDeleteDateArray);
+
+  // Creating for loop function get the recent delete pics
+
+  let recentImageData = JSON.parse(
+    localStorage.getItem("recentDeleteImageData")
+  );
+  console.log(recentImageData);
+
+  let filterDeleteImage = [];
+
+  for (let i = 0; i < recentDeleteDateArray.length; i++) {
+    for (let j = 0; j < recentImageData.length; j++) {
+      if (recentImageData[j]["imageDate"] == recentDeleteDateArray[i]) {
+        filterDeleteImage.push(recentImageData[j]);
+      }
+    }
+  }
+
+  console.log(filterDeleteImage);
+
+  for (let i = 0; i < filterDeleteImage.length; i++) {
+    let imageContainer = document.createElement("div");
+    imageContainer.setAttribute("class", "card-container");
+    imageContainer.setAttribute("id", filterDeleteImage[i]["imageId"]);
+
+    //
+    let image_name_container = document.createElement("div");
+    image_name_container.setAttribute("class", "image-name-container");
+    imageContainer.append(image_name_container);
+
+    let image = document.createElement("img");
+    image.setAttribute("id", filterDeleteImage[i]["imageId"]);
+    image.setAttribute("src", filterDeleteImage[i]["imageLink"]);
+    image.setAttribute("alt", "userSnaps");
+    image.setAttribute("class", "taking-image");
+    image_name_container.append(image);
+
+    let image_name = document.createElement("p");
+    image_name.setAttribute("class", "snap-name");
+    image_name.innerHTML = filterDeleteImage[i]["imageName"];
+    image_name_container.append(image_name);
+
+    document
+      .querySelector(".second-section-container-div")
+      .append(imageContainer);
+  }
+});
 
 // camera page direction location
 
