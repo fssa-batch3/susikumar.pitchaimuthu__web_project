@@ -4,8 +4,8 @@ function showInvite(invId) {
   presentInvId = invId;
   // checking invite to know whose invite is this...
 
-  let findPresentInvite = userFriendsInvites.find(
-    (preInv) => preInv["invite_id"] == presentInvId
+  let findPresentInvite = friendsInvitesData.find(
+    (preInv) => preInv["inviteId"] == presentInvId
   );
   console.log(findPresentInvite);
 
@@ -34,6 +34,11 @@ function showInvite(invId) {
 
   inviteShowingContainer.append(inviteDetailsShowInsideDiv);
 
+  let inviteImage = document.createElement("img");
+  inviteImage.setAttribute("class", "invite-images");
+  inviteImage.setAttribute("src", findPresentInvite["inviteImage"]);
+  inviteDetailsShowInsideDiv.append(inviteImage);
+
   // invite option like and comment option
 
   let likeCommentOptionDivContainer = document.createElement("div");
@@ -54,7 +59,7 @@ function showInvite(invId) {
 
   let heartDiv = document.createElement("div");
   heartDiv.setAttribute("class", "heart-div");
-  heartDiv.setAttribute("id", findPresentInvite["invite_id"]);
+  heartDiv.setAttribute("id", findPresentInvite["inviteId"]);
   likeCommentInsideDiv.append(heartDiv);
 
   let heartI = document.createElement("i");
@@ -63,7 +68,7 @@ function showInvite(invId) {
 
   let okDiv = document.createElement("div");
   okDiv.setAttribute("class", "ok-div");
-  okDiv.setAttribute("id", findPresentInvite["invite_id"]);
+  okDiv.setAttribute("id", findPresentInvite["inviteId"]);
   likeCommentInsideDiv.append(okDiv);
 
   let okI = document.createElement("i");
@@ -72,7 +77,7 @@ function showInvite(invId) {
 
   let sorryDiv = document.createElement("div");
   sorryDiv.setAttribute("class", "sorry-div");
-  sorryDiv.setAttribute("id", findPresentInvite["invite_id"]);
+  sorryDiv.setAttribute("id", findPresentInvite["inviteId"]);
   likeCommentInsideDiv.append(sorryDiv);
 
   let sorryI = document.createElement("i");
@@ -101,7 +106,7 @@ function showInvite(invId) {
 
   let inviterImage = document.createElement("img");
   inviterImage.setAttribute("class", "inviter-image");
-  inviterImage.setAttribute("src", findPresentInvite["inviter_url"]);
+  inviterImage.setAttribute("src", findPresentInvite["inviterImage"]);
   inviterImage.setAttribute("alt", "invite-user-image");
   inviterUserProfileDiv.append(inviterImage);
 
@@ -133,13 +138,13 @@ function showInvite(invId) {
 
   let sendArrowI = document.createElement("i");
   sendArrowI.setAttribute("class", "bi bi-arrow-up-right-circle");
-  sendArrowI.setAttribute("id", findPresentInvite["invite_id"]);
+  sendArrowI.setAttribute("id", findPresentInvite["inviteId"]);
   sendArrowI.setAttribute("onclick", "inviteChatNotification(this.id)");
   inviteReplyEmojiInsideDiv.append(sendArrowI);
 
   let keyboardDiv = document.createElement("div");
   keyboardDiv.setAttribute("class", "keyboard-div");
-  keyboardDiv.setAttribute("id", findPresentInvite["invite_id"]);
+  keyboardDiv.setAttribute("id", findPresentInvite["inviteId"]);
   inviteMessageEmojiReplyDiv.append(keyboardDiv);
 
   let keyboardI = document.createElement("i");

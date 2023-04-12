@@ -11,10 +11,10 @@ function inviteChatNotification(noti) {
     );
   }
 
-  let findCurrentUser = JSON.parse(localStorage.getItem("userFriendsInvites"));
+  let findCurrentUser = JSON.parse(localStorage.getItem("userInvites"));
 
   let findObjectInvites = findCurrentUser.find(
-    (inviteObj) => inviteObj["invite_id"] == noti
+    (inviteObj) => inviteObj["inviteId"] == noti
   );
   console.log(findObjectInvites);
 
@@ -23,18 +23,22 @@ function inviteChatNotification(noti) {
   let inviteNotiId = Date.now();
   let inviteTime = moment().format("LT");
   let inviteDate = moment().format("L");
-  let invite_person_url = findObjectInvites["inviter_url"];
-  let inviter_person = findObjectInvites["invite_user"];
-  let inviter_id = findObjectInvites["invite_id"];
+  let invite_person_url = findUser["avatarUrl"];
+  let notification_person = findUser["userName"];
+  let inviter_id = findObjectInvites["inviterId"];
+  let notificationer_id = findUser["userId"];
+  let notification_file = findObjectInvites["inviteImage"];
 
   let inviteObject = {
     inviteChat,
     inviteNotiId,
     inviteTime,
     inviteDate,
-    inviter_person,
+    notification_person,
     invite_person_url,
-    inviter_id: inviter_id + inviteNotiId,
+    notificationer_id,
+    notification_receiver_id: inviter_id,
+    notification_file,
   };
 
   console.log(inviteObject);

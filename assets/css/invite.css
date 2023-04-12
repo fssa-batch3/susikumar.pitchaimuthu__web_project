@@ -247,19 +247,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 70%;
+  width: 24%;
   height: 5em;
   cursor: pointer;
 }
 
 .invite-inside-div {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   flex-direction: column;
   align-items: center;
   width: 14em;
   gap: 0.6em;
-  height: 2.2em;
+  height: 4.2em;
 }
 
 .invite-yes-no-div {
@@ -322,6 +322,13 @@
   /* background-color: aqua; */
   height: 590px;
   position: relative;
+  justify-content: center;
+  height: 100%;
+}
+
+.invite-images {
+  width: 97%;
+  height: 100%;
 }
 
 /* invite type video  */

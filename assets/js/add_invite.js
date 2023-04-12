@@ -82,6 +82,8 @@ inviteForm.addEventListener("submit", () => {
     inviteExplanation,
     inviteId,
     inviterId: findUser["userId"],
+    inviterName: findUser["userName"],
+    inviterImage: findUser["avatarUrl"],
   };
 
   console.log(inviteObj);

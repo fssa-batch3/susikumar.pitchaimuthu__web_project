@@ -3,10 +3,16 @@
 let notiData = JSON.parse(localStorage.getItem("inviteNotificationData"));
 console.log(notiData);
 
-for (let i = 0; i < notiData.length; i++) {
+let userNotiData = notiData.filter(
+  (e) => e["notification_receiver_id"] == findUser["userId"]
+);
+
+console.log(userNotiData);
+
+for (let i = 0; i < userNotiData.length; i++) {
   let whole_div = document.createElement("div");
   whole_div.setAttribute("class", "mention-box-div");
-  whole_div.setAttribute("id", notiData[i]["inviter_id"]);
+  whole_div.setAttribute("id", userNotiData[i]["inviteNotiId"]);
   whole_div.setAttribute("onclick", "findInviteUser(this.id)");
 
   let mention_box_insie = document.createElement("div");
@@ -23,7 +29,7 @@ for (let i = 0; i < notiData.length; i++) {
 
   let pro_image = document.createElement("img");
   pro_image.setAttribute("class", "mention-profile-image");
-  pro_image.setAttribute("src", notiData[i]["invite_person_url"]);
+  pro_image.setAttribute("src", userNotiData[i]["invite_person_url"]);
   pro_image_div.append(pro_image);
 
   let name_content_div = document.createElement("div");
@@ -31,11 +37,11 @@ for (let i = 0; i < notiData.length; i++) {
   image_name_div.append(name_content_div);
 
   let h3 = document.createElement("h3");
-  h3.innerHTML = notiData[i]["inviter_person"];
+  h3.innerHTML = userNotiData[i]["notification_person"];
   name_content_div.append(h3);
 
   let p = document.createElement("p");
-  p.innerHTML = notiData[i]["inviteChat"];
+  p.innerHTML = userNotiData[i]["inviteChat"];
   name_content_div.append(p);
 
   let user_mention_media_div = document.createElement("div");
@@ -54,18 +60,14 @@ for (let i = 0; i < notiData.length; i++) {
 function findInviteUser(e) {
   let userNotiId = e;
   console.log(userNotiId);
-  console.log(userNotiId[0]);
 
-  let findNoti = notiData.filter(
-    (noti) => noti["inviter_id"][0] == userNotiId[0]
+  let findNoti = userNotiData.find(
+    (noti) => noti["inviteNotiId"] == userNotiId
   );
   console.log(findNoti);
 
-  let elseNoti = findNoti.find((eNoti) => eNoti["inviter_id"] == userNotiId);
-  console.log(elseNoti);
-
-  let findElseData = findNoti.filter(
-    (noti) => noti["inviteNotiId"] !== elseNoti["inviteNotiId"]
+  let findElseData = userNotiData.filter(
+    (noti) => noti["inviteNotiId"] !== findNoti["inviteNotiId"]
   );
   console.log(findElseData);
 
@@ -99,7 +101,7 @@ function findInviteUser(e) {
   let profileImage = document.createElement("img");
   profileImage.setAttribute("class", "notification-person-image");
   profileImage.setAttribute("alt", "inviter-image");
-  profileImage.setAttribute("src", elseNoti["invite_person_url"]);
+  profileImage.setAttribute("src", findNoti["invite_person_url"]);
   notificationUserProfileDiv.append(profileImage);
 
   let personNameDiv = document.createElement("div");
@@ -108,7 +110,7 @@ function findInviteUser(e) {
 
   let personName = document.createElement("p");
   personName.setAttribute("class", "person-name");
-  personName.innerHTML = elseNoti["inviter_person"];
+  personName.innerHTML = findNoti["notification_person"];
   personNameDiv.append(personName);
 
   // notification show div container
@@ -127,7 +129,7 @@ function findInviteUser(e) {
   let notificationPicture = document.createElement("img");
   notificationPicture.setAttribute("class", "notification-picture");
   notificationPicture.setAttribute("alt", "invite-image");
-  notificationPicture.setAttribute("src", elseNoti["invite_person_url"]);
+  notificationPicture.setAttribute("src", findNoti["invite_person_url"]);
   notificationPictureDiv.append(notificationPicture);
 
   let notificationSideDetailsDivContainer = document.createElement("div");
@@ -143,17 +145,17 @@ function findInviteUser(e) {
 
   let notificationH3 = document.createElement("h3");
   notificationH3.setAttribute("class", "notification-h3");
-  notificationH3.innerHTML = elseNoti["inviteChat"];
+  notificationH3.innerHTML = findNoti["inviteChat"];
   notificationDataDiv.append(notificationH3);
 
   let notificationP1 = document.createElement("p");
   notificationP1.setAttribute("class", "notification-para");
-  notificationP1.innerHTML = elseNoti["inviteTime"];
+  notificationP1.innerHTML = findNoti["inviteTime"];
   notificationDataDiv.append(notificationP1);
 
   let notificationP2 = document.createElement("p");
   notificationP2.setAttribute("class", "notification-para");
-  notificationP2.innerHTML = elseNoti["inviteDate"];
+  notificationP2.innerHTML = findNoti["inviteDate"];
   notificationDataDiv.append(notificationP2);
 
   // create if else condition for showing that person realted notification
@@ -232,7 +234,7 @@ function findInviteUser(e) {
 
       let userNameH3 = document.createElement("h3");
       userNameH3.setAttribute("class", "user-name-h3");
-      userNameH3.innerHTML = findElseData[i]["inviter_person"];
+      userNameH3.innerHTML = findElseData[i]["notification_person"];
       userNameAndNotiDiv.append(userNameH3);
 
       let userNameP = document.createElement("p");
