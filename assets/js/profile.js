@@ -1,40 +1,27 @@
-let info = JSON.parse(window.localStorage.getItem("register"));
-// console.log(info);
-let log = JSON.parse(window.localStorage.getItem("user_data"));
-console.log(log[0]["Email"]);
+// Profile user element value set creations
 
-const found = info.find(function (what) {
-  let thinkEmail = what["Email"];
-  if (log[0]["Email"] == thinkEmail) {
-    return true;
-  }
-});
+let name1 = (document.getElementById("firstName").value =
+  findUser["firstName"]);
 
-console.log(found);
-
-let foundIndex = info.indexOf(found);
-console.log(foundIndex);
-
-const name1 = (document.getElementById("firstName").value = found["firstName"]);
-
-const name2 = (document.getElementById("lastName").value = found["lastName"]);
+let name2 = (document.getElementById("lastName").value = findUser["lastName"]);
 // console.log(name2);
-const uname = (document.getElementById("userName").value = found["userName"]);
-const mail = (document.getElementById("email").value = found["Email"]);
+let uname = (document.getElementById("userName").value = findUser["userName"]);
+let mail = (document.getElementById("email").value = findUser["Email"]);
 
-const head = (document.getElementById("profile-head").innerText =
-  "Hello" + "   " + found["userName"]);
+let head = (document.getElementById("profile-head").innerText =
+  "Hello" + "   " + findUser["userName"]);
 
 // console.log(head);
 
-const phone = (document.getElementById("phone").value = found["mobileNumber"]);
+let phone = (document.getElementById("phone").value = findUser["mobileNumber"]);
 // console.log(phone);
 
-const age = (document.getElementById("age").value = found["age"]);
-const nation = (document.getElementById("nation").value = found["nationality"]);
+let age = (document.getElementById("age").value = findUser["age"]);
+let nation = (document.getElementById("nation").value =
+  findUser["nationality"]);
 
 // profile image
 
 let profileImage = (document.getElementById("profile-image").src =
-  found["avatarUrl"]);
+  findUser["avatarUrl"]);
 console.log(profileImage);

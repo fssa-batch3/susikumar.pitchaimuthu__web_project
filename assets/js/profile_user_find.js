@@ -27,5 +27,5 @@ profile_name.innerHTML = findUser["userName"];
 let profile = document.querySelector(".image-text");
 
 profile.addEventListener("click", () => {
-  window.location.href = "../pages/profile.html";
+  window.location.href = "../pages/profile.html?user=" + findUser["userId"];
 });

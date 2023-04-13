@@ -6,7 +6,7 @@ body {
 .mention-whole-container {
   display: flex;
   align-items: center;
-  margin: 5.2em 0em 0em 4.9em;
+  margin: 2em 0em 0em 3.9em;
 }
 
 .mention-box-container {
@@ -90,115 +90,137 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid rgb(118, 177, 248);
   width: 5em;
   height: 4em;
   border-radius: 8px;
 }
 
-.user-mention-media {
-  width: 4em;
-  height: 3.5em;
+.bi-heart-fill {
+  font-size: 1.25em;
+  cursor: pointer;
+}
+.bi-heart-fill:hover {
+  color: red;
 }
 
 #hr {
-  height: 770px;
+  height: 850px;
 }
-/* display area css */
+
+/* notification details showing css */
+
 .display-container {
   display: flex;
   flex: 0.8;
   justify-content: center;
-  height: 47em;
+  height: 53em;
 }
 
 .display-inside-div {
   display: flex;
   flex-direction: column;
+  gap: 2.6em;
+  height: 750;
+  overflow-y: scroll;
+}
+
+.display-inside-div::-webkit-scrollbar {
+  display: none;
+}
+
+.details-display-inside-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 98%;
+  gap: 2.5em;
+}
+
+.details-inside-align-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 86%;
+  gap: 1.5em;
+}
+
+.profile-and-name-div-container {
+  display: flex;
   align-items: center;
   width: 100%;
+  gap: 2.5em;
 }
 
-.notification-profile-name-div {
+.profile-div {
   display: flex;
-  align-items: center;
-  width: 90%;
-  gap: 2em;
-}
-
-.notification-user-profile-div {
-  display: flex;
-  align-items: center;
   justify-content: center;
-  border-radius: 50%;
-  width: 4em;
-  height: 3.5em;
-  border: 1px solid red;
-}
-
-.notification-person-image {
+  align-items: center;
   width: 3.5em;
   height: 3em;
   border-radius: 50%;
+  border: 1px solid rgb(231, 52, 82);
 }
 
-.person-name-div {
-  display: flex;
-  align-content: center;
-  justify-content: center;
+.profile-image {
+  width: 3em;
+  height: 2.5em;
+  border-radius: 50%;
 }
 
-.person-name {
-  margin: 0;
-  padding: 0;
-  font-size: 1.4em;
-}
+/* notification details content css */
 
-/* notification show div container */
-
-.notification-show-div-container {
-  display: flex;
-  align-items: center;
-  gap: 2em;
-  width: 96%;
-}
-
-.notification-picture-div {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 9em;
-  height: 8em;
-  border: 1px solid rgb(188, 37, 62);
-}
-
-.notification-picture {
-  width: 8.5em;
-  height: 7.5em;
-}
-
-/* notification side details */
-
-.notification-side-details-div-container {
+.details-content-div-container {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.notification-data-div {
+.details-content-inside-div {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 99%;
+  gap: 1em;
 }
 
-/* related notification h3 */
-
-.related-head-div {
+.content-div {
   display: flex;
-  width: 95%;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+}
+
+/* notification file details showing div */
+
+.notification-file-showing-div-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 99%;
+}
+
+.notification-file-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1.3px solid gray;
+  border-radius: 5px;
+  height: 450px;
+  width: 92%;
+}
+
+.notification-file {
+  width: 96%;
+  height: 430px;
 }
 
 /* related notification div container css */
+
+.related-head-div {
+  width: 71%;
+  display: flex;
+  justify-content: center;
+}
 
 .related-notification-div-container {
   display: flex;

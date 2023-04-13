@@ -48,8 +48,8 @@ for (let i = 0; i < userNotiData.length; i++) {
   user_mention_media_div.setAttribute("class", "user-mention-media-div");
   mention_box_insie.append(user_mention_media_div);
 
-  let image = document.createElement("img");
-  image.setAttribute("class", "user-mention-media");
+  let image = document.createElement("i");
+  image.setAttribute("class", "bi bi-heart-fill");
   user_mention_media_div.append(image);
 
   document.querySelector(".mention-box-inside-container").append(whole_div);
@@ -82,81 +82,134 @@ function findInviteUser(e) {
 
   let displayInsideDiv = document.createElement("div");
   displayInsideDiv.setAttribute("class", "display-inside-div");
+  displayInsideDiv.innerHTML = `  <div class="details-display-inside-container">
+  <div class="details-inside-align-container">
+    <!-- profile div -->
+
+    <div class="profile-and-name-div-container">
+      <!-- profile div -->
+      <div class="profile-div">
+        <img
+          class="profile-image"
+          src="${findNoti["invite_person_url"]}"
+          alt=""
+        />
+      </div>
+
+      <div>
+        <p>${findNoti["notification_person"]}</p>
+      </div>
+    </div>
+
+    <!-- content div -->
+
+    <div class="details-content-div-container">
+      <div class="details-content-inside-div">
+        <div class="content-div">
+          <h4>text</h4>
+          <p>${findNoti["inviteChat"]}</p>
+        </div>
+
+        <div class="content-div">
+          <h4>date</h4>
+          <p>${findNoti["inviteTime"]}</p>
+        </div>
+
+        <div class="content-div">
+          <h4>Time</h4>
+          <p>${findNoti["inviteDate"]}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- notification div -->
+  <div class="notification-file-showing-div-container">
+    <!-- inside div for media -->
+    <div class="notification-file-div">
+      <img
+        class="notification-file"
+        src="${findNoti["notification_file"]}"
+        alt=""
+      />
+    </div>
+  </div>
+</div>`;
   document.querySelector(".display-container").append(displayInsideDiv);
 
-  let notificationProfileNameDiv = document.createElement("div");
-  notificationProfileNameDiv.setAttribute(
-    "class",
-    "notification-profile-name-div"
-  );
-  displayInsideDiv.append(notificationProfileNameDiv);
+  // let notificationProfileNameDiv = document.createElement("div");
+  // notificationProfileNameDiv.setAttribute(
+  //   "class",
+  //   "notification-profile-name-div"
+  // );
+  // displayInsideDiv.append(notificationProfileNameDiv);
 
-  let notificationUserProfileDiv = document.createElement("div");
-  notificationUserProfileDiv.setAttribute(
-    "class",
-    "notification-user-profile-div"
-  );
-  notificationProfileNameDiv.append(notificationUserProfileDiv);
+  // let notificationUserProfileDiv = document.createElement("div");
+  // notificationUserProfileDiv.setAttribute(
+  //   "class",
+  //   "notification-user-profile-div"
+  // );
+  // notificationProfileNameDiv.append(notificationUserProfileDiv);
 
-  let profileImage = document.createElement("img");
-  profileImage.setAttribute("class", "notification-person-image");
-  profileImage.setAttribute("alt", "inviter-image");
-  profileImage.setAttribute("src", findNoti["invite_person_url"]);
-  notificationUserProfileDiv.append(profileImage);
+  // let profileImage = document.createElement("img");
+  // profileImage.setAttribute("class", "notification-person-image");
+  // profileImage.setAttribute("alt", "inviter-image");
+  // profileImage.setAttribute("src", findNoti["invite_person_url"]);
+  // notificationUserProfileDiv.append(profileImage);
 
-  let personNameDiv = document.createElement("div");
-  personNameDiv.setAttribute("class", "person-name-div");
-  notificationProfileNameDiv.append(personNameDiv);
+  // let personNameDiv = document.createElement("div");
+  // personNameDiv.setAttribute("class", "person-name-div");
+  // notificationProfileNameDiv.append(personNameDiv);
 
-  let personName = document.createElement("p");
-  personName.setAttribute("class", "person-name");
-  personName.innerHTML = findNoti["notification_person"];
-  personNameDiv.append(personName);
+  // let personName = document.createElement("p");
+  // personName.setAttribute("class", "person-name");
+  // personName.innerHTML = findNoti["notification_person"];
+  // personNameDiv.append(personName);
 
-  // notification show div container
+  // // notification show div container
 
-  let notificationShowDivContainer = document.createElement("div");
-  notificationShowDivContainer.setAttribute(
-    "class",
-    "notification-show-div-container"
-  );
-  displayInsideDiv.append(notificationShowDivContainer);
+  // let notificationShowDivContainer = document.createElement("div");
+  // notificationShowDivContainer.setAttribute(
+  //   "class",
+  //   "notification-show-div-container"
+  // );
+  // displayInsideDiv.append(notificationShowDivContainer);
 
-  let notificationPictureDiv = document.createElement("div");
-  notificationPictureDiv.setAttribute("class", "notification-picture-div");
-  notificationShowDivContainer.append(notificationPictureDiv);
+  // let notificationPictureDiv = document.createElement("div");
+  // notificationPictureDiv.setAttribute("class", "notification-picture-div");
+  // notificationShowDivContainer.append(notificationPictureDiv);
 
-  let notificationPicture = document.createElement("img");
-  notificationPicture.setAttribute("class", "notification-picture");
-  notificationPicture.setAttribute("alt", "invite-image");
-  notificationPicture.setAttribute("src", findNoti["invite_person_url"]);
-  notificationPictureDiv.append(notificationPicture);
+  // let notificationPicture = document.createElement("img");
+  // notificationPicture.setAttribute("class", "notification-picture");
+  // notificationPicture.setAttribute("alt", "invite-image");
+  // notificationPicture.setAttribute("src", findNoti["notification_file"]);
+  // notificationPictureDiv.append(notificationPicture);
 
-  let notificationSideDetailsDivContainer = document.createElement("div");
-  notificationSideDetailsDivContainer.setAttribute(
-    "class",
-    "notification-side-details-div-container"
-  );
-  notificationShowDivContainer.append(notificationSideDetailsDivContainer);
+  // let notificationSideDetailsDivContainer = document.createElement("div");
+  // notificationSideDetailsDivContainer.setAttribute(
+  //   "class",
+  //   "notification-side-details-div-container"
+  // );
+  // notificationShowDivContainer.append(notificationSideDetailsDivContainer);
 
-  let notificationDataDiv = document.createElement("div");
-  notificationDataDiv.setAttribute("class", "notification-data-div");
-  notificationSideDetailsDivContainer.append(notificationDataDiv);
+  // let notificationDataDiv = document.createElement("div");
+  // notificationDataDiv.setAttribute("class", "notification-data-div");
+  // notificationSideDetailsDivContainer.append(notificationDataDiv);
 
-  let notificationH3 = document.createElement("h3");
-  notificationH3.setAttribute("class", "notification-h3");
-  notificationH3.innerHTML = findNoti["inviteChat"];
-  notificationDataDiv.append(notificationH3);
+  // let notificationH3 = document.createElement("h3");
+  // notificationH3.setAttribute("class", "notification-h3");
+  // notificationH3.innerHTML = findNoti["inviteChat"];
+  // notificationDataDiv.append(notificationH3);
 
-  let notificationP1 = document.createElement("p");
-  notificationP1.setAttribute("class", "notification-para");
-  notificationP1.innerHTML = findNoti["inviteTime"];
-  notificationDataDiv.append(notificationP1);
+  // let notificationP1 = document.createElement("p");
+  // notificationP1.setAttribute("class", "notification-para");
+  // notificationP1.innerHTML = findNoti["inviteTime"];
+  // notificationDataDiv.append(notificationP1);
 
-  let notificationP2 = document.createElement("p");
-  notificationP2.setAttribute("class", "notification-para");
-  notificationP2.innerHTML = findNoti["inviteDate"];
-  notificationDataDiv.append(notificationP2);
+  // let notificationP2 = document.createElement("p");
+  // notificationP2.setAttribute("class", "notification-para");
+  // notificationP2.innerHTML = findNoti["inviteDate"];
+  // notificationDataDiv.append(notificationP2);
 
   // create if else condition for showing that person realted notification
 

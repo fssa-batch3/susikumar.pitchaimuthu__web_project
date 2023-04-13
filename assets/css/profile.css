@@ -252,7 +252,7 @@ body {
   align-items: center;
 }
 
-.name {
+.name-div {
   display: flex;
   width: 8em;
 }

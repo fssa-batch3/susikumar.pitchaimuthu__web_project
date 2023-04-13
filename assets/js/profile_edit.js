@@ -1,4 +1,4 @@
-const disable = document.querySelectorAll(".disable-input");
+let disable = document.querySelectorAll(".disable-input");
 console.log(disable);
 
 // disable function
@@ -10,19 +10,19 @@ function edit() {
   }
 }
 
-const changes = document.getElementById("change-form");
+let changes = document.getElementById("change-form");
 changes.addEventListener("submit", function (e) {
   e.preventDefault();
 
-  const fname = document.getElementById("firstName").value.trim();
-  const lname = document.getElementById("lastName").value.trim();
-  const u1name = document.getElementById("userName").value.trim();
-  const gmail = document.getElementById("email").value.trim();
-  const mobile = document.getElementById("phone").value.trim();
-  const old = document.getElementById("age").value.trim();
-  const nation = document.getElementById("nation").value.trim();
+  let fname = document.getElementById("firstName").value.trim();
+  let lname = document.getElementById("lastName").value.trim();
+  let u1name = document.getElementById("userName").value.trim();
+  let gmail = document.getElementById("email").value.trim();
+  let mobile = document.getElementById("phone").value.trim();
+  let old = document.getElementById("age").value.trim();
+  let nation = document.getElementById("nation").value.trim();
 
-  const editObj = {
+  let editObj = {
     firstName: fname,
     lastName: lname,
     userName: u1name,
@@ -32,7 +32,7 @@ changes.addEventListener("submit", function (e) {
     nationality: nation,
   };
 
-  const returnData = JSON.parse(localStorage.getItem("user_data"));
+  let returnData = JSON.parse(localStorage.getItem("user_data"));
   console.log(returnData);
 
   let check = returnData.find((e) => e.Email == gmail);
@@ -40,7 +40,7 @@ changes.addEventListener("submit", function (e) {
   if (check.Email != gmail) {
     alert("Email ID not found");
   } else {
-    let objestAssign = Object.assign(found, editObj);
+    let objestAssign = Object.assign(findUser, editObj);
     console.log(objestAssign);
     let regisData = JSON.parse(localStorage.getItem("register"));
 
@@ -59,9 +59,9 @@ changes.addEventListener("submit", function (e) {
 
 function dele() {
   console.log(found);
-  let findInd = info.indexOf(found);
+  let findInd = info.indexOf(findUser);
 
-  const whatMean = JSON.parse(localStorage.getItem("register"));
+  let whatMean = JSON.parse(localStorage.getItem("register"));
 
   let message = confirm("Are sure to Delete your account in Fresh Nest?");
 
@@ -124,7 +124,7 @@ file.addEventListener("change", function () {
       console.log(userProfileObj);
       console.log(found);
 
-      let avatarUrlAssaign = Object.assign(found, userProfileObj);
+      let avatarUrlAssaign = Object.assign(findUser, userProfileObj);
       console.log(avatarUrlAssaign);
       console.log(foundIndex);
 
@@ -149,7 +149,7 @@ function defaultProfile() {
   let currentUrl = getImageUrl[0];
   console.log(currentUrl);
 
-  let imageUrlAssaign = Object.assign(found, currentUrl);
+  let imageUrlAssaign = Object.assign(findUser, currentUrl);
 
   console.log(imageUrlAssaign);
 
