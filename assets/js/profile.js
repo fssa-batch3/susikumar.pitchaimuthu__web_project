@@ -16,12 +16,11 @@ let head = (document.getElementById("profile-head").innerText =
 let phone = (document.getElementById("phone").value = findUser["mobileNumber"]);
 // console.log(phone);
 
-let age = (document.getElementById("age").value = findUser["age"]);
-let nation = (document.getElementById("nation").value =
-  findUser["nationality"]);
-
 // profile image
 
-let profileImage = (document.getElementById("profile-image").src =
+let profileImage = (document.querySelector(".profile-image").src =
   findUser["avatarUrl"]);
 console.log(profileImage);
+
+let userTheme = (document.querySelector(".user-theme").innerHTML =
+  findUser["userTheme"]);
