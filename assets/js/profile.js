@@ -27,6 +27,9 @@ console.log(userActivity[0]);
 
 let users = JSON.parse(localStorage.getItem("register"));
 
+let SuggestedUsers = users.filter((e) => e["userId"] !== findUser["userId"]);
+console.log(SuggestedUsers);
+
 let activityHead = document.querySelector(".activity-head");
 
 if (userActivity[0] !== undefined) {
@@ -59,30 +62,30 @@ if (userActivity[0] !== undefined) {
 } else {
   activityHead.innerHTML = "Suggested friends";
 
-  for (let i = 0; i < users.length; i++) {
+  for (let i = 0; i < SuggestedUsers.length; i++) {
     let card = document.createElement("div");
     card.setAttribute("class", "card-div-container");
     card.innerHTML = `<div class="card-inside-div">
 <div class="user-activity-image-div">
   <img
     class="activity-image"
-    src="${users[i]["avatarUrl"]}"
+    src="${SuggestedUsers[i]["avatarUrl"]}"
     alt="activity-image"
   />
 </div>
 
 <div class="user-activity-name-div">
    <div class="user-name-div">
-       <h3 class="user-name">${users[i]["userName"]}</h3>
+       <h3 class="user-name">${SuggestedUsers[i]["userName"]}</h3>
    </div>
 
     <div class="user-theme-div">
-       <p class="user-theme">${users[i]["userTheme"]}</p>
+       <p class="user-theme">${SuggestedUsers[i]["userTheme"]}</p>
     </div>
 </div>
 
 <div>
-  <button class="connect-button" id=${users[i]["userId"]}>View</button>
+  <button class="connect-button" onclick="showDetails(this.id)" id=${SuggestedUsers[i]["userId"]}>View</button>
 </div>
 </div>`;
 
