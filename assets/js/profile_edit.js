@@ -1,15 +1,3 @@
-let disable = document.querySelectorAll(".disable-input");
-console.log(disable);
-
-// disable function
-
-function edit() {
-  for (i = 0; i < disable.length; i++) {
-    console.log(disable[i]);
-    disable[i].removeAttribute("disabled");
-  }
-}
-
 let changes = document.getElementById("change-form");
 changes.addEventListener("submit", function (e) {
   e.preventDefault();
@@ -19,8 +7,17 @@ changes.addEventListener("submit", function (e) {
   let u1name = document.getElementById("userName").value.trim();
   let gmail = document.getElementById("email").value.trim();
   let mobile = document.getElementById("phone").value.trim();
-  let old = document.getElementById("age").value.trim();
-  let nation = document.getElementById("nation").value.trim();
+  let old = document.getElementById("dateOfBirth").value.trim();
+  let editBio = document.getElementById("bio").value.trim();
+  let editCity = document.getElementById("city").value.trim();
+
+  let currentGender;
+
+  for (let i = 0; i < gender.length; i++) {
+    if (gender[i].checked) {
+      currentGender = gender[i].value;
+    }
+  }
 
   let editObj = {
     firstName: fname,
@@ -29,7 +26,9 @@ changes.addEventListener("submit", function (e) {
     Email: gmail,
     mobileNumber: mobile,
     age: old,
-    nationality: nation,
+    city: editCity,
+    userTheme: editBio,
+    userGender: currentGender,
   };
 
   let returnData = JSON.parse(localStorage.getItem("user_data"));
@@ -38,7 +37,7 @@ changes.addEventListener("submit", function (e) {
   let check = returnData.find((e) => e.Email == gmail);
 
   if (check.Email != gmail) {
-    alert("Email ID not found");
+    alert("You can't change your email");
   } else {
     let objestAssign = Object.assign(findUser, editObj);
     console.log(objestAssign);
@@ -55,105 +54,10 @@ changes.addEventListener("submit", function (e) {
   }
 });
 
-// function for delete details
+// cancel button function
 
-function dele() {
-  console.log(found);
-  let findInd = info.indexOf(findUser);
+let cancelButton = document.querySelector("#cancel-button");
 
-  let whatMean = JSON.parse(localStorage.getItem("register"));
-
-  let message = confirm("Are sure to Delete your account in Fresh Nest?");
-
-  if (message !== true) {
-    return;
-  } else {
-    whatMean.splice(findInd, 1);
-    localStorage.setItem("register", JSON.stringify(whatMean));
-  }
-}
-
-// profile option
-
-let file = document.getElementById("file");
-
-let image = document.getElementById("profile-image");
-
-let ProfileOption = document.querySelector(".profile-option-div");
-
-// onclick function for option display block
-
-image.addEventListener("click", () => {
-  if ((ProfileOption.style.display = "none")) {
-    ProfileOption.style.display = "block";
-  }
+cancelButton.addEventListener("click", () => {
+  window.location.href = "../pages/profile.html?user=" + findUser["userId"];
 });
-
-// profile photo chanage photo function
-
-file.addEventListener("change", function () {
-  let choosePhoto = this.files[0];
-
-  console.log("Manisha");
-
-  if (choosePhoto) {
-    let reader = new FileReader();
-    // console.log(reader.result);
-
-    reader.addEventListener("load", function () {
-      image.setAttribute("src", reader.result);
-
-      let ProfileImagesChange = [];
-
-      if (localStorage.getItem("profileImagesData") !== null) {
-        ProfileImagesChange = JSON.parse(
-          localStorage.getItem("profileImagesData")
-        );
-      }
-      let userProfileObj = {
-        avatarUrl: reader.result,
-      };
-
-      ProfileImagesChange.push(found["avatarUrl"]);
-
-      localStorage.setItem(
-        "profileImagesData",
-        JSON.stringify(ProfileImagesChange)
-      );
-
-      console.log(userProfileObj);
-      console.log(found);
-
-      let avatarUrlAssaign = Object.assign(findUser, userProfileObj);
-      console.log(avatarUrlAssaign);
-      console.log(foundIndex);
-
-      info[foundIndex] = avatarUrlAssaign;
-
-      console.log((info[foundIndex] = avatarUrlAssaign));
-      localStorage.setItem("register", JSON.stringify(info));
-    });
-
-    reader.readAsDataURL(choosePhoto);
-  }
-});
-
-// Transform to default profile image
-
-function defaultProfile() {
-  console.log(found);
-
-  let getImageUrl = JSON.parse(localStorage.getItem("profileImagesData"));
-  console.log(getImageUrl);
-
-  let currentUrl = getImageUrl[0];
-  console.log(currentUrl);
-
-  let imageUrlAssaign = Object.assign(findUser, currentUrl);
-
-  console.log(imageUrlAssaign);
-
-  info[foundIndex] = imageUrlAssaign;
-
-  localStorage.setItem("register", JSON.stringify(info));
-}

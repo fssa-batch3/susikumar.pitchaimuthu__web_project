@@ -14,6 +14,8 @@ let info = JSON.parse(window.localStorage.getItem("register"));
 let findUser = info.find((user) => user["userId"] == urlId);
 console.log(findUser);
 
+let userIndex = info.indexOf(findUser);
+
 // profile image and details adding elements
 
 let profile_image = document.querySelector("#profile-image");

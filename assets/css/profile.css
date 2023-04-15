@@ -62,13 +62,73 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 30em;
+}
+
+.user-last-acitivty-inside-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 3em;
+  height: 29em;
+}
+
+.activity-head-div {
+  display: flex;
+  width: 95%;
 }
 
 .user-last-activity-showing-inside-div {
   display: flex;
-  width: 790px;
+  width: 800px;
+  overflow-x: scroll;
 }
 
+.user-profile-last-activity-inside-container::-webkit-scrollbar {
+  display: none;
+}
+
+.card-inside-control-div {
+  display: flex;
+}
+
+/* profile page card for the activity */
+
+.card-div-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 13em;
+
+  border: 1px solid grey;
+  border-radius: 5px;
+}
+
+.card-inside-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 95%;
+  padding: 13px;
+  align-items: center;
+}
+
+.user-activity-image-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 8em;
+  height: 7em;
+  border: 1px solid rgb(197, 191, 191);
+  border-radius: 7px;
+}
+
+.activity-image {
+  width: 7.5em;
+  height: 6.5em;
+  border-radius: 7px;
+}
 /* profile */
 
 .profile-and-content-div {
@@ -95,6 +155,7 @@ body {
   position: absolute;
   right: 5%;
   top: 11%;
+  height: 87%;
 }
 
 .profile-card-content-div {
@@ -120,21 +181,25 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgb(250, 228, 250);
+  border: 2px solid rgb(250, 228, 250);
+  border-radius: 50%;
+  height: 14em;
+  width: 226px;
 }
 
 #profile-image {
   width: 226px;
-  border-radius: 8em;
+  border-radius: 50%;
   cursor: pointer;
   position: relative;
-  height: 14em;
+  height: 13em;
+  width: 210px;
 }
 
 .profile-option-div {
   display: none;
   position: absolute;
-  bottom: -21%;
+  top: 32%;
   background-color: #fff;
   transition: 0.5s ease ease;
 }

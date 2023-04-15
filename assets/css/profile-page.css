@@ -7,7 +7,6 @@
 
 .profile-details-showing-whole-container {
   display: flex;
-  margin-left: 13em;
   width: 100%;
   justify-content: center;
 }
@@ -52,7 +51,6 @@
 .profile-image-name-button-div {
   display: flex;
   align-items: center;
-  justify-content: center;
   position: absolute;
   top: 70%;
   left: 14%;
@@ -60,22 +58,11 @@
   height: 10em;
 }
 
-.profile-image-button-inside-div {
-  display: flex;
-  width: 100%;
-  height: 9.4em;
-}
-.profile-div-and-name-container {
-  display: flex;
-  align-items: center;
-  gap: 2em;
-  width: 100%;
-}
-
 .profile-div-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   height: 10em;
+  width: 30%;
 }
 
 .profile-div {
@@ -97,45 +84,14 @@
 .profile-person-name-and-slogan-div {
   display: flex;
   flex-direction: column;
-  gap: 1em;
+  justify-content: flex-end;
+  height: 8em;
 }
 
-/* profile button div css */
-
-.profile-button-div {
+.profile-slogan-inside-div {
   display: flex;
-  align-items: center;
-  gap: 1.4em;
-}
-
-.button {
-  width: fit-content;
-  border: none;
-  height: 2.6em;
-  cursor: pointer;
-  border-radius: 7px;
-}
-
-.span-button {
-  padding: 2em;
-  color: white;
-}
-
-.update {
-  background-color: rgb(34, 139, 204);
-}
-
-.save {
-  background-color: #2ec866;
-}
-
-.cancel {
-  border: 1px solid #ffaa33;
-  background-color: #fff;
-}
-
-.cancel-span {
-  color: #ffaa33;
+  flex-direction: column;
+  gap: 1em;
 }
 
 /* profile input div container */
@@ -177,4 +133,13 @@
   border: 1px solid grey;
   border-radius: 5px;
   height: 3em;
+}
+
+#button-div {
+  margin-top: 2.4em;
+  margin-left: 1em;
+}
+
+.btn-primary {
+  margin-left: 1.7em;
 }
