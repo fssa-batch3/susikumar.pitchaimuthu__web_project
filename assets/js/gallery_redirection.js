@@ -19,9 +19,6 @@ filterButton.addEventListener("click", () => {
     return date;
   };
 
-  console.log(from);
-  console.log(to);
-
   while (from <= to) {
     let dateAndYear = new Date(from);
     let datesf =
@@ -31,7 +28,6 @@ filterButton.addEventListener("click", () => {
       dateAndYear.getDate() +
       "/" +
       dateAndYear.getFullYear();
-    console.log(datesf);
     dateArray.push(datesf);
     from = from.addDays(1);
   }

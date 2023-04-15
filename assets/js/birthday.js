@@ -4,7 +4,6 @@ let birthdayForm = document.querySelector("#birthday-form");
 
 birthdayForm.addEventListener("submit", (event) => {
   event.preventDefault();
-  let arr = [];
   if (localStorage.getItem("dateOfBirth") != null) {
     userData = JSON.parse(localStorage.getItem("dateOfBirth"));
   }
@@ -13,12 +12,27 @@ birthdayForm.addEventListener("submit", (event) => {
   let gender = document.getElementsByName("gender");
   console.log(gender);
 
+  let birthdate = new Date(birthday);
+
+  // Get today's date
+  let today = new Date();
+
+  // Calculate the user's age in milliseconds
+  let ageInMilliseconds = today - birthdate;
+
+  // Convert the age to years
+  let ageInYears = ageInMilliseconds / 1000 / 60 / 60 / 24 / 365;
+
+  if (ageInYears <= 18) {
+    alert("Your should be more than 18");
+    return;
+  }
+
   let userGen;
 
   for (let i = 0; i < gender.length; i++) {
     if (gender[i].checked) {
       userGen = gender[i].value;
-      console.log(userGen);
     }
   }
 
@@ -27,10 +41,6 @@ birthdayForm.addEventListener("submit", (event) => {
     userGender: userGen,
   };
   console.log(birthDayObject);
-
-  arr.push(birthDayObject);
-
-  let str = JSON.stringify(arr);
 
   let birthdayObjectAssaign = Object.assign(findUserData, birthDayObject);
   console.log(birthdayObjectAssaign);
