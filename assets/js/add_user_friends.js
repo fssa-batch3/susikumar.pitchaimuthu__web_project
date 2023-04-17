@@ -12,7 +12,6 @@ if (allUSerFriendsData !== null) {
     let div = document.createElement("div");
     div.setAttribute("class", "members");
     div.setAttribute("id", allUSerFriendsData[i]["userId"]);
-    div.setAttribute("onclick", "userSelector(this.id)");
 
     let image_div = document.createElement("div");
     image_div.setAttribute("class", "image-name");
