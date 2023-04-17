@@ -87,6 +87,34 @@ body {
 .activity-head-div {
   display: flex;
   width: 95%;
+  gap: 3em;
+  align-items: center;
+}
+
+.suggestion-head {
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  height: 37px;
+  color: #fff;
+  font-size: 17px;
+  background-image: linear-gradient(to right, #25aae1, #4481eb);
+  box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
+  width: 13em;
+}
+
+.activity-head {
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  height: 37px;
+  color: #fff;
+  font-size: 17px;
+  background-image: linear-gradient(to right, #25aae1, #b344eb);
+  box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
+  width: 13em;
 }
 
 .user-last-activity-showing-inside-div {

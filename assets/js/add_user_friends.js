@@ -1,11 +1,15 @@
-let freshChatUsers = JSON.parse(localStorage.getItem("userChatFriends"));
+let freshChatUsers = JSON.parse(localStorage.getItem("userFriends"));
 console.log(freshChatUsers);
 
-console.log(findUser);
-let allUSerFriendsData = freshChatUsers.filter(
-  (e) => e["chooseUser"] == findUser["userId"]
-);
-console.log(allUSerFriendsData);
+let allUSerFriendsData;
+
+//  Creating a for loop for find user friends
+
+for (let i = 0; i < freshChatUsers.length; i++) {
+  if (freshChatUsers[i][0]["frienderId"] == findUser["userId"]) {
+    allUSerFriendsData = freshChatUsers[i];
+  }
+}
 
 if (allUSerFriendsData !== null) {
   for (let i = 0; i < allUSerFriendsData.length; i++) {

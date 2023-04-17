@@ -20,52 +20,17 @@ console.log(profileImage);
 
 let allActivity = JSON.parse(localStorage.getItem("userInvites"));
 
-let userActivity = allActivity.filter(
-  (e) => e["inviterId"] == findUser["userId"]
-);
-console.log(userActivity[0]);
+let showingArr = [];
 
 let users = JSON.parse(localStorage.getItem("register"));
 
 let SuggestedUsers = users.filter((e) => e["userId"] !== findUser["userId"]);
 console.log(SuggestedUsers);
 
-let activityHead = document.querySelector(".activity-head");
-
-if (userActivity[0] !== undefined) {
-  activityHead.innerHTML = "User last activity";
-
-  for (let i = 0; i < userActivity.length; i++) {
-    let card = document.createElement("div");
-    card.setAttribute("class", "card-div-container");
-    card.innerHTML = `<div class="card-inside-div">
-<div class="user-activity-image-div">
-  <img
-    class="activity-image"
-    src="${userActivity[i]["inviteImage"]}"
-    alt="activity-image"
-  />
-</div>
-
-<div class="user-activity-name-div">
-  <h3>${userActivity[i]["inviteName"]}"y</h3>
-  <p>${userActivity[i]["inviteGlimpse"]}"</p>
-</div>
-
-<div>
-  <button class="connect-button">View</button>
-</div>
-</div>`;
-
-    document.querySelector(".card-inside-control-div").append(card);
-  }
-} else {
-  activityHead.innerHTML = "Suggested friends";
-
-  for (let i = 0; i < SuggestedUsers.length; i++) {
-    let card = document.createElement("div");
-    card.setAttribute("class", "card-div-container");
-    card.innerHTML = `<div class="card-inside-div">
+for (let i = 0; i < SuggestedUsers.length; i++) {
+  let card = document.createElement("div");
+  card.setAttribute("class", "card-div-container");
+  card.innerHTML = `<div class="card-inside-div">
 <div class="user-activity-image-div">
   <img
     class="activity-image"
@@ -89,9 +54,118 @@ if (userActivity[0] !== undefined) {
 </div>
 </div>`;
 
+  document.querySelector(".card-inside-control-div").append(card);
+}
+
+// Writing function for suggestion and activity card
+
+let activityHead = document.querySelector(".activity-head");
+
+let suggestionHead = document.querySelector(".suggestion-head");
+
+activityHead.addEventListener("click", () => {
+  // creating for loop for delete all the cards
+
+  let cardDivContainer = document.querySelectorAll(".card-div-container");
+  console.log(cardDivContainer);
+
+  if (cardDivContainer[0] !== undefined) {
+    for (let j = 0; j < cardDivContainer.length; j++)
+      cardDivContainer[j].remove();
+  }
+
+  let userActivityData = JSON.parse(localStorage.getItem("userInvites"));
+  console.log(userActivityData);
+
+  let findUserActivity;
+  if (userActivityData !== null) {
+    findUserActivity = userActivityData.filter(
+      (e) => e["inviter_id"] == findUser["userId"]
+    );
+
+    console.log(findUserActivity);
+
+    if (findUserActivity !== null) {
+      for (let i = 0; i < findUserActivity.length; i++) {
+        let card = document.createElement("div");
+        card.setAttribute("class", "card-div-container");
+        card.innerHTML = `<div class="card-inside-div">
+      <div class="user-activity-image-div">
+        <img
+          class="activity-image"
+          src="${findUserActivity[i]["avatarUrl"]}"
+          alt="activity-image"
+        />
+      </div>
+      
+      <div class="user-activity-name-div">
+         <div class="user-name-div">
+             <h3 class="user-name">${findUserActivity[i]["userName"]}</h3>
+         </div>
+      
+          <div class="user-theme-div">
+             <p class="user-theme">${findUserActivity[i]["userTheme"]}</p>
+          </div>
+      </div>
+      
+      <div>
+        <button class="connect-button" onclick="showDetails(this.id)" id=${SuggestedUsers[i]["userId"]}>View</button>
+      </div>
+      </div>`;
+
+        document.querySelector(".card-inside-control-div").append(card);
+      }
+    }
+  }
+});
+
+// suggestion showing div element creations
+
+suggestionHead.addEventListener("click", (e) => {
+  // creating for loop for delete all the cards
+
+  let suggestedCardDiv = document.querySelectorAll(".card-div-container");
+  console.log(suggestedCardDiv);
+
+  if (suggestedCardDiv[0] !== undefined) {
+    for (let j = 0; j < suggestedCardDiv.length; j++)
+      suggestedCardDiv[j].remove();
+  }
+
+  console.log(SuggestedUsers);
+
+  for (let i = 0; i < SuggestedUsers.length; i++) {
+    let card = document.createElement("div");
+    card.setAttribute("class", "card-div-container");
+    card.innerHTML = `<div class="card-inside-div">
+  <div class="user-activity-image-div">
+    <img
+      class="activity-image"
+      src="${SuggestedUsers[i]["avatarUrl"]}"
+      alt="activity-image"
+    />
+  </div>
+  
+  <div class="user-activity-name-div">
+     <div class="user-name-div">
+         <h3 class="user-name">${SuggestedUsers[i]["userName"]}</h3>
+     </div>
+  
+      <div class="user-theme-div">
+         <p class="user-theme">${SuggestedUsers[i]["userTheme"]}</p>
+      </div>
+  </div>
+  
+  <div>
+    <button class="connect-button" onclick="showDetails(this.id)" id=${SuggestedUsers[i]["userId"]}>View</button>
+  </div>
+  </div>`;
+
     document.querySelector(".card-inside-control-div").append(card);
   }
-}
+});
+
+// }
 
 // profile page redirection eventListener
 
