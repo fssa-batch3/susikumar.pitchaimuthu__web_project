@@ -418,6 +418,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 .bi-x-circle {
@@ -502,6 +503,12 @@ body {
   display: flex;
   flex-direction: column;
   width: 100%;
+  gap: 1.3em;
+  height: 470px;
+  overflow-y: scroll;
+}
+.user-suggestion-inside-div::-webkit-scrollbar {
+  display: none;
 }
 
 .suggestion-div-container {

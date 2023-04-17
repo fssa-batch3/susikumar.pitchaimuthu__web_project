@@ -1,6 +1,8 @@
 let clickDetails = document.querySelector(".clicking-card-whole-container");
 
 let findDetails;
+
+let buttonArray = [];
 function showDetails(sd) {
   console.log(sd);
 
@@ -28,10 +30,12 @@ function showDetails(sd) {
 
   let removeDiv = document.createElement("div");
   removeDiv.setAttribute("class", "remove-div");
+  removeDiv.setAttribute("onclick", "removeDetails()");
   clickingDetailsRemoveDiv.append(removeDiv);
 
   let removeI = document.createElement("i");
   removeI.setAttribute("class", "bi bi-x-circle");
+
   removeDiv.append(removeI);
 
   //  image and details div
@@ -83,6 +87,22 @@ function showDetails(sd) {
   followButton.setAttribute("onclick", "getFollow(this.id)");
   cardDetailsDiv.append(followButton);
 
+  // create loop function for change the button follow to another button
+
+  let followData = JSON.parse(localStorage.getItem("userFriends"));
+  console.log(followData);
+
+  if (followData !== null) {
+    for (let i = 0; i < followData.length; i++) {
+      for (let j = 0; j < followData[i].length; j++) {
+        if (followData[i][j]["userId"] == findDetails["userId"]) {
+          buttonArray.push(followData[i][j]);
+        }
+      }
+    }
+  }
+  console.log(buttonArray);
+
   // suggestion area element creation
 
   let suggestionHeadDetailsDiv = document.createElement("div");
@@ -119,53 +139,81 @@ function showDetails(sd) {
   // filter the this user friends
 
   let userFriendsData = JSON.parse(localStorage.getItem("userFriends"));
+  console.log(userFriendsData);
 
-  // let filterUser = userFriendsData.filter(e=> e["user"])
+  let suggedData;
 
-  let suggestionDivContainer = document.createElement("div");
-  suggestionDivContainer.setAttribute("class", "suggestion-div-container");
-  userSuggestionInsideDiv.append(suggestionDivContainer);
+  if (userFriendsData !== null) {
+    for (let i = 0; i < userFriendsData.length; i++) {
+      if (userFriendsData[i][0]["frienderId"] == findDetails["userId"]) {
+        suggedData = userFriendsData[i];
+      }
+    }
+  }
 
-  let suggestionSideInsideDiv = document.createElement("div");
-  suggestionSideInsideDiv.setAttribute("class", "suggestion-side-inside-div");
-  suggestionDivContainer.append(suggestionSideInsideDiv);
+  console.log(suggedData);
 
-  let suggestionImageDiv = document.createElement("div");
-  suggestionImageDiv.setAttribute("class", "suggestion-image-div");
-  suggestionSideInsideDiv.append(suggestionImageDiv);
+  if (suggedData !== undefined) {
+    for (let i = 0; i < suggedData.length; i++) {
+      let suggestionDivContainer = document.createElement("div");
+      suggestionDivContainer.setAttribute("class", "suggestion-div-container");
+      userSuggestionInsideDiv.append(suggestionDivContainer);
 
-  let suggestedImage = document.createElement("img");
-  suggestedImage.setAttribute("class", "suggested-image");
-  suggestedImage.setAttribute("alt", "user-profile");
-  suggestionImageDiv.append(suggestedImage);
+      let suggestionSideInsideDiv = document.createElement("div");
+      suggestionSideInsideDiv.setAttribute(
+        "class",
+        "suggestion-side-inside-div"
+      );
+      suggestionDivContainer.append(suggestionSideInsideDiv);
 
-  let userNameDivContainer = document.createElement("div");
-  userNameDivContainer.setAttribute("class", "user-name-div-container");
-  suggestionSideInsideDiv.append(userNameDivContainer);
+      let suggestionImageDiv = document.createElement("div");
+      suggestionImageDiv.setAttribute("class", "suggestion-image-div");
+      suggestionSideInsideDiv.append(suggestionImageDiv);
 
-  let suggestedName = document.createElement("h4");
-  suggestedName.setAttribute("class", "suggestion-name");
-  userNameDivContainer.append(suggestedName);
+      let suggestedImage = document.createElement("img");
+      suggestedImage.setAttribute("class", "suggested-image");
+      suggestedImage.setAttribute("src", suggedData[i]["avatarUrl"]);
+      suggestedImage.setAttribute("alt", "user-profile");
+      suggestionImageDiv.append(suggestedImage);
 
-  let suggestedTheme = document.createElement("p");
-  suggestedTheme.setAttribute("class", "suggestion-theme");
-  userNameDivContainer.append(suggestedTheme);
+      let userNameDivContainer = document.createElement("div");
+      userNameDivContainer.setAttribute("class", "user-name-div-container");
+      suggestionSideInsideDiv.append(userNameDivContainer);
 
-  let minyFollowDiv = document.createElement("div");
-  minyFollowDiv.setAttribute("class", "follow-button-div");
-  suggestionSideInsideDiv.append(minyFollowDiv);
+      let suggestedName = document.createElement("h4");
+      suggestedName.setAttribute("class", "suggestion-name");
+      suggestedName.innerHTML = suggedData[i]["userName"];
+      userNameDivContainer.append(suggestedName);
 
-  let minyFollowButton = document.createElement("button");
-  minyFollowButton.setAttribute("class", "connect-button");
-  minyFollowButton.setAttribute("onclick", "getFollow(this.id)");
-  minyFollowButton.innerHTML = "Follow";
-  minyFollowDiv.append(minyFollowButton);
+      let suggestedTheme = document.createElement("p");
+      suggestedTheme.setAttribute("class", "suggestion-theme");
+      suggestedTheme.innerHTML = suggedData[i]["userTheme"];
+      userNameDivContainer.append(suggestedTheme);
+
+      let minyFollowDiv = document.createElement("div");
+      minyFollowDiv.setAttribute("class", "follow-button-div");
+      suggestionSideInsideDiv.append(minyFollowDiv);
+
+      let minyFollowButton = document.createElement("button");
+      minyFollowButton.setAttribute("class", "connect-button");
+      minyFollowButton.setAttribute("onclick", "getFollow(this.id)");
+      minyFollowButton.innerHTML = "Follow";
+      minyFollowDiv.append(minyFollowButton);
+    }
+  }
 
   document
     .querySelector(".clicking-inside-div-container")
     .append(clickingInsideDiv);
+
+  // // making button color change because of following
+
+  // for(let i=0; i< buttonArray.length; i++){
+
+  // }
 }
 
+console.log(buttonArray);
 // Writing function for remove the details div
 
 function removeDetails() {
@@ -179,6 +227,18 @@ function removeDetails() {
 function getFollow(es) {
   let userFriends = JSON.parse(localStorage.getItem("userFriends"));
   console.log(userFriends);
+
+  let followButtonArea = document.querySelectorAll(".connect-button");
+  console.log(followButtonArea);
+  let thisButton;
+
+  for (let i = 0; i < followButtonArea.length; i++) {
+    if (followButtonArea[i]["id"] == es) {
+      thisButton = followButtonArea[i];
+    }
+  }
+
+  console.log(thisButton);
 
   let gatherUser = info.find((e) => e["userId"] == es);
   console.log(gatherUser);
@@ -225,6 +285,10 @@ function getFollow(es) {
   }
 
   let userFriendsArr = [];
+
+  if (userFriends !== null) {
+    userFriendsArr = userFriends;
+  }
 
   let insideArray = [];
 
