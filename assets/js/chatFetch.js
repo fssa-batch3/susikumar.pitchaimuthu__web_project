@@ -1,30 +1,42 @@
 // setting chat data to the firebase
 
-let sendButtondiv = document.querySelector(".chat-submit-button-div");
-console.log(sendButtondiv);
+const database = firebase.database();
 
-if (sendButtondiv !== null) {
-  console.log(sendButtondiv);
-  sendButtondiv.addEventListener("click", (e) => {
-    alert("ajay");
-    console.log(susi);
+function getUser(event) {
+  console.log(event);
 
-    console.log(this.id);
+  let chatMessage = document.querySelector("#chat-input").value.trim();
+  console.log(chatMessage);
 
-    let chatMessage = querySelector(".chat-input").value.trim();
-    console.log(chatMessage);
+  let userName = findUser["userName"];
+  console.log(userName);
 
-    let userName = findUser["userName"];
-    console.log(userName);
+  // Send messge to the fire base
 
-    let id = push(child(ref(database), "chatMessage")).key;
+  // let sendMessage = () => {
+  //   firebase.databse().ref("chatMessage").push().set({
+  //     chat: chatMessage,
+  //     chatperson: userName,
+  //   });
 
-    set(ref(database), "chatMessage/" + id),
-      {
-        chat: chatMessage,
-        chatPerson: userName,
-      };
+  //   let chatInputArea = document.querySelector("#chat-input");
+  //   chatInputArea.value = "";
+  //   return false;
+  // };
 
-    alert("message has sent");
+  const databaseRef = database.ref("freshenest");
+
+  databaseRef.push().set({
+    // Your data object
+    chat: chatMessage,
+    chatperson: userName,
   });
+
+  // clear the input box
+
+  //auto scroll to bottom
+
+  // create db collection and send in the data
+
+  alert("message has sent");
 }

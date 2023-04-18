@@ -11,7 +11,7 @@ let logOut = document.querySelector(".logOut");
 // home page direction location
 
 home.addEventListener("click", () => {
-  window.location.href = "../pages/after_home.html?user=" + findUser["userId"];
+  window.location.href = "../pages/home.html?user=" + findUser["userId"];
 });
 
 // camera page direction location
