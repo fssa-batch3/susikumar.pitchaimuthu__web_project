@@ -116,9 +116,12 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   gap: 1em;
-  border: 1.4px solid #e5e4e2;
-  border-radius: 7px;
+  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px,
+    rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+  border-radius: 9px;
+  height: 693px;
 }
 
 /* chat ad person */
@@ -155,8 +158,7 @@
   height: 2.78em;
   background-color: #209cee;
   border-radius: 13px;
-  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px,
-    rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+
   z-index: 500;
   cursor: pointer;
 }
@@ -172,6 +174,7 @@
   display: flex;
   flex-direction: column;
   gap: 1em;
+  width: 100%;
   justify-content: center;
 }
 
@@ -263,22 +266,30 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 697px;
+  height: 687px;
   position: relative;
   gap: 2em;
+  background-color: #fff;
 }
 
 .chat-member-container {
   display: block;
   width: 98.6%;
-  height: 590px;
+  height: 530px;
   z-index: 2;
+}
+
+.chat-member-inside-div-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
 }
 
 .chat-member-inside-container {
   display: flex;
   flex-direction: column;
-  width: 98.6%;
+  width: 97.6%;
   height: 589px;
   overflow-y: scroll;
   gap: 7px;
@@ -294,7 +305,7 @@
   justify-content: space-between;
   gap: 2em;
   width: 100%;
-  border: 1px solid #e5e4e2;
+  border: 1px solid rgb(227, 225, 225);
   height: 5em;
   border-radius: 10px;
 }
@@ -315,13 +326,14 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  width: 65px;
+  width: 90px;
   height: 63px;
 }
 
 #time-ago p {
   margin: 0;
   padding: 0;
+  text-align: end;
 }
 
 /* chat box container area */

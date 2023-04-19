@@ -1,9 +1,8 @@
-// setting chat data to the firebase
-
-const database = firebase.database();
+let chatDataArray = [];
 
 function getUser(event) {
   console.log(event);
+  let chatReceiver = event;
 
   let chatMessage = document.querySelector("#chat-input").value.trim();
   console.log(chatMessage);
@@ -11,32 +10,37 @@ function getUser(event) {
   let userName = findUser["userName"];
   console.log(userName);
 
-  // Send messge to the fire base
+  let personId = findUser["userId"];
 
-  // let sendMessage = () => {
-  //   firebase.databse().ref("chatMessage").push().set({
-  //     chat: chatMessage,
-  //     chatperson: userName,
-  //   });
+  let db = firebase.database().ref("freshchat");
+  let chatId = moment().format("LT");
+  let dateChat = moment().format("l");
 
-  //   let chatInputArea = document.querySelector("#chat-input");
-  //   chatInputArea.value = "";
-  //   return false;
-  // };
+  //  message sending to the firebase set function
 
-  const databaseRef = database.ref("freshenest");
-
-  databaseRef.push().set({
-    // Your data object
+  db.push().set({
+    chatPerson: userName,
     chat: chatMessage,
-    chatperson: userName,
+    chatTime: chatId,
+    chatReceiverId: chatReceiver,
+    chatDate: dateChat,
+    chatterId: personId,
   });
 
-  // clear the input box
+  // Get data from the database
 
-  //auto scroll to bottom
+  let databaseData = firebase.database().ref("freshchat");
+  databaseData.once("value").then(function (snapshot) {
+    let data = snapshot.val();
+    console.log(data);
 
-  // create db collection and send in the data
+    for (let objKey in data) {
+      chatDataArray.push(data[objKey]);
+    }
+    console.log(chatDataArray);
 
-  alert("message has sent");
+    // Element creatin for the chat elment
+  });
 }
+
+console.log(chatDataArray);

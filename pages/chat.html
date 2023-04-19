@@ -162,7 +162,9 @@
                 <!-- message setting div -->
 
                 <div class="chat-member-container">
-                  <div class="chat-member-inside-container"></div>
+                  <div class="chat-member-inside-div-container">
+                    <div class="chat-member-inside-container"></div>
+                  </div>
                 </div>
                 <div class="showing-all-members-div-container">
                   <div class="showing-member-div"></div>
@@ -216,6 +218,24 @@
     <script src="../assets/js/chatUserSelector.js"></script>
 
     <!-- fire base set up chat code -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-database.js"></script>
+
+    <script type="module">
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyByvONF3f6-tLWrigL42gKw2hGQxtbmYWc",
+        authDomain: "freshchat-28154.firebaseapp.com",
+        databaseURL: "https://freshchat-28154-default-rtdb.firebaseio.com",
+        projectId: "freshchat-28154",
+        storageBucket: "freshchat-28154.appspot.com",
+        messagingSenderId: "469786534443",
+        appId: "1:469786534443:web:83daf57cf10342ae49806e",
+      };
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
 
     <!-- <script src="../assets/js/chatFetch.js"></script> -->
     <script src="../assets/js/freshchat.js"></script>
