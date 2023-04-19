@@ -1,3 +1,5 @@
+// creating function for creating a reel data
+
 let reelInput = document.querySelector(".reel-input");
 
 console.log(reelInput);
@@ -39,16 +41,43 @@ reelInput.addEventListener("change", function (event) {
 
 // reel showing redirection EventListener
 
+let checkReel = JSON.parse(localStorage.getItem("reelUrlData"));
+console.log(checkReel);
+
+if (checkReel !== null) {
+  for (let i = 0; i < checkReel.length; i++) {
+    // creating reel div for the user
+
+    let trendingBirdDiv = document.createElement("div");
+    trendingBirdDiv.setAttribute("class", "reel-member-div");
+    trendingBirdDiv.setAttribute("id", checkReel[i]["reelId"]);
+
+    let trendingBirdDivImage = document.createElement("img");
+    trendingBirdDivImage.setAttribute("class", "reel-member-div-image");
+    trendingBirdDivImage.setAttribute("src", findUser["avatarUrl"]);
+
+    trendingBirdDiv.append(trendingBirdDivImage);
+
+    document.querySelector(".reel-container").append(trendingBirdDiv);
+  }
+}
+
 let reelPage = document.querySelector(".reel-member-div");
 console.log(reelPage);
 
-reelPage.addEventListener("click", (reel) => {
-  reel.preventDefault();
-  let checkReel = JSON.parse(localStorage.getItem("reelUrlData"));
+reelPage.addEventListener("click", function (event) {
+  event.preventDefault();
 
+  let reelId = event.target.parentElement.id;
+
+  console.log(reelId);
   if (checkReel == null) {
     return;
   } else {
-    window.location.href = "../pages/reel_showing.html";
+    window.location.href =
+      "../pages/reel_showing.html?user=" +
+      findUser["userId"] +
+      "&reel=" +
+      reelId;
   }
 });

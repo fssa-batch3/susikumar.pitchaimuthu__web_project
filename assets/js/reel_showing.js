@@ -1,11 +1,25 @@
 let reelData = JSON.parse(localStorage.getItem("reelUrlData"));
 console.log(reelData);
 
+// creating a url params function to find the reel
+
+let UrlReel = window.location.search;
+
+let ReelParams = new URLSearchParams(UrlReel);
+
+let passingReelId = ReelParams.get("reel");
+console.log(passingReelId);
+
+// creating a find function to find the reel
+
+let currentReel = reelData.find((e) => e["reelId"] == passingReelId);
+console.log(currentReel);
+
 let video = document.createElement("video");
 video.setAttribute("class", "reel-video");
 
 let source = document.createElement("source");
-source.setAttribute("src", reelData[0]["reel_url"]);
+source.setAttribute("src", currentReel["reel_url"]);
 source.setAttribute("type", "video/mp4");
 video.append(source);
 
@@ -20,7 +34,7 @@ document.querySelector(".reel-video").play();
 
 let reelDele = document.createElement("i");
 reelDele.setAttribute("class", "bi bi-shield-x");
-reelDele.setAttribute("id", reelData[0]["reelId"]);
+reelDele.setAttribute("id", currentReel["reelId"]);
 document.querySelector(".reel-delete-div").append(reelDele);
 
 let reelOption = document.querySelector(".bi-shield-x");

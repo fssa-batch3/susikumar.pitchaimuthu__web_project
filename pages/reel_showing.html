@@ -25,11 +25,14 @@
         <div class="profile-showing-whole-container">
           <!-- profile div -->
 
-          <div class="profile-div"></div>
+          <dic class="reel-name-div-container">
+            <div class="profile-div"></div>
 
-          <!-- div for show the rooling person name -->
+            <!-- div for show the rooling person name -->
 
-          <div class="user-name-div"></div>
+            <div class="user-name-div"></div>
+          </dic>
+
           <div class="reel-delete-div"></div>
         </div>
 
@@ -57,14 +60,13 @@
     </div>
     <script src="../assets/js/profile_user_find.js"></script>
     <script>
-      console.log(found);
       let profileImg = document.createElement("img");
-      profileImg.setAttribute("src", found["avatarUrl"]);
+      profileImg.setAttribute("src", findUser["avatarUrl"]);
       profileImg.setAttribute("class", "profile-image");
       document.querySelector(".profile-div").append(profileImg);
 
       let nameFind = document.createElement("p");
-      nameFind.innerHTML = found["userName"];
+      nameFind.innerHTML = findUser["userName"];
       document.querySelector(".user-name-div").append(nameFind);
     </script>
     <script src="../assets/js/reel_showing.js"></script>

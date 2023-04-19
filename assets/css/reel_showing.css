@@ -20,6 +20,13 @@
   gap: 2em;
 }
 
+.reel-name-div-container {
+  display: flex;
+  align-items: center;
+  gap: 2em;
+  width: 80%;
+}
+
 .profile-div {
   display: flex;
   align-items: center;
@@ -42,6 +49,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.reel-delete-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+}
+
+.bi-shield-x {
+  font-size: 1.2em;
 }
 
 /* reel area */
