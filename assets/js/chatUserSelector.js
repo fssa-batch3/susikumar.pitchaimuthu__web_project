@@ -197,10 +197,11 @@ for (let i = 0; i < chatPersonCard.length; i++) {
 
     for (let i = 0; i < senderFind.length; i++) {
       if (
-        senderFind[i]["chatter_id"] == findUser["userId"] &&
-        senderFind[i]["chatSenderId"] == userSelectId
+        (senderFind[i]["chatSenderId"] == findUser["userId"] &&
+          senderFind[i]["chatter_id"] == userSelectId) ||
+        (senderFind[i]["chatter_id"] == findUser["userId"] &&
+          senderFind[i]["chatSenderId"] == userSelectId)
       ) {
-        console.log(userSelectId);
         sender.push(senderFind[i]);
       }
     }
@@ -219,8 +220,8 @@ for (let i = 0; i < chatPersonCard.length; i++) {
 
     for (let j = 0; j < sender.length; j++) {
       if (
-        sender[j]["chatSenderId"] == findUser["userId"] &&
-        sender[j]["chatter_id"] !== findUser["userId"]
+        sender[j]["chatter_id"] !== userSelectId &&
+        sender[j]["chatSenderId"] == findUser["userId"]
       ) {
         console.log(sender[j]);
         let chatDivUser = document.createElement("div");
@@ -279,6 +280,7 @@ for (let i = 0; i < chatPersonCard.length; i++) {
 
         document.querySelector(".right-side-container").append(chatDivUser);
       } else {
+        console.log("friends");
         let chatDivUser = document.createElement("div");
         chatDivUser.setAttribute("class", "chat-div-for-user");
 
@@ -301,7 +303,7 @@ for (let i = 0; i < chatPersonCard.length; i++) {
         let usrImage = document.createElement("img");
         usrImage.setAttribute("alt", "chat-image");
         usrImage.setAttribute("class", "chatter-image");
-        usrImage.setAttribute("src", findUser["avatarUrl"]);
+        usrImage.setAttribute("src", sender[j]["chatterImage"]);
         userProfileDiv.append(usrImage);
 
         let chatContentTimeDiv = document.createElement("div");
@@ -335,53 +337,53 @@ for (let i = 0; i < chatPersonCard.length; i++) {
 
         document.querySelector(".right-side-container").append(chatDivUser);
       }
-
-      // let div = document.createElement("div");
-      // div.setAttribute("class", "reply-msg");
-      // div.setAttribute("id", sender[i]["chatId"]);
-      // // div.setAttribute("onmouseenter", "editOptionMouseOver(this.id)");
-      // // div.setAttribute("onmouseleave", "editoptionMouseOut()");
-
-      // let replyChatPara = document.createElement("p");
-      // replyChatPara.setAttribute("id", "reply-msg-chat");
-      // replyChatPara.innerHTML = sender[i]["chat"];
-      // div.append(replyChatPara);
-
-      // let replyChatTime = document.createElement("p");
-      // replyChatTime.setAttribute("class", "reply-msg-time");
-      // replyChatTime.innerText = sender[i]["timing"];
-      // div.append(replyChatTime);
-
-      // let chatidPara = document.createElement("p");
-      // chatidPara.setAttribute("class", "chatId");
-      // chatidPara.innerText = sender[i]["chatId"];
-      // div.append(chatidPara);
-
-      // let chatEditdiv = document.createElement("div");
-      // chatEditdiv.setAttribute("class", "edit-option-div");
-      // chatEditdiv.setAttribute("id", sender[i]["chatId"]);
-      // div.append(chatEditdiv);
-
-      // let emojiFa = document.createElement("i");
-      // // emojiFa.setAttribute("class", "bi bi-emoji-heart-eyes-fill");
-      // emojiFa.setAttribute("onclick", "emoji(this.id)");
-      // chatEditdiv.append(emojiFa);
-
-      // let editFa = document.createElement("i");
-      // editFa.setAttribute("class", "bi bi-pen-fill");
-      // editFa.setAttribute("id", sender[i]["chatId"]);
-      // // editFa.setAttribute("onclick", "chatEditInput(this.id)");
-      // chatEditdiv.append(editFa);
-
-      // let deleteFa = document.createElement("i");
-      // deleteFa.setAttribute("class", "bi bi-trash");
-      // deleteFa.setAttribute("id", sender[i]["chatId"]);
-      // // deleteFa.setAttribute("onclick", "deleteChat(this.id)");
-      // chatEditdiv.append(deleteFa);
-
-      // // chat Edit input feild
-
-      // document.querySelector(".right-side-container").append(div);
     }
+
+    // let div = document.createElement("div");
+    // div.setAttribute("class", "reply-msg");
+    // div.setAttribute("id", sender[i]["chatId"]);
+    // // div.setAttribute("onmouseenter", "editOptionMouseOver(this.id)");
+    // // div.setAttribute("onmouseleave", "editoptionMouseOut()");
+
+    // let replyChatPara = document.createElement("p");
+    // replyChatPara.setAttribute("id", "reply-msg-chat");
+    // replyChatPara.innerHTML = sender[i]["chat"];
+    // div.append(replyChatPara);
+
+    // let replyChatTime = document.createElement("p");
+    // replyChatTime.setAttribute("class", "reply-msg-time");
+    // replyChatTime.innerText = sender[i]["timing"];
+    // div.append(replyChatTime);
+
+    // let chatidPara = document.createElement("p");
+    // chatidPara.setAttribute("class", "chatId");
+    // chatidPara.innerText = sender[i]["chatId"];
+    // div.append(chatidPara);
+
+    // let chatEditdiv = document.createElement("div");
+    // chatEditdiv.setAttribute("class", "edit-option-div");
+    // chatEditdiv.setAttribute("id", sender[i]["chatId"]);
+    // div.append(chatEditdiv);
+
+    // let emojiFa = document.createElement("i");
+    // // emojiFa.setAttribute("class", "bi bi-emoji-heart-eyes-fill");
+    // emojiFa.setAttribute("onclick", "emoji(this.id)");
+    // chatEditdiv.append(emojiFa);
+
+    // let editFa = document.createElement("i");
+    // editFa.setAttribute("class", "bi bi-pen-fill");
+    // editFa.setAttribute("id", sender[i]["chatId"]);
+    // // editFa.setAttribute("onclick", "chatEditInput(this.id)");
+    // chatEditdiv.append(editFa);
+
+    // let deleteFa = document.createElement("i");
+    // deleteFa.setAttribute("class", "bi bi-trash");
+    // deleteFa.setAttribute("id", sender[i]["chatId"]);
+    // // deleteFa.setAttribute("onclick", "deleteChat(this.id)");
+    // chatEditdiv.append(deleteFa);
+
+    // // chat Edit input feild
+
+    // document.querySelector(".right-side-container").append(div);
   });
 }

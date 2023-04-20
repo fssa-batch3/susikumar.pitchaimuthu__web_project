@@ -467,7 +467,6 @@
 .right-side-container {
   display: flex;
   flex-direction: column;
-  gap: 2em;
   flex: 1;
   height: 610px;
   overflow: scroll;

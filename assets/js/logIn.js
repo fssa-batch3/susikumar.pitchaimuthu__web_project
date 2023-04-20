@@ -10,6 +10,9 @@ logIn.addEventListener("submit", (event) => {
 
   let userEmail = document.getElementById("inputemail").value.trim();
   let password = document.getElementById("password").value.trim();
+  let comfirmPassword = document
+    .getElementById("confirm-password")
+    .value.trim();
 
   let match = false;
 
@@ -21,6 +24,7 @@ logIn.addEventListener("submit", (event) => {
       password == defaultData[i]["password"]
     ) {
       match = true;
+
       successUser = defaultData[i];
 
       let which = doSomething.push(defaultData[i]);

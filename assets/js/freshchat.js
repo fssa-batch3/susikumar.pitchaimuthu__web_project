@@ -32,6 +32,7 @@ function getUser(event) {
       chatDate: chatDate,
       chatter_id: chattters[chattters.length - 1]["userId"],
       chatSenderId: findUser["userId"],
+      chatterImage: findUser["avatarUrl"],
     };
 
     console.log(chatObj);
