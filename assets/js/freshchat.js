@@ -21,13 +21,17 @@ function getUser(event) {
         minute: "2-digit",
       }));
 
+    let chatDate = moment().format("l");
+
     let chatId = Date.now();
 
     let chatObj = {
       chat: chat,
       timing: jsonTime,
       chatId: chatId,
+      chatDate: chatDate,
       chatter_id: chattters[chattters.length - 1]["userId"],
+      chatSenderId: findUser["userId"],
     };
 
     console.log(chatObj);
