@@ -60,6 +60,7 @@ function showInvite(invId) {
   let heartDiv = document.createElement("div");
   heartDiv.setAttribute("class", "heart-div");
   heartDiv.setAttribute("id", findPresentInvite["inviteId"]);
+  heartDiv.setAttribute("onclick", "likeHeart(this.id)");
   likeCommentInsideDiv.append(heartDiv);
 
   let heartI = document.createElement("i");
@@ -69,6 +70,7 @@ function showInvite(invId) {
   let okDiv = document.createElement("div");
   okDiv.setAttribute("class", "ok-div");
   okDiv.setAttribute("id", findPresentInvite["inviteId"]);
+  okDiv.setAttribute("onclick", "thumbsUp(this.id)");
   likeCommentInsideDiv.append(okDiv);
 
   let okI = document.createElement("i");
@@ -78,6 +80,7 @@ function showInvite(invId) {
   let sorryDiv = document.createElement("div");
   sorryDiv.setAttribute("class", "sorry-div");
   sorryDiv.setAttribute("id", findPresentInvite["inviteId"]);
+  sorryDiv.setAttribute("onclick", "thumbsDown(this.id)");
   likeCommentInsideDiv.append(sorryDiv);
 
   let sorryI = document.createElement("i");

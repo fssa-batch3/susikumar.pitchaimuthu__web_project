@@ -372,6 +372,24 @@
 .bi-keyboard {
   font-size: 1.5em;
   cursor: pointer;
+  /* color: white; */
+}
+
+.bi-heart-fill {
+  font-size: 1.5em;
+  cursor: pointer;
+  color: red;
+}
+.bi-hand-thumbs-up-fill {
+  font-size: 1.5em;
+  cursor: pointer;
+  color: rgb(74, 151, 219);
+}
+
+.bi-hand-thumbs-down-fill {
+  font-size: 1.5em;
+  color: rgb(89, 88, 88);
+  cursor: pointer;
 }
 
 /* inviter profile showing div container */

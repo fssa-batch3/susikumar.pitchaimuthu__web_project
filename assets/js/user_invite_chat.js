@@ -49,3 +49,42 @@ function inviteChatNotification(noti) {
     JSON.stringify(inviteNotificationArr)
   );
 }
+
+// invite reation showing function
+
+// reaction element
+
+let upDiv = document.querySelector(".ok-div");
+let downDiv = document.querySelector(".sorry-div");
+
+function likeHeart(e) {
+  console.log(e);
+  let likeButton = document.querySelector(".bi-heart");
+  likeButton.remove("bi-heart");
+
+  let likeFill = document.createElement("i");
+  likeFill.setAttribute("class", "bi bi-heart-fill");
+  document.querySelector(".heart-div").append(likeFill);
+}
+
+function thumbsUp(e) {
+  console.log(e);
+
+  let thumbsUpElement = document.querySelector(".bi-hand-thumbs-up");
+
+  thumbsUpElement.remove("bi-hand-thumbs-up");
+
+  let likeFill = document.createElement("i");
+  likeFill.setAttribute("class", "bi bi-hand-thumbs-up-fill");
+  document.querySelector(".ok-div").append(likeFill);
+}
+function thumbsDown(e) {
+  console.log(e);
+  let thumbsDownElement = document.querySelector(".bi-hand-thumbs-down");
+
+  thumbsDownElement.remove("bi-hand-thumbs-down");
+
+  let likeFill = document.createElement("i");
+  likeFill.setAttribute("class", "bi bi-hand-thumbs-down-fill");
+  document.querySelector(".sorry-div").append(likeFill);
+}
