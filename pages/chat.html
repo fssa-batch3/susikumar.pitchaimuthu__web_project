@@ -205,11 +205,7 @@
 
     <script src="../assets/js/chatUserSelector.js"></script>
     <script src="../assets/js/reel_access.js"></script>
-
-    <!--  fire base set up chat code -->
-    <!-- <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-database.js"></script> -->
-
+    <!-- 
     <script type="module">
       // Import the functions you need from the SDKs you need
       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js";
@@ -234,7 +230,7 @@
       // Initialize Firebase
       const app = initializeApp(firebaseConfig);
 
-      const db = getDatabase();
+      const db = getDatabase(app);
       // Initialize Firebase
       function kishor() {
         onValue(ref(db, `freshchat/`), (snapshot) => {
@@ -242,9 +238,15 @@
         });
       }
       kishor();
-    </script>
 
-    <script src="../assets/js/chatFetch.js"></script>
-    <!-- <script src="../assets/js/freshchat.js"></script> -->
+      // import {getUser} from ""
+
+      // data setting option to the firebase database
+
+      function getUser() {}
+    </script> -->
+
+    <!-- <script src="../assets/js/chatFetch.js"></script> -->
+    <script src="../assets/js/freshchat.js"></script>
   </body>
 </html>

@@ -1,32 +1,43 @@
-let chatDataArray = [];
+// import { database } from "./db.js";
 
-function getUser(event) {
-  console.log(event);
-  let chatReceiver = event;
+// console.log(database);
+// let chatDataArray = [];
 
-  let chatMessage = document.querySelector("#chat-input").value.trim();
-  console.log(chatMessage);
+// function getUser(event) {
+//   console.log(event);
+//   let chatReceiver = event;
 
-  let userName = findUser["userName"];
-  console.log(userName);
+//   let chatMessage = document.querySelector("#chat-input").value.trim();
+//   console.log(chatMessage);
 
-  let personId = findUser["userId"];
+//   let userName = findUser["userName"];
+//   console.log(userName);
 
-  let chatId = moment().format("LT");
-  let dateChat = moment().format("l");
+//   let personId = findUser["userId"];
 
-  //  message sending to the firebase set function
-  // console.log(db);
+//   let chatId = moment().format("LT");
+//   let dateChat = moment().format("l");
 
-  set(ref(db, "freshchat"), {
-    chatPerson: userName,
-    chat: chatMessage,
-    chatTime: chatId,
-    chatReceiverId: chatReceiver,
-    chatDate: dateChat,
-    chatterId: personId,
-  });
-}
+//   //  message sending to the firebase set function
+
+//   set(ref(db, "freshchat"), {
+//     chatPerson: userName,
+//     chat: chatMessage,
+//     chatTime: chatId,
+//     chatReceiverId: chatReceiver,
+//     chatDate: dateChat,
+//     chatterId: personId,
+//   });
+
+// database.set({
+//   chatPerson: userName,
+//   chat: chatMessage,
+//   chatTime: chatId,
+//   chatReceiverId: chatReceiver,
+//   chatDate: dateChat,
+//   chatterId: personId,
+// });
+// }
 // let databaseData = firebase.database().ref("freshchat");
 
 // for (let i = 0; i < chatDataArray.length; i++) {}

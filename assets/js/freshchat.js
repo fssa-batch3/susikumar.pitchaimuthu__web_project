@@ -1,3 +1,15 @@
+// let sebdButton = document.querySelector("#chat-input");
+
+// if (sebdButton !== null) {
+//   sebdButton.addEventListener("keyup", (event) => {
+//     if (event.keyCode === 13) {
+//       // 13 is the keycode for the Enter key
+//       // Call your function here
+//       getUser();
+//     }
+//   });
+// }
+
 function getUser(event) {
   let arr = [];
 

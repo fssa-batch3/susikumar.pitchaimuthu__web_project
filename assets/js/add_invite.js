@@ -52,7 +52,8 @@ console.log(image);
 // Writing EventListner for store user invites data
 let inviteForm = document.querySelector("#invite-form");
 
-inviteForm.addEventListener("submit", () => {
+inviteForm.addEventListener("submit", (sub) => {
+  sub.preventDefault();
   let inviteArr = [];
 
   if (localStorage.getItem("userInvites") !== null) {
@@ -91,4 +92,5 @@ inviteForm.addEventListener("submit", () => {
   inviteArr.push(inviteObj);
 
   localStorage.setItem("userInvites", JSON.stringify(inviteArr));
+  window.location.href = "../pages/invite.html?user=" + findUser["userId"];
 });
