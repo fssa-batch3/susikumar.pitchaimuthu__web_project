@@ -78,14 +78,10 @@ function likeHeart(e) {
     likeFill.setAttribute("class", "bi bi-heart-fill");
     document.querySelector(".heart-div").append(likeFill);
 
-    let likeObject = {
-      likeId: findUser["userId"],
-    };
+    let heartArray = findInvite["inviteHeart"];
+    console.log(heartArray);
 
-    let likeObjectAssaign = Object.assign(findInvite, likeObject);
-    console.log(likeObjectAssaign);
-
-    inviteDatas[LikeIndex] = likeObjectAssaign;
+    heartArray.push(findUser["userId"]);
 
     localStorage.setItem("userInvites", JSON.stringify(inviteDatas));
     return;
@@ -96,14 +92,18 @@ function likeHeart(e) {
     likeFill.setAttribute("class", "bi bi-heart");
     document.querySelector(".heart-div").append(likeFill);
 
-    let likeObject = {
-      likeId: "",
-    };
+    let heartIndex;
 
-    let likeObjectAssaign = Object.assign(findInvite, likeObject);
-    console.log(likeObjectAssaign);
+    for (let i = 0; i < findInvite["inviteHeart"].length; i++) {
+      if (findInvite["inviteHeart"][i] == findUser["userId"]) {
+        heartIndex = findInvite["inviteHeart"].indexOf(
+          findInvite["inviteHeart"][i]
+        );
+      }
+    }
+    console.log(heartIndex);
 
-    inviteDatas[LikeIndex] = likeObjectAssaign;
+    findInvite["inviteHeart"].splice(heartIndex);
 
     localStorage.setItem("userInvites", JSON.stringify(inviteDatas));
   }
@@ -131,14 +131,9 @@ function thumbsUp(e) {
     likeFill.setAttribute("class", "bi bi-hand-thumbs-up-fill");
     document.querySelector(".ok-div").append(likeFill);
 
-    let okObject = {
-      okId: findUser["userId"],
-    };
+    let likeArray = findInvite["inviteLike"];
 
-    let likeObjectAssaign = Object.assign(findInvite, okObject);
-    console.log(likeObjectAssaign);
-
-    inviteDatas[LikeIndex] = likeObjectAssaign;
+    likeArray.push(findUser["userId"]);
 
     localStorage.setItem("userInvites", JSON.stringify(inviteDatas));
   } else {
@@ -148,14 +143,19 @@ function thumbsUp(e) {
     likeFill.setAttribute("class", "bi bi-hand-thumbs-up");
     document.querySelector(".ok-div").append(likeFill);
 
-    let okObject = {
-      okId: "",
-    };
+    let thumbsUpIndex;
 
-    let likeObjectAssaign = Object.assign(findInvite, okObject);
-    console.log(likeObjectAssaign);
+    for (let i = 0; i < findInvite["inviteLike"].length; i++) {
+      if (findInvite["inviteLike"][i] == findUser["userId"]) {
+        thumbsUpIndex = findInvite["inviteLike"].indexOf(
+          findInvite["inviteLike"][i]
+        );
+      }
+    }
 
-    inviteDatas[LikeIndex] = likeObjectAssaign;
+    console.log(thumbsUpIndex);
+
+    findInvite["inviteLike"].splice(thumbsUpIndex);
 
     localStorage.setItem("userInvites", JSON.stringify(inviteDatas));
   }
@@ -183,14 +183,9 @@ function thumbsDown(e) {
     likeFill.setAttribute("class", "bi bi-hand-thumbs-down-fill");
     document.querySelector(".sorry-div").append(likeFill);
 
-    let downObject = {
-      downId: findUser["userId"],
-    };
+    let dislikeArray = findInvite["inviteNo"];
 
-    let likeObjectAssaign = Object.assign(findInvite, downObject);
-    console.log(likeObjectAssaign);
-
-    inviteDatas[LikeIndex] = likeObjectAssaign;
+    dislikeArray.push(findUser["userId"]);
 
     localStorage.setItem("userInvites", JSON.stringify(inviteDatas));
   } else {
@@ -200,14 +195,17 @@ function thumbsDown(e) {
     likeFill.setAttribute("class", "bi bi-hand-thumbs-down");
     document.querySelector(".sorry-div").append(likeFill);
 
-    let downObject = {
-      downId: "",
-    };
+    let dislikeIndex;
 
-    let likeObjectAssaign = Object.assign(findInvite, downObject);
-    console.log(likeObjectAssaign);
+    for (let i = 0; i < findInvite["inviteNo"].length; i++) {
+      if (findInvite["inviteNo"][i] == findUser["userId"]) {
+        dislikeIndex = findInvite["inviteNo"].indexOf(
+          findInvite["inviteNo"][i]
+        );
+      }
+    }
 
-    inviteDatas[LikeIndex] = likeObjectAssaign;
+    findInvite["inviteNo"].splice(dislikeIndex);
 
     localStorage.setItem("userInvites", JSON.stringify(inviteDatas));
   }

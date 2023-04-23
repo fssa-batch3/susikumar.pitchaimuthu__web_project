@@ -9,6 +9,28 @@ function showInvite(invId) {
   );
   console.log(findPresentInvite);
 
+  let userLike = false;
+
+  for (let i = 0; i < findPresentInvite["inviteLike"].length; i++) {
+    if (findPresentInvite["inviteLike"][i] == findUser["userId"]) {
+      userLike = true;
+    }
+  }
+
+  let userDislike = false;
+  for (let i = 0; i < findPresentInvite["inviteNo"].length; i++) {
+    if (findPresentInvite["inviteNo"][i] == findUser["userId"]) {
+      userDislike = true;
+    }
+  }
+
+  let userHeart = false;
+  for (let i = 0; i < findPresentInvite["inviteHeart"].length; i++) {
+    if (findPresentInvite["inviteHeart"][i] == findUser["userId"]) {
+      userHeart = true;
+    }
+  }
+
   // invite type showing container
 
   let all = document.querySelector(".invite-inside-details-div-container");
@@ -63,14 +85,16 @@ function showInvite(invId) {
   heartDiv.setAttribute("onclick", "likeHeart(this.id)");
   likeCommentInsideDiv.append(heartDiv);
 
-  if (findPresentInvite["likeId"] == findUser["userId"]) {
+  console.log(findPresentInvite["inviteLike"].length);
+
+  if (userHeart == true) {
     let heartI = document.createElement("i");
     heartI.setAttribute("class", "bi bi-heart-fill");
     heartDiv.append(heartI);
   } else {
-    let heartI = document.createElement("i");
-    heartI.setAttribute("class", "bi bi-heart");
-    heartDiv.append(heartI);
+    let heartSecond = document.createElement("i");
+    heartSecond.setAttribute("class", "bi bi-heart");
+    heartDiv.append(heartSecond);
   }
 
   let okDiv = document.createElement("div");
@@ -79,14 +103,14 @@ function showInvite(invId) {
   okDiv.setAttribute("onclick", "thumbsUp(this.id)");
   likeCommentInsideDiv.append(okDiv);
 
-  if (findPresentInvite["okId"] == findUser["userId"]) {
+  if (userLike == true) {
     let okI = document.createElement("i");
     okI.setAttribute("class", "bi bi-hand-thumbs-up-fill");
     okDiv.append(okI);
   } else {
-    let okI = document.createElement("i");
-    okI.setAttribute("class", "bi bi-hand-thumbs-up");
-    okDiv.append(okI);
+    let okISecond = document.createElement("i");
+    okISecond.setAttribute("class", "bi bi-hand-thumbs-up");
+    okDiv.append(okISecond);
   }
 
   let sorryDiv = document.createElement("div");
@@ -95,7 +119,7 @@ function showInvite(invId) {
   sorryDiv.setAttribute("onclick", "thumbsDown(this.id)");
   likeCommentInsideDiv.append(sorryDiv);
 
-  if (findPresentInvite["downId"] == findUser["userId"]) {
+  if (userDislike == true) {
     let sorryI = document.createElement("i");
     sorryI.setAttribute("class", "bi bi-hand-thumbs-down-fill");
     sorryDiv.append(sorryI);

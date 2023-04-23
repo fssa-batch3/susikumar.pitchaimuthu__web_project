@@ -73,6 +73,10 @@ inviteForm.addEventListener("submit", (sub) => {
 
   let inviteId = Date.now();
 
+  let inviteLike = [];
+  let inviteNo = [];
+  let inviteHeart = [];
+
   let inviteObj = {
     inviteName,
     inviteDate,
@@ -85,6 +89,9 @@ inviteForm.addEventListener("submit", (sub) => {
     inviterId: findUser["userId"],
     inviterName: findUser["userName"],
     inviterImage: findUser["avatarUrl"],
+    inviteLike,
+    inviteNo,
+    inviteHeart,
   };
 
   console.log(inviteObj);
