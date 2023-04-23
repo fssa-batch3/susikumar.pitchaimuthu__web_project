@@ -104,6 +104,13 @@
   padding: 0;
 }
 
+.receivers-notification-emoji-container {
+  display: flex;
+  width: 50%;
+  align-items: center;
+  justify-content: space-between;
+}
+
 /* invites showing container */
 
 .invites-container {
@@ -464,4 +471,30 @@
 .keyboard-div {
   display: flex;
   justify-content: center;
+}
+
+/* percentage css */
+.ok-percentage-div,
+.no-percentage-div {
+  position: relative;
+}
+
+.ok-percentage-inside-div,
+.no-percentage-inside-div {
+  position: absolute;
+  top: 20.9%;
+  right: 35%;
+  margin: 0;
+  padding: 0;
+}
+
+.ok-i,
+.no-i {
+  font-size: 1.25em;
+}
+.ok-percentage-p,
+.no-percentage-p {
+  margin: 0;
+  padding: 0;
+  font-size: 90%;
 }

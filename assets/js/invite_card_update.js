@@ -115,6 +115,6 @@ deleteInviteButton.addEventListener("click", (deIn) => {
   } else {
     getinviteData.splice(inviteIndex, 1);
     localStorage.setItem("userInvites", JSON.stringify(getinviteData));
-    location.reload();
+    window.location.href = "../pages/invite.html?user=" + findUser["userId"];
   }
 });

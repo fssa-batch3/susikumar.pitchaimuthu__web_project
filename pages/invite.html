@@ -153,8 +153,29 @@
     <script src="../assets/js/profile_user_find.js"></script>
     <script src="../assets/js/page-direction.js"></script>
     <script src="https://momentjs.com/downloads/moment.js"></script>
+    <script src="../assets/js/easy_pie_chart.js"></script>
     <script src="../assets/js/fresh_invite.js"></script>
     <script src="../assets/js/user_friends_invite.js"></script>
+    <script>
+      // Gettig the percentage elements
+
+      let okDiv = document.querySelector(".ok-percentage-div");
+      let noDiv = document.querySelector(".no-percentage-div");
+
+      new EasyPieChart(okDiv, {
+        barColor: "#A2D2FF",
+        lineWidth: 14,
+        lineCap: "circle",
+        size: 95,
+      });
+
+      new EasyPieChart(noDiv, {
+        barColor: "#A2D2FF",
+        lineWidth: 14,
+        lineCap: "circle",
+        size: 95,
+      });
+    </script>
     <script src="../assets/js/user_friends_invite_show.js"></script>
     <script src="../assets/js/user_invite_chat.js"></script>
   </body>

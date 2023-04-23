@@ -77,6 +77,42 @@ if (GetInviteDetails !== null) {
     receiverPara.innerHTML = "Count";
     receiverDiv.append(receiverPara);
 
+    let okPercentageDiv = document.createElement("div");
+    okPercentageDiv.setAttribute("class", "ok-percentage-div");
+    okPercentageDiv.setAttribute("data-percent", "43");
+    receiverEmojiContainer.append(okPercentageDiv);
+
+    let okPercentageInsideDiv = document.createElement("div");
+    okPercentageInsideDiv.setAttribute("class", "ok-percentage-inside-div");
+    okPercentageDiv.append(okPercentageInsideDiv);
+
+    let okPercentageI = document.createElement("i");
+    okPercentageI.setAttribute("class", "bi bi-hand-thumbs-up ok-i");
+    okPercentageInsideDiv.append(okPercentageI);
+
+    let okPercentagep = document.createElement("p");
+    okPercentagep.setAttribute("class", "ok-percentage-p");
+    okPercentagep.innerHTML = "43";
+    okPercentageInsideDiv.append(okPercentagep);
+
+    let noPercentageDiv = document.createElement("div");
+    noPercentageDiv.setAttribute("class", "no-percentage-div");
+    noPercentageDiv.setAttribute("data-percent", "56");
+    receiverEmojiContainer.append(noPercentageDiv);
+
+    let noPercentageInsideDiv = document.createElement("div");
+    noPercentageInsideDiv.setAttribute("class", "no-percentage-inside-div");
+    noPercentageDiv.append(noPercentageInsideDiv);
+
+    let noPercentageI = document.createElement("i");
+    noPercentageI.setAttribute("class", "bi bi-hand-thumbs-down no-i");
+    noPercentageInsideDiv.append(noPercentageI);
+
+    let noPercentageP = document.createElement("p");
+    noPercentageP.innerHTML = "56";
+    noPercentageP.setAttribute("class", "no-percentage-p");
+    noPercentageInsideDiv.append(noPercentageP);
+
     document.querySelector(".invitation-showing-area-container").append(anger);
   }
 }
