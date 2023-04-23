@@ -80,7 +80,7 @@ activityHead.addEventListener("click", () => {
   let findUserActivity;
   if (userActivityData !== null) {
     findUserActivity = userActivityData.filter(
-      (e) => e["inviter_id"] == findUser["userId"]
+      (e) => e["inviterId"] == findUser["userId"]
     );
 
     console.log(findUserActivity);
@@ -93,23 +93,23 @@ activityHead.addEventListener("click", () => {
       <div class="user-activity-image-div">
         <img
           class="activity-image"
-          src="${findUserActivity[i]["avatarUrl"]}"
+          src="${findUserActivity[i]["inviteImage"]}"
           alt="activity-image"
         />
       </div>
       
       <div class="user-activity-name-div">
          <div class="user-name-div">
-             <h3 class="user-name">${findUserActivity[i]["userName"]}</h3>
+             <h3 class="user-name">${findUserActivity[i]["inviteName"]}</h3>
          </div>
       
           <div class="user-theme-div">
-             <p class="user-theme">${findUserActivity[i]["userTheme"]}</p>
+             <p class="user-theme">${findUserActivity[i]["inviteGlimpse"]}</p>
           </div>
       </div>
       
       <div>
-        <button class="connect-button" onclick="showDetails(this.id)" id=${SuggestedUsers[i]["userId"]}>View</button>
+        <button class="connect-button" onclick="showDetails(this.id)" id=${SuggestedUsers[i]["iniviteId"]}>View</button>
       </div>
       </div>`;
 

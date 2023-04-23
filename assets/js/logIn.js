@@ -23,6 +23,10 @@ logIn.addEventListener("submit", (event) => {
       userEmail == defaultData[i]["Email"] &&
       password == defaultData[i]["password"]
     ) {
+      if (password !== comfirmPassword) {
+        alert("Confirm password is not matched");
+        return;
+      }
       match = true;
 
       successUser = defaultData[i];

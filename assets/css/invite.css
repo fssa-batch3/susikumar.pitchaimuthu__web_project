@@ -26,9 +26,11 @@
   justify-content: center;
   align-items: center;
   height: 5.5em;
+  gap: 1em;
 }
 
-.user-invite-box-container {
+.card-anger {
+  text-decoration: none;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -37,13 +39,22 @@
   border-radius: 12px;
   background-color: 5px solid #000000;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  color: #000000;
+}
+
+.user-invite-box-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 5.4em;
 }
 
 .user-invite-div {
   display: flex;
   padding: 17px;
   align-items: center;
-  width: 90%;
+  width: 100%;
   justify-content: space-between;
 }
 
@@ -94,6 +105,7 @@
 }
 
 /* invites showing container */
+
 .invites-container {
   display: flex;
   align-items: center;
@@ -106,7 +118,9 @@
 .invite-image-content-container {
   display: flex;
   align-items: center;
-  gap: 2em;
+  gap: 9%;
+  width: 30%;
+  justify-content: space-between;
 }
 
 .invite-image-div {
@@ -134,19 +148,7 @@
 .invite-name-content-div h3,
 .invite-name-content-div p {
   margin: 0;
-}
-
-.receivers-notification-emoji-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 3em;
-}
-
-.receivers-div {
-  display: flex;
-  align-items: center;
-  gap: 2em;
+  font-size: 89%;
 }
 
 /* invite and showing container */

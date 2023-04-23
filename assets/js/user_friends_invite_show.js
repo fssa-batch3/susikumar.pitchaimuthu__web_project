@@ -63,9 +63,15 @@ function showInvite(invId) {
   heartDiv.setAttribute("onclick", "likeHeart(this.id)");
   likeCommentInsideDiv.append(heartDiv);
 
-  let heartI = document.createElement("i");
-  heartI.setAttribute("class", "bi bi-heart");
-  heartDiv.append(heartI);
+  if (findPresentInvite["likeId"] == findUser["userId"]) {
+    let heartI = document.createElement("i");
+    heartI.setAttribute("class", "bi bi-heart-fill");
+    heartDiv.append(heartI);
+  } else {
+    let heartI = document.createElement("i");
+    heartI.setAttribute("class", "bi bi-heart");
+    heartDiv.append(heartI);
+  }
 
   let okDiv = document.createElement("div");
   okDiv.setAttribute("class", "ok-div");
@@ -73,9 +79,15 @@ function showInvite(invId) {
   okDiv.setAttribute("onclick", "thumbsUp(this.id)");
   likeCommentInsideDiv.append(okDiv);
 
-  let okI = document.createElement("i");
-  okI.setAttribute("class", "bi bi-hand-thumbs-up");
-  okDiv.append(okI);
+  if (findPresentInvite["okId"] == findUser["userId"]) {
+    let okI = document.createElement("i");
+    okI.setAttribute("class", "bi bi-hand-thumbs-up-fill");
+    okDiv.append(okI);
+  } else {
+    let okI = document.createElement("i");
+    okI.setAttribute("class", "bi bi-hand-thumbs-up");
+    okDiv.append(okI);
+  }
 
   let sorryDiv = document.createElement("div");
   sorryDiv.setAttribute("class", "sorry-div");
@@ -83,9 +95,15 @@ function showInvite(invId) {
   sorryDiv.setAttribute("onclick", "thumbsDown(this.id)");
   likeCommentInsideDiv.append(sorryDiv);
 
-  let sorryI = document.createElement("i");
-  sorryI.setAttribute("class", "bi bi-hand-thumbs-down");
-  sorryDiv.append(sorryI);
+  if (findPresentInvite["downId"] == findUser["userId"]) {
+    let sorryI = document.createElement("i");
+    sorryI.setAttribute("class", "bi bi-hand-thumbs-down-fill");
+    sorryDiv.append(sorryI);
+  } else {
+    let sorryI = document.createElement("i");
+    sorryI.setAttribute("class", "bi bi-hand-thumbs-down");
+    sorryDiv.append(sorryI);
+  }
 
   // user profile and chat input feild creation
 

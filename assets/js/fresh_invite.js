@@ -9,8 +9,21 @@ if (GetInviteDetails !== null) {
   );
 
   for (let i = 0; i < thisUserInvite.length; i++) {
+    //   update option
+
+    let anger = document.createElement("a");
+    anger.setAttribute("class", "card-anger");
+    anger.setAttribute(
+      "href",
+      "../pages/invite_card.html?inviteId=" +
+        thisUserInvite[i]["inviteId"] +
+        "&user=" +
+        findUser["userId"]
+    );
+
     let userInviteBox = document.createElement("div");
     userInviteBox.setAttribute("class", "user-invite-box-container");
+    anger.append(userInviteBox);
 
     let userInviteDiv = document.createElement("div");
     userInviteDiv.setAttribute("class", "user-invite-div");
@@ -61,61 +74,10 @@ if (GetInviteDetails !== null) {
 
     let receiverPara = document.createElement("h3");
     receiverPara.setAttribute("class", "receiver-name");
-    receiverPara.innerHTML = "Receivers";
+    receiverPara.innerHTML = "Count";
     receiverDiv.append(receiverPara);
 
-    let receiverCount = document.createElement("p");
-    receiverCount.setAttribute("class", "receiver-count");
-    receiverCount.innerHTML = thisUserInvite.length;
-    receiverDiv.append(receiverCount);
-
-    // receiver Notification count
-
-    let notificationDiv = document.createElement("div");
-    notificationDiv.setAttribute("class", "notification-div");
-    notificationDiv.setAttribute("onclick", "notification()");
-    receiverEmojiContainer.append(notificationDiv);
-
-    let notificationI = document.createElement("i");
-    notificationI.setAttribute("class", "bi bi-bell");
-    notificationDiv.append(notificationI);
-
-    // reaction
-
-    let reactionDiv = document.createElement("div");
-    reactionDiv.setAttribute("class", "reaction-div");
-    reactionDiv.setAttribute("onclick", "notification()");
-    receiverEmojiContainer.append(reactionDiv);
-
-    let reactionI = document.createElement("i");
-    reactionI.setAttribute("class", "bi bi-emoji-heart-eyes-fill");
-    reactionDiv.append(reactionI);
-
-    //   update option
-
-    let anger = document.createElement("a");
-    anger.setAttribute(
-      "href",
-      "../pages/invite_card.html?inviteId=" +
-        thisUserInvite[i]["inviteId"] +
-        "&user=" +
-        findUser["userId"]
-    );
-
-    receiverEmojiContainer.append(anger);
-
-    let updateOptionDiv = document.createElement("div");
-    updateOptionDiv.setAttribute("class", "update-option-div");
-
-    anger.append(updateOptionDiv);
-
-    let updateI = document.createElement("i");
-    updateI.setAttribute("class", "bi bi-credit-card-2-front");
-    updateOptionDiv.append(updateI);
-
-    document
-      .querySelector(".invitation-showing-area-container")
-      .append(userInviteBox);
+    document.querySelector(".invitation-showing-area-container").append(anger);
   }
 }
 
