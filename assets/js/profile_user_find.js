@@ -18,16 +18,16 @@ let userIndex = info.indexOf(findUser);
 
 // profile image and details adding elements
 
-let profile_image = document.querySelector("#profile-image");
-let profile_name = document.querySelector(".name");
+// let profile_image = document.querySelector("#profile-image");
+// let profile_name = document.querySelector(".name");
 
-profile_image.setAttribute("src", findUser["avatarUrl"]);
-profile_name.innerHTML = findUser["userName"];
+// profile_image.setAttribute("src", findUser["avatarUrl"]);
+// profile_name.innerHTML = findUser["userName"];
 
 // profile picture direction
 
-let profile = document.querySelector(".image-text");
+// let profile = document.querySelector(".image-text");
 
-profile.addEventListener("click", () => {
-  window.location.href = "../pages/profile.html?user=" + findUser["userId"];
-});
+// profile.addEventListener("click", () => {
+//   window.location.href = "../pages/profile.html?user=" + findUser["userId"];
+// });

@@ -1,6 +1,4 @@
 let video = document.querySelector("#start");
-let brightness = document.getElementById("brightnessRange");
-let brightness_input = document.getElementById("brightness-container");
 let adjusment = document.querySelector(".adjustment-div");
 let snap = document.querySelector(".capture-div");
 let canvas = document.getElementById("canvas");
@@ -17,14 +15,18 @@ let conditions = {
 
 // adding brightness for the webcamera
 
-brightness.addEventListener("change", function () {
-  brightness_input.style.filter = "brightness(" + brightness.value + "%)";
-});
+// brightness.addEventListener("change", function () {
+//   brightness_input.style.filter = "brightness(" + brightness.value + "%)";
+// });
 
+const brightnessInput = document.getElementById("brightnessRange");
+brightnessRange.addEventListener("input", () => {
+  const brightnessValue = brightnessRange.value;
+  video.style.filter = `brightness(${brightnessValue}%)`;
+});
 // function startCamera() {
 navigator.mediaDevices.getUserMedia(conditions).then((stream) => {
   video.srcObject = stream;
-  video.style.brightness = brightness;
   video.play();
 });
 
@@ -64,7 +66,7 @@ snap.addEventListener("click", () => {
 
   imageData.push(imageObject);
 
-  let set = localStorage.setItem("image_url", JSON.stringify(imageData));
+  localStorage.setItem("image_url", JSON.stringify(imageData));
 });
 
 // filter selection

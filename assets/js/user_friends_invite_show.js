@@ -149,11 +149,34 @@ function showInvite(invId) {
   inviterUserProfileDiv.setAttribute("class", "inviter-user-profile-div");
   inviteProfileNameInsideDiv.append(inviterUserProfileDiv);
 
-  let inviterImage = document.createElement("img");
-  inviterImage.setAttribute("class", "inviter-image");
-  inviterImage.setAttribute("src", findPresentInvite["inviterImage"]);
-  inviterImage.setAttribute("alt", "invite-user-image");
-  inviterUserProfileDiv.append(inviterImage);
+  const arrayBuffer = findPresentInvite["inviterImage"];
+
+  // Get the first two bytes of the binary data
+
+  let videofile = false;
+  let imagefile = false;
+
+  if (arrayBuffer.includes("image")) {
+    imagefile = true;
+  } else {
+    videofile = true;
+  }
+
+  if (imagefile == true) {
+    let inviterImage = document.createElement("img");
+    inviterImage.setAttribute("class", "inviter-image");
+    inviterImage.setAttribute("src", findPresentInvite["inviterImage"]);
+    inviterImage.setAttribute("alt", "invite-user-image");
+    inviterUserProfileDiv.append(inviterImage);
+  } else {
+    let video = document.createElement("video");
+    video.setAttribute("class", "invite-video-element");
+    inviterUserProfileDiv.append(video);
+
+    let videoSource = document.createElement("source");
+    videoSource.setAttribute("src", findPresentInvite["inviteImage"]);
+    videoSource.setAttribute("class", "invite-video");
+  }
 
   let inviteMessageEmojiReplyDiv = document.createElement("div");
   inviteMessageEmojiReplyDiv.setAttribute(

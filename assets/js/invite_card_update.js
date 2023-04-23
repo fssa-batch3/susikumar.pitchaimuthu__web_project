@@ -71,7 +71,7 @@ editButton.addEventListener("click", (inv) => {
     specialPerson,
   };
 
-  if (image !== null) {
+  if (image !== undefined) {
     inviteEditObj["inviteImage"] = image;
   }
 
