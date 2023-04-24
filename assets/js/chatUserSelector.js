@@ -8,9 +8,6 @@ let userSelectId;
 for (let i = 0; i < chatPersonCard.length; i++) {
   chatPersonCard[i].addEventListener("click", function (chatEvent) {
     chatEvent.preventDefault();
-    console.log(chatEvent);
-    console.log(chatEvent.target);
-    console.log(chatEvent.target.id);
 
     userSelectId = chatEvent.target.id;
     console.log(userSelectId);

@@ -37,8 +37,6 @@ logIn.addEventListener("submit", (event) => {
       let logString = JSON.stringify(doSomething);
       window.localStorage.setItem("user_data", logString);
       break;
-    } else {
-      match = false;
     }
   }
 

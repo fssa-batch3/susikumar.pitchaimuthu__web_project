@@ -334,6 +334,14 @@
   justify-content: space-between;
 }
 
+.count-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 86%;
+  height: 50%;
+}
+
 .count-div {
   display: flex;
   justify-content: center;
@@ -345,7 +353,7 @@
 .count-para {
   color: #fff;
   margin: 0;
-  padding: 0px 6px;
+  padding: 0px 9px;
   font-size: 0.8em;
 }
 

@@ -2,6 +2,7 @@ let freshChatUsers = JSON.parse(localStorage.getItem("userFriends"));
 console.log(freshChatUsers);
 
 let allSendChats = JSON.parse(localStorage.getItem("senderMessage"));
+console.log(allSendChats);
 
 let allUSerFriendsData;
 
@@ -48,26 +49,32 @@ if (allUSerFriendsData !== null) {
     timeCountDiv.setAttribute("class", "chat-count-div");
     div.append(timeCountDiv);
 
-    let countDiv = document.createElement("div");
-    countDiv.setAttribute("class", "count-div");
-    timeCountDiv.append(countDiv);
+    let countContainer = document.createElement("div");
+    countContainer.setAttribute("class", "count-container");
+    timeCountDiv.append(countContainer);
 
     // creating for loop to show the user unread chat count
 
+    let chatterAccountId = allUSerFriendsData[i]["userId"];
+
     let numberCount = [];
 
-    if (allSendChats !== undefined) {
-      for (let i = 0; i < allSendChats; i++) {
+    if (allSendChats !== null) {
+      for (let j = 0; j < allSendChats.length; j++) {
         if (
-          allUSerFriendsData[i]["userId"] == allSendChats["userId"] &&
-          allUSerFriendsData[i]["isRead"] == "false"
+          allSendChats[j]["chatSenderId"] == chatterAccountId &&
+          allSendChats[j]["isRead"] == false
         ) {
-          numberCount += numberCount.push(allUSerFriendsData[i]);
+          numberCount.push(allSendChats[j]);
         }
       }
     }
 
     console.log(numberCount);
+
+    let countDiv = document.createElement("div");
+    countDiv.setAttribute("class", "count-div");
+    countContainer.append(countDiv);
 
     let countPara = document.createElement("p");
     countPara.setAttribute("class", "count-para");
