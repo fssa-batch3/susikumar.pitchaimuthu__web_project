@@ -8,6 +8,9 @@ let userSelectId;
 for (let i = 0; i < chatPersonCard.length; i++) {
   chatPersonCard[i].addEventListener("click", function (chatEvent) {
     chatEvent.preventDefault();
+    console.log(chatEvent);
+    console.log(chatEvent.target);
+    console.log(chatEvent.target.id);
 
     userSelectId = chatEvent.target.id;
     console.log(userSelectId);
@@ -205,6 +208,14 @@ for (let i = 0; i < chatPersonCard.length; i++) {
         sender.push(senderFind[i]);
       }
     }
+    console.log(sender);
+
+    // adding read true to the all chats
+
+    for (let i = 0; i < sender.length; i++) {
+      sender[i]["isRead"] = true;
+    }
+
     console.log(sender);
 
     let chageChat = document.querySelector(".right-side-container");

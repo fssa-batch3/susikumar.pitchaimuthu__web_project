@@ -268,8 +268,13 @@ function getFollow(es) {
 
     console.log(userFriends);
 
+    let time = moment().format("LT");
+    let date = moment().format("l");
+
     let userFriendObjest = {
       frienderId: findUser["userId"],
+      time,
+      date,
     };
 
     let userFriendsObjectAssaign = Object.assign(gatherUser, userFriendObjest);
@@ -292,8 +297,13 @@ function getFollow(es) {
 
   let insideArray = [];
 
+  let time = moment().format("LT");
+  let date = moment().format("l");
+
   let frienderObj = {
     frienderId: findUser["userId"],
+    time,
+    date,
   };
 
   let friendsAssaign = Object.assign(gatherUser, frienderObj);

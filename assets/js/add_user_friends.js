@@ -39,15 +39,28 @@ if (allUSerFriendsData !== null) {
     nameOne.append(para);
 
     let paragraph = document.createElement("p");
-    paragraph.innerText = allUSerFriendsData[i]["chat"];
+    paragraph.innerText = allUSerFriendsData[i]["userTheme"];
     nameOne.append(paragraph);
+
+    let timeCountDiv = document.createElement("div");
+    timeCountDiv.setAttribute("class", "chat-count-div");
+    div.append(timeCountDiv);
+
+    let countDiv = document.createElement("div");
+    countDiv.setAttribute("class", "count-div");
+    timeCountDiv.append(countDiv);
+
+    let countPara = document.createElement("p");
+    countPara.setAttribute("class", "count-para");
+    countPara.innerText = "3";
+    countDiv.append(countPara);
 
     let timeAgo = document.createElement("div");
     timeAgo.setAttribute("id", "time-ago");
-    div.append(timeAgo);
+    timeCountDiv.append(timeAgo);
 
     let time = document.createElement("p");
-    time.innerHTML = allUSerFriendsData[i]["chat_time"];
+    time.innerHTML = allUSerFriendsData[i]["time"];
     timeAgo.append(time);
 
     document.querySelector(".chat-member-inside-container").append(div);

@@ -10,7 +10,12 @@
 //   });
 // }
 
+let userFriends = JSON.parse(localStorage.getItem("userFriends"));
+console.log(userFriends);
+
 function getUser(event) {
+  console.log(event);
+
   let arr = [];
 
   let chattters = JSON.parse(localStorage.getItem("userChatSelectors"));
@@ -37,6 +42,42 @@ function getUser(event) {
 
     let chatId = Date.now();
 
+    // creating function to set time and chat to the user box
+
+    let findFriend;
+
+    let findFriendIndex;
+
+    let findArray;
+
+    for (let i = 0; i < userFriends.length; i++) {
+      for (let j = 0; j < userFriends[i].length; j++) {
+        if (userFriends[i][j]["userId"] == event) {
+          findFriend = userFriends[i][j];
+          findArray = userFriends[i];
+          findFriendIndex = userFriends[i].indexOf(userFriends[i][j]);
+        }
+      }
+    }
+
+    console.log(findFriendIndex);
+
+    console.log(findFriend);
+    let addChatObj = {
+      userTheme: chat,
+      time: jsonTime,
+      date: chatDate,
+    };
+
+    console.log(addChatObj);
+
+    let friendAssign = Object.assign(findFriend, addChatObj);
+    console.log(friendAssign);
+
+    findArray[findFriendIndex] = friendAssign;
+
+    localStorage.setItem("userFriends", JSON.stringify(userFriends));
+
     let chatObj = {
       chat: chat,
       timing: jsonTime,
@@ -45,6 +86,7 @@ function getUser(event) {
       chatter_id: chattters[chattters.length - 1]["userId"],
       chatSenderId: findUser["userId"],
       chatterImage: findUser["avatarUrl"],
+      isRead: false,
     };
 
     console.log(chatObj);
