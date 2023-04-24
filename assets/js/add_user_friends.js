@@ -72,14 +72,16 @@ if (allUSerFriendsData !== null) {
 
     console.log(numberCount);
 
-    let countDiv = document.createElement("div");
-    countDiv.setAttribute("class", "count-div");
-    countContainer.append(countDiv);
+    if (numberCount != 0) {
+      let countDiv = document.createElement("div");
+      countDiv.setAttribute("class", "count-div");
+      countContainer.append(countDiv);
 
-    let countPara = document.createElement("p");
-    countPara.setAttribute("class", "count-para");
-    countPara.innerText = numberCount.length;
-    countDiv.append(countPara);
+      let countPara = document.createElement("p");
+      countPara.setAttribute("class", "count-para");
+      countPara.innerText = numberCount.length;
+      countDiv.append(countPara);
+    }
 
     let timeAgo = document.createElement("div");
     timeAgo.setAttribute("id", "time-ago");

@@ -215,6 +215,22 @@ for (let i = 0; i < chatPersonCard.length; i++) {
 
     console.log(sender);
 
+    let finalChaArray = [];
+
+    for (let a = 0; a < sender.length; a++) {
+      for (let b = 0; b < senderFind.length; b++) {
+        if (senderFind[b]["chatId"] == sender[a]["chatId"]) {
+          let chatdataAssign = Object.assign(senderFind[b], sender[a]);
+          finalChaArray.push(chatdataAssign);
+        } else {
+          finalChaArray.push(senderFind[b]);
+        }
+      }
+    }
+    console.log(finalChaArray);
+
+    localStorage.setItem("senderMessage", JSON.stringify(finalChaArray));
+
     let chageChat = document.querySelector(".right-side-container");
     console.log(chageChat);
 
