@@ -36,6 +36,8 @@
                     id="firstname"
                     name="email"
                     autocomplete="hdfhshjfj"
+                    title="First name is required"
+                    pattern="[a-zA-Z]{1,100}"
                     required
                   />
                   <span class="placeholder">First name</span></label
@@ -44,14 +46,26 @@
 
               <div>
                 <label class="label">
-                  <input type="text" id="lastname" name="password" required />
+                  <input
+                    type="text"
+                    id="lastname"
+                    name="password"
+                    pattern="[a-zA-Z]{1,100}"
+                    required
+                  />
                   <span class="placeholder">Last name</span></label
                 >
               </div>
 
               <div>
                 <label class="label">
-                  <input type="text" id="username" name="password" required />
+                  <input
+                    type="text"
+                    id="username"
+                    name="password"
+                    pattern="[a-zA-Z]{1,100}"
+                    required
+                  />
                   <span class="placeholder">User name</span></label
                 >
               </div>
@@ -68,6 +82,7 @@
                     type="password"
                     id="password"
                     name="password"
+                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                     required
                   />
                   <span class="placeholder">Password</span></label
@@ -109,7 +124,7 @@
           <div class="sign-up-div">
             <h4 class="sign-up-link">
               Already have an account?
-              <a href="../pages/Register.html"><span>Log in here</span></a>
+              <a href="../pages/logIn.html"><span>Log in here</span></a>
             </h4>
           </div>
         </div>

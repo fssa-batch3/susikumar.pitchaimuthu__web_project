@@ -1,6 +1,8 @@
 let freshChatUsers = JSON.parse(localStorage.getItem("userFriends"));
 console.log(freshChatUsers);
 
+let allSendChats = JSON.parse(localStorage.getItem("senderMessage"));
+
 let allUSerFriendsData;
 
 //  Creating a for loop for find user friends
@@ -50,9 +52,26 @@ if (allUSerFriendsData !== null) {
     countDiv.setAttribute("class", "count-div");
     timeCountDiv.append(countDiv);
 
+    // creating for loop to show the user unread chat count
+
+    let numberCount = [];
+
+    if (allSendChats !== undefined) {
+      for (let i = 0; i < allSendChats; i++) {
+        if (
+          allUSerFriendsData[i]["userId"] == allSendChats["userId"] &&
+          allUSerFriendsData[i]["isRead"] == "false"
+        ) {
+          numberCount += numberCount.push(allUSerFriendsData[i]);
+        }
+      }
+    }
+
+    console.log(numberCount);
+
     let countPara = document.createElement("p");
     countPara.setAttribute("class", "count-para");
-    countPara.innerText = "3";
+    countPara.innerText = numberCount.length;
     countDiv.append(countPara);
 
     let timeAgo = document.createElement("div");
