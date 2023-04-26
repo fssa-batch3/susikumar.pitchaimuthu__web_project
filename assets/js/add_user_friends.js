@@ -15,6 +15,15 @@ for (let i = 0; i < freshChatUsers.length; i++) {
 }
 
 if (allUSerFriendsData !== null) {
+  // creating a sorting method to order a chat person by date and time
+
+  // sort the array by the dateTime property
+  allUSerFriendsData.sort(
+    (a, b) => new Date(a.dateTime) - new Date(b.dateTime)
+  );
+
+  console.log(allUSerFriendsData);
+
   for (let i = 0; i < allUSerFriendsData.length; i++) {
     let div = document.createElement("div");
     div.setAttribute("class", "members");

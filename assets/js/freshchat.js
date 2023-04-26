@@ -42,6 +42,8 @@ function getUser(event) {
 
     let chatId = Date.now();
 
+    let dateTime = Date.now();
+
     // creating function to set time and chat to the user box
 
     let findFriend;
@@ -67,6 +69,7 @@ function getUser(event) {
       userTheme: chat,
       time: jsonTime,
       date: chatDate,
+      dateTime,
     };
 
     console.log(addChatObj);
@@ -87,6 +90,7 @@ function getUser(event) {
       chatSenderId: findUser["userId"],
       chatterImage: findUser["avatarUrl"],
       isRead: false,
+      dateTime,
     };
 
     console.log(chatObj);

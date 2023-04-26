@@ -48,14 +48,9 @@
 
       <div class="menu-bar">
         <div class="menu">
-          <li class="search-box">
-            <i class="bx bx-search icon"></i>
-            <input type="text" placeholder="Search Ganes..." />
-          </li>
-
           <ul class="menu-links">
             <li class="nav-link" id="home">
-              <i class="bx bx-home-alt icon"></i>
+              <i class="bi bi-person-badge-fill icon"></i>
               <span class="text nav-text">Dashboard</span>
             </li>
 
@@ -107,9 +102,38 @@
       </div>
     </nav>
 
+    <section class="search-bar-div-whole-container">
+      <div class="search-bar-container">
+        <div class="search-bar-div">
+          <input
+            class="search-input"
+            type="text"
+            placeholder="Search your friend"
+          />
+
+          <button><i class="bi bi-search"></i></button>
+        </div>
+      </div>
+
+      <!-- section container to show all user to make friends -->
+      <section class="whole-section-container">
+        <div class="section-inside-container-div">
+          <div class="section-inside-container">
+            <div class="all-user-showing-div-container">
+              <div class="all-user-showing-inside-div"></div>
+            </div>
+          </div>
+
+          <!-- details showing div container -->
+
+          <div class="details-showing-container"></div>
+        </div>
+      </section>
+    </section>
+
     <!-- scripts -->
     <script src="../assets/js/profile_user_find.js"></script>
-    <script src="../assets/js/side-bar.js"></script>
     <script src="../assets/js/page-direction.js"></script>
+    <script src="../assets/js/home.js"></script>
   </body>
 </html>
