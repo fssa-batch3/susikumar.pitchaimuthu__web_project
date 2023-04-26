@@ -2,9 +2,9 @@ let GetInviteDetails = JSON.parse(localStorage.getItem("userInvites"));
 console.log(GetInviteDetails);
 
 // dynamanic user invite box creation
-
+let thisUserInvite;
 if (GetInviteDetails !== null) {
-  let thisUserInvite = GetInviteDetails.filter(
+  thisUserInvite = GetInviteDetails.filter(
     (e) => e["inviterId"] == findUser["userId"]
   );
 

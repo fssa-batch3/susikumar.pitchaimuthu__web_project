@@ -62,6 +62,7 @@ for (let i = 0; i < filterElseDate.length; i++) {
 
 // creating a function for to show the user
 
+let findClickingUser;
 function showUser(s) {
   console.log(s);
 
@@ -75,18 +76,15 @@ function showUser(s) {
     document.querySelector(".details-inside-div-container").remove();
   }
 
-  let findClickingUser = userData.find((f) => f["userId"] == s);
+  findClickingUser = userData.find((f) => f["userId"] == s);
 
   console.log(findClickingUser);
-  // let detailsShowingContainer = document.createElement("div");
-  // detailsShowingContainer.setAttribute("class", "details-showing-container");
 
   let detailsInsideDivContainer = document.createElement("div");
   detailsInsideDivContainer.setAttribute(
     "class",
     "details-inside-div-container"
   );
-  // detailsShowingContainer.append(detailsInsideDivContainer);
 
   let removeDivContainer = document.createElement("div");
   removeDivContainer.setAttribute("class", "remove-div-container");
@@ -136,52 +134,81 @@ function showUser(s) {
   let followButton = document.createElement("button");
   followButton.setAttribute("class", "follow-button");
   followButton.setAttribute("id", findClickingUser["userId"]);
+  followButton.setAttribute("onclick", "getFollow(this.id)");
   followButton.innerHTML = "Follow";
   contentInsideDiv.append(followButton);
 
+  // getting the userFriends data for show the all friends
+
+  // filter the this user friends
+
+  let userFriendsData = JSON.parse(localStorage.getItem("userFriends"));
+  console.log(userFriendsData);
+
+  let suggedData;
+
+  if (userFriendsData !== null) {
+    for (let i = 0; i < userFriendsData.length; i++) {
+      if (userFriendsData[i][0]["frienderId"] == s) {
+        suggedData = userFriendsData[i];
+      }
+    }
+  }
+
+  console.log(suggedData);
+
   // suggested friends element creation
 
-  let personSuggestedFriendsDivContainer = document.createElement("div");
-  personSuggestedFriendsDivContainer.setAttribute(
-    "class",
-    "person-suggested-friends-div-container"
-  );
-  detailsInsideDivContainer.append(personSuggestedFriendsDivContainer);
+  if (suggedData !== undefined) {
+    for (let i = 0; i < suggedData.length; i++) {
+      let personSuggestedFriendsDivContainer = document.createElement("div");
+      personSuggestedFriendsDivContainer.setAttribute(
+        "class",
+        "person-suggested-friends-div-container"
+      );
+      detailsInsideDivContainer.append(personSuggestedFriendsDivContainer);
 
-  let personSuggestedInsideDiv = document.createElement("div");
-  personSuggestedInsideDiv.setAttribute("class", "person-suggested-inside-div");
-  personSuggestedFriendsDivContainer.append(personSuggestedInsideDiv);
+      let personSuggestedInsideDiv = document.createElement("div");
+      personSuggestedInsideDiv.setAttribute(
+        "class",
+        "person-suggested-inside-div"
+      );
+      personSuggestedFriendsDivContainer.append(personSuggestedInsideDiv);
 
-  let personcontainer = document.createElement("div");
-  personcontainer.setAttribute("class", "person-container");
-  personSuggestedInsideDiv.append(personcontainer);
+      let personcontainer = document.createElement("div");
+      personcontainer.setAttribute("class", "person-container");
+      personSuggestedInsideDiv.append(personcontainer);
 
-  let personInsideDiv = document.createElement("div");
-  personInsideDiv.setAttribute("class", "person-inside-div");
-  personcontainer.append(personInsideDiv);
+      let personInsideDiv = document.createElement("div");
+      personInsideDiv.setAttribute("class", "person-inside-div");
+      personcontainer.append(personInsideDiv);
 
-  let lastImageDiv = document.createElement("class", "last-image-div");
-  lastImageDiv.setAttribute("class", "last-image-div");
-  personInsideDiv.append(lastImageDiv);
+      let lastImageDiv = document.createElement("class", "last-image-div");
+      lastImageDiv.setAttribute("class", "last-image-div");
+      personInsideDiv.append(lastImageDiv);
 
-  let lastImage = document.createElement("img");
-  lastImage.setAttribute("class", "last-image");
-  lastImage.setAttribute("alt", "profile-image");
-  lastImage.setAttribute("src", "");
-  lastImageDiv.append(lastImage);
+      let lastImage = document.createElement("img");
+      lastImage.setAttribute("class", "last-image");
+      lastImage.setAttribute("alt", "profile-image");
+      lastImage.setAttribute("src", suggedData[i]["avatarUrl"]);
+      lastImageDiv.append(lastImage);
 
-  let userNameThemeDiv = document.createElement("div");
-  userNameThemeDiv.setAttribute("class", "user-name-theme-div");
-  personInsideDiv.append(userNameThemeDiv);
+      let userNameThemeDiv = document.createElement("div");
+      userNameThemeDiv.setAttribute("class", "user-name-theme-div");
+      personInsideDiv.append(userNameThemeDiv);
 
-  let h5 = document.createElement("h5");
-  h5.setAttribute("class", "user-last-name");
-  h5.innerHTML = "Manisha Susikumar";
-  userNameThemeDiv.append(h5);
+      let h5 = document.createElement("h5");
+      h5.setAttribute("class", "user-last-name");
+      h5.innerHTML = suggedData[i]["userName"];
+      userNameThemeDiv.append(h5);
 
-  let lastPara = document.createElement("p");
-  lastPara.setAttribute("class", "last-para");
-  personInsideDiv.append(lastPara);
+      let lastPara = document.createElement("p");
+      lastPara.setAttribute("class", "last-para");
+      lastPara.innerHTML = suggedData[i]["userTheme"];
+
+      userNameThemeDiv.append(lastPara);
+    }
+  }
 
   document
     .querySelector(".details-showing-container")
@@ -192,4 +219,101 @@ function showUser(s) {
 
 function removediv() {
   document.querySelector(".details-inside-div-container").remove();
+}
+
+// creationg function to folloe the user
+
+function getFollow(es) {
+  let userFriends = JSON.parse(localStorage.getItem("userFriends"));
+  console.log(userFriends);
+
+  let followButtonArea = document.querySelectorAll(".connect-button");
+  console.log(followButtonArea);
+  let thisButton;
+
+  for (let i = 0; i < followButtonArea.length; i++) {
+    if (followButtonArea[i]["id"] == es) {
+      thisButton = followButtonArea[i];
+    }
+  }
+
+  console.log(thisButton);
+
+  let gatherUser = info.find((e) => e["userId"] == es);
+  console.log(gatherUser);
+
+  let userArray;
+
+  if (userFriends !== null) {
+    for (let i = 0; i < userFriends.length; i++) {
+      if (userFriends[i][0]["frienderId"] == findUser["userId"]) {
+        userArray = userFriends[i];
+      }
+    }
+  }
+
+  console.log(userArray);
+
+  if (userArray !== undefined) {
+    for (let i = 0; i < userArray.length; i++) {
+      if (userArray[i]["userId"] == findClickingUser["userId"]) {
+        return;
+      }
+    }
+
+    let spliceIndex = userFriends.indexOf(userArray);
+
+    userFriends.splice(spliceIndex);
+
+    console.log(userFriends);
+
+    let time = moment().format("LT");
+    let date = moment().format("l");
+
+    let userFriendObjest = {
+      frienderId: findUser["userId"],
+      time,
+      date,
+    };
+
+    let userFriendsObjectAssaign = Object.assign(gatherUser, userFriendObjest);
+    console.log(userFriendsObjectAssaign);
+
+    userArray.push(userFriendsObjectAssaign);
+    console.log(userArray);
+
+    userFriends.push(userArray);
+
+    localStorage.setItem("userFriends", JSON.stringify(userFriends));
+    return;
+  }
+
+  let userFriendsArr = [];
+
+  if (userFriends !== null) {
+    userFriendsArr = userFriends;
+  }
+
+  let insideArray = [];
+
+  let time = moment().format("LT");
+  let date = moment().format("l");
+
+  let frienderObj = {
+    frienderId: findUser["userId"],
+    time,
+    date,
+  };
+
+  let friendsAssaign = Object.assign(gatherUser, frienderObj);
+
+  insideArray.push(friendsAssaign);
+
+  console.log(insideArray);
+
+  userFriendsArr.push(insideArray);
+
+  console.log(userFriendsArr);
+
+  localStorage.setItem("userFriends", JSON.stringify(userFriendsArr));
 }

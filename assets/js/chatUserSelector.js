@@ -219,29 +219,28 @@ for (let i = 0; i < chatPersonCard.length; i++) {
 
     console.log(senderFind);
 
-    // for (let x = 0; x < senderFind.length; x++) {
-    //   for (let y = 0; y < sender.length; y++) {
-    //     if (senderFind[x]["chatId"] == sender[y]["chatId"]) {
-    //       let chatdataAssign = Object.assign(senderFind[x], sender[y]);
+    for (let x = 0; x < senderFind.length; x++) {
+      for (let y = 0; y < sender.length; y++) {
+        if (senderFind[x]["chatId"] == sender[y]["chatId"]) {
+          let chatdataAssign = Object.assign(senderFind[x], sender[y]);
+          finalChaArray.push(chatdataAssign);
+          break;
+        } else if (finalChaArray.length != 0) {
+          for (let z = 0; z < finalChaArray.length; z++) {
+            if (finalChaArray[z]["chatId"] == senderFind[x]["chatId"]) {
+              break;
+            } else {
+              finalChaArray.push(senderFind[x]);
+              break;
+            }
+          }
+        } else {
+          finalChaArray.push(senderFind[x]);
+        }
+      }
+    }
 
-    //       finalChaArray.push(chatdataAssign);
-    //       return;
-    //     } else if (finalChaArray.length != 0) {
-    //       for (let z = 0; z < finalChaArray.length; z++) {
-    //         if (finalChaArray[z]["chatId"] == senderFind[x]["chatId"]) {
-    //         } else {
-    //           finalChaArray.push(senderFind[x]);
-    //         }
-    //       }
-    //     } else {
-    //       finalChaArray.push(senderFind[x]);
-    //     }
-    //   }
-    //   console.log(finalChaArray);
-    //   // localStorage.setItem("senderMessage", JSON.stringify(finalChaArray));
-    // }
-
-    // localStorage.setItem("senderMessage", JSON.stringify(finalChaArray));
+    localStorage.setItem("senderMessage", JSON.stringify(finalChaArray));
 
     let chageChat = document.querySelector(".right-side-container");
     console.log(chageChat);

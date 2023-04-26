@@ -2,7 +2,7 @@
 
 let userNameP = document.querySelector(".profile-user-name");
 let userSloganP = document.querySelector(".profile-user-slogan");
-
+let profileImage = document.querySelector(".profile-image");
 let fName = document.querySelector("#firstName");
 let lName = document.querySelector("#lastName");
 let uName = document.querySelector("#userName");
@@ -15,6 +15,7 @@ let phoneNumber = document.querySelector("#phone");
 
 // set the value to the all inputs
 
+profileImage.src = findUser["avatarUrl"];
 userNameP.innerHTML = findUser["userName"];
 userSloganP.innerHTML = findUser["userTheme"];
 fName.value = findUser["firstName"];
