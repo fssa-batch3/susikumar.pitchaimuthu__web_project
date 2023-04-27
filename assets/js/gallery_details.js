@@ -109,7 +109,7 @@ imageControlDiv.setAttribute("class", "image-next-option-div");
 
 let previousButton = document.createElement("button");
 previousButton.setAttribute("id", snap["imageId"]);
-previousButton.setAttribute("class", "option-div");
+previousButton.setAttribute("class", "option-div downloadButton");
 imageControlDiv.append(previousButton);
 
 let previous_i = document.createElement("i");

@@ -126,3 +126,28 @@ deleteImage.addEventListener("click", () => {
       "../pages/snap-gallery.html?user=" + findUser["userId"];
   }
 });
+
+// Image download option
+
+function downloadImage(url, fileName) {
+  fetch(url)
+    .then((response) => response.blob())
+    .then((blob) => {
+      const link = document.createElement("a");
+      link.download = fileName;
+      link.href = URL.createObjectURL(blob);
+      link.click();
+    });
+}
+
+// Get the to pass to the download funciton
+
+let clickImage = snap["imageLink"];
+
+let clickName = snap["imageName"];
+
+let downloadButton = document.querySelector(".downloadButton");
+
+downloadButton.addEventListener("click", function () {
+  downloadImage(clickImage, clickName);
+});

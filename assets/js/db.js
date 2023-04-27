@@ -2,8 +2,8 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js";
 import {
   getDatabase,
-  ref,
   set,
+  ref,
   onValue,
 } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-database.js";
 
@@ -25,10 +25,9 @@ const database = getDatabase();
 
 export { database };
 
-// // Initialize Firebase
-// function kishor() {
-//   onValue(ref(db, `freshchat/`), (snapshot) => {
-//     console.log(snapshot.val());
-//   });
-// }
-// kishor();
+function getData() {
+  onValue(ref(database, `freshchat/`), (snapshot) => {
+    console.log(snapshot.val());
+  });
+}
+getData();
