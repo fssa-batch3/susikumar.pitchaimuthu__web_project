@@ -109,7 +109,6 @@ for (let i = 0; i < chatPersonCard.length; i++) {
 
     let emojiDiv = document.createElement("div");
     emojiDiv.setAttribute("class", "emoji-div");
-    // emojiDiv.setAttribute("onClick", "setShowPicker()");
     inputForm.append(emojiDiv);
 
     let smileI = document.createElement("i");
@@ -137,9 +136,44 @@ for (let i = 0; i < chatPersonCard.length; i++) {
     emojiDivContainer.setAttribute("class", "emoji-div-container");
     emojiInsideDiv.append(emojiDivContainer);
 
-    let emojiShowDiv = document.createElement("ul");
-    emojiShowDiv.setAttribute("class", "emoji-div-for");
-    emojiDivContainer.append(emojiShowDiv);
+    // function getAllTwemojiUrls() {
+    //   const emojiRanges = [
+    //     [0x1f601, 0x1f64f], // Emoticons
+    //     [0x1f300, 0x1f5ff], // Miscellaneous Symbols and Pictographs
+    //     [0x1f680, 0x1f6ff], // Transport and Map Symbols
+    //     // Add more ranges as needed
+    //   ];
+
+    //   const emojiUrls = [];
+
+    //   emojiRanges.forEach(([start, end]) => {
+    //     for (let unicode = start; unicode <= end; unicode++) {
+    //       const emojiChar = String.fromCodePoint(unicode);
+    //       const emojiUrl = twemoji.parse(emojiChar);
+    //       emojiUrls.push(emojiUrl);
+    //     }
+    //   });
+
+    //   return emojiUrls;
+    // }
+
+    // const twemojiUrls = getAllTwemojiUrls();
+    // console.log(twemojiUrls); // Array of Twemoji URLs for all emojis
+
+    // // Setting the emoji to the emoji file
+
+    // console.log(twemojiUrls.length);
+
+    // for (let i = 0; i < twemojiUrls.length; i++) {
+    //   twemojiUrls.forEach((url) => {
+    //     console.log(url);
+    //     const img = document.createElement("img");
+    //     img.setAttribute("src", url);
+    //     img.setAttribute("alt", "Emoticon");
+
+    //     emojiDivContainer.append(img);
+    //   });
+    // }
 
     let chatInputDiv = document.createElement("div");
     chatInputDiv.setAttribute("class", "chat-input-div");
@@ -217,30 +251,34 @@ for (let i = 0; i < chatPersonCard.length; i++) {
 
     let finalChaArray = [];
 
-    console.log(senderFind);
-
     for (let x = 0; x < senderFind.length; x++) {
+      let foundMatch = false; // Flag variable to track match status
+
       for (let y = 0; y < sender.length; y++) {
         if (senderFind[x]["chatId"] == sender[y]["chatId"]) {
           let chatdataAssign = Object.assign(senderFind[x], sender[y]);
           finalChaArray.push(chatdataAssign);
+          foundMatch = true; // Set the flag to true
           break;
-        } else if (finalChaArray.length != 0) {
-          for (let z = 0; z < finalChaArray.length; z++) {
-            if (finalChaArray[z]["chatId"] == senderFind[x]["chatId"]) {
-              break;
-            } else {
-              finalChaArray.push(senderFind[x]);
-              break;
-            }
+        }
+      }
+
+      if (!foundMatch) {
+        for (let z = 0; z < finalChaArray.length; z++) {
+          if (finalChaArray[z]["chatId"] == senderFind[x]["chatId"]) {
+            foundMatch = true; // Set the flag to true
+            break;
           }
-        } else {
+        }
+
+        if (!foundMatch) {
           finalChaArray.push(senderFind[x]);
         }
       }
-    }
 
-    localStorage.setItem("senderMessage", JSON.stringify(finalChaArray));
+      console.log(finalChaArray);
+      localStorage.setItem("senderMessage", JSON.stringify(finalChaArray));
+    }
 
     let chageChat = document.querySelector(".right-side-container");
     console.log(chageChat);

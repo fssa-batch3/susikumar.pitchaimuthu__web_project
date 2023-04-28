@@ -1,26 +1,28 @@
-//  Get input element to know the input require content
+function filterItems() {
+  // Get input value and convert to lowercase
+  var input = document.querySelector(".search-input").value.toLowerCase();
 
-let searchInput = document.querySelector("#person-adding-input");
+  // Get list items
+  var items = document.querySelectorAll(".user-card-container");
 
-searchInput.addEventListener("input", searchFilter);
+  // Loop through all items
+  for (var i = 0; i < items.length; i++) {
+    var item = items[i];
+    console.log(item);
+    var itemName = item.textContent.toLowerCase();
 
-// Getting the users data from the database
-
-const results = JSON.parse(localStorage.getItem("register"));
-const resultsArray = Array.from(results);
-
-// search filte function
-
-function searchFilter() {
-  let searchText = searchInput.value.toLowerCase();
-
-  resultsArray.forEach((result) => {
-    const textContent = result.textContent.toLowerCase();
-    if (textContent.includes(searchText)) {
-      result.style.display = "";
+    // Check if the item name contains the search input
+    if (itemName.includes(input)) {
+      item.style.display = "block"; // Show matching item
     } else {
-      result.style.display = "none";
+      item.style.display = "none"; // Hide non-matching item
     }
-  });
+  }
 }
-searchInput.addEventListener("input", searchFilter);
+
+// searchInput.addEventListener("input", searchFilter);
+
+// intialize the code into the add eventLisner
+
+var searchInput = document.querySelector(".search-input");
+searchInput.addEventListener("input", filterItems);

@@ -31,3 +31,45 @@ function getData() {
   });
 }
 getData();
+
+let FireData = database;
+let chatDataArray = [];
+
+function setData() {
+  let chatReceiver = 234;
+
+  let chatMessage = document.querySelector("#chat-input").value.trim();
+  console.log(chatMessage);
+
+  let userName = findUser["userName"];
+  console.log(userName);
+
+  let personId = findUser["userId"];
+
+  let chatId = moment().format("LT");
+  let dateChat = moment().format("l");
+
+  //  message sending to the firebase set function
+
+  set(ref(FireData, "freshchat/"), {
+    chatPerson: userName,
+    chat: chatMessage,
+    chatTime: chatId,
+    chatReceiverId: chatReceiver,
+    chatDate: dateChat,
+    chatterId: personId,
+  });
+
+  //   database.set({
+  //     chatPerson: userName,
+  //     chat: chatMessage,
+  //     chatTime: chatId,
+  //     chatReceiverId: chatReceiver,
+  //     chatDate: dateChat,
+  //     chatterId: personId,
+  //   });
+}
+
+document.querySelector(".search-button").addEventListener("click", function () {
+  setData();
+});

@@ -13,16 +13,17 @@ for (let i = 0; i < freshChatUsers.length; i++) {
     allUSerFriendsData = freshChatUsers[i];
   }
 }
+console.log(allUSerFriendsData);
 
-if (allUSerFriendsData !== null) {
+if (allUSerFriendsData !== undefined) {
   // creating a sorting method to order a chat person by date and time
 
   // sort the array by the dateTime property
-  allUSerFriendsData.sort(
-    (a, b) => new Date(a.dateTime) - new Date(b.dateTime)
-  );
+  // allUSerFriendsData.sort(
+  //   (a, b) => new Date(a.dateTime) - new Date(b.dateTime)
+  // );
 
-  console.log(allUSerFriendsData);
+  // console.log(allUSerFriendsData);
 
   for (let i = 0; i < allUSerFriendsData.length; i++) {
     let div = document.createElement("div");
