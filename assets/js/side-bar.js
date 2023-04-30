@@ -7,9 +7,7 @@ const body = document.querySelector("body"),
 toggle.addEventListener("click", () => {
   sidebar.classList.toggle("close");
 });
-searchBtn.addEventListener("click", () => {
-  sidebar.classList.remove("close");
-});
+
 modeSwitch.addEventListener("click", () => {
   body.classList.toggle("dark");
   if (body.classList.contains("dark")) {

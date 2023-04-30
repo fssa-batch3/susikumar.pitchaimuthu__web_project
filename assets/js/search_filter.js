@@ -8,7 +8,7 @@ function filterItems() {
   // Loop through all items
   for (var i = 0; i < items.length; i++) {
     var item = items[i];
-    console.log(item);
+    // console.log(item);
     var itemName = item.textContent.toLowerCase();
 
     // Check if the item name contains the search input

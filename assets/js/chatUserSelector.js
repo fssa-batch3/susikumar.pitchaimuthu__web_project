@@ -1,6 +1,6 @@
 // writing a function get a indidual user by clicking their respective chat box
 
-let chatPersonCard = document.querySelectorAll(".members");
+let chatPersonCard = document.querySelectorAll(".user-card-container");
 console.log(chatPersonCard);
 
 let userSelectId;

@@ -27,12 +27,27 @@ if (allUSerFriendsData !== undefined) {
 
   for (let i = 0; i < allUSerFriendsData.length; i++) {
     let div = document.createElement("div");
-    div.setAttribute("class", "members");
-    div.setAttribute("id", allUSerFriendsData[i]["userId"]);
+    div.setAttribute(
+      "class",
+      "user-card-container" + " " + allUSerFriendsData[i]["userName"]
+    );
+
+    let usercardContainerInsideDiv = document.createElement("div");
+    usercardContainerInsideDiv.setAttribute(
+      "class",
+      "user-card-inside-container"
+    );
+    usercardContainerInsideDiv.setAttribute(
+      "id",
+      allUSerFriendsData[i]["userId"]
+    );
+
+    div.append(usercardContainerInsideDiv);
 
     let image_div = document.createElement("div");
+
     image_div.setAttribute("class", "image-name");
-    div.append(image_div);
+    usercardContainerInsideDiv.append(image_div);
 
     let image = document.createElement("div");
     image.setAttribute("class", "image");
@@ -57,7 +72,7 @@ if (allUSerFriendsData !== undefined) {
 
     let timeCountDiv = document.createElement("div");
     timeCountDiv.setAttribute("class", "chat-count-div");
-    div.append(timeCountDiv);
+    usercardContainerInsideDiv.append(timeCountDiv);
 
     let countContainer = document.createElement("div");
     countContainer.setAttribute("class", "count-container");

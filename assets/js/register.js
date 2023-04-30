@@ -1,10 +1,8 @@
-const signUpFrom = document.getElementById("form");
+let signUpFrom = document.getElementById("form");
 signUpFrom.addEventListener("submit", (event) => {
   event.preventDefault();
 
   let userData = [];
-  console.log(userData);
-  console.log(userData);
 
   if (localStorage.getItem("register") != null) {
     userData = JSON.parse(localStorage.getItem("register"));
@@ -12,9 +10,9 @@ signUpFrom.addEventListener("submit", (event) => {
 
   let firstElement = document.getElementById("firstname").value.trim();
   let lastElememt = document.getElementById("lastname").value.trim();
-  const userName = document.getElementById("username").value.trim();
-  const userEmail = document.getElementById("email").value.trim();
-  const password = document.getElementById("password").value.trim();
+  let userName = document.getElementById("username").value.trim();
+  let userEmail = document.getElementById("email").value.trim();
+  let password = document.getElementById("password").value.trim();
   let cryptoValue = Date.now();
   //
   let avatarText = firstElement.charAt(0);
@@ -42,47 +40,53 @@ signUpFrom.addEventListener("submit", (event) => {
     avatarCanva.width / 2,
     avatarCanva.height / 2
   );
-  avatarContext.fillStyle = "#fff";
+  avatarContext.fillStyle = "pink";
 
   // return
 
   let imageUrl = avatarCanva.toDataURL("image/png");
 
+  // Writing function to create en dash to space of user name
+
+  var spaceRegex = / /g;
+
+  // Replace spaces with an end dash
+  var dashedText = userName.replace(spaceRegex, "_");
+
+  // return dashedText;
+
+  console.log(dashedText);
+
   // let checkUser = JSON.parse(localStorage.getItem("register"));
 
-  let match = false;
   for (let i = 0; i < userData.length; i++) {
     if (userData[i]["Email"] === userEmail) {
       match = true;
-      break;
-    } else {
-      match = false;
+      alert("user Email ID is already exist");
+      return;
+    } else if (userData[i]["userName"] == userName) {
+      alert("user name already exist can you change your user name");
+      return;
     }
   }
 
-  // console.log(register);
+  let userObj = {
+    userId: cryptoValue,
+    firstName: firstElement,
+    lastName: lastElememt,
+    userName: dashedText,
+    Email: userEmail.toLowerCase(),
+    password: password,
+    avatarUrl: imageUrl,
+    userTheme: "Hey! I am using fresh nest",
+  };
 
-  if (match === true) {
-    alert("User already exit");
-  } else {
-    let userObj = {
-      userId: cryptoValue,
-      firstName: firstElement,
-      lastName: lastElememt,
-      userName: userName,
-      Email: userEmail.toLowerCase(),
-      password: password,
-      avatarUrl: imageUrl,
-      userTheme: "Hey! I am using fresh nest",
-    };
+  console.log(userObj);
+  console.log(userData);
 
-    console.log(userObj);
-    console.log(userData);
-
-    userData.push(userObj);
-    const str = JSON.stringify(userData);
-    localStorage.setItem("register", str);
-    alert("Success");
-    window.location.href = "./birthday.html?user=" + cryptoValue;
-  }
+  userData.push(userObj);
+  let str = JSON.stringify(userData);
+  localStorage.setItem("register", str);
+  alert("Success");
+  window.location.href = "./birthday.html?user=" + cryptoValue;
 });

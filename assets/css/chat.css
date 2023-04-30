@@ -222,11 +222,17 @@
   width: 100%;
 }
 
-#person-adding-input {
+.search-input {
   width: 20em;
   height: 2.6em;
   border: 1px solid #707070;
   border-radius: 5px;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: rgb(0, 153, 255);
+  box-shadow: 0 0 10px rgb(65, 162, 215);
 }
 
 .search-button {
@@ -302,7 +308,14 @@
 .chat-member-inside-container::-webkit-scrollbar {
   display: none;
 }
-.members {
+.user-card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 99%;
+}
+
+.user-card-inside-container {
   display: flex;
   align-items: center;
   justify-content: space-between;

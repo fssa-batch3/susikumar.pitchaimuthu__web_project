@@ -10,9 +10,13 @@ for (let i = 0; i < filterElseDate.length; i++) {
   userCardContainer.setAttribute("class", "user-card-container");
   userCardContainer.setAttribute("id", filterElseDate[i]["userName"]);
 
+  let searchCard = document.createElement("div");
+  searchCard.setAttribute("class", "user-card");
+  userCardContainer.append(searchCard);
+
   let userCardInsideDiv = document.createElement("div");
   userCardInsideDiv.setAttribute("class", "user-card-inside-div");
-  userCardContainer.append(userCardInsideDiv);
+  searchCard.append(userCardInsideDiv);
 
   let tinyImageContentContainer = document.createElement("div");
   tinyImageContentContainer.setAttribute(
@@ -47,7 +51,7 @@ for (let i = 0; i < filterElseDate.length; i++) {
 
   let viewBUttonDiv = document.createElement("div");
   viewBUttonDiv.setAttribute("class", "view-button-div");
-  tinyImageContentContainer.append(viewBUttonDiv);
+  userCardInsideDiv.append(viewBUttonDiv);
 
   let viewButton = document.createElement("button");
   viewButton.setAttribute("class", "view");
@@ -60,6 +64,11 @@ for (let i = 0; i < filterElseDate.length; i++) {
     .querySelector(".all-user-showing-inside-div")
     .append(userCardContainer);
 }
+
+// Getting the all friends data
+
+let friendsDatas = JSON.parse(localStorage.getItem("userFriends"));
+console.log(friendsDatas);
 
 // creating a function for to show the user
 
@@ -132,12 +141,33 @@ function showUser(s) {
   showingPara.innerHTML = findClickingUser["userTheme"];
   contentInsideDiv.append(showingPara);
 
-  let followButton = document.createElement("button");
-  followButton.setAttribute("class", "follow-button");
-  followButton.setAttribute("id", findClickingUser["userId"]);
-  followButton.setAttribute("onclick", "getFollow(this.id)");
-  followButton.innerHTML = "Follow";
-  contentInsideDiv.append(followButton);
+  // Creating for loop to get the this friends data
+
+  let buttonFollow = false;
+
+  if (friendsDatas !== null) {
+    for (let i = 0; i < friendsDatas.length; i++) {
+      if (friendsDatas[i][0]["frienderId"] == findClickingUser["userId"]) {
+        buttonFollow = true;
+      }
+    }
+  }
+
+  if (buttonFollow == true) {
+    let followingButton = document.createElement("button");
+    followingButton.setAttribute("class", "following-button");
+    followingButton.setAttribute("id", findClickingUser["userId"]);
+    followingButton.setAttribute("onclick", "removeFollow(this.id)");
+    followingButton.innerHTML = "Following";
+    contentInsideDiv.append(followingButton);
+  } else {
+    let followButton = document.createElement("button");
+    followButton.setAttribute("class", "follow-button");
+    followButton.setAttribute("id", findClickingUser["userId"]);
+    followButton.setAttribute("onclick", "getFollow(this.id)");
+    followButton.innerHTML = "Follow";
+    contentInsideDiv.append(followButton);
+  }
 
   // getting the userFriends data for show the all friends
 
@@ -225,6 +255,7 @@ function removediv() {
 // creationg function to folloe the user
 
 function getFollow(es) {
+  console.log(es);
   let userFriends = JSON.parse(localStorage.getItem("userFriends"));
   console.log(userFriends);
 
@@ -317,4 +348,10 @@ function getFollow(es) {
   console.log(userFriendsArr);
 
   localStorage.setItem("userFriends", JSON.stringify(userFriendsArr));
+}
+
+// Writins the remove follow funciton to remove the friends into user
+
+function removeFollow(r) {
+  console.log(r);
 }
