@@ -144,11 +144,14 @@ function showUser(s) {
   // Creating for loop to get the this friends data
 
   let buttonFollow = false;
+  console.log(friendsDatas);
 
   if (friendsDatas !== null) {
     for (let i = 0; i < friendsDatas.length; i++) {
-      if (friendsDatas[i][0]["frienderId"] == findClickingUser["userId"]) {
-        buttonFollow = true;
+      for (let j = 0; j < friendsDatas[i].length; j++) {
+        if ((friendsDatas[i][j]["userId"] = s)) {
+          buttonFollow = true;
+        }
       }
     }
   }
@@ -259,7 +262,7 @@ function getFollow(es) {
   let userFriends = JSON.parse(localStorage.getItem("userFriends"));
   console.log(userFriends);
 
-  let followButtonArea = document.querySelectorAll(".connect-button");
+  let followButtonArea = document.querySelectorAll(".follow-button");
   console.log(followButtonArea);
   let thisButton;
 
@@ -270,6 +273,17 @@ function getFollow(es) {
   }
 
   console.log(thisButton);
+
+  if ((thisButton.value = "Follow")) {
+    thisButton.remove("follow-button");
+
+    let followingButtonElement = document.createElement("button");
+    followingButtonElement.setAttribute("class", "following-button");
+    followingButtonElement.innerHTML = "Following";
+    document
+      .querySelector(".content-inside-div")
+      .append(followingButtonElement);
+  }
 
   let gatherUser = info.find((e) => e["userId"] == es);
   console.log(gatherUser);

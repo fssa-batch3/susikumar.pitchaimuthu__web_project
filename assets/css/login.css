@@ -101,6 +101,12 @@ input {
   transition-delay: 0.1s;
 }
 
+label input:invalid {
+  top: 9px;
+  border-color: #eb44bc;
+  transition-delay: 0.1s;
+}
+
 .input-container {
   display: flex;
   flex-direction: column;
@@ -160,7 +166,6 @@ input {
 }
 
 .sign-button {
-  /* background-image: linear-gradient(to right, #25aae1, #4481eb); */
   box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
   border: none;
   background-color: #4481eb;
@@ -182,4 +187,18 @@ input {
 .sign-up-link {
   color: hsl(217, 10%, 50.8%);
   font-size: 17px;
+}
+
+/* eye icon */
+.password-input {
+  position: relative;
+}
+
+.eye-slash-div,
+.confirm-eye-slash-div {
+  position: absolute;
+  font-size: 1.2em;
+  color: #808080;
+  right: 3%;
+  top: 23%;
 }
