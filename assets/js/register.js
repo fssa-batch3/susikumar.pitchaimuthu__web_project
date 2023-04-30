@@ -121,3 +121,64 @@ eyeDiv.addEventListener("click", (e) => {
     passwordInput.type = "password";
   }
 });
+
+// password strength calculation
+
+let passwordStrength = document.querySelector("#password");
+
+function calculatePasswordStrength(passwordStrength) {
+  let strength = 0;
+  console.log(strength);
+  let hr = document.querySelector(".hr");
+  let emojiSpan = document.querySelector(".emoji-span");
+  let passwordContent = document.querySelector(".password-content");
+
+  // Evaluate length
+
+  if (passwordStrength.match(/[a-z]+/)) {
+    strength += 1;
+    hr.style.width = "25%";
+    hr.style.backgroundColor = "red";
+    emojiSpan.innerHTML = "&#128560;";
+    passwordContent.innerHTML = "Weak. must contain atleast 8 letter";
+  }
+  if (passwordStrength.match(/[A-Z]+/) && passwordStrength.match(/[a-z]+/)) {
+    strength += 1;
+    hr.style.width = "50%";
+    hr.style.backgroundColor = "#fada50";
+    emojiSpan.innerHTML = "&#128542;";
+    passwordContent.innerHTML =
+      "So-so. Must contain at least 1 Upper and lower case";
+  }
+  if (
+    passwordStrength.match(/[0-9]+/) &&
+    passwordStrength.match(/[A-Z]+/) &&
+    passwordStrength.match(/[a-z]+/)
+
+    // contents
+  ) {
+    strength += 1;
+    hr.style.width = "75%";
+    hr.style.backgroundColor = "#005063";
+    emojiSpan.innerHTML = "&#128521;";
+    passwordContent.innerHTML = "Almost. Must contain one special character";
+  }
+  if (
+    passwordStrength.match(/[$@#&!]+/) &&
+    passwordStrength.match(/[0-9]+/) &&
+    passwordStrength.match(/[A-Z]+/) &&
+    passwordStrength.match(/[a-z]+/)
+  ) {
+    strength += 1;
+    hr.style.width = "100%";
+    hr.style.backgroundColor = "#39ff14";
+    emojiSpan.innerHTML = "&#128526;";
+    passwordContent.innerHTML = "Awesome. You have a secure password";
+  }
+}
+
+// Example usage:
+
+passwordStrength.addEventListener("keyup", function () {
+  calculatePasswordStrength(passwordStrength.value);
+});

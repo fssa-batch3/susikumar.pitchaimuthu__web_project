@@ -116,7 +116,6 @@ label input:invalid {
 }
 
 .button-error-container {
-  margin-top: 2.5em;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -201,4 +200,35 @@ label input:invalid {
   color: #808080;
   right: 3%;
   top: 23%;
+}
+
+/* password strength div */
+.password-strength-div {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 70%;
+}
+
+.hr-div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+hr {
+  height: 5px;
+  border-radius: 5px;
+  margin: 0;
+  border: none;
+}
+
+.strength-content-div {
+  display: flex;
+  align-items: center;
+}
+
+.strength-content-div {
+  display: flex;
+  align-items: center;
+  width: 100%;
 }
