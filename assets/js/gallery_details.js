@@ -44,6 +44,7 @@ function nextImage() {
 // image url element
 
 function updateImageDisplay(imageGallery, imageIndexNumber) {
+  // removing all images before changing the image
   let imageDiv = document.querySelector("#user-taken-still");
   console.log(imageDiv);
 

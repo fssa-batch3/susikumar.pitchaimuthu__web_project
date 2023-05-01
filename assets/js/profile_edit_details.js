@@ -22,7 +22,7 @@ fName.value = findUser["firstName"];
 lName.value = findUser["lastName"];
 uName.value = findUser["userName"];
 bio.value = findUser["userTheme"];
-email.value = findUser["Email"];
+email.value = findUser["email"];
 city.value = findUser["city"];
 phoneNumber.value = findUser["mobileNumber"];
 

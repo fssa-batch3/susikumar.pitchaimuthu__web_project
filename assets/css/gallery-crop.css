@@ -1,8 +1,6 @@
 body {
   background-color: #f7faff;
   font-family: "Kanit", sans-serif;
-  width: 100vw;
-  height: 100vh;
 }
 
 * {
@@ -92,13 +90,15 @@ nav {
 
 .whole-section-container {
   display: flex;
+  margin-top: 4em;
+  height: 51em;
 }
 
 .side-bar-div-container {
   display: flex;
   justify-content: center;
   flex: 1;
-  height: 51em;
+  height: 100%;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
     rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
 }
@@ -164,6 +164,9 @@ nav {
 .user-still {
   width: 43em;
   height: 35em;
+  display: block;
+
+  max-width: 100%;
 }
 
 /* option div container */

@@ -58,6 +58,8 @@ let confirmEyeDiv = document.querySelector(".confirm-eye-slash-div");
 
 let eyeDiv = document.querySelector(".eye-slash-div");
 
+let confirmPasswordInput = document.querySelector("#confirm-password");
+
 eyeDiv.addEventListener("click", (e) => {
   console.log(e.target);
   let eyeButton = e.target;
@@ -85,20 +87,20 @@ confirmEyeDiv.addEventListener("click", (e) => {
   console.log(e.target);
   let eyeButton = e.target;
   console.log("yes");
-  if (passwordInput.type === "password") {
+  if (confirmPasswordInput.type === "password") {
     // eye hide element creation
     eyeButton.remove("bi bi-eye-slash");
 
     let eyeHide = document.createElement("i");
     eyeHide.setAttribute("class", "bi bi-eye");
     document.querySelector(".confirm-eye-slash-div").append(eyeHide);
-    passwordInput.type = "text";
+    confirmPasswordInput.type = "text";
   } else {
     eyeButton.remove("bi bi-eye");
 
     let eyeIcon = document.createElement("i");
     eyeIcon.setAttribute("class", "bi bi-eye-slash");
     document.querySelector(".confirm-eye-slash-div").append(eyeIcon);
-    passwordInput.type = "password";
+    confirmPasswordInput.type = "password";
   }
 });

@@ -15,7 +15,6 @@ signUpFrom.addEventListener("submit", (event) => {
   let password = document.getElementById("password").value.trim();
   let cryptoValue = Date.now();
 
-  //avatar text
   let avatarText = firstElement.toUpperCase().charAt(0);
   console.log(avatarText);
 
@@ -28,20 +27,20 @@ signUpFrom.addEventListener("submit", (event) => {
   avatarCanva.height = 200;
 
   // draw background
-  avatarContext.fillStyle = "blue";
-  avatarContext.fillRect = (0, 0, avatarCanva.width, avatarCanva.height);
+  avatarContext.fillStyle = "#00B4FF";
+  avatarContext.fillRect(0, 0, avatarCanva.width, avatarCanva.height);
 
   // draw text
 
   avatarContext.font = "bold 100px Assistant";
   avatarContext.textAlign = "center";
   avatarContext.textBaseline = "middle";
+  avatarContext.fillStyle = "#fff";
   avatarContext.fillText(
     avatarText,
     avatarCanva.width / 2,
     avatarCanva.height / 2
   );
-  avatarContext.fillStyle = "pink";
 
   // return
 

@@ -15,6 +15,7 @@ let findUser = info.find((user) => user["userId"] == urlId);
 console.log(findUser);
 
 let userIndex = info.indexOf(findUser);
+console.log(userIndex);
 
 // profile image and details adding elements
 
