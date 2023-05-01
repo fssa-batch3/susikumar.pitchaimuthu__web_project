@@ -11,18 +11,8 @@ let imageGallery = JSON.parse(localStorage.getItem("image_url"));
 console.log(imageGallery);
 
 // Array.find(  function(variableName){} )
-let snap = imageGallery.find(function (userObj) {
-  //   userObj = {name : , "image": {}, "text": ""}
 
-  let image = userObj["imageId"];
-  console.log(image);
-
-  if (urlImage == image) {
-    return true;
-  } else {
-    return false;
-  }
-});
+let snap = imageGallery.find((i) => i["imageId"] == urlImage);
 
 console.log(snap);
 
@@ -30,120 +20,160 @@ console.log(snap);
 
 let imageIndexNumber = imageGallery.indexOf(snap);
 console.log(imageIndexNumber);
+
+// image changing function creation according to the image and previous and next
+
+function previousImage() {
+  imageIndexNumber--;
+  if (imageIndexNumber < 0) {
+    imageIndexNumber = imageGallery.length - 1;
+  }
+  updateImageDisplay(imageGallery, imageIndexNumber);
+}
+
+// Function to change to the next image
+function nextImage() {
+  console.log("susi");
+  imageIndexNumber++;
+  if (imageIndexNumber >= imageGallery.length) {
+    imageIndexNumber = 0;
+  }
+  updateImageDisplay(imageGallery, imageIndexNumber);
+}
+
 // image url element
 
-let snapshot = document.createElement("img");
-snapshot.setAttribute("src", snap["imageLink"]);
-snapshot.setAttribute("id", "user-taken-still");
-snapshot.setAttribute("alt", "user-taken-still");
-document.querySelector(".image-div").append(snapshot);
+function updateImageDisplay(imageGallery, imageIndexNumber) {
+  let imageDiv = document.querySelector("#user-taken-still");
+  console.log(imageDiv);
 
-console.log(window.location.href);
+  if (imageDiv !== null) {
+    let removeElements = document.querySelectorAll(".removeElement");
 
-// image element creating function
+    for (let j = 0; j < removeElements.length; j++) {
+      removeElements[j].remove();
+    }
+  }
 
-let imageEditDiv = document.createElement("div");
-imageEditDiv.setAttribute("class", "image-edit-option-div");
+  console.log(imageIndexNumber);
+  let snapshot = document.createElement("img");
+  snapshot.setAttribute("src", imageGallery[imageIndexNumber]["imageLink"]);
+  snapshot.setAttribute("id", "user-taken-still");
+  snapshot.setAttribute("class", "removeElement");
+  snapshot.setAttribute("alt", "user-taken-still");
+  document.querySelector(".image-div").append(snapshot);
 
-let a = document.createElement("a");
-a.setAttribute(
-  "href",
-  "../pages/snap-edit.html?user=" +
-    findUser["userId"] +
-    "&image=" +
-    snap["imageId"]
-);
-imageEditDiv.append(a);
+  // image element creating function
 
-let editButton = document.createElement("button");
-editButton.setAttribute("id", snap["imageId"]);
-editButton.setAttribute("class", "option-div");
-a.append(editButton);
+  let imageEditDiv = document.createElement("div");
+  imageEditDiv.setAttribute("class", "image-edit-option-div removeElement");
 
-let edit_i = document.createElement("i");
-edit_i.setAttribute("class", "bi bi-pencil");
-editButton.append(edit_i);
+  let a = document.createElement("a");
+  a.setAttribute(
+    "href",
+    "../pages/snap-edit.html?user=" +
+      findUser["userId"] +
+      "&image=" +
+      snap["imageId"]
+  );
+  imageEditDiv.append(a);
 
-let edit_p = document.createElement("p");
-edit_p.innerHTML = "Edit";
-editButton.append(edit_p);
+  let editButton = document.createElement("button");
+  editButton.setAttribute("id", imageGallery[imageIndexNumber]["imageId"]);
+  editButton.setAttribute("class", "option-div");
+  a.append(editButton);
 
-// like button
+  let edit_i = document.createElement("i");
+  edit_i.setAttribute("class", "bi bi-pencil");
+  editButton.append(edit_i);
 
-let likeButton = document.createElement("button");
-likeButton.setAttribute("id", snap["imageId"]);
-likeButton.setAttribute("class", "option-div like-option");
-imageEditDiv.append(likeButton);
+  let edit_p = document.createElement("p");
+  edit_p.innerHTML = "Edit";
+  editButton.append(edit_p);
 
-let like_i = document.createElement("i");
-like_i.setAttribute("class", "bi bi-heart");
-likeButton.append(like_i);
+  // like button
 
-let like_p = document.createElement("p");
-like_p.innerHTML = "Like";
-likeButton.append(like_p);
+  let likeButton = document.createElement("button");
+  likeButton.setAttribute("id", imageGallery[imageIndexNumber]["imageId"]);
+  likeButton.setAttribute("class", "option-div like-option");
+  imageEditDiv.append(likeButton);
 
-// share button
+  let like_i = document.createElement("i");
+  like_i.setAttribute("class", "bi bi-heart");
+  likeButton.append(like_i);
 
-let shareButton = document.createElement("button");
-shareButton.setAttribute("id", snap["imageId"]);
-shareButton.setAttribute("class", "option-div delete-option");
-imageEditDiv.append(shareButton);
+  let like_p = document.createElement("p");
+  like_p.innerHTML = "Like";
+  likeButton.append(like_p);
 
-let share_i = document.createElement("i");
-share_i.setAttribute("class", "bi bi-x-diamond");
-shareButton.append(share_i);
+  // share button
 
-let share_p = document.createElement("p");
-share_p.innerHTML = "Delete";
-shareButton.append(share_p);
+  let shareButton = document.createElement("button");
+  shareButton.setAttribute("id", imageGallery[imageIndexNumber]["imageId"]);
+  shareButton.setAttribute("class", "option-div downloadButton");
+  imageEditDiv.append(shareButton);
 
-document.querySelector(".image-option-next-option-div").append(imageEditDiv);
+  let share_i = document.createElement("i");
+  share_i.setAttribute("class", "bi bi-x-diamond");
+  shareButton.append(share_i);
 
-// image previous and next control div
+  let share_p = document.createElement("p");
+  share_p.innerHTML = "Download";
+  shareButton.append(share_p);
 
-// previous button
+  document.querySelector(".image-option-next-option-div").append(imageEditDiv);
 
-let imageControlDiv = document.createElement("div");
-imageControlDiv.setAttribute("class", "image-next-option-div");
+  // image previous and next control div
 
-let previousButton = document.createElement("button");
-previousButton.setAttribute("id", snap["imageId"]);
-previousButton.setAttribute("class", "option-div downloadButton");
-imageControlDiv.append(previousButton);
+  // previous button
 
-let previous_i = document.createElement("i");
-previous_i.setAttribute("class", "bi bi-skip-backward-btn");
-previousButton.append(previous_i);
+  let imageControlDiv = document.createElement("div");
+  imageControlDiv.setAttribute("class", "image-next-option-div removeElement");
 
-let previous_p = document.createElement("p");
-previous_p.innerHTML = "Previous";
-previousButton.append(previous_p);
+  let previousButton = document.createElement("button");
+  previousButton.setAttribute("id", imageGallery[imageIndexNumber]["imageId"]);
+  previousButton.setAttribute("onclick", "previousImage()");
+  previousButton.setAttribute("class", "option-div");
+  imageControlDiv.append(previousButton);
 
-// next
+  let previous_i = document.createElement("i");
+  previous_i.setAttribute("class", "bi bi-skip-backward-btn");
+  previousButton.append(previous_i);
 
-let nextButton = document.createElement("button");
-nextButton.setAttribute("id", snap["imageId"]);
-nextButton.setAttribute("class", "option-div");
-imageControlDiv.append(nextButton);
+  let previous_p = document.createElement("p");
+  previous_p.innerHTML = "Previous";
+  previousButton.append(previous_p);
 
-let next_i = document.createElement("i");
-next_i.setAttribute("class", "bi bi-skip-forward-btn");
-nextButton.append(next_i);
+  // next
 
-let next_p = document.createElement("p");
-next_p.innerHTML = "Next";
-nextButton.append(next_p);
+  let nextButton = document.createElement("button");
+  nextButton.setAttribute("id", imageGallery[imageIndexNumber]["imageId"]);
+  nextButton.setAttribute("class", "option-div");
+  nextButton.setAttribute("onclick", "nextImage()");
+  imageControlDiv.append(nextButton);
 
-document.querySelector(".image-option-next-option-div").append(imageControlDiv);
+  let next_i = document.createElement("i");
+  next_i.setAttribute("class", "bi bi-skip-forward-btn");
+  nextButton.append(next_i);
 
-// image details showing div
+  let next_p = document.createElement("p");
+  next_p.innerHTML = "Next";
+  nextButton.append(next_p);
 
-let imageName = document.getElementById("image-name");
-imageName.innerHTML = snap["imageName"];
+  document
+    .querySelector(".image-option-next-option-div")
+    .append(imageControlDiv);
 
-let imageDate = document.getElementById("image-taken-date");
-imageDate.innerHTML = snap["imageDate"];
+  // image details showing div
 
-let imageTime = document.getElementById("image-taken-time");
-imageTime.innerHTML = snap["imageTime"];
+  let imageName = document.getElementById("image-name");
+  imageName.innerHTML = imageGallery[imageIndexNumber]["imageName"];
+
+  let imageDate = document.getElementById("image-taken-date");
+  imageDate.innerHTML = imageGallery[imageIndexNumber]["imageDate"];
+
+  let imageTime = document.getElementById("image-taken-time");
+  imageTime.innerHTML = imageGallery[imageIndexNumber]["imageTime"];
+}
+
+updateImageDisplay(imageGallery, imageIndexNumber);

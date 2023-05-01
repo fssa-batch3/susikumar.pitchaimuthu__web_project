@@ -18,33 +18,31 @@ logIn.addEventListener("submit", (event) => {
 
   let successUser;
 
-  for (let i = 0; i < defaultData.length; i++) {
-    if (
-      userEmail == defaultData[i]["Email"] &&
-      password == defaultData[i]["password"]
-    ) {
-      if (password !== comfirmPassword) {
-        alert("Confirm password is not matched");
-        return;
-      }
-      match = true;
+  let usercheck = defaultData.find((e) => e["email"] == userEmail);
+  console.log(usercheck);
 
-      successUser = defaultData[i];
+  if (usercheck == undefined) {
+    alert("Email id not found");
+    return;
+  } else if (usercheck["password"] !== password) {
+    alert("Password is not correct");
+    return;
+  } else if (password !== comfirmPassword) {
+    alert("Confirm password is not matched");
+    return;
+  } else {
+    match = true;
 
-      let which = doSomething.push(defaultData[i]);
-      console.log(which);
+    let which = doSomething.push(usercheck);
+    console.log(which);
 
-      let logString = JSON.stringify(doSomething);
-      window.localStorage.setItem("user_data", logString);
-      break;
-    }
+    let logString = JSON.stringify(doSomething);
+    window.localStorage.setItem("user_data", logString);
   }
 
   if (match == true) {
-    alert("Success");
-    window.location.href = "../pages/home.html?user=" + successUser["userId"];
-  } else {
-    alert("Failed");
+    alert("You are successfully get into freshnest");
+    window.location.href = "../pages/home.html?user=" + usercheck["userId"];
   }
 });
 

@@ -30,107 +30,109 @@
           </p>
         </div>
         <div class="login-container">
-          <h2 class="sign-in-head">Sign Up</h2>
+          <div class="login-inside-container">
+            <h2 class="sign-in-head">Sign Up</h2>
 
-          <form id="form">
-            <div class="input-container">
-              <div>
-                <label class="label">
-                  <input
-                    type="text"
-                    id="firstname"
-                    name="email"
-                    autocomplete="hdfhshjfj"
-                    title="First name is required"
-                    required
-                  />
-                  <span class="placeholder">First name</span></label
-                >
-              </div>
+            <form id="form">
+              <div class="input-container">
+                <div>
+                  <label class="label">
+                    <input
+                      type="text"
+                      id="firstname"
+                      name="email"
+                      autocomplete="hdfhshjfj"
+                      title="First name is required"
+                      required
+                    />
+                    <span class="placeholder">First name</span></label
+                  >
+                </div>
 
-              <div>
-                <label class="label">
-                  <input type="text" id="lastname" name="password" required />
-                  <span class="placeholder">Last name</span></label
-                >
-              </div>
+                <div>
+                  <label class="label">
+                    <input type="text" id="lastname" name="password" required />
+                    <span class="placeholder">Last name</span></label
+                  >
+                </div>
 
-              <div>
-                <label class="label">
-                  <input type="text" id="username" name="password" required />
-                  <span class="placeholder">User name</span></label
-                >
-              </div>
+                <div>
+                  <label class="label">
+                    <input type="text" id="username" name="password" required />
+                    <span class="placeholder">User name</span></label
+                  >
+                </div>
 
-              <div>
-                <label class="label">
-                  <input type="email" id="email" name="password" required />
-                  <span class="placeholder">Email ID</span></label
-                >
-              </div>
-              <div class="password-input">
-                <label class="label password-label">
-                  <input
-                    type="password"
-                    id="password"
-                    name="password"
-                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                    required
-                  />
+                <div>
+                  <label class="label">
+                    <input type="email" id="email" name="password" required />
+                    <span class="placeholder">Email ID</span></label
+                  >
+                </div>
+                <div class="password-input">
+                  <label class="label password-label">
+                    <input
+                      type="password"
+                      id="password"
+                      name="password"
+                      pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                      required
+                    />
 
-                  <span class="placeholder">Password</span></label
-                >
-                <div class="eye-slash-div">
-                  <i class="bi bi-eye-slash"></i>
+                    <span class="placeholder">Password</span></label
+                  >
+                  <div class="eye-slash-div">
+                    <i class="bi bi-eye-slash"></i>
+                  </div>
+                </div>
+
+                <div class="password-strength-div">
+                  <div class="hr-div"><hr class="hr" /></div>
+
+                  <div class="strength-content-div">
+                    <span class="emoji-span"> </span>
+                    <p class="password-content"></p>
+                  </div>
                 </div>
               </div>
 
-              <div class="password-strength-div">
-                <div class="hr-div"><hr class="hr" /></div>
-
-                <div class="strength-content-div">
-                  <span class="emoji-span"> </span>
-                  <p class="password-content"></p>
+              <div class="button-error-container">
+                <div><h3></h3></div>
+                <div class="button-div">
+                  <button class="login-button" type="submit">Next</button>
                 </div>
               </div>
+            </form>
+
+            <div class="or-div">
+              <p>-----------------------</p>
+              <span>OR</span>
+              <p>-----------------------</p>
             </div>
 
-            <div class="button-error-container">
-              <div><h3></h3></div>
-              <div class="button-div">
-                <button class="login-button" type="submit">Next</button>
+            <div class="button-content-container">
+              <div>
+                <h3>Sign with</h3>
+              </div>
+              <div class="button-container">
+                <button class="sign-button">
+                  <i class="fa fa-twitter fa-2x"></i>
+                </button>
+                <button class="sign-button">
+                  <i class="fa fa-google fa-2x"></i>
+                </button>
+                <button class="sign-button">
+                  <i class="fa fa-facebook fa-2x"></i>
+                </button>
               </div>
             </div>
-          </form>
 
-          <div class="or-div">
-            <p>-----------------------</p>
-            <span>OR</span>
-            <p>-----------------------</p>
-          </div>
-
-          <div class="button-content-container">
-            <div>
-              <h3>Sign with</h3>
+            <div class="sign-up-div">
+              <h4 class="sign-up-link">
+                Already have an account?
+                <a href="../pages/logIn.html"><span>Log in here</span></a>
+              </h4>
             </div>
-            <div class="button-container">
-              <button class="sign-button">
-                <i class="fa fa-twitter fa-2x"></i>
-              </button>
-              <button class="sign-button">
-                <i class="fa fa-google fa-2x"></i>
-              </button>
-              <button class="sign-button">
-                <i class="fa fa-facebook fa-2x"></i>
-              </button>
-            </div>
-          </div>
-
-          <div class="sign-up-div">
-            <h4 class="sign-up-link">
-              Already have an account?
-              <a href="../pages/logIn.html"><span>Log in here</span></a>
-            </h4>
           </div>
         </div>
       </div>

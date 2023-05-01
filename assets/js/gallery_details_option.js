@@ -76,56 +76,56 @@ likeOption.addEventListener("click", () => {
 
 // image delete option eventListner function
 
-let deleteImage = document.querySelector(".delete-option");
+// let deleteImage = document.querySelector(".delete-option");
 
-console.log(imageGallery);
+// console.log(imageGallery);
 
-imageGallery.splice;
+// imageGallery.splice;
 
-deleteImage.addEventListener("click", () => {
-  console.log(imageGallery[imageIndexNumber]);
-  console.log(imageIndexNumber);
-  let message = confirm("Are sure to delete this image?");
-  if (message !== true) {
-    return;
-  } else {
-    // recently deleting image adding function to the database
+// deleteImage.addEventListener("click", () => {
+//   console.log(imageGallery[imageIndexNumber]);
+//   console.log(imageIndexNumber);
+//   let message = confirm("Are sure to delete this image?");
+//   if (message !== true) {
+//     return;
+//   } else {
+//     // recently deleting image adding function to the database
 
-    let deleteImageArr = [];
+//     let deleteImageArr = [];
 
-    if (localStorage.getItem("recentDeleteImageData") !== null) {
-      deleteImageArr = JSON.parse(
-        localStorage.getItem("recentDeleteImageData")
-      );
-    }
+//     if (localStorage.getItem("recentDeleteImageData") !== null) {
+//       deleteImageArr = JSON.parse(
+//         localStorage.getItem("recentDeleteImageData")
+//       );
+//     }
 
-    let deleteObject = {
-      imageName: snap["imageName"],
-      imageLink: snap["imageLink"],
-      imageDate: snap["imageDate"],
-      imageId: snap["imageId"],
-      ImageDate: snap["imageDate"],
-      imageTime: snap["imageTime"],
-      userId: snap["userId"],
-    };
+//     let deleteObject = {
+//       imageName: snap["imageName"],
+//       imageLink: snap["imageLink"],
+//       imageDate: snap["imageDate"],
+//       imageId: snap["imageId"],
+//       ImageDate: snap["imageDate"],
+//       imageTime: snap["imageTime"],
+//       userId: snap["userId"],
+//     };
 
-    deleteImageArr.push(deleteObject);
+//     deleteImageArr.push(deleteObject);
 
-    localStorage.setItem(
-      "recentDeleteImageData",
-      JSON.stringify(deleteImageArr)
-    );
+//     localStorage.setItem(
+//       "recentDeleteImageData",
+//       JSON.stringify(deleteImageArr)
+//     );
 
-    // using splice function for to remove the image from the image gallery
+//     // using splice function for to remove the image from the image gallery
 
-    imageGallery.splice(imageIndexNumber, 1);
-    console.log(imageGallery);
+//     imageGallery.splice(imageIndexNumber, 1);
+//     console.log(imageGallery);
 
-    localStorage.setItem("image_url", JSON.stringify(imageGallery));
-    window.location.href =
-      "../pages/snap-gallery.html?user=" + findUser["userId"];
-  }
-});
+//     localStorage.setItem("image_url", JSON.stringify(imageGallery));
+//     window.location.href =
+//       "../pages/snap-gallery.html?user=" + findUser["userId"];
+//   }
+// });
 
 // Image download option
 
@@ -142,9 +142,9 @@ function downloadImage(url, fileName) {
 
 // Get the to pass to the download funciton
 
-let clickImage = snap["imageLink"];
+let clickImage = imageGallery[imageIndexNumber]["imageLink"];
 
-let clickName = snap["imageName"];
+let clickName = imageGallery[imageIndexNumber]["imageName"];
 
 let downloadButton = document.querySelector(".downloadButton");
 

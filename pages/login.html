@@ -30,91 +30,93 @@
           </p>
         </div>
         <div class="login-container">
-          <h2 class="sign-in-head">Sign In</h2>
+          <div class="login-inside-container">
+            <h2 class="sign-in-head">Sign In</h2>
 
-          <form id="form">
-            <div class="input-container">
+            <form id="form">
+              <div class="input-container">
+                <div>
+                  <label class="label">
+                    <input
+                      type="email"
+                      id="inputemail"
+                      name="email"
+                      autocomplete="hdfhshjfj"
+                      required
+                    />
+                    <span class="placeholder">Email ID</span></label
+                  >
+                </div>
+
+                <div class="password-input">
+                  <label class="label">
+                    <input
+                      type="password"
+                      id="password"
+                      name="password"
+                      required
+                    />
+                    <span class="placeholder">Password</span></label
+                  >
+                  <div class="eye-slash-div">
+                    <i class="bi bi-eye-slash"></i>
+                  </div>
+                </div>
+
+                <div class="password-input">
+                  <label class="label">
+                    <input
+                      type="password"
+                      id="confirm-password"
+                      name="password"
+                      required
+                    />
+                    <span class="placeholder">Confirm Password</span></label
+                  >
+
+                  <div class="confirm-eye-slash-div">
+                    <i class="bi bi-eye-slash"></i>
+                  </div>
+                </div>
+              </div>
+
+              <div class="button-error-container">
+                <div><h3></h3></div>
+                <div class="button-div">
+                  <button class="login-button" type="submit">Log in</button>
+                </div>
+              </div>
+            </form>
+
+            <div class="or-div">
+              <p>-----------------------</p>
+              <span>OR</span>
+              <p>-----------------------</p>
+            </div>
+
+            <div class="button-content-container">
               <div>
-                <label class="label">
-                  <input
-                    type="email"
-                    id="inputemail"
-                    name="email"
-                    autocomplete="hdfhshjfj"
-                    required
-                  />
-                  <span class="placeholder">Email ID</span></label
-                >
+                <h3>Sign with</h3>
               </div>
-
-              <div class="password-input">
-                <label class="label">
-                  <input
-                    type="password"
-                    id="password"
-                    name="password"
-                    required
-                  />
-                  <span class="placeholder">Password</span></label
-                >
-                <div class="eye-slash-div">
-                  <i class="bi bi-eye-slash"></i>
-                </div>
-              </div>
-
-              <div class="password-input">
-                <label class="label">
-                  <input
-                    type="password"
-                    id="confirm-password"
-                    name="password"
-                    required
-                  />
-                  <span class="placeholder">Confirm Password</span></label
-                >
-
-                <div class="confirm-eye-slash-div">
-                  <i class="bi bi-eye-slash"></i>
-                </div>
+              <div class="button-container">
+                <button class="sign-button">
+                  <i class="fa fa-twitter fa-2x"></i>
+                </button>
+                <button class="sign-button">
+                  <i class="fa fa-google fa-2x"></i>
+                </button>
+                <button class="sign-button">
+                  <i class="fa fa-facebook fa-2x"></i>
+                </button>
               </div>
             </div>
 
-            <div class="button-error-container">
-              <div><h3></h3></div>
-              <div class="button-div">
-                <button class="login-button" type="submit">Log in</button>
-              </div>
+            <div class="sign-up-div">
+              <h4 class="sign-up-link">
+                Don't have an account?
+                <a href="../pages/Register.html"><span>Register here</span></a>
+              </h4>
             </div>
-          </form>
-
-          <div class="or-div">
-            <p>-----------------------</p>
-            <span>OR</span>
-            <p>-----------------------</p>
-          </div>
-
-          <div class="button-content-container">
-            <div>
-              <h3>Sign with</h3>
-            </div>
-            <div class="button-container">
-              <button class="sign-button">
-                <i class="fa fa-twitter fa-2x"></i>
-              </button>
-              <button class="sign-button">
-                <i class="fa fa-google fa-2x"></i>
-              </button>
-              <button class="sign-button">
-                <i class="fa fa-facebook fa-2x"></i>
-              </button>
-            </div>
-          </div>
-
-          <div class="sign-up-div">
-            <h4 class="sign-up-link">
-              Don't have an account?
-              <a href="../pages/Register.html"><span>Register here</span></a>
-            </h4>
           </div>
         </div>
       </div>

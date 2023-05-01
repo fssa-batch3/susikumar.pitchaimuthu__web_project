@@ -26,7 +26,6 @@ body {
   margin-top: 8em;
   width: auto;
   gap: 5em;
-  height: 500px;
 }
 
 .welcome-container {
@@ -45,9 +44,15 @@ body {
   box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px,
     rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
   display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-inside-container {
+  display: flex;
   flex-direction: column;
   width: 412px;
-  height: 600px;
+  padding: 5px;
 }
 
 .label {

@@ -14,8 +14,9 @@ signUpFrom.addEventListener("submit", (event) => {
   let userEmail = document.getElementById("email").value.trim();
   let password = document.getElementById("password").value.trim();
   let cryptoValue = Date.now();
-  //
-  let avatarText = firstElement.charAt(0);
+
+  //avatar text
+  let avatarText = firstElement.toUpperCase().charAt(0);
   console.log(avatarText);
 
   // avatar create
@@ -75,7 +76,7 @@ signUpFrom.addEventListener("submit", (event) => {
     firstName: firstElement,
     lastName: lastElememt,
     userName: dashedText,
-    Email: userEmail.toLowerCase(),
+    email: userEmail.toLowerCase(),
     password: password,
     avatarUrl: imageUrl,
     userTheme: "Hey! I am using fresh nest",
@@ -135,7 +136,7 @@ function calculatePasswordStrength(passwordStrength) {
 
   // Evaluate length
 
-  if (passwordStrength.match(/[a-z]+/)) {
+  if (passwordStrength.length <= 8) {
     strength += 1;
     hr.style.width = "25%";
     hr.style.backgroundColor = "red";

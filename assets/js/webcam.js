@@ -30,6 +30,14 @@ navigator.mediaDevices.getUserMedia(conditions).then((stream) => {
   video.play();
 });
 
+// filter selection function
+
+filterButton.addEventListener("change", function (e) {
+  e.preventDefault();
+  filter = e.target.value;
+  video.style.filter = filter;
+});
+
 // Draw image
 
 snap.addEventListener("click", () => {
@@ -39,12 +47,14 @@ snap.addEventListener("click", () => {
     imageData = JSON.parse(localStorage.getItem("image_url"));
   }
 
-  canvas.getContext("2d").drawImage(video, 0, 0, canvas.width, canvas.height);
+  let filterValue = video.style.filter;
+  console.log(filterValue);
 
-  let checkFilter = canvas.style.filter;
-  if (checkFilter) {
-    canvas.style.filter = filter;
+  if (filterValue) {
+    canvas.getContext("2d").filter = filterValue; // Apply the filter to the canvas context
   }
+
+  canvas.getContext("2d").drawImage(video, 0, 0, canvas.width, canvas.height);
 
   let imageUrl = canvas.toDataURL("image/jpeg");
   // console.log(imageUrl);
@@ -69,15 +79,7 @@ snap.addEventListener("click", () => {
   localStorage.setItem("image_url", JSON.stringify(imageData));
 });
 
-// filter selection
-
-filterButton.addEventListener("change", function (e) {
-  e.preventDefault();
-  filter = e.target.value;
-  video.style.filter = filter;
-});
-
-// brightness adjusment
+// brightness showing and element none function
 
 function bright() {
   if (adjusment.style.display === "none") {
