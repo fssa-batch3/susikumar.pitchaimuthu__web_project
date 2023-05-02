@@ -183,7 +183,9 @@ function showUser(s) {
 
   if (userFriendsData !== null) {
     for (let i = 0; i < userFriendsData.length; i++) {
-      if (userFriendsData[i][0]["frienderId"] == s) {
+      if (userFriendsData[i].length == 0) {
+        break;
+      } else if (userFriendsData[i][0]["frienderId"] == s) {
         suggedData = userFriendsData[i];
       }
     }
@@ -292,7 +294,9 @@ function getFollow(es) {
 
   if (userFriends !== null) {
     for (let i = 0; i < userFriends.length; i++) {
-      if (userFriends[i][0]["frienderId"] == findUser["userId"]) {
+      if (userFriends[i].length == 0) {
+        break;
+      } else if (userFriends[i][0]["frienderId"] == findUser["userId"]) {
         userArray = userFriends[i];
       }
     }
@@ -352,6 +356,7 @@ function getFollow(es) {
   };
 
   let friendsAssaign = Object.assign(gatherUser, frienderObj);
+  console.log(friendsAssaign);
 
   insideArray.push(friendsAssaign);
 
@@ -364,7 +369,7 @@ function getFollow(es) {
   localStorage.setItem("userFriends", JSON.stringify(userFriendsArr));
 }
 
-// Writins the remove follow funciton to remove the friends into user
+// Writing the remove follow funciton to remove the friends into user
 
 function removeFollow(r) {
   console.log(r);
@@ -407,8 +412,13 @@ function removeFollow(r) {
 
   console.log(userFriendsCurrentData);
 
-  allUserFriendsData[userArrayIndex] = userFriendsCurrentData;
-  console.log(allUserFriendsData);
+  if (userFriendsCurrentData.length == 0) {
+    allUserFriendsData.splice(userArrayIndex);
+    console.log(allUserFriendsData);
+  } else {
+    allUserFriendsData[userArrayIndex] = userFriendsCurrentData;
+    console.log(allUserFriendsData);
+  }
 
   localStorage.setItem("userFriends", JSON.stringify(allUserFriendsData));
 }

@@ -4,39 +4,121 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="../assets/css/webcam.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <title>freshcam</title>
+
+    <!-- css links -->
+
     <link
-      href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
     />
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800&display=swap");
-    </style>
+
     <script
       src="https://kit.fontawesome.com/a06ff6477a.js"
       crossorigin="anonymous"
     ></script>
+
+    <!----===== Boxicons CSS ===== -->
     <link
+      href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css"
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css"
     />
+
+    <!-- css links -->
+
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="../assets/css/webcam.css" />
   </head>
   <body>
-    <!-- <button id="start-camera" onclick="startCamera()">Start Camera</button> -->
+    <nav class="sidebar close">
+      <header class="header">
+        <div class="image-text">
+          <span class="image">
+            <img id="profile-image" src="" alt="profile-image" />
+          </span>
+
+          <div class="text logo-text">
+            <span class="name">Codinglab</span>
+            <span class="profession">Web developer</span>
+          </div>
+        </div>
+
+        <!-- <i class="bx bx-chevron-right toggle"></i> -->
+      </header>
+
+      <div class="menu-bar">
+        <div class="menu">
+          <ul class="menu-links">
+            <li class="nav-link" id="home">
+              <i class="bi bi-person-badge-fill icon"></i>
+              <span class="text nav-text">Dashboard</span>
+            </li>
+
+            <li class="nav-link" id="chat">
+              <i class="bi bi-chat-right icon"></i>
+              <span class="text nav-text">freshChat</span>
+            </li>
+
+            <li class="nav-link" id="camera">
+              <i class="bi bi-camera icon"></i>
+              <span class="text nav-text">fresh cam</span>
+            </li>
+
+            <li class="nav-link" id="invite">
+              <i class="fa-brands fa-battle-net icon"></i>
+              <span class="text nav-text">fresh invite</span>
+            </li>
+
+            <li class="nav-link" id="notification">
+              <i class="bx bx-bell icon"></i>
+              <span class="text nav-text">Notification</span>
+            </li>
+
+            <li class="nav-link" id="setting">
+              <i class="bi bi-gear icon"></i>
+              <span class="text nav-text">Setting</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bottom-content">
+          <li class="logOut">
+            <i class="bx bx-log-out icon"></i>
+            <span class="text nav-text">Logout</span>
+          </li>
+
+          <li class="mode">
+            <div class="sun-moon">
+              <i class="bx bx-moon icon moon"></i>
+              <i class="bx bx-sun icon sun"></i>
+            </div>
+            <span class="mode-text text">Dark mode</span>
+
+            <div class="toggle-switch">
+              <span class="switch"></span>
+            </div>
+          </li>
+        </div>
+      </div>
+
+      <!-- side bar close function -->
+      <div class="side-bar-close-button-div">
+        <div class="side-bar-close-button" onclick="closeSideBar()">
+          <i class="bi bi-chevron-double-left"></i>
+        </div>
+      </div>
+    </nav>
+
+    <!-- camera section -->
+
     <div class="camera-div">
-      <video id="start" width="1650" height="885" autoplay></video>
+      <video id="start" width="1650" height="883" autoplay></video>
     </div>
     <div class="option-div">
-      <!-- <i class="fa-solid fa-brightness fa-2x"></i> -->
-      <!-- <i class="fa-solid fa-sparkles fa-2x"></i> -->
       <i onclick="bright()" class="bi bi-brightness-high-fill"></i>
       <i class="fas fa-photo-video"></i>
       <i class="bi bi-folder gallery"></i>
       <div class="adjustment-div">
-        <canvas id="canvas" width="500" height="400"></canvas>
         <div id="brightness-container">
           <label for="brightness">Brightness</label>
           <input
@@ -83,8 +165,11 @@
       </select>
     </div>
 
+    <!-- script files -->
+
     <!-- <canvas id="canvas"></canvas> -->
     <script src="../assets/js/profile_user_find.js"></script>
+    <script src="../assets/js/webnav.js"></script>
     <script src="../assets/js/page-direction.js"></script>
     <script src="https://momentjs.com/downloads/moment.js"></script>
     <script src="../assets/js/webcam.js"></script>
