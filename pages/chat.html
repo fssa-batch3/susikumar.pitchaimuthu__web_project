@@ -185,7 +185,7 @@
     <script src="../assets/js/profile_user_find.js"></script>
     <script src="../assets/js/page-direction.js"></script>
     <!-- <script src="../assets/js/search_filter.js"></script> -->
-    <script src="../assets/js/reel_access.js"></script>
+    <!-- <script src="../assets/js/reel_access.js"></script> -->
 
     <link
       href="https://cdn.jsdelivr.net/npm/openmoji@latest/openmoji.min.css"
@@ -211,10 +211,8 @@
         set,
         ref,
         onValue,
+        push,
       } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-database.js";
-
-      // TODO: Add SDKs for Firebase products that you want to use
-      // https://firebase.google.com/docs/web/setup#available-libraries
 
       // Your web app's Firebase configuration
       const firebaseConfig = {
@@ -238,17 +236,149 @@
 
       function getData() {
         onValue(ref(database, `freshchat/`), (snapshot) => {
-          firebaseDatabaseData.push(snapshot.val());
-          console.log(firebaseDatabaseData);
-        });
+          let firebaseDatabaseData = Object.values(snapshot.val());
+          console.log(firebaseDatabaseData[0]["chat"]);
+          // Element creatin for the chat elment
 
-        console.log(firebaseDatabaseData);
+          for (let j = 0; j < firebaseDatabaseData.length; j++) {
+            if (
+              firebaseDatabaseData[j]["chatter_id"] !== userSelectId &&
+              firebaseDatabaseData[j]["chatSenderId"] == findUser["userId"]
+            ) {
+              let chatDivUser = document.createElement("div");
+              chatDivUser.setAttribute("class", "chat-div-for-user");
+
+              let chatUserInsideDiv = document.createElement("div");
+              chatUserInsideDiv.setAttribute("class", "chat-user-inside-div");
+              chatDivUser.append(chatUserInsideDiv);
+
+              let chatDiv = document.createElement("div");
+              chatDiv.setAttribute("class", "chat-div");
+              chatUserInsideDiv.append(chatDiv);
+
+              let chatInsideDiv = document.createElement("div");
+              chatInsideDiv.setAttribute("class", "chat-inside-div");
+              chatDiv.append(chatInsideDiv);
+
+              let chatContentTimeDiv = document.createElement("div");
+              chatContentTimeDiv.setAttribute("class", "chat-content-time-div");
+              chatInsideDiv.append(chatContentTimeDiv);
+
+              let chatContentTimeInsideDiv = document.createElement("div");
+              chatContentTimeInsideDiv.setAttribute(
+                "class",
+                "chat-content-time-inside-div"
+              );
+              chatContentTimeDiv.append(chatContentTimeInsideDiv);
+
+              let chatContentDiv = document.createElement("div");
+              chatContentDiv.setAttribute("class", "chat-content-div");
+              chatContentTimeInsideDiv.append(chatContentDiv);
+
+              let chatContent = document.createElement("p");
+              chatContent.setAttribute("class", "chat-content");
+              chatContent.innerHTML = firebaseDatabaseData[j]["chat"];
+              chatContentDiv.append(chatContent);
+
+              let chatTimeDiv = document.createElement("div");
+              chatTimeDiv.setAttribute("class", "chat-time-div");
+              chatContentTimeInsideDiv.append(chatTimeDiv);
+
+              let timePara = document.createElement("p");
+              timePara.setAttribute("class", "time-para");
+              timePara.innerHTML = firebaseDatabaseData[j]["chatTime"];
+              chatTimeDiv.append(timePara);
+
+              let userProfileDiv = document.createElement("div");
+              userProfileDiv.setAttribute("class", "user-profile-div");
+              chatInsideDiv.append(userProfileDiv);
+
+              let usrImage = document.createElement("img");
+              usrImage.setAttribute("alt", "chat-image");
+              usrImage.setAttribute("class", "chatter-image");
+              usrImage.setAttribute("src", findUser["avatarUrl"]);
+              userProfileDiv.append(usrImage);
+
+              document
+                .querySelector(".right-side-container")
+                .append(chatDivUser);
+            } else {
+              console.log("friends");
+              let chatDivUser = document.createElement("div");
+              chatDivUser.setAttribute("class", "chat-div-for-user");
+
+              let chatUserInsideDiv = document.createElement("div");
+              chatUserInsideDiv.setAttribute(
+                "class",
+                "chat-friends-inside-div"
+              );
+              chatDivUser.append(chatUserInsideDiv);
+
+              let chatDiv = document.createElement("div");
+              chatDiv.setAttribute("class", "chat-div");
+              chatUserInsideDiv.append(chatDiv);
+
+              let chatInsideDiv = document.createElement("div");
+              chatInsideDiv.setAttribute("class", "chat-inside-div");
+              chatDiv.append(chatInsideDiv);
+
+              let userProfileDiv = document.createElement("div");
+              userProfileDiv.setAttribute("class", "user-profile-div");
+              chatInsideDiv.append(userProfileDiv);
+
+              let usrImage = document.createElement("img");
+              usrImage.setAttribute("alt", "chat-image");
+              usrImage.setAttribute("class", "chatter-image");
+              usrImage.setAttribute(
+                "src",
+                firebaseDatabaseData[j]["chatReceiverImage"]
+              );
+              userProfileDiv.append(usrImage);
+
+              let chatContentTimeDiv = document.createElement("div");
+              chatContentTimeDiv.setAttribute("class", "chat-content-time-div");
+              chatInsideDiv.append(chatContentTimeDiv);
+
+              let chatContentTimeInsideDiv = document.createElement("div");
+              chatContentTimeInsideDiv.setAttribute(
+                "class",
+                "chat-content-time-inside-div"
+              );
+              chatContentTimeDiv.append(chatContentTimeInsideDiv);
+
+              let chatContentDiv = document.createElement("div");
+              chatContentDiv.setAttribute("class", "chat-content-div");
+              chatContentTimeInsideDiv.append(chatContentDiv);
+
+              let chatContent = document.createElement("p");
+              chatContent.setAttribute("class", "chat-content");
+              chatContent.innerHTML = firebaseDatabaseData[j]["chat"];
+              chatContentDiv.append(chatContent);
+
+              let chatTimeDiv = document.createElement("div");
+              chatTimeDiv.setAttribute("class", "chat-time-div");
+              chatContentTimeInsideDiv.append(chatTimeDiv);
+
+              let timePara = document.createElement("p");
+              timePara.setAttribute("class", "time-para");
+              timePara.innerHTML = firebaseDatabaseData[j]["chatTime"];
+              chatTimeDiv.append(timePara);
+
+              document
+                .querySelector(".right-side-container")
+                .append(chatDivUser);
+            }
+          }
+        });
       }
       getData();
 
-      function setData() {
-        let chatReceiver = 234;
+      // set the data to the firebase
 
+      let firstParent = document.querySelector(".chat-input-option-div");
+
+      async function setData(userReceiver) {
+        let chatReceiverId = userReceiver;
         let chatMessage = document.querySelector("#chat-input").value.trim();
         console.log(chatMessage);
 
@@ -260,41 +390,43 @@
         let chatId = moment().format("LT");
         let dateChat = moment().format("l");
 
-        //  message sending to the firebase set function
-
-        // const databaseRef = ref(database, "freshchat/");
-
-        // Assuming you have a reference to your Firebase database
-
         // Generate a new unique key using push()
-        var newEntryRef = database.ref("freshnest/").push();
+        let chatRef = push(ref(database, "freshchat/"));
 
-        // Set the data using the generated key
-        newEntryRef.set({
-          // Your data object here
+        let chatData = {
           chatPerson: userName,
           chat: chatMessage,
           chatTime: chatId,
-          chatReceiverId: chatReceiver,
+          chatReceiverId: chatReceiverId,
           chatDate: dateChat,
           chatterId: personId,
-        });
+          chatSenderImage: findUser["avatarUrl"],
+        };
 
-        // const newChatEntry = {
-
-        // };
-
-        // set(databaseRef, newChatEntry);
+        try {
+          await set(chatRef, chatData);
+          console.log("Data updated successfully!");
+          // Proceed with further actions or data retrieval here
+        } catch (error) {
+          console.error("Error updating data:", error);
+        }
       }
 
-      document
-        .querySelector(".search-button")
-        .addEventListener("click", function () {
-          setData();
-        });
-    </script>
+      // Attach the click event listener to the document object using event delegation
+      firstParent.addEventListener("click", function (event) {
+        let target = event.target;
 
-    <!-- <script type="module" src="../assets/js/chatFetch.js"></script> -->
+        console.log(target);
+
+        let userReceiver = target.id;
+        // Check if the event target is the chat-submit button inside the chat-submit-button-div
+        if (target.matches(".submit-span")) {
+          setData(userReceiver);
+        }
+      });
+
+      // update the firebase database
+    </script>
 
     <!-- <script src="../assets/js/freshchat.js"></script> -->
   </body>

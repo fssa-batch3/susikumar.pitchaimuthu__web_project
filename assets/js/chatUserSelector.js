@@ -201,12 +201,11 @@ for (let i = 0; i < chatPersonCard.length; i++) {
 
     let sendButton = document.createElement("button");
     sendButton.setAttribute("class", "chat-submit");
-    sendButton.setAttribute("id", userSelectionIdFind["userId"]);
-    sendButton.setAttribute("onclick", "getUser(this.id)");
     chatSubmitDiv.append(sendButton);
 
     let Span = document.createElement("span");
     Span.setAttribute("class", "submit-span");
+    Span.setAttribute("id", userSelectionIdFind["userId"]);
     Span.innerHTML = "Submit";
     sendButton.append(Span);
 
