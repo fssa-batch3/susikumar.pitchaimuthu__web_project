@@ -149,7 +149,7 @@ function showUser(s) {
   if (friendsDatas !== null) {
     for (let i = 0; i < friendsDatas.length; i++) {
       for (let j = 0; j < friendsDatas[i].length; j++) {
-        if ((friendsDatas[i][j]["userId"] = s)) {
+        if (friendsDatas[i][j]["userId"] == s) {
           buttonFollow = true;
         }
       }
@@ -368,4 +368,47 @@ function getFollow(es) {
 
 function removeFollow(r) {
   console.log(r);
+
+  // Let getting profile user friends array
+
+  let allUserFriendsData = JSON.parse(localStorage.getItem("userFriends"));
+
+  console.log(allUserFriendsData);
+
+  // getting the user friends data
+
+  let userFriendsCurrentData;
+
+  for (let i = 0; i < allUserFriendsData.length; i++) {
+    for (let j = 0; j < allUserFriendsData[i].length; j++) {
+      if (allUserFriendsData[i][j]["frienderId"] == findUser["userId"]) {
+        userFriendsCurrentData = allUserFriendsData[i];
+      }
+    }
+  }
+  console.log(userFriendsCurrentData);
+
+  // let find the profile user friends array
+
+  let userArrayIndex = allUserFriendsData.indexOf(userFriendsCurrentData);
+  console.log(userArrayIndex);
+
+  // finding the index of removing person
+
+  let removeFriend = userFriendsCurrentData.find((e) => e["userId"] == r);
+  console.log(removeFriend);
+
+  let removeFriendIndex = userFriendsCurrentData.indexOf(removeFriend);
+  console.log(removeFriendIndex);
+
+  // writing the function to remove the user data from profile user friends list
+
+  let splishData = userFriendsCurrentData.splice(removeFriendIndex);
+
+  console.log(userFriendsCurrentData);
+
+  allUserFriendsData[userArrayIndex] = userFriendsCurrentData;
+  console.log(allUserFriendsData);
+
+  localStorage.setItem("userFriends", JSON.stringify(allUserFriendsData));
 }
