@@ -484,4 +484,46 @@
       });
     </script>
   </body>
+
+  <!-- script files -->
+
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
+    import {
+      getDatabase,
+      ref,
+      onValue,
+    } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js";
+
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyCfwu4LoanWTn-x_nJn-5ucWlh4dwQ7vGo",
+      authDomain: "class-prject-c17cd.firebaseapp.com",
+      projectId: "class-prject-c17cd",
+      storageBucket: "class-prject-c17cd.appspot.com",
+      messagingSenderId: "466905260512",
+      appId: "1:466905260512:web:656415e00984a4957c4b85",
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+
+    // Get complete information about the database and console log it.
+    let database = getDatabase();
+    console.log(database);
+
+    // Create a reference to the key "name" in the database
+    const db_ref = ref(database, "name/");
+
+    // Refer the reference stored in db_ref and then callback the function to get the values and console log it.
+    onValue(db_ref, (snapshot) => {
+      const data = snapshot.val();
+      // const data = snapshot;
+      console.log(data);
+    });
+  </script>
 </html>

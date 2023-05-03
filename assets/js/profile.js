@@ -243,19 +243,52 @@ file.addEventListener("change", function () {
 // Transform to default profile image
 
 function defaultProfile() {
-  console.log(found);
+  console.log(findUser);
 
-  let getImageUrl = JSON.parse(localStorage.getItem("profileImagesData"));
-  console.log(getImageUrl);
+  let firstElement = findUser["firstName"];
 
-  let currentUrl = getImageUrl[0];
-  console.log(currentUrl);
+  let avatarText = firstElement.toUpperCase().charAt(0);
+  console.log(avatarText);
 
-  let imageUrlAssaign = Object.assign(findUser, currentUrl);
+  // avatar create
 
-  console.log(imageUrlAssaign);
+  let avatarCanva = document.createElement("canvas");
+  let avatarContext = avatarCanva.getContext("2d");
 
-  info[foundIndex] = imageUrlAssaign;
+  avatarCanva.width = 200;
+  avatarCanva.height = 200;
+
+  // draw background
+  avatarContext.fillStyle = "#00B4FF";
+  avatarContext.fillRect(0, 0, avatarCanva.width, avatarCanva.height);
+
+  // draw text
+
+  avatarContext.font = "bold 100px Assistant";
+  avatarContext.textAlign = "center";
+  avatarContext.textBaseline = "middle";
+  avatarContext.fillStyle = "#fff";
+  avatarContext.fillText(
+    avatarText,
+    avatarCanva.width / 2,
+    avatarCanva.height / 2
+  );
+
+  // return
+
+  let imageUrl = avatarCanva.toDataURL("image/png");
+
+  let changeImage = {
+    avatarUrl: imageUrl,
+  };
+
+  // let asingning the data to the profile user object
+
+  let assingImage = Object.assign(findUser, changeImage);
+
+  console.log(assingImage);
+
+  info[userIndex] = assingImage;
 
   localStorage.setItem("register", JSON.stringify(info));
 }
