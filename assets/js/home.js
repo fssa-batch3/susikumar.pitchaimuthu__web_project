@@ -2,8 +2,13 @@
 
 let userData = JSON.parse(localStorage.getItem("register"));
 
-let filterElseDate = userData.filter((e) => e["userId"] !== findUser["userId"]);
+let filterElseDate = userData.filter((e) => e["userId"] != findUser["userId"]);
 console.log(filterElseDate);
+
+// filter the this user friends
+
+let userFriendsData = JSON.parse(localStorage.getItem("userFriends"));
+console.log(userFriendsData);
 
 for (let i = 0; i < filterElseDate.length; i++) {
   let userCardContainer = document.createElement("div");
@@ -149,7 +154,10 @@ function showUser(s) {
   if (friendsDatas !== null) {
     for (let i = 0; i < friendsDatas.length; i++) {
       for (let j = 0; j < friendsDatas[i].length; j++) {
-        if (friendsDatas[i][j]["userId"] == s) {
+        if (
+          friendsDatas[i][j]["userId"] == s &&
+          friendsDatas[i][j]["frienderId"] == findUser["userId"]
+        ) {
           buttonFollow = true;
         }
       }
@@ -173,11 +181,6 @@ function showUser(s) {
   }
 
   // getting the userFriends data for show the all friends
-
-  // filter the this user friends
-
-  let userFriendsData = JSON.parse(localStorage.getItem("userFriends"));
-  console.log(userFriendsData);
 
   let suggedData;
 
@@ -213,6 +216,10 @@ function showUser(s) {
 
       let personcontainer = document.createElement("div");
       personcontainer.setAttribute("class", "person-container");
+      personcontainer.setAttribute("id", suggedData[i]["userId"]);
+      if (suggedData[i]["userId"] !== findUser["userId"]) {
+        personcontainer.setAttribute("onclick", "ShowSuggest(this.id)");
+      }
       personSuggestedInsideDiv.append(personcontainer);
 
       let personInsideDiv = document.createElement("div");
@@ -235,7 +242,13 @@ function showUser(s) {
 
       let h5 = document.createElement("h5");
       h5.setAttribute("class", "user-last-name");
-      h5.innerHTML = suggedData[i]["userName"];
+
+      if (suggedData[i]["userId"] == findUser["userId"]) {
+        h5.innerHTML = "You";
+      } else {
+        h5.innerHTML = suggedData[i]["userName"];
+      }
+
       userNameThemeDiv.append(h5);
 
       let lastPara = document.createElement("p");
@@ -243,6 +256,15 @@ function showUser(s) {
       lastPara.innerHTML = suggedData[i]["userTheme"];
 
       userNameThemeDiv.append(lastPara);
+
+      let tinyFollowDiv = document.createElement("div");
+      tinyFollowDiv.setAttribute("class", "tiny-follow-div");
+      personInsideDiv.append(tinyFollowDiv);
+
+      let tinyFollow = document.createElement("button");
+      tinyFollow.setAttribute("class", "tiny-follow-button");
+      tinyFollow.innerHTML = "Follow";
+      tinyFollowDiv.append(tinyFollow);
     }
   }
 
@@ -255,6 +277,201 @@ function showUser(s) {
 
 function removediv() {
   document.querySelector(".details-inside-div-container").remove();
+}
+
+// Show suggest friends
+
+function ShowSuggest(k) {
+  console.log(k);
+
+  // Get click user details and user friends
+  console.log(userFriendsData);
+
+  let clicker = info.find((e) => e["userId"] == k);
+
+  let removingElement = document.querySelector(".details-inside-div-container");
+
+  if (removingElement !== null) {
+    document.querySelector(".details-inside-div-container").remove();
+  }
+
+  console.log(clicker);
+  // creating element of this person details
+  let detailsInsideDivContainer = document.createElement("div");
+  detailsInsideDivContainer.setAttribute(
+    "class",
+    "details-inside-div-container"
+  );
+
+  let removeDivContainer = document.createElement("div");
+  removeDivContainer.setAttribute("class", "remove-div-container");
+  detailsInsideDivContainer.append(removeDivContainer);
+
+  let removeDiv = document.createElement("div");
+  removeDiv.setAttribute("class", "remove-div");
+  removeDiv.setAttribute("onclick", "removediv()");
+  removeDivContainer.append(removeDiv);
+
+  let removeI = document.createElement("i");
+  removeI.setAttribute("class", "bi bi-x-circle-fill");
+  removeDiv.append(removeI);
+
+  let imageContentDivContainer = document.createElement("div");
+  imageContentDivContainer.setAttribute("class", "image-content-div-container");
+  detailsInsideDivContainer.append(imageContentDivContainer);
+
+  let imageDivContainer = document.createElement("div");
+  imageDivContainer.setAttribute("class", "image-div-container");
+  imageContentDivContainer.append(imageDivContainer);
+
+  let showingImage = document.createElement("img");
+  showingImage.setAttribute("class", "showing-image");
+  showingImage.setAttribute("src", clicker["avatarUrl"]);
+  showingImage.setAttribute("alt", "profile-image");
+  imageDivContainer.append(showingImage);
+
+  let contentContainer = document.createElement("div");
+  contentContainer.setAttribute("class", "content-container");
+  imageContentDivContainer.append(contentContainer);
+
+  let contentInsideDiv = document.createElement("div");
+  contentInsideDiv.setAttribute("class", "content-inside-div");
+  contentContainer.append(contentInsideDiv);
+
+  let h3 = document.createElement("h3");
+  h3.setAttribute("class", "showing-name");
+  h3.innerHTML = clicker["userName"];
+  contentInsideDiv.append(h3);
+
+  let showingPara = document.createElement("p");
+  showingPara.setAttribute("class", "showing-para");
+  showingPara.innerHTML = clicker["userTheme"];
+  contentInsideDiv.append(showingPara);
+
+  // Creating for loop to get the this friends data
+
+  let buttonFollow = false;
+  console.log(friendsDatas);
+
+  if (friendsDatas !== null) {
+    for (let i = 0; i < friendsDatas.length; i++) {
+      for (let j = 0; j < friendsDatas[i].length; j++) {
+        if (
+          friendsDatas[i][j]["userId"] == clicker["userId"] &&
+          friendsDatas[i][j]["frienderId"] == findUser["userId"]
+        ) {
+          buttonFollow = true;
+        }
+      }
+    }
+  }
+
+  if (buttonFollow == true) {
+    let followingButton = document.createElement("button");
+    followingButton.setAttribute("class", "following-button");
+    followingButton.setAttribute("id", clicker["userId"]);
+    followingButton.setAttribute("onclick", "removeFollow(this.id)");
+    followingButton.innerHTML = "Following";
+    contentInsideDiv.append(followingButton);
+  } else {
+    let followButton = document.createElement("button");
+    followButton.setAttribute("class", "follow-button");
+    followButton.setAttribute("id", clicker["userId"]);
+    followButton.setAttribute("onclick", "getFollow(this.id)");
+    followButton.innerHTML = "Follow";
+    contentInsideDiv.append(followButton);
+  }
+
+  // getting the userFriends data for show the all friends
+
+  let suggedData;
+
+  if (userFriendsData !== null) {
+    for (let i = 0; i < userFriendsData.length; i++) {
+      if (userFriendsData[i].length == 0) {
+        break;
+      } else if (userFriendsData[i][0]["frienderId"] == clicker["userId"]) {
+        suggedData = userFriendsData[i];
+      }
+    }
+  }
+
+  console.log(suggedData);
+
+  // suggested friends element creation
+
+  if (suggedData !== undefined) {
+    for (let i = 0; i < suggedData.length; i++) {
+      let personSuggestedFriendsDivContainer = document.createElement("div");
+      personSuggestedFriendsDivContainer.setAttribute(
+        "class",
+        "person-suggested-friends-div-container"
+      );
+      detailsInsideDivContainer.append(personSuggestedFriendsDivContainer);
+
+      let personSuggestedInsideDiv = document.createElement("div");
+      personSuggestedInsideDiv.setAttribute(
+        "class",
+        "person-suggested-inside-div"
+      );
+      personSuggestedFriendsDivContainer.append(personSuggestedInsideDiv);
+
+      let personcontainer = document.createElement("div");
+      personcontainer.setAttribute("class", "person-container");
+      personcontainer.setAttribute("id", suggedData[i]["userId"]);
+      if (suggedData[i]["userId"] !== findUser["userId"]) {
+        personcontainer.setAttribute("onclick", "ShowSuggest(this.id)");
+      }
+      personSuggestedInsideDiv.append(personcontainer);
+
+      let personInsideDiv = document.createElement("div");
+      personInsideDiv.setAttribute("class", "person-inside-div");
+      personcontainer.append(personInsideDiv);
+
+      let lastImageDiv = document.createElement("class", "last-image-div");
+      lastImageDiv.setAttribute("class", "last-image-div");
+      personInsideDiv.append(lastImageDiv);
+
+      let lastImage = document.createElement("img");
+      lastImage.setAttribute("class", "last-image");
+      lastImage.setAttribute("alt", "profile-image");
+      lastImage.setAttribute("src", suggedData[i]["avatarUrl"]);
+      lastImageDiv.append(lastImage);
+
+      let userNameThemeDiv = document.createElement("div");
+      userNameThemeDiv.setAttribute("class", "user-name-theme-div");
+      personInsideDiv.append(userNameThemeDiv);
+
+      let h5 = document.createElement("h5");
+      h5.setAttribute("class", "user-last-name");
+
+      if (suggedData[i]["userId"] == findUser["userId"]) {
+        h5.innerHTML = "You";
+      } else {
+        h5.innerHTML = suggedData[i]["userName"];
+      }
+
+      userNameThemeDiv.append(h5);
+
+      let lastPara = document.createElement("p");
+      lastPara.setAttribute("class", "last-para");
+      lastPara.innerHTML = suggedData[i]["userTheme"];
+
+      userNameThemeDiv.append(lastPara);
+
+      let tinyFollowDiv = document.createElement("div");
+      tinyFollowDiv.setAttribute("class", "tiny-follow-div");
+      personInsideDiv.append(tinyFollowDiv);
+
+      let tinyFollow = document.createElement("button");
+      tinyFollow.setAttribute("class", "follow-button");
+      tinyFollowDiv.append(tinyFollow);
+    }
+  }
+
+  document
+    .querySelector(".details-showing-container")
+    .append(detailsInsideDivContainer);
 }
 
 // creationg function to folloe the user
