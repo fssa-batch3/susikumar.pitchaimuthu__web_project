@@ -1,4 +1,20 @@
 // importing firebase database data
+import database from "./db.js";
+
+import {
+  onValue,
+  ref,
+} from "https://www.gstatic.com/firebasejs/9.20.0/firebase-database.js";
+
+console.log(database);
+
+let firebaseDatabaseData;
+
+onValue(ref(database, `freshchat/`), (snapshot) => {
+  firebaseDatabaseData = Object.values(snapshot.val());
+  // Element creatin for the chat elment
+  console.log(firebaseDatabaseData);
+});
 
 // writing a function get a indidual user by clicking their respective chat box
 
@@ -138,45 +154,6 @@ for (let i = 0; i < chatPersonCard.length; i++) {
     emojiDivContainer.setAttribute("class", "emoji-div-container");
     emojiInsideDiv.append(emojiDivContainer);
 
-    // function getAllTwemojiUrls() {
-    //   const emojiRanges = [
-    //     [0x1f601, 0x1f64f], // Emoticons
-    //     [0x1f300, 0x1f5ff], // Miscellaneous Symbols and Pictographs
-    //     [0x1f680, 0x1f6ff], // Transport and Map Symbols
-    //     // Add more ranges as needed
-    //   ];
-
-    //   const emojiUrls = [];
-
-    //   emojiRanges.forEach(([start, end]) => {
-    //     for (let unicode = start; unicode <= end; unicode++) {
-    //       const emojiChar = String.fromCodePoint(unicode);
-    //       const emojiUrl = twemoji.parse(emojiChar);
-    //       emojiUrls.push(emojiUrl);
-    //     }
-    //   });
-
-    //   return emojiUrls;
-    // }
-
-    // const twemojiUrls = getAllTwemojiUrls();
-    // console.log(twemojiUrls); // Array of Twemoji URLs for all emojis
-
-    // // Setting the emoji to the emoji file
-
-    // console.log(twemojiUrls.length);
-
-    // for (let i = 0; i < twemojiUrls.length; i++) {
-    //   twemojiUrls.forEach((url) => {
-    //     console.log(url);
-    //     const img = document.createElement("img");
-    //     img.setAttribute("src", url);
-    //     img.setAttribute("alt", "Emoticon");
-
-    //     emojiDivContainer.append(img);
-    //   });
-    // }
-
     let chatInputDiv = document.createElement("div");
     chatInputDiv.setAttribute("class", "chat-input-div");
     inputForm.append(chatInputDiv);
@@ -219,10 +196,9 @@ for (let i = 0; i < chatPersonCard.length; i++) {
 
     // checking the chats for to show the respective chat to respective person
 
-    let senderFind = JSON.parse(localStorage.getItem("senderMessage"));
-    console.log(senderFind);
+    console.log("susi");
 
-    if (senderFind == null) {
+    if (firebaseDatabaseData == null) {
       return;
     }
 
@@ -230,61 +206,22 @@ for (let i = 0; i < chatPersonCard.length; i++) {
 
     let sender = [];
 
-    for (let i = 0; i < senderFind.length; i++) {
+    for (let i = 0; i < firebaseDatabaseData.length; i++) {
       if (
-        (senderFind[i]["chatSenderId"] == findUser["userId"] &&
-          senderFind[i]["chatter_id"] == userSelectId) ||
-        (senderFind[i]["chatter_id"] == findUser["userId"] &&
-          senderFind[i]["chatSenderId"] == userSelectId)
+        firebaseDatabaseData[i]["chatterId"] == findUser["userId"] &&
+        firebaseDatabaseData[i]["chatReceiverId"] == userSelectId
       ) {
-        sender.push(senderFind[i]);
+        sender.push(firebaseDatabaseData[i]);
       }
     }
+    console.log(userSelectId);
+    console.log("susi");
     console.log(sender);
 
     // adding read true to the all chats
 
-    for (let i = 0; i < sender.length; i++) {
-      sender[i]["isRead"] = true;
-    }
-
-    console.log(sender);
-
-    let finalChaArray = [];
-
-    for (let x = 0; x < senderFind.length; x++) {
-      let foundMatch = false; // Flag variable to track match status
-
-      for (let y = 0; y < sender.length; y++) {
-        if (senderFind[x]["chatId"] == sender[y]["chatId"]) {
-          let chatdataAssign = Object.assign(senderFind[x], sender[y]);
-          finalChaArray.push(chatdataAssign);
-          foundMatch = true; // Set the flag to true
-          break;
-        }
-      }
-
-      if (!foundMatch) {
-        for (let z = 0; z < finalChaArray.length; z++) {
-          if (finalChaArray[z]["chatId"] == senderFind[x]["chatId"]) {
-            foundMatch = true; // Set the flag to true
-            break;
-          }
-        }
-
-        if (!foundMatch) {
-          finalChaArray.push(senderFind[x]);
-        }
-      }
-
-      console.log(finalChaArray);
-      localStorage.setItem("senderMessage", JSON.stringify(finalChaArray));
-    }
-
     let chageChat = document.querySelector(".right-side-container");
     console.log(chageChat);
-
-    console.log("susi");
 
     if (chageChat.hasChildNodes()) {
       let chatFistchild = document.querySelectorAll(".chat-div-for-user");
@@ -298,8 +235,8 @@ for (let i = 0; i < chatPersonCard.length; i++) {
 
     for (let j = 0; j < sender.length; j++) {
       if (
-        sender[j]["chatter_id"] !== userSelectId &&
-        sender[j]["chatSenderId"] == findUser["userId"]
+        sender[j]["chatReceiverId"] == userSelectId &&
+        sender[j]["chatterId"] == findUser["userId"]
       ) {
         console.log(sender[j]);
         let chatDivUser = document.createElement("div");
@@ -343,7 +280,7 @@ for (let i = 0; i < chatPersonCard.length; i++) {
 
         let timePara = document.createElement("p");
         timePara.setAttribute("class", "time-para");
-        timePara.innerHTML = sender[j]["timing"];
+        timePara.innerHTML = sender[j]["chatTime"];
         chatTimeDiv.append(timePara);
 
         let userProfileDiv = document.createElement("div");
@@ -381,7 +318,7 @@ for (let i = 0; i < chatPersonCard.length; i++) {
         let usrImage = document.createElement("img");
         usrImage.setAttribute("alt", "chat-image");
         usrImage.setAttribute("class", "chatter-image");
-        usrImage.setAttribute("src", sender[j]["chatterImage"]);
+        usrImage.setAttribute("src", sender[j]["chatSenderImage"]);
         userProfileDiv.append(usrImage);
 
         let chatContentTimeDiv = document.createElement("div");
@@ -410,7 +347,7 @@ for (let i = 0; i < chatPersonCard.length; i++) {
 
         let timePara = document.createElement("p");
         timePara.setAttribute("class", "time-para");
-        timePara.innerHTML = sender[j]["timing"];
+        timePara.innerHTML = sender[j]["chatTime"];
         chatTimeDiv.append(timePara);
 
         document.querySelector(".right-side-container").append(chatDivUser);

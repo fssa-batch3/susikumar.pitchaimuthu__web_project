@@ -2,6 +2,11 @@ function filterItems() {
   // Get input value and convert to lowercase
   var input = document.querySelector(".search-input").value.toLowerCase();
 
+  var spaceRegex = / /g;
+
+  // Replace spaces with an end dash
+  var dashedText = input.replace(spaceRegex, "_");
+  console.log(dashedText);
   // Get list items
   var items = document.querySelectorAll(".user-card-container");
 
@@ -12,7 +17,7 @@ function filterItems() {
     var itemName = item.textContent.toLowerCase();
 
     // Check if the item name contains the search input
-    if (itemName.includes(input)) {
+    if (itemName.includes(dashedText)) {
       item.style.display = "block"; // Show matching item
     } else {
       item.style.display = "none"; // Hide non-matching item

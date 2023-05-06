@@ -30,138 +30,138 @@ console.log(database);
 export default database;
 
 // getting data function from the database
-let firebaseDatabaseData = [];
-function getData() {
-  onValue(ref(database, `freshchat/`), (snapshot) => {
-    firebaseDatabaseData = Object.values(snapshot.val());
-    console.log(firebaseDatabaseData[0]["chat"]);
-    // Element creatin for the chat elment
-    console.log(firebaseDatabaseData);
+// let firebaseDatabaseData = [];
+// function getData() {
+//   onValue(ref(database, `freshchat/`), (snapshot) => {
+//     firebaseDatabaseData = Object.values(snapshot.val());
+//     console.log(firebaseDatabaseData[0]["chat"]);
+//     // Element creatin for the chat elment
+//     console.log(firebaseDatabaseData);
 
-    for (let j = 0; j < firebaseDatabaseData.length; j++) {
-      if (firebaseDatabaseData[j]["chatSenderId"] == findUser["userId"]) {
-        let chatDivUser = document.createElement("div");
-        chatDivUser.setAttribute("class", "chat-div-for-user");
+//     for (let j = 0; j < firebaseDatabaseData.length; j++) {
+//       if (firebaseDatabaseData[j]["chatSenderId"] == findUser["userId"]) {
+//         let chatDivUser = document.createElement("div");
+//         chatDivUser.setAttribute("class", "chat-div-for-user");
 
-        let chatUserInsideDiv = document.createElement("div");
-        chatUserInsideDiv.setAttribute("class", "chat-user-inside-div");
-        chatDivUser.append(chatUserInsideDiv);
+//         let chatUserInsideDiv = document.createElement("div");
+//         chatUserInsideDiv.setAttribute("class", "chat-user-inside-div");
+//         chatDivUser.append(chatUserInsideDiv);
 
-        let chatDiv = document.createElement("div");
-        chatDiv.setAttribute("class", "chat-div");
-        chatUserInsideDiv.append(chatDiv);
+//         let chatDiv = document.createElement("div");
+//         chatDiv.setAttribute("class", "chat-div");
+//         chatUserInsideDiv.append(chatDiv);
 
-        let chatInsideDiv = document.createElement("div");
-        chatInsideDiv.setAttribute("class", "chat-inside-div");
-        chatDiv.append(chatInsideDiv);
+//         let chatInsideDiv = document.createElement("div");
+//         chatInsideDiv.setAttribute("class", "chat-inside-div");
+//         chatDiv.append(chatInsideDiv);
 
-        let chatContentTimeDiv = document.createElement("div");
-        chatContentTimeDiv.setAttribute("class", "chat-content-time-div");
-        chatInsideDiv.append(chatContentTimeDiv);
+//         let chatContentTimeDiv = document.createElement("div");
+//         chatContentTimeDiv.setAttribute("class", "chat-content-time-div");
+//         chatInsideDiv.append(chatContentTimeDiv);
 
-        let chatContentTimeInsideDiv = document.createElement("div");
-        chatContentTimeInsideDiv.setAttribute(
-          "class",
-          "chat-content-time-inside-div"
-        );
-        chatContentTimeDiv.append(chatContentTimeInsideDiv);
+//         let chatContentTimeInsideDiv = document.createElement("div");
+//         chatContentTimeInsideDiv.setAttribute(
+//           "class",
+//           "chat-content-time-inside-div"
+//         );
+//         chatContentTimeDiv.append(chatContentTimeInsideDiv);
 
-        let chatContentDiv = document.createElement("div");
-        chatContentDiv.setAttribute("class", "chat-content-div");
-        chatContentTimeInsideDiv.append(chatContentDiv);
+//         let chatContentDiv = document.createElement("div");
+//         chatContentDiv.setAttribute("class", "chat-content-div");
+//         chatContentTimeInsideDiv.append(chatContentDiv);
 
-        let chatContent = document.createElement("p");
-        chatContent.setAttribute("class", "chat-content");
-        chatContent.innerHTML = firebaseDatabaseData[j]["chat"];
-        chatContentDiv.append(chatContent);
+//         let chatContent = document.createElement("p");
+//         chatContent.setAttribute("class", "chat-content");
+//         chatContent.innerHTML = firebaseDatabaseData[j]["chat"];
+//         chatContentDiv.append(chatContent);
 
-        let chatTimeDiv = document.createElement("div");
-        chatTimeDiv.setAttribute("class", "chat-time-div");
-        chatContentTimeInsideDiv.append(chatTimeDiv);
+//         let chatTimeDiv = document.createElement("div");
+//         chatTimeDiv.setAttribute("class", "chat-time-div");
+//         chatContentTimeInsideDiv.append(chatTimeDiv);
 
-        let timePara = document.createElement("p");
-        timePara.setAttribute("class", "time-para");
-        timePara.innerHTML = firebaseDatabaseData[j]["chatTime"];
-        chatTimeDiv.append(timePara);
+//         let timePara = document.createElement("p");
+//         timePara.setAttribute("class", "time-para");
+//         timePara.innerHTML = firebaseDatabaseData[j]["chatTime"];
+//         chatTimeDiv.append(timePara);
 
-        let userProfileDiv = document.createElement("div");
-        userProfileDiv.setAttribute("class", "user-profile-div");
-        chatInsideDiv.append(userProfileDiv);
+//         let userProfileDiv = document.createElement("div");
+//         userProfileDiv.setAttribute("class", "user-profile-div");
+//         chatInsideDiv.append(userProfileDiv);
 
-        let usrImage = document.createElement("img");
-        usrImage.setAttribute("alt", "chat-image");
-        usrImage.setAttribute("class", "chatter-image");
-        usrImage.setAttribute("src", findUser["avatarUrl"]);
-        userProfileDiv.append(usrImage);
+//         let usrImage = document.createElement("img");
+//         usrImage.setAttribute("alt", "chat-image");
+//         usrImage.setAttribute("class", "chatter-image");
+//         usrImage.setAttribute("src", findUser["avatarUrl"]);
+//         userProfileDiv.append(usrImage);
 
-        document.querySelector(".right-side-container").append(chatDivUser);
-      } else {
-        console.log("friends");
-        let chatDivUser = document.createElement("div");
-        chatDivUser.setAttribute("class", "chat-div-for-user");
+//         document.querySelector(".right-side-container").append(chatDivUser);
+//       } else {
+//         console.log("friends");
+//         let chatDivUser = document.createElement("div");
+//         chatDivUser.setAttribute("class", "chat-div-for-user");
 
-        let chatUserInsideDiv = document.createElement("div");
-        chatUserInsideDiv.setAttribute("class", "chat-friends-inside-div");
-        chatDivUser.append(chatUserInsideDiv);
+//         let chatUserInsideDiv = document.createElement("div");
+//         chatUserInsideDiv.setAttribute("class", "chat-friends-inside-div");
+//         chatDivUser.append(chatUserInsideDiv);
 
-        let chatDiv = document.createElement("div");
-        chatDiv.setAttribute("class", "chat-div");
-        chatUserInsideDiv.append(chatDiv);
+//         let chatDiv = document.createElement("div");
+//         chatDiv.setAttribute("class", "chat-div");
+//         chatUserInsideDiv.append(chatDiv);
 
-        let chatInsideDiv = document.createElement("div");
-        chatInsideDiv.setAttribute("class", "chat-inside-div");
-        chatDiv.append(chatInsideDiv);
+//         let chatInsideDiv = document.createElement("div");
+//         chatInsideDiv.setAttribute("class", "chat-inside-div");
+//         chatDiv.append(chatInsideDiv);
 
-        let userProfileDiv = document.createElement("div");
-        userProfileDiv.setAttribute("class", "user-profile-div");
-        chatInsideDiv.append(userProfileDiv);
+//         let userProfileDiv = document.createElement("div");
+//         userProfileDiv.setAttribute("class", "user-profile-div");
+//         chatInsideDiv.append(userProfileDiv);
 
-        let usrImage = document.createElement("img");
-        usrImage.setAttribute("alt", "chat-image");
-        usrImage.setAttribute("class", "chatter-image");
-        usrImage.setAttribute(
-          "src",
-          firebaseDatabaseData[j]["chatReceiverImage"]
-        );
-        userProfileDiv.append(usrImage);
+//         let usrImage = document.createElement("img");
+//         usrImage.setAttribute("alt", "chat-image");
+//         usrImage.setAttribute("class", "chatter-image");
+//         usrImage.setAttribute(
+//           "src",
+//           firebaseDatabaseData[j]["chatReceiverImage"]
+//         );
+//         userProfileDiv.append(usrImage);
 
-        let chatContentTimeDiv = document.createElement("div");
-        chatContentTimeDiv.setAttribute("class", "chat-content-time-div");
-        chatInsideDiv.append(chatContentTimeDiv);
+//         let chatContentTimeDiv = document.createElement("div");
+//         chatContentTimeDiv.setAttribute("class", "chat-content-time-div");
+//         chatInsideDiv.append(chatContentTimeDiv);
 
-        let chatContentTimeInsideDiv = document.createElement("div");
-        chatContentTimeInsideDiv.setAttribute(
-          "class",
-          "chat-content-time-inside-div"
-        );
-        chatContentTimeDiv.append(chatContentTimeInsideDiv);
+//         let chatContentTimeInsideDiv = document.createElement("div");
+//         chatContentTimeInsideDiv.setAttribute(
+//           "class",
+//           "chat-content-time-inside-div"
+//         );
+//         chatContentTimeDiv.append(chatContentTimeInsideDiv);
 
-        let chatContentDiv = document.createElement("div");
-        chatContentDiv.setAttribute("class", "chat-content-div");
-        chatContentTimeInsideDiv.append(chatContentDiv);
+//         let chatContentDiv = document.createElement("div");
+//         chatContentDiv.setAttribute("class", "chat-content-div");
+//         chatContentTimeInsideDiv.append(chatContentDiv);
 
-        let chatContent = document.createElement("p");
-        chatContent.setAttribute("class", "chat-content");
-        chatContent.innerHTML = firebaseDatabaseData[j]["chat"];
-        chatContentDiv.append(chatContent);
+//         let chatContent = document.createElement("p");
+//         chatContent.setAttribute("class", "chat-content");
+//         chatContent.innerHTML = firebaseDatabaseData[j]["chat"];
+//         chatContentDiv.append(chatContent);
 
-        let chatTimeDiv = document.createElement("div");
-        chatTimeDiv.setAttribute("class", "chat-time-div");
-        chatContentTimeInsideDiv.append(chatTimeDiv);
+//         let chatTimeDiv = document.createElement("div");
+//         chatTimeDiv.setAttribute("class", "chat-time-div");
+//         chatContentTimeInsideDiv.append(chatTimeDiv);
 
-        let timePara = document.createElement("p");
-        timePara.setAttribute("class", "time-para");
-        timePara.innerHTML = firebaseDatabaseData[j]["chatTime"];
-        chatTimeDiv.append(timePara);
+//         let timePara = document.createElement("p");
+//         timePara.setAttribute("class", "time-para");
+//         timePara.innerHTML = firebaseDatabaseData[j]["chatTime"];
+//         chatTimeDiv.append(timePara);
 
-        document.querySelector(".right-side-container").append(chatDivUser);
-      }
-    }
-  });
-}
-getData();
+//         document.querySelector(".right-side-container").append(chatDivUser);
+//       }
+//     }
+//   });
+// }
+// getData();
 
-console.log(database);
+// console.log(database);
 
 let firstParent = document.querySelector(".chat-input-option-div");
 

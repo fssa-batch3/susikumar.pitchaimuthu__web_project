@@ -127,6 +127,15 @@
             <i class="bi bi-skip-forward-btn"></i>
             <p>Next</p>
           </button>
+
+          <button class="option-div right-div">
+            <i class="bi bi-skip-forward-btn"></i>
+            <p>Right</p>
+          </button>
+          <button class="option-div wrong-div">
+            <i class="bi bi-skip-forward-btn"></i>
+            <p>No</p>
+          </button>
         </div>
       </div>
 
@@ -144,7 +153,7 @@
             <!-- crop button -->
             <div class="crop-image-div">
               <p>Crop image</p>
-              <button><i class="bi bi-crop"></i></button>
+              <button id="crop-button"><i class="bi bi-crop"></i></button>
             </div>
 
             <!-- rotate button dvi -->
@@ -272,29 +281,44 @@
     <script src="../assets/js/gallery_edit.js"></script>
 
     <script>
-      const croppingImage = document.querySelector(".user-still");
-      const cropper = new Cropper(croppingImage, {
-        aspectRatio: 16 / 9,
-        crop(event) {
-          console.log(event.detail.x);
-          console.log(event.detail.y);
-          console.log(event.detail.width);
-          console.log(event.detail.height);
-          console.log(event.detail.rotate);
-          console.log(event.detail.scaleX);
-          console.log(event.detail.scaleY);
-        },
-      });
+      let cropButton = document.getElementById("crop-button");
 
-      document
-        .getElementById("crop-button")
-        .addEventListener("click", function () {
-          // Get the cropped image data
-          var croppedCanvas = cropper.getCroppedCanvas();
-
-          // Do something with the cropped image data (e.g., display it, upload it, etc.)
-          // var croppedImageData = croppedCanvas.toDataURL('image/jpeg');
+      function cropButtonClickHandler() {
+        // Get the cropped image data
+        const croppingImage = document.querySelector(".user-still");
+        const cropper = new Cropper(croppingImage, {
+          aspectRatio: 16 / 9,
+          crop(event) {
+            // console.log(event.detail.x);
+            // console.log(event.detail.y);
+            // console.log(event.detail.width);
+            // console.log(event.detail.height);
+            // console.log(event.detail.rotate);
+            // console.log(event.detail.scaleX);
+            // console.log(event.detail.scaleY);
+          },
         });
+      }
+
+      cropButton.addEventListener("click", cropButtonClickHandler);
+
+      // crop and wrong showing deciding function created
+
+      let rightButton = document.querySelector(".right-div");
+      let wrongButton = document.querySelector(".wrong-div");
+      console.log(wrongButton);
+
+      function rightButtonClickHandler() {
+        // Handle right button click
+      }
+
+      function wrongButtonClickHandler() {
+        console.log("susi");
+        cropButton.removeEventListener("click", cropButtonClickHandler);
+      }
+
+      rightButton.addEventListener("click", rightButtonClickHandler);
+      wrongButton.addEventListener("click", wrongButtonClickHandler);
     </script>
   </body>
 </html>

@@ -4,6 +4,7 @@
     "@commitlint/config-conventional": "^17.4.4",
     "emoji-picker-element": "^1.16.0",
     "husky": "^8.0.3",
-    "moment": "^2.29.4"
+    "moment": "^2.29.4",
+    "mysql": "^2.18.1"
   }
 }
