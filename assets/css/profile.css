@@ -228,7 +228,6 @@ body {
   background-color: #fff;
   width: 450px;
   border-radius: 8px;
-  height: auto;
   position: absolute;
   right: 5%;
   top: 11%;
@@ -267,7 +266,6 @@ body {
 }
 
 #profile-image {
-  width: 226px;
   border-radius: 50%;
   cursor: pointer;
   position: relative;

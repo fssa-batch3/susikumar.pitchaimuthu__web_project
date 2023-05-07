@@ -22,7 +22,6 @@
 .profile-details-common-container {
   display: flex;
   width: 95%;
-  height: 780px;
   border: 1px solid grey;
   border-radius: 10px;
   justify-content: center;

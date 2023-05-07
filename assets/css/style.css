@@ -182,7 +182,6 @@ body.dark .sidebar header .toggle {
 }
 .sidebar li a {
   list-style: none;
-  height: 100%;
   background-color: transparent;
   display: flex;
   align-items: center;
@@ -278,7 +277,6 @@ body.dark .switch::before {
 
 .home {
   position: absolute;
-  top: 0;
   top: 0;
   left: 250px;
   height: 100vh;
