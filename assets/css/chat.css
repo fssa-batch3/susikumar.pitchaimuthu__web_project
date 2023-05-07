@@ -160,7 +160,6 @@
   height: 2.78em;
   background-color: #209cee;
   border-radius: 13px;
-
   z-index: 500;
   cursor: pointer;
 }
@@ -527,14 +526,18 @@
 }
 /* edit option div  */
 
+.update-delete-option-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: 25px;
+}
+
 .edit-option-div {
-  background-color: rgb(168, 190, 249);
+  display: flex;
+  align-items: center;
   gap: 1em;
-  width: 5.3em;
-  height: 2em;
-  border-radius: 7px;
-  position: relative;
-  display: none;
 }
 
 .bi-pen-fill,

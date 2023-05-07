@@ -208,10 +208,10 @@ for (let i = 0; i < chatPersonCard.length; i++) {
 
     for (let firebaseData of firebaseDatabaseData) {
       if (
-        firebaseDatabaseData[i]["chatterId"] == findUser["userId"] &&
-        firebaseDatabaseData[i]["chatReceiverId"] == userSelectId
+        firebaseData["chatterId"] == findUser["userId"] &&
+        firebaseData["chatReceiverId"] == userSelectId
       ) {
-        sender.push(firebaseDatabaseData[i]);
+        sender.push(firebaseData);
       }
     }
     console.log(userSelectId);
@@ -227,7 +227,7 @@ for (let i = 0; i < chatPersonCard.length; i++) {
       let chatFistchild = document.querySelectorAll(".chat-div-for-user");
 
       for (let firstChild of chatFistchild) {
-        chatFistchild[i].remove();
+        firstChild.remove();
       }
     }
 
@@ -235,10 +235,9 @@ for (let i = 0; i < chatPersonCard.length; i++) {
 
     for (let senders of sender) {
       if (
-        sender[j]["chatReceiverId"] == userSelectId &&
-        sender[j]["chatterId"] == findUser["userId"]
+        senders["chatReceiverId"] == userSelectId &&
+        senders["chatterId"] == findUser["userId"]
       ) {
-        console.log(sender[j]);
         let chatDivUser = document.createElement("div");
         chatDivUser.setAttribute("class", "chat-div-for-user");
 
@@ -271,7 +270,7 @@ for (let i = 0; i < chatPersonCard.length; i++) {
 
         let chatContent = document.createElement("p");
         chatContent.setAttribute("class", "chat-content");
-        chatContent.innerHTML = sender[j]["chat"];
+        chatContent.innerHTML = senders["chat"];
         chatContentDiv.append(chatContent);
 
         let chatTimeDiv = document.createElement("div");
@@ -280,7 +279,7 @@ for (let i = 0; i < chatPersonCard.length; i++) {
 
         let timePara = document.createElement("p");
         timePara.setAttribute("class", "time-para");
-        timePara.innerHTML = sender[j]["chatTime"];
+        timePara.innerHTML = senders["chatTime"];
         chatTimeDiv.append(timePara);
 
         let userProfileDiv = document.createElement("div");
@@ -292,6 +291,32 @@ for (let i = 0; i < chatPersonCard.length; i++) {
         usrImage.setAttribute("class", "chatter-image");
         usrImage.setAttribute("src", findUser["avatarUrl"]);
         userProfileDiv.append(usrImage);
+
+        // chat update and delete option element
+
+        let div = document.createElement("div");
+        div.setAttribute("class", "update-delete-option-div");
+        div.setAttribute("id", sender[i]["chatId"]);
+        // div.setAttribute("onmouseenter", "editOptionMouseOver(this.id)");
+        // div.setAttribute("onmouseleave", "editoptionMouseOut()");
+        chatContentTimeDiv.prepend(div);
+
+        let chatEditdiv = document.createElement("div");
+        chatEditdiv.setAttribute("class", "edit-option-div");
+        chatEditdiv.setAttribute("id", sender[i]["chatId"]);
+        div.append(chatEditdiv);
+
+        let editFa = document.createElement("i");
+        editFa.setAttribute("class", "bi bi-pencil-square");
+        editFa.setAttribute("id", sender[i]["chatId"]);
+        // editFa.setAttribute("onclick", "chatEditInput(this.id)");
+        chatEditdiv.append(editFa);
+
+        let deleteFa = document.createElement("i");
+        deleteFa.setAttribute("class", "bi bi-trash");
+        deleteFa.setAttribute("id", sender[i]["chatId"]);
+        // deleteFa.setAttribute("onclick", "deleteChat(this.id)");
+        chatEditdiv.append(deleteFa);
 
         document.querySelector(".right-side-container").append(chatDivUser);
       } else {
@@ -318,7 +343,7 @@ for (let i = 0; i < chatPersonCard.length; i++) {
         let usrImage = document.createElement("img");
         usrImage.setAttribute("alt", "chat-image");
         usrImage.setAttribute("class", "chatter-image");
-        usrImage.setAttribute("src", sender[j]["chatSenderImage"]);
+        usrImage.setAttribute("src", senders["chatSenderImage"]);
         userProfileDiv.append(usrImage);
 
         let chatContentTimeDiv = document.createElement("div");
@@ -338,7 +363,7 @@ for (let i = 0; i < chatPersonCard.length; i++) {
 
         let chatContent = document.createElement("p");
         chatContent.setAttribute("class", "chat-content");
-        chatContent.innerHTML = sender[j]["chat"];
+        chatContent.innerHTML = senders["chat"];
         chatContentDiv.append(chatContent);
 
         let chatTimeDiv = document.createElement("div");
@@ -347,55 +372,12 @@ for (let i = 0; i < chatPersonCard.length; i++) {
 
         let timePara = document.createElement("p");
         timePara.setAttribute("class", "time-para");
-        timePara.innerHTML = sender[j]["chatTime"];
+        timePara.innerHTML = senders["chatTime"];
         chatTimeDiv.append(timePara);
 
         document.querySelector(".right-side-container").append(chatDivUser);
       }
     }
-
-    // let div = document.createElement("div");
-    // div.setAttribute("class", "reply-msg");
-    // div.setAttribute("id", sender[i]["chatId"]);
-    // // div.setAttribute("onmouseenter", "editOptionMouseOver(this.id)");
-    // // div.setAttribute("onmouseleave", "editoptionMouseOut()");
-
-    // let replyChatPara = document.createElement("p");
-    // replyChatPara.setAttribute("id", "reply-msg-chat");
-    // replyChatPara.innerHTML = sender[i]["chat"];
-    // div.append(replyChatPara);
-
-    // let replyChatTime = document.createElement("p");
-    // replyChatTime.setAttribute("class", "reply-msg-time");
-    // replyChatTime.innerText = sender[i]["timing"];
-    // div.append(replyChatTime);
-
-    // let chatidPara = document.createElement("p");
-    // chatidPara.setAttribute("class", "chatId");
-    // chatidPara.innerText = sender[i]["chatId"];
-    // div.append(chatidPara);
-
-    // let chatEditdiv = document.createElement("div");
-    // chatEditdiv.setAttribute("class", "edit-option-div");
-    // chatEditdiv.setAttribute("id", sender[i]["chatId"]);
-    // div.append(chatEditdiv);
-
-    // let emojiFa = document.createElement("i");
-    // // emojiFa.setAttribute("class", "bi bi-emoji-heart-eyes-fill");
-    // emojiFa.setAttribute("onclick", "emoji(this.id)");
-    // chatEditdiv.append(emojiFa);
-
-    // let editFa = document.createElement("i");
-    // editFa.setAttribute("class", "bi bi-pen-fill");
-    // editFa.setAttribute("id", sender[i]["chatId"]);
-    // // editFa.setAttribute("onclick", "chatEditInput(this.id)");
-    // chatEditdiv.append(editFa);
-
-    // let deleteFa = document.createElement("i");
-    // deleteFa.setAttribute("class", "bi bi-trash");
-    // deleteFa.setAttribute("id", sender[i]["chatId"]);
-    // // deleteFa.setAttribute("onclick", "deleteChat(this.id)");
-    // chatEditdiv.append(deleteFa);
 
     // // chat Edit input feild
 

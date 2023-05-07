@@ -186,3 +186,53 @@ function addFilter() {
     y.style.display = "none";
   }
 }
+
+// image delete option eventListner function
+
+let deleteImage = document.querySelector(".delete-button");
+
+console.log(imageGallery);
+
+deleteImage.addEventListener("click", () => {
+  console.log(imageGallery);
+  let message = confirm("Are sure to delete this image?");
+  if (message !== true) {
+    return;
+  } else {
+    // recently deleting image adding function to the database
+
+    let deleteImageArr = [];
+
+    if (localStorage.getItem("recentDeleteImageData") !== null) {
+      deleteImageArr = JSON.parse(
+        localStorage.getItem("recentDeleteImageData")
+      );
+    }
+
+    let deleteObject = {
+      imageName: snap["imageName"],
+      imageLink: snap["imageLink"],
+      imageDate: snap["imageDate"],
+      imageId: snap["imageId"],
+      ImageDate: snap["imageDate"],
+      imageTime: snap["imageTime"],
+      userId: snap["userId"],
+    };
+
+    deleteImageArr.push(deleteObject);
+
+    localStorage.setItem(
+      "recentDeleteImageData",
+      JSON.stringify(deleteImageArr)
+    );
+
+    // using splice function for to remove the image from the image gallery
+
+    imageGallery.splice(findUrlIndex, 1);
+    console.log(imageGallery);
+
+    localStorage.setItem("image_url", JSON.stringify(imageGallery));
+    window.location.href =
+      "../pages/snap-gallery.html?user=" + findUser["userId"];
+  }
+});

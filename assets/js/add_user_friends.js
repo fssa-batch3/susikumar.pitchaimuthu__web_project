@@ -21,7 +21,7 @@ if (allUSerFriendsData !== undefined) {
     let div = document.createElement("div");
     div.setAttribute(
       "class",
-      "user-card-container" + " " + allUSerFriendsData[i]["userName"]
+      "user-card-container" + " " + friendData["userName"]
     );
 
     let usercardContainerInsideDiv = document.createElement("div");
@@ -29,10 +29,7 @@ if (allUSerFriendsData !== undefined) {
       "class",
       "user-card-inside-container"
     );
-    usercardContainerInsideDiv.setAttribute(
-      "id",
-      allUSerFriendsData[i]["userId"]
-    );
+    usercardContainerInsideDiv.setAttribute("id", friendData["userId"]);
 
     div.append(usercardContainerInsideDiv);
 
@@ -47,7 +44,7 @@ if (allUSerFriendsData !== undefined) {
 
     let img = document.createElement("img");
     img.setAttribute("class", "member-image");
-    img.setAttribute("src", allUSerFriendsData[i]["avatarUrl"]);
+    img.setAttribute("src", friendData["avatarUrl"]);
     image.append(img);
 
     let nameOne = document.createElement("div");
@@ -55,11 +52,11 @@ if (allUSerFriendsData !== undefined) {
     image_div.append(nameOne);
 
     let para = document.createElement("p");
-    para.innerHTML = allUSerFriendsData[i]["userName"];
+    para.innerHTML = friendData["userName"];
     nameOne.append(para);
 
     let paragraph = document.createElement("p");
-    paragraph.innerText = allUSerFriendsData[i]["userTheme"];
+    paragraph.innerText = friendData["userTheme"];
     nameOne.append(paragraph);
 
     let timeCountDiv = document.createElement("div");
@@ -72,7 +69,7 @@ if (allUSerFriendsData !== undefined) {
 
     // creating for loop to show the user unread chat count
 
-    let chatterAccountId = allUSerFriendsData[i]["userId"];
+    let chatterAccountId = friendData["userId"];
 
     let numberCount = [];
 
@@ -81,10 +78,10 @@ if (allUSerFriendsData !== undefined) {
     if (allSendChats !== null) {
       for (const sendChats of allSendChats) {
         if (
-          allSendChats[j]["chatSenderId"] == chatterAccountId &&
-          allSendChats[j]["isRead"] == unread
+          sendChats["chatSenderId"] == chatterAccountId &&
+          sendChats["isRead"] == unread
         ) {
-          numberCount.push(allSendChats[j]);
+          numberCount.push(sendChats);
         }
       }
     }
@@ -107,7 +104,7 @@ if (allUSerFriendsData !== undefined) {
     timeCountDiv.append(timeAgo);
 
     let time = document.createElement("p");
-    time.innerHTML = allUSerFriendsData[i]["time"];
+    time.innerHTML = friendData["time"];
     timeAgo.append(time);
 
     document.querySelector(".chat-member-inside-container").append(div);

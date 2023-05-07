@@ -119,17 +119,8 @@
         <!-- image changing option div -->
 
         <div class="image-option-next-option-div">
-          <button class="option-div">
-            <i class="bi bi-skip-backward-btn"></i>
-            <p>Previous</p>
-          </button>
-          <button class="option-div">
-            <i class="bi bi-skip-forward-btn"></i>
-            <p>Next</p>
-          </button>
-
           <button class="option-div right-div">
-            <i class="bi bi-skip-forward-btn"></i>
+            <i class="bi bi-check-circle-fill"></i>
             <p>Right</p>
           </button>
           <button class="option-div wrong-div">
@@ -172,9 +163,9 @@
             <!-- erase the some content -->
 
             <div class="erase-div">
-              <p>Erase</p>
+              <p>Delete</p>
 
-              <button><i class="bi bi-eraser"></i></button>
+              <button class="delete-button"><i class="bi bi-trash"></i></button>
             </div>
 
             <!-- edit option div -->
@@ -304,7 +295,6 @@
 
       // crop and wrong showing deciding function created
 
-      let rightButton = document.querySelector(".right-div");
       let wrongButton = document.querySelector(".wrong-div");
       console.log(wrongButton);
 
@@ -319,6 +309,19 @@
 
       rightButton.addEventListener("click", rightButtonClickHandler);
       wrongButton.addEventListener("click", wrongButtonClickHandler);
+
+      // Save the images
+      let rightButton = document.querySelector(".right-div");
+
+      rightButton.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        let imageSrc = cropper
+          .getCroppedCanvas({
+            width: img_w.value,
+          })
+          .toDataURL();
+      });
     </script>
   </body>
 </html>
