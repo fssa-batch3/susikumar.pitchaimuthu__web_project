@@ -15,22 +15,77 @@ Sonar Cloud: [![Quality Gate Status]https://sonarcloud.io/project/overview?id=fs
 ### Create an account
 
 - Scenario 1: Successfully create an account  
-   Steps:  
-   1. Navigate to the registration page.  
-   2. Enter the required information such as name, email and password.  
-   3. Click the "Create account" button.
-- Expected Result:  
-   1. This user is redirected to the login page.
+   Steps:
+  1.  Navigate to the registration page.
+  2.  Enter the required information such as name, email and password.
+  3.  Click the "Create account" button.
+- Expected Result:
+  1.  This user is redirected to the login page.
 
 ### Create an account
 
+<<<<<<< HEAD
+
 - Scenario 2: Successfully login in to account.  
-   Steps:  
-   1. Navigate to the login page.  
-   2. Enter the required information such as email and password.  
-   3. Click the "login" button.
-- Expected Result:  
-   1. The user is redirected to the user profile page.
+   Steps:
+  1.  Navigate to the login page.
+  2.  Enter the required information such as email and password.
+  3.  Click the "login" button.
+- Expected Result:
+  1.  The user is redirected to the user profile page.
+
+### Create Profile avatar
+
+- Scenario 1: Sucessfully create profile avatar.  
+   Steps:
+  1.  Click the file option button.
+  2.  Choose any Photo.
+  3.  Click "ok" button.
+- Expected Result:
+  1.  The user can create their profile image.
+
+### Send Message
+
+- Scenario 1: Successfully view message.  
+   Steps:
+  1.  Navigate to chat page.
+  2.  Click the user chat box.
+  3.  View the respective person chat.
+- Expected Result:
+  1.  The user can view their friends chat.
+
+### create Reel
+
+- Scenario 1: Successfully create reel.  
+   Steps:
+  1.  Click "add" button.
+  2.  Navigate to local file.
+  3.  Choose file (video).
+  4.  Click the "ok" button.
+- Expected Result:
+  1.  The user can create their reel.
+
+### Create invite
+
+- Scenario 1: Successfully create invite.  
+   Steps:
+  1.  Navigate to invite adding form page.
+  2.  Fill the details.
+  3.  Click the "invite" button.
+- Expected Result:
+  1.  The suer can create their invite.
+
+### Send notification
+
+- Scenario 1: Successfully send notification.  
+   Steps:
+  1.  Click user invites box.
+  2.  Type message.
+  3.  click the "send" icon.
+- Expected Result:
+  1.  The message will show to that user.
+
+### Take a photo
 
 ### Create Profile avatar
 
@@ -42,7 +97,7 @@ Sonar Cloud: [![Quality Gate Status]https://sonarcloud.io/project/overview?id=fs
 - Expected Result:  
    1. The user can create their profile image.
 
-### Send Message
+### Send chat
 
 - Scenario 1: Successfully view message.  
    Steps:  
@@ -51,6 +106,40 @@ Sonar Cloud: [![Quality Gate Status]https://sonarcloud.io/project/overview?id=fs
    3. View the respective person chat.
 - Expected Result:  
    1. The user can view their friends chat.  
+
+
+### Read chat
+
+     - Scenario 1: Successfully see the chat.
+          Steps:
+             1. click the chat user.
+             2. Use can see the respective person chats.
+     - Expected Result:
+             1. The user can see the user chats.
+
+
+### Update chat
+
+      - Scenario 1: Successfully update the chats.
+           Steps:
+             1. Mouse over the chat which one you want to edit.
+             2. It will popup one input area.
+             3. Fill the update data into the input.
+             4. Press the "send arrow button".
+      - Expected Result:
+             1. The user can update or edit their chats.
+
+
+### Delete chat
+
+       - Scenario 1: Successfully Delete chat.
+            Steps:
+             1. Mouse over the chat which one do you want to delete.
+             2. Press the delete icon.
+             3. It will popup a alert for the confirmation.
+             4. Click "OK" button.
+       - Expected Result:
+             1. The user can delete their chats.
 
 
 ### create Reel
@@ -62,7 +151,33 @@ Sonar Cloud: [![Quality Gate Status]https://sonarcloud.io/project/overview?id=fs
    3. Choose file (video).  
    4. Click the "ok" button.
 - Expected Result:  
-   1. The user can create their reel.
+   1. The user can create their reel.  
+
+
+### Read reel
+
+       - Scenario 1: Successfully see the reels.
+           Steps:
+           1. click the user reel icon.
+           2. It will navigate reel details page.
+           3. There you can see the reels.
+        - Expected Result:
+           1. The user can successfully read the reel.
+
+
+### Delete reel
+
+       - Scenario 1: Successfully delete the reels.
+           Steps:
+              1. Click the reel.
+              2. It will redirect to the reel details page.
+              3. There you can see the remove button above the reel.
+              4. Press that button.
+              5. It will alert the popup.
+              6. Press the ok button.
+        - Expected Result:
+              1. The user can remove their reels.
+
 
 ### Create invite
 
@@ -73,6 +188,45 @@ Sonar Cloud: [![Quality Gate Status]https://sonarcloud.io/project/overview?id=fs
    3. Click the "invite" button.
 - Expected Result:  
    1. The suer can create their invite.
+
+### Read invite
+
+           - Scenario 1: Successfully see the user invites.
+                Steps:
+                  1. Click the invite card.
+                  2. It will redirect to the invite details page.
+                  3. There you can see the your invite details.
+           - Expected Result:
+                  1. The user can see their invite details.
+
+
+
+### Update invite
+
+            - Scenario 1: Successfully update the invites.
+                 Steps:
+                   1. Click the invite card.
+                   2. It will redirect to the invite details page.
+                   3. Click the update button.
+                   4. Fill the updating details into the input feilds.
+                   5. Press the save button.
+             - Expected Result:
+                   1. The user can update their invites.
+
+
+### Delete invite
+
+             - Scenario 1; Successfully delete the invites.
+                   Steps:
+                     1. Click the invite card.
+                     2. It will redirect to the invite details page.
+                     3. Click the delete button.
+                     4. It will alert for the confirmation.
+                     5. Click the ok button.
+             - Expected Result:
+                     1. The user can remove their invites.
+
+
 
 ### Send notification
 
@@ -93,3 +247,53 @@ Sonar Cloud: [![Quality Gate Status]https://sonarcloud.io/project/overview?id=fs
    3. Click the "Capture" Button.
 - Expected Result:  
    1. The image will be add in the gallery.
+
+### Read the photo
+
+    - Scenario 1: Successfully see the photo.
+          Steps:
+              1. Click the folder button.
+              2. It will redirect to the snap details page.
+              3. There you can see the images.
+    - Expected Result:
+              1. The user can see their images.
+
+
+### Update the images
+
+    - Scenario 1: Successfully update the images.
+          Steps:
+              1. Click the edit button.
+              2. It will redirect to the snap edit page.
+              3. Click the crop button.
+              4. Crop the images.
+              5. click the ok button.
+    - Expected Result:
+              1. The user can crop their images.
+
+
+### Delete the images
+
+     - Scenario 1: Successfully delete their images.
+           Steps:
+              1. click the delete button.
+              2. It will popup a alert button.
+              3. Press the ok button.
+      - Expected Result:
+              1. The user can delete their images.
+
+
+
+
+
+
+
+> > > > > > > bd368701d94a2eaac68c195d6653aa5e589b9948
+
+- Scenario 1: Succesfull take photo.  
+   Steps:
+  1.  Click the camera icon.
+  2.  Navaigate to fresh cam page.
+  3.  Click the "Capture" Button.
+- Expected Result:
+  1.  The image will be add in the gallery.
