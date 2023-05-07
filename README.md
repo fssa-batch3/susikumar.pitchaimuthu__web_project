@@ -181,7 +181,40 @@ Sonar Cloud: [![Quality Gate Status]https://sonarcloud.io/project/overview?id=fs
              2.  Navaigate to fresh cam page.  
              3.  Click the "Capture" Button.  
     - Expected Result:  
-             1. The image will be add in the gallery.  
+             1. The image will be add in the gallery.       
+                
+      
+### Read the photo   
+    - Scenario 1: Successfully see the photo.     
+          Steps:    
+              1. Click the folder button.    
+              2. It will redirect to the snap details page.   
+              3. There you can see the images.  
+    - Expected Result:    
+              1. The user can see their images.      
+                                          
+### Update the images        
+    - Scenario 1: Successfully update the images.    
+          Steps:    
+              1. Click the edit button.    
+              2. It will redirect to the snap edit page.      
+              3. Click the crop button.    
+              4. Crop the images.   
+              5. click the ok button.     
+    - Expected Result:       
+              1. The user can crop their images.    
+                       
+### Delete the images     
+     - Scenario 1: Successfully delete their images.      
+           Steps:     
+              1. click the delete button.    
+              2. It will popup a alert button.   
+              3. Press the ok button.     
+      - Expected Result:     
+              1. The user can delete their images.
+    
+                  
+                       
              
              
              
