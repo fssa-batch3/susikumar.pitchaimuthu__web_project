@@ -36,7 +36,6 @@ inviteImage.addEventListener("change", function () {
   console.log("manisha");
   if (choosePhoto) {
     let reader = new FileReader();
-    // console.log(reader.result);
 
     reader.addEventListener("load", function () {
       image = reader.result;

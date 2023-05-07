@@ -1,15 +1,3 @@
-// let sebdButton = document.querySelector("#chat-input");
-
-// if (sebdButton !== null) {
-//   sebdButton.addEventListener("keyup", (event) => {
-//     if (event.keyCode === 13) {
-//       // 13 is the keycode for the Enter key
-//       // Call your function here
-//       getUser();
-//     }
-//   });
-// }
-
 let userFriends = JSON.parse(localStorage.getItem("userFriends"));
 console.log(userFriends);
 
@@ -52,12 +40,12 @@ function getUser(event) {
 
     let findArray;
 
-    for (let i = 0; i < userFriends.length; i++) {
-      for (let j = 0; j < userFriends[i].length; j++) {
-        if (userFriends[i][j]["userId"] == event) {
-          findFriend = userFriends[i][j];
-          findArray = userFriends[i];
-          findFriendIndex = userFriends[i].indexOf(userFriends[i][j]);
+    for (const friends of userFriends) {
+      for (const friend of friends) {
+        if (friend["userId"] === event) {
+          findFriend = friend;
+          findArray = friends;
+          findFriendIndex = friends.indexOf(friend);
         }
       }
     }
@@ -110,13 +98,13 @@ function editOptionMouseOver(mouseOverclass) {
 
   let curentElement;
 
-  for (let i = 0; i < editOptionDiv.length; i++) {
+  for (let options of editOptionDiv) {
     if (editOptionDiv[i].id == mouseOverclass) {
       curentElement = editOptionDiv[i];
       console.log(curentElement);
     }
   }
-  if ((curentElement.style.display = "none")) {
+  if (curentElement.style.display === "none") {
     curentElement.style.display = "block";
   }
 }
@@ -124,9 +112,9 @@ function editOptionMouseOver(mouseOverclass) {
 function editoptionMouseOut() {
   let editOptionDiv = document.querySelectorAll(".edit-option-div");
 
-  for (let i = 0; i < editOptionDiv.length; i++) {
-    if ((editOptionDiv[i].style.display = "block")) {
-      editOptionDiv[i].style.display = "none";
+  for (let editOption of editOptionDiv) {
+    if (editOption.style.display === "block") {
+      editOption.style.display = "none";
     }
   }
 }
@@ -142,9 +130,9 @@ function chatEditInput(e) {
 
   let allChats = JSON.parse(localStorage.getItem("senderMessage"));
 
-  for (let i = 0; i < allChats.length; i++) {
-    if (allChats[i]["chatId"] == e) {
-      currentDelete = allChats[i];
+  for (const chat of allChats) {
+    if (chat["chatId"] == e) {
+      currentDelete = chat;
       console.log(currentDelete);
     }
   }

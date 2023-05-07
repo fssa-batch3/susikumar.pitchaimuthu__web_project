@@ -4,9 +4,6 @@ let birthdayForm = document.querySelector("#birthday-form");
 
 birthdayForm.addEventListener("submit", (event) => {
   event.preventDefault();
-  if (localStorage.getItem("dateOfBirth") != null) {
-    userData = JSON.parse(localStorage.getItem("dateOfBirth"));
-  }
 
   let birthday = document.getElementById("birthday").value.trim();
   let gender = document.getElementsByName("gender");
@@ -30,7 +27,7 @@ birthdayForm.addEventListener("submit", (event) => {
 
   let userGen;
 
-  for (let i = 0; i < gender.length; i++) {
+  for (let genders of gender) {
     if (gender[i].checked) {
       userGen = gender[i].value;
     }

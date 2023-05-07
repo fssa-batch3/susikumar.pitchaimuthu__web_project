@@ -105,11 +105,6 @@
   font-size: 1.5em;
 }
 
-.heart-send-div {
-  display: flex;
-  align-items: center;
-}
-
 #input-for-reel-reaction {
   width: 26em;
   height: 2.5em;

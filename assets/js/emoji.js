@@ -27,7 +27,7 @@ console.log(twemojiUrls); // Array of Twemoji URLs for all emojis
 console.log(twemojiUrls.length);
 
 const emojiContainer = document.querySelector(".emoji-div-container");
-for (let i = 0; i < twemojiUrls.length; i++) {
+for (let twemoEmoji of twemojiUrls) {
   twemojiUrls.forEach((url) => {
     const img = document.createElement("img");
     img.setAttribute("src", url);

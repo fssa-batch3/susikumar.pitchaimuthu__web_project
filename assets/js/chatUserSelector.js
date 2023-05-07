@@ -206,7 +206,7 @@ for (let i = 0; i < chatPersonCard.length; i++) {
 
     let sender = [];
 
-    for (let i = 0; i < firebaseDatabaseData.length; i++) {
+    for (let firebaseData of firebaseDatabaseData) {
       if (
         firebaseDatabaseData[i]["chatterId"] == findUser["userId"] &&
         firebaseDatabaseData[i]["chatReceiverId"] == userSelectId
@@ -226,14 +226,14 @@ for (let i = 0; i < chatPersonCard.length; i++) {
     if (chageChat.hasChildNodes()) {
       let chatFistchild = document.querySelectorAll(".chat-div-for-user");
 
-      for (let i = 0; i < chatFistchild.length; i++) {
+      for (let firstChild of chatFistchild) {
         chatFistchild[i].remove();
       }
     }
 
     console.log(sender);
 
-    for (let j = 0; j < sender.length; j++) {
+    for (let senders of sender) {
       if (
         sender[j]["chatReceiverId"] == userSelectId &&
         sender[j]["chatterId"] == findUser["userId"]

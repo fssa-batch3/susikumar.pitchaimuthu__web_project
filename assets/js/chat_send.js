@@ -59,9 +59,6 @@ function chatEditForm(eventChat) {
     let EditDataStringify = JSON.stringify(EditChatArray);
     console.log(EditDataStringify);
 
-    let EdiTDataStoreLocal = localStorage.setItem(
-      "editChatData",
-      EditDataStringify
-    );
+    localStorage.setItem("editChatData", EditDataStringify);
   }
 }

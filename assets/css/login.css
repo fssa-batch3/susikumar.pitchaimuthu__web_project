@@ -230,10 +230,5 @@ hr {
 .strength-content-div {
   display: flex;
   align-items: center;
-}
-
-.strength-content-div {
-  display: flex;
-  align-items: center;
   width: 100%;
 }

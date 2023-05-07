@@ -123,11 +123,6 @@ body {
   gap: 2em;
 }
 
-.next-button {
-  width: 8em;
-  height: 2em;
-}
-
 /* next and previous button css */
 
 .submit-and-previous-button-div {
@@ -146,6 +141,8 @@ body {
   padding: 7px 24px;
   border-radius: 5px;
   border: grey 1px solid;
+  width: 8em;
+  height: 2em;
 }
 
 .previous-arrow {

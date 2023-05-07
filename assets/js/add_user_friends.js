@@ -8,24 +8,16 @@ let allUSerFriendsData;
 
 //  Creating a for loop for find user friends
 
-for (let i = 0; i < freshChatUsers.length; i++) {
-  if (freshChatUsers[i][0]["frienderId"] == findUser["userId"]) {
-    allUSerFriendsData = freshChatUsers[i];
+for (const freshChatUser of freshChatUsers) {
+  if (freshChatUser[0]["frienderId"] == findUser["userId"]) {
+    allUSerFriendsData = freshChatUser;
+    break;
   }
 }
 console.log(allUSerFriendsData);
 
 if (allUSerFriendsData !== undefined) {
-  // creating a sorting method to order a chat person by date and time
-
-  // sort the array by the dateTime property
-  // allUSerFriendsData.sort(
-  //   (a, b) => new Date(a.dateTime) - new Date(b.dateTime)
-  // );
-
-  // console.log(allUSerFriendsData);
-
-  for (let i = 0; i < allUSerFriendsData.length; i++) {
+  for (const friendData of allUSerFriendsData) {
     let div = document.createElement("div");
     div.setAttribute(
       "class",
@@ -84,11 +76,13 @@ if (allUSerFriendsData !== undefined) {
 
     let numberCount = [];
 
+    const unread = false;
+
     if (allSendChats !== null) {
-      for (let j = 0; j < allSendChats.length; j++) {
+      for (const sendChats of allSendChats) {
         if (
           allSendChats[j]["chatSenderId"] == chatterAccountId &&
-          allSendChats[j]["isRead"] == false
+          allSendChats[j]["isRead"] == unread
         ) {
           numberCount.push(allSendChats[j]);
         }

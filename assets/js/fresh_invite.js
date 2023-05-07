@@ -8,7 +8,7 @@ if (GetInviteDetails !== null) {
     (e) => e["inviterId"] == findUser["userId"]
   );
 
-  for (let i = 0; i < thisUserInvite.length; i++) {
+  for (let userInvite of thisUserInvite) {
     //   update option
 
     let anger = document.createElement("a");

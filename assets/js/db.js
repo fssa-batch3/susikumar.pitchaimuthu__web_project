@@ -5,7 +5,6 @@ import {
   getDatabase,
   set,
   ref,
-  onValue,
   push,
 } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-database.js";
 
