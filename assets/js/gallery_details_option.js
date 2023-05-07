@@ -144,13 +144,12 @@ async function downloadImage(url, fileName) {
 }
 
 // Get the to pass to the download funciton
-
 let clickImage = imageGallery[imageIndexNumber]["imageLink"];
-
 let clickName = imageGallery[imageIndexNumber]["imageName"];
-
 let downloadButton = document.querySelector(".downloadButton");
 
-downloadButton.addEventListener("click", function () {
-  downloadImage(clickImage, clickName);
+downloadButton.addEventListener("click", async function () {
+  await downloadImage(clickImage, clickName).catch((error) => {
+    console.error(error);
+  });
 });

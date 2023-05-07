@@ -15,25 +15,19 @@ let conditions = {
 
 // adding brightness for the webcamera
 
-// brightness.addEventListener("change", function () {
-//   brightness_input.style.filter = "brightness(" + brightness.value + "%)";
-// });
-
 const brightnessInput = document.getElementById("brightnessRange");
 brightnessRange.addEventListener("input", () => {
   const brightnessValue = brightnessRange.value;
   video.style.filter = `brightness(${brightnessValue}%)`;
 });
 
-navigator.mediaDevices
-  .getUserMedia(conditions)
-  .then((stream) => {
-    video.srcObject = stream;
-    video.play();
-  })
-  .catch((error) => {
-    console.error(error);
-  });
+try {
+  const stream = await navigator.mediaDevices.getUserMedia(conditions);
+  video.srcObject = stream;
+  video.play();
+} catch (error) {
+  console.error(error);
+}
 
 // filter selection function
 

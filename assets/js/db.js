@@ -200,7 +200,7 @@ async function setData(userReceiver) {
 }
 
 // Attach the click event listener to the document object using event delegation
-firstParent.addEventListener("click", function (event) {
+firstParent.addEventListener("click", async function (event) {
   let target = event.target;
 
   console.log(target);
@@ -208,6 +208,8 @@ firstParent.addEventListener("click", function (event) {
   let userReceiver = target.id;
   // Check if the event target is the chat-submit button inside the chat-submit-button-div
   if (target.matches(".submit-span")) {
-    setData(userReceiver);
+    await setData(userReceiver).catch((error) => {
+      console.error(error);
+    });
   }
 });

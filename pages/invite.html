@@ -170,14 +170,14 @@
       let okDiv = document.querySelector(".ok-percentage-div");
       let noDiv = document.querySelector(".no-percentage-div");
 
-      new EasyPieChart(okDiv, {
+      let chartSuccess = new EasyPieChart(okDiv, {
         barColor: "#A2D2FF",
         lineWidth: 11,
         lineCap: "circle",
         size: 85,
       });
 
-      new EasyPieChart(noDiv, {
+      let chartFailure = new EasyPieChart(noDiv, {
         barColor: "#FFAE42",
         lineWidth: 11,
         lineCap: "circle",
