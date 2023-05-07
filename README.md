@@ -49,23 +49,43 @@ Sonar Cloud: [![Quality Gate Status]https://sonarcloud.io/project/overview?id=fs
             
        
        
- ### Send Message  
+ ### Send chat 
    - Scenario 1: Successfully view message.  
        Steps:  
            1. Navigate to chat page.  
            2. Click the user chat box.  
            3. View the respective person chat.  
    - Expected Result:  
-           1. The user can view their friends chat.  
-       
-       
-       
-              
-            
-
-
-
-
+           1. The user can view their friends chat.         
+                                
+### Read chat        
+     - Scenario 1: Successfully see the chat.     
+          Steps:
+             1. click the chat user.                    
+             2. Use can see the respective person chats.               
+     - Expected Result:          
+             1. The user can see the user chats.        
+                          
+### Update chat             
+      - Scenario 1: Successfully update the chats.         
+           Steps:
+             1. Mouse over the chat which one you want to edit.          
+             2. It will popup one input area.    
+             3. Fill the update data into the input.      
+             4. Press the "send arrow button".          
+      - Expected Result:      
+             1. The user can update or edit their chats.      
+                        
+### Delete chat           
+       - Scenario 1: Successfully Delete chat.       
+            Steps:
+             1. Mouse over the chat which one do you want to delete.    
+             2. Press the delete icon.    
+             3. It will popup a alert for the confirmation.
+             4. Click "OK" button.          
+       - Expected Result:        
+             1. The user can delete their chats.         
+                      
 
 ### create Reel  
    - Scenario 1: Successfully create reel.  
@@ -75,11 +95,29 @@ Sonar Cloud: [![Quality Gate Status]https://sonarcloud.io/project/overview?id=fs
           3.  Choose file (video).  
           4.  Click the "ok" button.  
    - Expected Result:  
-          1.  The user can create their reel.  
-
-
-
-           
+          1.  The user can create their reel.         
+                        
+### Read reel      
+       - Scenario 1: Successfully see the reels.           
+           Steps:     
+           1. click the user reel icon.     
+           2. It will navigate reel details page.          
+           3. There you can see the reels.         
+        - Expected Result:       
+           1. The user can successfully read the reel.           
+                         
+### Delete reel                   
+       - Scenario 1: Successfully delete the reels.     
+           Steps:       
+              1. Click the reel.     
+              2. It will redirect to the reel details page.     
+              3. There you can see the remove button above the reel.    
+              4. Press that button.     
+              5. It will alert the popup.    
+              6. Press the ok button.        
+        - Expected Result:      
+              1. The user can remove their reels.      
+              
  
 ### Create invite  
    - Scenario 1: Successfully create invite.  
@@ -90,9 +128,39 @@ Sonar Cloud: [![Quality Gate Status]https://sonarcloud.io/project/overview?id=fs
    - Expected Result:  
                1.  The suer can create their invite.  
               
-              
-           
-           
+                             
+### Read invite    
+           - Scenario 1: Successfully see the user invites.       
+                Steps:     
+                  1. Click the invite card.         
+                  2. It will redirect to the invite details page.       
+                  3. There you can see the your invite details.    
+           - Expected Result:     
+                  1. The user can see their invite details.      
+                  
+                           
+### Update invite      
+            - Scenario 1: Successfully update the invites.      
+                 Steps:   
+                   1. Click the invite card.    
+                   2. It will redirect to the invite details page.    
+                   3. Click the update button.     
+                   4. Fill the updating details into the input feilds.   
+                   5. Press the save button.    
+             - Expected Result:    
+                   1. The user can update their invites.    
+                         
+### Delete invite    
+             - Scenario 1; Successfully delete the invites.    
+                   Steps:     
+                     1. Click the invite card.     
+                     2. It will redirect to the invite details page.   
+                     3. Click the delete button.     
+                     4. It will alert for the confirmation.    
+                     5. Click the ok button.      
+             - Expected Result:    
+                     1. The user can remove their invites.    
+                         
            
 ### Send notification  
    - Scenario 1: Successfully send notification.  
