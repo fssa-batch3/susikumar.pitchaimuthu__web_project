@@ -24,11 +24,16 @@ brightnessRange.addEventListener("input", () => {
   const brightnessValue = brightnessRange.value;
   video.style.filter = `brightness(${brightnessValue}%)`;
 });
-// function startCamera() {
-navigator.mediaDevices.getUserMedia(conditions).then((stream) => {
-  video.srcObject = stream;
-  video.play();
-});
+
+navigator.mediaDevices
+  .getUserMedia(conditions)
+  .then((stream) => {
+    video.srcObject = stream;
+    video.play();
+  })
+  .catch((error) => {
+    console.error(error);
+  });
 
 // filter selection function
 

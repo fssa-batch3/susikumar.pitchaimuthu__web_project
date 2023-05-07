@@ -41,8 +41,9 @@ likeOption.addEventListener("click", () => {
     let findImageIndex = imageGallery.indexOf(snap);
     console.log(findImageIndex);
 
-    (imageGallery[findImageIndex] = favObjectAssaign),
-      localStorage.setItem("image_url", JSON.stringify(imageGallery));
+    imageGallery[findImageIndex] = favObjectAssaign;
+
+    localStorage.setItem("image_url", JSON.stringify(imageGallery));
   } else {
     likeOption.style.backgroundColor = "transparent";
     likeIcon.style.color = "black";
@@ -129,15 +130,17 @@ likeOption.addEventListener("click", () => {
 
 // Image download option
 
-function downloadImage(url, fileName) {
-  fetch(url)
-    .then((response) => response.blob())
-    .then((blob) => {
-      const link = document.createElement("a");
-      link.download = fileName;
-      link.href = URL.createObjectURL(blob);
-      link.click();
-    });
+async function downloadImage(url, fileName) {
+  try {
+    const response = await fetch(url);
+    const blob = await response.blob();
+    const link = document.createElement("a");
+    link.download = fileName;
+    link.href = URL.createObjectURL(blob);
+    link.click();
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 // Get the to pass to the download funciton
