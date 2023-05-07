@@ -21,13 +21,15 @@ brightnessRange.addEventListener("input", () => {
   video.style.filter = `brightness(${brightnessValue}%)`;
 });
 
-try {
-  const stream = await navigator.mediaDevices.getUserMedia(conditions);
-  video.srcObject = stream;
-  video.play();
-} catch (error) {
-  console.error(error);
-}
+navigator.mediaDevices
+  .getUserMedia(conditions)
+  .then((stream) => {
+    video.srcObject = stream;
+    video.play();
+  })
+  .catch((error) => {
+    console.error(error);
+  });
 
 // filter selection function
 

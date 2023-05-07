@@ -57,8 +57,9 @@ likeOption.addEventListener("click", () => {
     let findImageIndex = imageGallery.indexOf(snap);
     console.log(findImageIndex);
 
-    (imageGallery[findImageIndex] = favObjectAssaign),
-      localStorage.setItem("image_url", JSON.stringify(imageGallery));
+    imageGallery[findImageIndex] = favObjectAssaign;
+
+    localStorage.setItem("image_url", JSON.stringify(imageGallery));
   }
 
   // let imageFavObject = {
@@ -140,6 +141,7 @@ async function downloadImage(url, fileName) {
     link.click();
   } catch (error) {
     console.error(error);
+    throw error;
   }
 }
 
@@ -149,7 +151,10 @@ let clickName = imageGallery[imageIndexNumber]["imageName"];
 let downloadButton = document.querySelector(".downloadButton");
 
 downloadButton.addEventListener("click", async function () {
-  await downloadImage(clickImage, clickName).catch((error) => {
+  try {
+    await downloadImage(clickImage, clickName);
+    console.log("Image downloaded successfully");
+  } catch (error) {
     console.error(error);
-  });
+  }
 });

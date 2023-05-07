@@ -208,8 +208,11 @@ firstParent.addEventListener("click", async function (event) {
   let userReceiver = target.id;
   // Check if the event target is the chat-submit button inside the chat-submit-button-div
   if (target.matches(".submit-span")) {
-    await setData(userReceiver).catch((error) => {
+    try {
+      await setData(userReceiver);
+      console.log("Data set successfully");
+    } catch (error) {
       console.error(error);
-    });
+    }
   }
 });
