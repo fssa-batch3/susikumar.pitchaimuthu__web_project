@@ -7,6 +7,7 @@ import {
   getDatabase,
   child,
   remove,
+  update,
 } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-database.js";
 
 console.log(database);
@@ -420,8 +421,12 @@ async function chatDelete(self) {
   console.log(self);
   // alert("Are you sure want to delete message");
   let messageId = self;
+
   console.log(messageId);
+
   let secondDatabase = getDatabase();
+
+  console.log(secondDatabase);
 
   const objectRef = ref(secondDatabase, "freshchat");
   const objectKey = messageId; // Replace with the key of the object you want to delete
@@ -437,11 +442,9 @@ async function chatDelete(self) {
     .catch((error) => {
       console.error("Error removing object: ", error);
     });
-
-  // secondDatabase.ref("freshchat").child(messageId).remove();
 }
 
-// let trashButon = document.querySelector(".bi bi-trash");
+// chat delete button add eventlistner function
 
 chatContainer.addEventListener("click", async function (event) {
   let target = event.target;
@@ -459,11 +462,54 @@ chatContainer.addEventListener("click", async function (event) {
     }
   }
 });
-// Check if the event target is the button
-// if (event.target && event.target.id === trashButon) {
-//   console.log("Button clicked!");
-// }
 
-// trashButon.addEventListener("click", () => {
-//   chatDelete();
-// });
+// chat update function
+
+async function chatUpdate(upsi) {
+  console.log(upsi);
+
+  let userInput = prompt("Please enter your update:", "");
+  console.log(userInput);
+
+  let updateKey = upsi;
+
+  let thirdDatabase = getDatabase();
+  let nodeRef = ref(thirdDatabase, "freshchat");
+
+  console.log(nodeRef);
+
+  let objectRef = ref(nodeRef, updateKey);
+
+  console.log(objectRef);
+
+  let chatUpdateObject = {
+    chat: userInput,
+  };
+
+  // Use the update() method to update the data at the specified node
+  try {
+    await update(objectRef, chatUpdateObject);
+    console.log("Data updated successfully");
+  } catch (error) {
+    console.log("Data update failed: ", error);
+  }
+}
+
+// chat update function add eventlistner
+
+chatContainer.addEventListener("click", async function (event) {
+  let target = event.target;
+  console.log(target);
+
+  let currentChat = target.id;
+  console.log(currentChat);
+
+  if (target.matches(".bi-pencil-square")) {
+    try {
+      await chatUpdate(currentChat);
+      console.log("Chat update element successfully got");
+    } catch (error) {
+      console.error(error);
+    }
+  }
+});
