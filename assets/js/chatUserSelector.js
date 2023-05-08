@@ -4,16 +4,37 @@ import database from "./db.js";
 import {
   onValue,
   ref,
+  getDatabase,
+  child,
+  remove,
 } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-database.js";
 
 console.log(database);
 
-let firebaseDatabaseData;
+let firebaseDatabaseData = [];
 
 onValue(ref(database, `freshchat/`), (snapshot) => {
-  firebaseDatabaseData = Object.values(snapshot.val());
-  // Element creatin for the chat elment
-  console.log(firebaseDatabaseData);
+  snapshot.forEach((childSnapshot) => {
+    // Get the key and value of each child node
+
+    // firebaseDatabaseData = Object.values(snapshot.val());
+
+    const key = childSnapshot.key;
+    console.log(key);
+    // let chatPushArray = [];
+
+    const value = childSnapshot.val();
+
+    let chatKey = {
+      chatkey: key,
+    };
+
+    let chatAssign = Object.assign(value, chatKey);
+
+    firebaseDatabaseData.push(chatAssign);
+
+    console.log(firebaseDatabaseData);
+  });
 });
 
 // writing a function get a indidual user by clicking their respective chat box
@@ -296,26 +317,25 @@ for (let i = 0; i < chatPersonCard.length; i++) {
 
         let div = document.createElement("div");
         div.setAttribute("class", "update-delete-option-div");
-        div.setAttribute("id", sender[i]["chatId"]);
+        div.setAttribute("id", senders["chatId"]);
         // div.setAttribute("onmouseenter", "editOptionMouseOver(this.id)");
         // div.setAttribute("onmouseleave", "editoptionMouseOut()");
         chatContentTimeDiv.prepend(div);
 
         let chatEditdiv = document.createElement("div");
         chatEditdiv.setAttribute("class", "edit-option-div");
-        chatEditdiv.setAttribute("id", sender[i]["chatId"]);
+        chatEditdiv.setAttribute("id", senders["chatId"]);
         div.append(chatEditdiv);
 
         let editFa = document.createElement("i");
         editFa.setAttribute("class", "bi bi-pencil-square");
-        editFa.setAttribute("id", sender[i]["chatId"]);
-        // editFa.setAttribute("onclick", "chatEditInput(this.id)");
+        editFa.setAttribute("id", senders["chatkey"]);
         chatEditdiv.append(editFa);
 
         let deleteFa = document.createElement("i");
         deleteFa.setAttribute("class", "bi bi-trash");
-        deleteFa.setAttribute("id", sender[i]["chatId"]);
-        // deleteFa.setAttribute("onclick", "deleteChat(this.id)");
+        deleteFa.setAttribute("id", senders["chatkey"]);
+        // deleteFa.setAttribute("onclick", "chatDelete(this.id)");
         chatEditdiv.append(deleteFa);
 
         document.querySelector(".right-side-container").append(chatDivUser);
@@ -384,3 +404,66 @@ for (let i = 0; i < chatPersonCard.length; i++) {
     // document.querySelector(".right-side-container").append(div);
   });
 }
+
+// function deleteChatMessage(self) {
+//   let messageId = self.getAttribute("id");
+//   console.log(messageId);
+
+//   database.ref("freshchat").child(messageId).remove();
+// }
+
+let chatContainer = document.querySelector(".right-side-container");
+// console.log(trashButon);
+
+// chat delete function
+async function chatDelete(self) {
+  console.log(self);
+  // alert("Are you sure want to delete message");
+  let messageId = self;
+  console.log(messageId);
+  let secondDatabase = getDatabase();
+
+  const objectRef = ref(secondDatabase, "freshchat");
+  const objectKey = messageId; // Replace with the key of the object you want to delete
+
+  // Navigate to the object you want to delete using the child() function
+  const objectToDeleteRef = child(objectRef, objectKey);
+
+  // Call remove() on the reference to delete the object
+  remove(objectToDeleteRef)
+    .then(() => {
+      console.log("Object successfully deleted!");
+    })
+    .catch((error) => {
+      console.error("Error removing object: ", error);
+    });
+
+  // secondDatabase.ref("freshchat").child(messageId).remove();
+}
+
+// let trashButon = document.querySelector(".bi bi-trash");
+
+chatContainer.addEventListener("click", async function (event) {
+  let target = event.target;
+  console.log(target);
+
+  let currentChat = target.id;
+  console.log(currentChat);
+
+  if (target.matches(".bi-trash")) {
+    try {
+      await chatDelete(currentChat);
+      console.log("Chat successfully got");
+    } catch (error) {
+      console.error(error);
+    }
+  }
+});
+// Check if the event target is the button
+// if (event.target && event.target.id === trashButon) {
+//   console.log("Button clicked!");
+// }
+
+// trashButon.addEventListener("click", () => {
+//   chatDelete();
+// });

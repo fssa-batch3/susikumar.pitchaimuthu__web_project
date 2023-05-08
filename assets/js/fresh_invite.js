@@ -16,7 +16,7 @@ if (GetInviteDetails !== null) {
     anger.setAttribute(
       "href",
       "../pages/invite_card.html?inviteId=" +
-        thisUserInvite[i]["inviteId"] +
+        userInvite["inviteId"] +
         "&user=" +
         findUser["userId"]
     );
@@ -42,7 +42,7 @@ if (GetInviteDetails !== null) {
 
     let inviteImage = document.createElement("img");
     inviteImage.setAttribute("class", "invite-image");
-    inviteImage.setAttribute("src", thisUserInvite[i]["inviteImage"]);
+    inviteImage.setAttribute("src", userInvite["inviteImage"]);
     inviteImageDiv.append(inviteImage);
 
     let inviteNameContentDiv = document.createElement("div");
@@ -51,12 +51,12 @@ if (GetInviteDetails !== null) {
 
     let inviteH3 = document.createElement("h3");
     inviteH3.setAttribute("class", "invite-h3");
-    inviteH3.innerHTML = thisUserInvite[i]["inviteName"];
+    inviteH3.innerHTML = userInvite["inviteName"];
     inviteNameContentDiv.append(inviteH3);
 
     let invitePara = document.createElement("p");
     invitePara.setAttribute("class", "invite-para");
-    invitePara.innerHTML = thisUserInvite[i]["inviteGlimpse"];
+    invitePara.innerHTML = userInvite["inviteGlimpse"];
     inviteNameContentDiv.append(invitePara);
 
     // reciever div container
@@ -81,7 +81,7 @@ if (GetInviteDetails !== null) {
     okPercentageDiv.setAttribute("class", "ok-percentage-div");
     okPercentageDiv.setAttribute(
       "data-percent",
-      thisUserInvite[i]["inviteLike"].length
+      userInvite["inviteLike"].length
     );
     receiverEmojiContainer.append(okPercentageDiv);
 
@@ -95,15 +95,12 @@ if (GetInviteDetails !== null) {
 
     let okPercentagep = document.createElement("p");
     okPercentagep.setAttribute("class", "ok-percentage-p");
-    okPercentagep.innerHTML = thisUserInvite[i]["inviteLike"].length;
+    okPercentagep.innerHTML = userInvite["inviteLike"].length;
     okPercentageInsideDiv.append(okPercentagep);
 
     let noPercentageDiv = document.createElement("div");
     noPercentageDiv.setAttribute("class", "no-percentage-div");
-    noPercentageDiv.setAttribute(
-      "data-percent",
-      thisUserInvite[i]["inviteNo"].length
-    );
+    noPercentageDiv.setAttribute("data-percent", userInvite["inviteNo"].length);
     receiverEmojiContainer.append(noPercentageDiv);
 
     let noPercentageInsideDiv = document.createElement("div");
@@ -115,7 +112,7 @@ if (GetInviteDetails !== null) {
     noPercentageInsideDiv.append(noPercentageI);
 
     let noPercentageP = document.createElement("p");
-    noPercentageP.innerHTML = thisUserInvite[i]["inviteNo"].length;
+    noPercentageP.innerHTML = userInvite["inviteNo"].length;
     noPercentageP.setAttribute("class", "no-percentage-p");
     noPercentageInsideDiv.append(noPercentageP);
 
