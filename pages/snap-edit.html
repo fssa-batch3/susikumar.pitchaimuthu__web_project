@@ -269,25 +269,19 @@
 
     <!-- script -->
     <script src="../assets/js/profile_user_find.js"></script>
+    <script src="https://momentjs.com/downloads/moment.js"></script>
     <script src="../assets/js/gallery_edit.js"></script>
 
     <script>
       let cropButton = document.getElementById("crop-button");
 
+      let cropper;
       function cropButtonClickHandler() {
         // Get the cropped image data
         const croppingImage = document.querySelector(".user-still");
-        const cropper = new Cropper(croppingImage, {
+        cropper = new Cropper(croppingImage, {
           aspectRatio: 16 / 9,
-          crop(event) {
-            // console.log(event.detail.x);
-            // console.log(event.detail.y);
-            // console.log(event.detail.width);
-            // console.log(event.detail.height);
-            // console.log(event.detail.rotate);
-            // console.log(event.detail.scaleX);
-            // console.log(event.detail.scaleY);
-          },
+          crop(event) {},
         });
       }
 
@@ -298,16 +292,11 @@
       let wrongButton = document.querySelector(".wrong-div");
       console.log(wrongButton);
 
-      function rightButtonClickHandler() {
-        // Handle right button click
-      }
-
       function wrongButtonClickHandler() {
         console.log("susi");
         cropButton.removeEventListener("click", cropButtonClickHandler);
       }
 
-      rightButton.addEventListener("click", rightButtonClickHandler);
       wrongButton.addEventListener("click", wrongButtonClickHandler);
 
       // Save the images
@@ -316,11 +305,29 @@
       rightButton.addEventListener("click", (e) => {
         e.preventDefault();
 
-        let imageSrc = cropper
-          .getCroppedCanvas({
-            width: img_w.value,
-          })
-          .toDataURL();
+        let croppedImage = cropper.getCroppedCanvas().toDataURL("image/png");
+        console.log(croppedImage);
+
+        let imageId = Date.now();
+        let imageDate = moment().format("l");
+        let imageTime = moment().format("LT");
+
+        let imageName = "image" + imageId;
+        let userId = findUser["userId"];
+        let croppedObject = {
+          imageId: imageId,
+          imageName: imageName,
+          userId: userId,
+          imageLink: croppedImage,
+          imageDate: imageDate,
+          imageTime: imageTime,
+        };
+
+        imageGallery.push(croppedObject);
+
+        console.log(imageGallery);
+
+        localStorage.setItem("image_url", JSON.stringify(imageGallery));
       });
     </script>
   </body>
