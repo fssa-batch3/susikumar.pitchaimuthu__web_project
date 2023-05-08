@@ -474,13 +474,13 @@ async function chatUpdate(upsi) {
   let updateKey = upsi;
 
   let thirdDatabase = getDatabase();
-  let nodeRef = ref(thirdDatabase, "freshchat");
+  let nodeRef = ref(thirdDatabase, "freshchat/" + updateKey);
 
   console.log(nodeRef);
 
-  let objectRef = ref(nodeRef, updateKey);
+  // let objectRef = ref(nodeRef, updateKey);
 
-  console.log(objectRef);
+  // console.log(objectRef);
 
   let chatUpdateObject = {
     chat: userInput,
@@ -488,7 +488,7 @@ async function chatUpdate(upsi) {
 
   // Use the update() method to update the data at the specified node
   try {
-    await update(objectRef, chatUpdateObject);
+    await update(nodeRef, chatUpdateObject);
     console.log("Data updated successfully");
   } catch (error) {
     console.log("Data update failed: ", error);
