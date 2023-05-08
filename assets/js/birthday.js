@@ -28,8 +28,8 @@ birthdayForm.addEventListener("submit", (event) => {
   let userGen;
 
   for (let genders of gender) {
-    if (gender[i].checked) {
-      userGen = gender[i].value;
+    if (genders.checked) {
+      userGen = genders.value;
     }
   }
 
