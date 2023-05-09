@@ -8,6 +8,8 @@ signUpFrom.addEventListener("submit", (event) => {
     userData = JSON.parse(localStorage.getItem("register"));
   }
 
+  console.log(userData);
+
   let firstElement = document.getElementById("firstname").value.trim();
   let lastElememt = document.getElementById("lastname").value.trim();
   let userName = document.getElementById("username").value.trim();
@@ -60,7 +62,7 @@ signUpFrom.addEventListener("submit", (event) => {
   // let checkUser = JSON.parse(localStorage.getItem("register"));
 
   for (let i = 0; i < userData.length; i++) {
-    if (userData[i]["Email"] === userEmail) {
+    if (userData[i]["email"] === userEmail) {
       match = true;
       alert("user Email ID is already exist");
       return;

@@ -267,6 +267,7 @@ for (let i = 0; i < chatPersonCard.length; i++) {
 
         let chatUserInsideDiv = document.createElement("div");
         chatUserInsideDiv.setAttribute("class", "chat-user-inside-div");
+        chatUserInsideDiv.setAttribute("id", senders["chatkey"]);
         chatDivUser.append(chatUserInsideDiv);
 
         let chatDiv = document.createElement("div");
@@ -320,15 +321,17 @@ for (let i = 0; i < chatPersonCard.length; i++) {
 
         let div = document.createElement("div");
         div.setAttribute("class", "update-delete-option-div");
-        div.setAttribute("id", senders["chatId"]);
-        // div.setAttribute("onmouseenter", "editOptionMouseOver(this.id)");
-        // div.setAttribute("onmouseleave", "editoptionMouseOut()");
+        div.setAttribute("id", senders["chatkey"]);
         chatContentTimeDiv.prepend(div);
+
+        let editOptionInsideDiv = document.createElement("div");
+        editOptionInsideDiv.setAttribute("class", "edit-option-inside-div");
+        div.append(editOptionInsideDiv);
 
         let chatEditdiv = document.createElement("div");
         chatEditdiv.setAttribute("class", "edit-option-div");
         chatEditdiv.setAttribute("id", senders["chatId"]);
-        div.append(chatEditdiv);
+        editOptionInsideDiv.append(chatEditdiv);
 
         let editFa = document.createElement("i");
         editFa.setAttribute("class", "bi bi-pencil-square");
@@ -338,7 +341,6 @@ for (let i = 0; i < chatPersonCard.length; i++) {
         let deleteFa = document.createElement("i");
         deleteFa.setAttribute("class", "bi bi-trash");
         deleteFa.setAttribute("id", senders["chatkey"]);
-        // deleteFa.setAttribute("onclick", "chatDelete(this.id)");
         chatEditdiv.append(deleteFa);
 
         document.querySelector(".right-side-container").append(chatDivUser);
@@ -401,24 +403,62 @@ for (let i = 0; i < chatPersonCard.length; i++) {
         document.querySelector(".right-side-container").append(chatDivUser);
       }
     }
-
-    // // chat Edit input feild
-
-    // document.querySelector(".right-side-container").append(div);
   });
 }
 
-// function deleteChatMessage(self) {
-//   let messageId = self.getAttribute("id");
-//   console.log(messageId);
-
-//   database.ref("freshchat").child(messageId).remove();
-// }
+// creating function to show a edit option div while mouse over the element
 
 let chatContainer = document.querySelector(".right-side-container");
-// console.log(trashButon);
+
+// mouse over funciton
+
+async function mouserOver(mouse, currentId) {
+  console.log(mouse);
+
+  console.log(currentId);
+
+  console.log("susi");
+  let editOptionElement = document.querySelectorAll(
+    ".update-delete-option-div"
+  );
+  console.log(editOptionElement);
+
+  let updateElement;
+
+  for (let editElement of editOptionElement) {
+    if (editElement["id"] == currentId) {
+      updateElement = editElement;
+    }
+  }
+
+  mouse.addEventListener("mouseover", () => {
+    updateElement.style.display = "block";
+  });
+
+  mouse.addEventListener("mouseout", () => {
+    updateElement.style.display = "none";
+  });
+}
+
+chatContainer.addEventListener("mouseover", async function (event) {
+  let target = event.target;
+  console.log(target);
+
+  if (target.matches(".chat-user-inside-div")) {
+    let currentChat = target;
+    let currentId = target.id;
+    console.log(currentChat);
+
+    try {
+      await mouserOver(currentChat, currentId);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+});
 
 // chat delete function
+
 async function chatDelete(self) {
   console.log(self);
   // alert("Are you sure want to delete message");

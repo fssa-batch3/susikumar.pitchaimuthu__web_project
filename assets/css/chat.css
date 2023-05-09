@@ -515,6 +515,7 @@
   height: 610px;
   overflow: scroll;
   margin-bottom: 25px;
+  gap: 10px;
 }
 
 .right-side-container::-webkit-scrollbar {
@@ -527,11 +528,18 @@
 /* edit option div  */
 
 .update-delete-option-div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: auto;
+  display: none;
   height: 25px;
+  position: absolute;
+  width: 100%;
+  top: -24%;
+}
+
+.edit-option-inside-div {
+  display: flex;
+  justify-content: flex-end;
+  align-content: center;
+  width: 100%;
 }
 
 .edit-option-div {
@@ -770,6 +778,7 @@
   background-color: #44e0b9;
   border-top-right-radius: 20px;
   border-bottom-left-radius: 20px;
+  position: relative;
 }
 
 .chat-content-time-inside-div {

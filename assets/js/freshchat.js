@@ -99,8 +99,8 @@ function editOptionMouseOver(mouseOverclass) {
   let curentElement;
 
   for (let options of editOptionDiv) {
-    if (editOptionDiv[i].id == mouseOverclass) {
-      curentElement = editOptionDiv[i];
+    if (options.id == mouseOverclass) {
+      curentElement = options;
       console.log(curentElement);
     }
   }

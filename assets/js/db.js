@@ -62,11 +62,13 @@ async function setData(userReceiver) {
 
   try {
     await set(chatRef, chatData);
+
     console.log("Data updated successfully!");
     // Proceed with further actions or data retrieval here
   } catch (error) {
     console.error("Error updating data:", error);
   }
+  document.querySelector("#chat-input").value = "";
 }
 
 // Attach the click event listener to the document object using event delegation

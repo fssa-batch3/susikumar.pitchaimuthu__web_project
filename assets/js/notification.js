@@ -82,7 +82,7 @@ function showFollowDetails(followId) {
 
   for (let i = 0; i < userFriends.length; i++) {
     for (let j = 0; j < userFriends[i].length; j++) {
-      if (userFriends[i][j]["friendRequestId"] == findUser["userId"]) {
+      if (userFriends[i][j]["frienderId"] == findUser["userId"]) {
         profileUserFriendData = userFriends[i];
       }
     }
