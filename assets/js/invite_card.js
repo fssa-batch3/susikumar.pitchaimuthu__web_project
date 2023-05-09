@@ -34,6 +34,25 @@ console.log(getinviteData);
 let findInvite = getinviteData.find((e) => e.inviteId == urlinviteId);
 console.log(findInvite);
 
+// first element chart div
+
+let element = document.querySelector(".chart-div");
+element.setAttribute("data-percent", findInvite["inviteHeart"].length);
+let chartOnePara = document.querySelector(".first");
+console.log(chartOnePara);
+console.log(findInvite["inviteHeart"]);
+chartOnePara.innerHTML = findInvite["inviteHeart"].length + "%";
+
+let element_two = document.querySelector(".chart-div-two");
+element_two.setAttribute("data-percent", findInvite["inviteLike"].length);
+let chartTwoPara = document.querySelector(".second");
+chartTwoPara.innerHTML = findInvite["inviteLike"].length + "%";
+
+let element_three = document.querySelector(".chart-div-three");
+element_three.setAttribute("data-percent", findInvite["inviteNo"].length);
+let chartThreePara = document.querySelector(".three");
+chartThreePara.innerHTML = findInvite["inviteNo"].length + "%";
+
 // create element for showing the invite
 
 let invite_image = document.createElement("img");

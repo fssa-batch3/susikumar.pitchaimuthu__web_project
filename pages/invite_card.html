@@ -151,56 +151,5 @@
     <script src="../assets/js/invite_card.js"></script>
     <script src="../assets/js/easy_pie_chart.js"></script>
     <script src="../assets/js/invite_card_update.js"></script>
-
-    <!-- script for show the percent -->
-    <script>
-      // first element chart div
-
-      let element = document.querySelector(".chart-div");
-      element.setAttribute("data-percent", "40");
-      let chartOnePara = document.querySelector(".first");
-      chartThreePara.innerHTML = findInvite["inviteHeart"].length + "%";
-
-      let element_two = document.querySelector(".chart-div-two");
-      element_two.setAttribute("data-percent", "20");
-      let chartTwoPara = document.querySelector(".two");
-      chartThreePara.innerHTML = findInvite["inviteLike"].length + "%";
-
-      let element_three = document.querySelector(".chart-div-three");
-      element_three.setAttribute("data-percent", "30");
-      let chartThreePara = document.querySelector(".three");
-      chartThreePara.innerHTML = findInvite["inviteNo"].length + "%";
-
-      // assigning the chart data-percnetage..
-
-      // chat creation function
-
-      let chartOne = new EasyPieChart(element, {
-        barColor: "#A2D2FF",
-        lineWidth: 14,
-        lineCap: "circle",
-        size: 95,
-      });
-
-      // second element of chart second div
-
-      console.log(element_two);
-      let chartTwo = new EasyPieChart(element_two, {
-        barColor: "#A2D2FF",
-        lineWidth: 14,
-        lineCap: "circle",
-        size: 95,
-      });
-
-      // Third element of the chart third div
-
-      console.log(element_three);
-      let chartThree = new EasyPieChart(element_three, {
-        barColor: "#A2D2FF",
-        lineWidth: 14,
-        lineCap: "circle",
-        size: 95,
-      });
-    </script>
   </body>
 </html>

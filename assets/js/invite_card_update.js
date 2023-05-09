@@ -118,3 +118,34 @@ deleteInviteButton.addEventListener("click", (deIn) => {
     window.location.href = "../pages/invite.html?user=" + findUser["userId"];
   }
 });
+
+// assigning the chart data-percnetage..
+
+// chat creation function
+
+let chartOne = new EasyPieChart(element, {
+  barColor: "#A2D2FF",
+  lineWidth: 14,
+  lineCap: "circle",
+  size: 95,
+});
+
+// second element of chart second div
+
+console.log(element_two);
+let chartTwo = new EasyPieChart(element_two, {
+  barColor: "#A2D2FF",
+  lineWidth: 14,
+  lineCap: "circle",
+  size: 95,
+});
+
+// Third element of the chart third div
+
+console.log(element_three);
+let chartThree = new EasyPieChart(element_three, {
+  barColor: "#A2D2FF",
+  lineWidth: 14,
+  lineCap: "circle",
+  size: 95,
+});
