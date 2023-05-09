@@ -230,8 +230,10 @@ for (let i = 0; i < chatPersonCard.length; i++) {
 
     for (let firebaseData of firebaseDatabaseData) {
       if (
-        firebaseData["chatterId"] == findUser["userId"] &&
-        firebaseData["chatReceiverId"] == userSelectId
+        (firebaseData["chatterId"] == findUser["userId"] &&
+          firebaseData["chatReceiverId"] == userSelectId) ||
+        (firebaseData["chatReceiverId"] == findUser["userId"] &&
+          firebaseData["chatterId"] == userSelectId)
       ) {
         sender.push(firebaseData);
       }

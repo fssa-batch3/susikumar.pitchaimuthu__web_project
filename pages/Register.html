@@ -41,6 +41,7 @@
                       type="text"
                       id="firstname"
                       name="email"
+                      pattern="[A-Za-z]"
                       autocomplete="hdfhshjfj"
                       title="First name is required"
                       required
@@ -51,7 +52,13 @@
 
                 <div>
                   <label class="label">
-                    <input type="text" id="lastname" name="password" required />
+                    <input
+                      type="text"
+                      pattern="[A-Za-z]"
+                      id="lastname"
+                      name="password"
+                      required
+                    />
                     <span class="placeholder">Last name</span></label
                   >
                 </div>

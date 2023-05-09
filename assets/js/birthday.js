@@ -9,6 +9,20 @@ birthdayForm.addEventListener("submit", (event) => {
   let gender = document.getElementsByName("gender");
   console.log(gender);
 
+  // calculating the age
+
+  let currentDay = new Date();
+  let birthDate = new Date(birthday);
+  let age = currentDay.getFullYear() - birthDate.getFullYear();
+  let monthDiff = currentDay.getMonth() - birthDate.getMonth();
+  if (
+    monthDiff < 0 ||
+    (monthDiff === 0 && currentDay.getDate() < birthDate.getDate())
+  ) {
+    age--;
+  }
+  console.log(age);
+
   let birthdate = new Date(birthday);
 
   // Get today's date
@@ -36,7 +50,10 @@ birthdayForm.addEventListener("submit", (event) => {
   let birthDayObject = {
     dateOfBirth: birthday,
     userGender: userGen,
+    age: age,
+    city: "India",
   };
+
   console.log(birthDayObject);
 
   let birthdayObjectAssaign = Object.assign(findUserData, birthDayObject);

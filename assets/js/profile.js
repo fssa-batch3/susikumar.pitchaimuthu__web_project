@@ -9,13 +9,15 @@ let head = (document.getElementById("profile-head").innerText =
 let userTheme = (document.querySelector(".user-theme").innerHTML =
   findUser["userTheme"]);
 
+let agePara = (document.querySelector(".age-para").innerHTML = findUser["age"]);
+
 // profile image
 
 let profileImage = (document.querySelector("#profile-image").src =
   findUser["avatarUrl"]);
 
-console.log(profileImage);
-
+let cityPara = (document.querySelector(".city-para").innerHTML =
+  findUser["city"]);
 // create element for show the use last activity
 
 let allActivity = JSON.parse(localStorage.getItem("userInvites"));

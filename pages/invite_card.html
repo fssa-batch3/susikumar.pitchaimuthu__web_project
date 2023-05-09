@@ -38,14 +38,14 @@
               <div class="result-inside-div">
                 <!-- result chart div container -->
                 <div class="chart-div-container">
-                  <div class="chart-div" data-percent="43">
-                    <p class="chart-percentage-para">43%</p>
+                  <div class="chart-div">
+                    <p class="chart-percentage-para first"></p>
                   </div>
-                  <div class="chart-div-three" data-percent="53">
-                    <p class="chart-percentage-para">53%</p>
+                  <div class="chart-div-three">
+                    <p class="chart-percentage-para second"></p>
                   </div>
-                  <div class="chart-div-two" data-percent="63">
-                    <p class="chart-percentage-para">63%</p>
+                  <div class="chart-div-two">
+                    <p class="chart-percentage-para three"></p>
                   </div>
                 </div>
               </div>
@@ -157,8 +157,23 @@
       // first element chart div
 
       let element = document.querySelector(".chart-div");
-      let element_three = document.querySelector(".chart-div-three");
+      element.setAttribute("data-percent", "40");
+      let chartOnePara = document.querySelector(".first");
+      chartThreePara.innerHTML = findInvite["inviteHeart"].length + "%";
+
       let element_two = document.querySelector(".chart-div-two");
+      element_two.setAttribute("data-percent", "20");
+      let chartTwoPara = document.querySelector(".two");
+      chartThreePara.innerHTML = findInvite["inviteLike"].length + "%";
+
+      let element_three = document.querySelector(".chart-div-three");
+      element_three.setAttribute("data-percent", "30");
+      let chartThreePara = document.querySelector(".three");
+      chartThreePara.innerHTML = findInvite["inviteNo"].length + "%";
+
+      // assigning the chart data-percnetage..
+
+      // chat creation function
 
       let chartOne = new EasyPieChart(element, {
         barColor: "#A2D2FF",
