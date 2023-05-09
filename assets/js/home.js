@@ -507,6 +507,21 @@ function getFollow(es) {
   let gatherUser = info.find((e) => e["userId"] == es);
   console.log(gatherUser);
 
+  // Gather a follow sequence to send a message to the user
+
+  let followArray = [];
+  let followMessageObject = {
+    friendRequestId: findUser["userId"],
+    requestReceiverId: gatherUser["userId"],
+    requesterImage: findUser["avatarUrl"],
+    requesterName: findUser["userName"],
+    notiMoti: "follow",
+  };
+
+  followArray.push(followMessageObject);
+
+  localStorage.setItem("followNotificationData", JSON.stringify(followArray));
+
   let userArray;
 
   if (userFriends !== null) {
