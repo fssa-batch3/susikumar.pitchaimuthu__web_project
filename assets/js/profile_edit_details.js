@@ -23,8 +23,8 @@ lName.value = findUser["lastName"];
 uName.value = findUser["userName"];
 bio.value = findUser["userTheme"];
 email.value = findUser["email"];
-city.value = findUser["city"];
-phoneNumber.value = findUser["mobileNumber"];
+city.value = findUser["city"] || "";
+phoneNumber.value = findUser["mobileNumber"] || "";
 
 for (let i = 0; i < gender.length; i++) {
   if (gender[i]["value"] === findUser["userGender"]) {

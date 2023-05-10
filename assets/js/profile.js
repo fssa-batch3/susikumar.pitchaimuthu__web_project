@@ -17,7 +17,7 @@ let profileImage = (document.querySelector("#profile-image").src =
   findUser["avatarUrl"]);
 
 let cityPara = (document.querySelector(".city-para").innerHTML =
-  findUser["city"]);
+  findUser["city"] || "");
 // create element for show the use last activity
 
 let allActivity = JSON.parse(localStorage.getItem("userInvites"));

@@ -1,8 +1,47 @@
+// importing firebase data to show the user how much data are unread
+
+import database from "./db.js";
+
+import {
+  onValue,
+  ref,
+} from "https://www.gstatic.com/firebasejs/9.20.0/firebase-database.js";
+
+console.log(database);
+
+// getting the firebase database data
+
+let currentChatData = [];
+
+onValue(ref(database, `freshchat/`), (snapshot) => {
+  snapshot.forEach((childSnapshot) => {
+    // Get the key and value of each child node
+    const key = childSnapshot.key;
+    console.log(key);
+
+    const value = childSnapshot.val();
+
+    let chatObject = {
+      chatkey: key,
+    };
+
+    let chatAssign = Object.assign(value, chatObject);
+
+    currentChatData.push(chatAssign);
+
+    console.log(currentChatData);
+  });
+});
+
+console.log(currentChatData);
+
+// getting the user data from the database
+
 let freshChatUsers = JSON.parse(localStorage.getItem("userFriends"));
 console.log(freshChatUsers);
 
-let allSendChats = JSON.parse(localStorage.getItem("senderMessage"));
-console.log(allSendChats);
+// let allSendChats = JSON.parse(localStorage.getItem("senderMessage"));
+// console.log(allSendChats);
 
 let allUSerFriendsData;
 
@@ -70,23 +109,28 @@ if (allUSerFriendsData !== undefined) {
     // creating for loop to show the user unread chat count
 
     let chatterAccountId = friendData["userId"];
+    console.log(chatterAccountId);
 
     let numberCount = [];
 
-    const unread = false;
+    let unread = false;
 
-    if (allSendChats !== null) {
-      for (const sendChats of allSendChats) {
+    if (currentChatData != null) {
+      console.log(currentChatData);
+      for (let i = 0; i < currentChatData.length; i++) {
+        console.log(currentChatData[i]["chatReceiverId"]);
+        console.log(findUser["userId"]);
         if (
-          sendChats["chatSenderId"] == chatterAccountId &&
-          sendChats["isRead"] == unread
+          // currentChatData[i]["chatReceiverId"] == findUser["userId"] &&
+          currentChatData[i]["isread"] === unread
         ) {
-          numberCount.push(sendChats);
+          numberCount.push(currentChatData[i]);
+          console.log(numberCount.length);
         }
       }
     }
 
-    console.log(numberCount);
+    console.log(numberCount.length);
 
     if (numberCount != 0) {
       let countDiv = document.createElement("div");

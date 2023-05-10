@@ -58,6 +58,7 @@ async function setData(userReceiver) {
     chatterId: personId,
     chatId: chatId,
     chatSenderImage: findUser["avatarUrl"],
+    Isread: false,
   };
 
   try {

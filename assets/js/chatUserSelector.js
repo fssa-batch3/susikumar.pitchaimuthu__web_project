@@ -60,15 +60,6 @@ for (let i = 0; i < chatPersonCard.length; i++) {
 
     console.log(userSelectionIdFind);
 
-    let userChatters = [];
-
-    if (localStorage.getItem("userChatSelectors") !== null) {
-      userChatters = JSON.parse(localStorage.getItem("userChatSelectors"));
-    }
-
-    userChatters.push(userSelectionIdFind);
-    localStorage.setItem("userChatSelectors", JSON.stringify(userChatters));
-
     let checkUserData = document.querySelector(".user-profile-show-div");
 
     if (checkUserData !== null) {
