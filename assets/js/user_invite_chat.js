@@ -112,13 +112,43 @@ function likeHeart(e) {
 // thumbs up function
 
 function thumbsUp(e) {
-  console.log(e);
-
   let findInvite = inviteDatas.find((end) => end["inviteId"] == e);
   console.log(findInvite);
 
   let LikeIndex = inviteDatas.indexOf(findInvite);
   console.log(LikeIndex);
+  // Here thumbsUpfill already there remove that
+
+  let thumbsDownFill = document.querySelector(".sorry-div").firstChild;
+
+  let fillValue = thumbsDownFill.classList["value"];
+
+  if (fillValue == "bi bi-hand-thumbs-down-fill") {
+    thumbsDownFill.remove("bi bi-hand-thumbs-down-fill");
+
+    // instead of that element adding normal element
+
+    let sorryFill = document.createElement("i");
+    sorryFill.setAttribute("class", "bi bi-hand-thumbs-down");
+    document.querySelector(".sorry-div").append(sorryFill);
+    let dislikeIndex;
+
+    for (let i = 0; i < findInvite["inviteNo"].length; i++) {
+      if (findInvite["inviteNo"][i] == findUser["userId"]) {
+        dislikeIndex = findInvite["inviteNo"].indexOf(
+          findInvite["inviteNo"][i]
+        );
+      }
+    }
+
+    findInvite["inviteNo"].splice(dislikeIndex);
+
+    localStorage.setItem("userInvites", JSON.stringify(inviteDatas));
+  }
+
+  //  creating a function to add and delete count fo the invite
+
+  console.log(e);
 
   let okButton = document.querySelector(".ok-div").firstChild;
 
@@ -164,13 +194,45 @@ function thumbsUp(e) {
 // thumbs down function
 
 function thumbsDown(e) {
-  console.log(e);
-
   let findInvite = inviteDatas.find((end) => end["inviteId"] == e);
   console.log(findInvite);
 
   let LikeIndex = inviteDatas.indexOf(findInvite);
   console.log(LikeIndex);
+  // Here thumbsUpfill already there remove that
+
+  let thumbsFill = document.querySelector(".ok-div").firstChild;
+
+  let fillValue = thumbsFill.classList["value"];
+
+  if (fillValue == "bi bi-hand-thumbs-up-fill") {
+    thumbsFill.remove("bi bi-hand-thumbs-up-fill");
+
+    // instead of that element adding normal element
+
+    let likeFill = document.createElement("i");
+    likeFill.setAttribute("class", "bi bi-hand-thumbs-up");
+    document.querySelector(".ok-div").append(likeFill);
+
+    let thumbsUpIndex;
+
+    for (let i = 0; i < findInvite["inviteLike"].length; i++) {
+      if (findInvite["inviteLike"][i] == findUser["userId"]) {
+        thumbsUpIndex = findInvite["inviteLike"].indexOf(
+          findInvite["inviteLike"][i]
+        );
+      }
+    }
+
+    console.log(thumbsUpIndex);
+
+    findInvite["inviteLike"].splice(thumbsUpIndex);
+
+    localStorage.setItem("userInvites", JSON.stringify(inviteDatas));
+  }
+
+  //  creating a function to add and delete count fo the invite
+  console.log(e);
 
   let thumbsDownElement = document.querySelector(".sorry-div").firstChild;
 
