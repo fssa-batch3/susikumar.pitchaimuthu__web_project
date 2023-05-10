@@ -11,7 +11,10 @@ console.log(friendsInvites);
 
 for (let i = 0; i < friendsInvites.length; i++) {
   let friendInviteContainer = document.createElement("div");
-  friendInviteContainer.setAttribute("class", "friends-invites-container");
+  friendInviteContainer.setAttribute(
+    "class",
+    "user-card-container" + " " + friendsInvites[i]["inviterName"]
+  );
   friendInviteContainer.setAttribute("id", friendsInvites[i]["inviteId"]);
   friendInviteContainer.setAttribute("onclick", "showInvite(this.id)");
 

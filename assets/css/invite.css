@@ -244,7 +244,7 @@
 }
 
 /* friends invite card creation */
-.friends-invites-container {
+.user-card-container {
   display: flex;
   justify-content: center;
   align-items: center;

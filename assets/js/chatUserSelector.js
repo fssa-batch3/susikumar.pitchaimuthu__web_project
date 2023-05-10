@@ -204,6 +204,10 @@ for (let i = 0; i < chatPersonCard.length; i++) {
     sendButton.setAttribute("class", "chat-submit");
     chatSubmitDiv.append(sendButton);
 
+    let sendIcon = document.createElement("i");
+    sendIcon.setAttribute("class", "bi bi-send");
+    sendButton.append(sendIcon);
+
     let Span = document.createElement("span");
     Span.setAttribute("class", "submit-span");
     Span.setAttribute("id", userSelectionIdFind["userId"]);
@@ -247,8 +251,9 @@ for (let i = 0; i < chatPersonCard.length; i++) {
     let chageChat = document.querySelector(".right-side-container");
     console.log(chageChat);
 
-    if (chageChat.hasChildNodes()) {
+    if (chageChat.childNodes) {
       let chatFistchild = document.querySelectorAll(".chat-div-for-user");
+      console.log(chatFistchild);
 
       for (let firstChild of chatFistchild) {
         firstChild.remove();
