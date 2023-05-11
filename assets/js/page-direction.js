@@ -62,13 +62,3 @@ logOut.addEventListener("click", () => {
     }
   }
 });
-
-// invite page event listener
-
-// let addElement = document.querySelector(".invite-adding-div-container");
-
-// addElement.addEventListener("click", () => {
-//   window.location.href = "../pages/add_invite_form.html";
-// });
-
-// This function for redirect to notification page

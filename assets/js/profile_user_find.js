@@ -8,6 +8,7 @@ let urlId = userUrlParams.get("user");
 console.log(urlId);
 
 let info = JSON.parse(window.localStorage.getItem("register"));
+console.log(info);
 
 // usin find method for find the user
 

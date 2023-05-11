@@ -32,6 +32,8 @@ body {
   width: 100%;
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .three-image {
@@ -77,6 +79,8 @@ body {
   width: 100%;
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .email {
@@ -94,6 +98,8 @@ body {
   width: 100%;
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .email-content {
@@ -102,44 +108,26 @@ body {
   justify-content: center;
 }
 
-footer {
-  background-color: #3c3e3e;
-  height: auto;
-}
-.footer-container-div {
-  display: flex;
-  justify-content: space-between;
-  margin: 0px 50px 20px 50px;
+.email-button {
+  border: none;
+  padding: 8px 11px;
+  background-color: #6257d8;
+  border-radius: 6px;
+  color: #fff;
 }
 
-.footer-nest-image {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
+.video-call-button {
+  border: none;
+  padding: 8px 11px;
+  background-color: #5795d8;
+  border-radius: 6px;
+  color: #fff;
 }
 
-.footer-bird {
-  width: 50%;
-}
-
-.footer-about {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
-.footer-features {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
-.footer-download {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
-* footer a {
-  color: white;
+.voice-call-button {
+  border: none;
+  padding: 8px 11px;
+  background-color: #6ad857;
+  border-radius: 6px;
+  color: #fff;
 }
