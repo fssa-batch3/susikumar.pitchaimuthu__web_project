@@ -3,73 +3,84 @@
 let followData = JSON.parse(localStorage.getItem("followNotificationData"));
 console.log(followData);
 
-let userFollowData;
+let othersNoti = document.querySelector(".follow-button");
 
 let userFriends = JSON.parse(localStorage.getItem("userFriends"));
 console.log(userFriends);
+othersNoti.addEventListener("click", (no) => {
+  no.preventDefault();
 
-if (followData != null) {
-  userFollowData = followData.filter(
-    (e) => e["requestReceiverId"] == findUser["userId"]
-  );
+  let userFollowData;
 
-  console.log(userFollowData);
-
-  // show the notification data of follow
-
-  for (let i = 0; i < userFollowData.length; i++) {
-    let followCardDivContainer = document.createElement("div");
-    followCardDivContainer.setAttribute("class", "follow-card-div-container");
-    followCardDivContainer.setAttribute(
-      "id",
-      userFollowData[i]["friendRequestId"]
-    );
-    followCardDivContainer.setAttribute(
-      "onclick",
-      "showFollowDetails(this.id)"
+  if (followData != null) {
+    userFollowData = followData.filter(
+      (e) => e["requestReceiverId"] == findUser["userId"]
     );
 
-    let followCardInsideContainer = document.createElement("div");
-    followCardInsideContainer.setAttribute(
-      "class",
-      "follow-card-inside-container"
-    );
-    followCardDivContainer.append(followCardInsideContainer);
+    console.log(userFollowData);
 
-    let followImageDiv = document.createElement("div");
-    followImageDiv.setAttribute("class", "follow-image-div");
-    followCardInsideContainer.append(followImageDiv);
+    // show the notification data of follow
 
-    let followImage = document.createElement("img");
-    followImage.setAttribute("class", "follower-image");
-    followImage.setAttribute("src", userFollowData[i]["requesterImage"]);
-    followImageDiv.append(followImage);
+    for (let i = 0; i < userFollowData.length; i++) {
+      let followCardDivContainer = document.createElement("div");
+      followCardDivContainer.setAttribute("class", "follow-card-div-container");
+      followCardDivContainer.setAttribute(
+        "id",
+        userFollowData[i]["friendRequestId"]
+      );
+      followCardDivContainer.setAttribute(
+        "onclick",
+        "showFollowDetails(this.id)"
+      );
 
-    let followNameDiv = document.createElement("div");
-    followNameDiv.setAttribute("class", "follow-name-div");
-    followCardInsideContainer.append(followNameDiv);
+      let followCardInsideContainer = document.createElement("div");
+      followCardInsideContainer.setAttribute(
+        "class",
+        "follow-card-inside-container"
+      );
+      followCardDivContainer.append(followCardInsideContainer);
 
-    let followName = document.createElement("h3");
-    followName.setAttribute("class", "follower-name");
-    followName.innerHTML = userFollowData[i]["requesterName"];
-    followNameDiv.append(followName);
+      let followImageDiv = document.createElement("div");
+      followImageDiv.setAttribute("class", "follow-image-div");
+      followCardInsideContainer.append(followImageDiv);
 
-    let ourPara = document.createElement("p");
-    ourPara.setAttribute("class", "our-para");
-    ourPara.innerHTML =
-      "This user has started following you. But you didn't follow";
-    followNameDiv.append(ourPara);
+      let followImage = document.createElement("img");
+      followImage.setAttribute("class", "follower-image");
+      followImage.setAttribute("src", userFollowData[i]["requesterImage"]);
+      followImageDiv.append(followImage);
 
-    document
-      .querySelector(".mention-box-inside-container")
-      .append(followCardDivContainer);
+      let followNameDiv = document.createElement("div");
+      followNameDiv.setAttribute("class", "follow-name-div");
+      followCardInsideContainer.append(followNameDiv);
+
+      let followName = document.createElement("h3");
+      followName.setAttribute("class", "follower-name");
+      followName.innerHTML = userFollowData[i]["requesterName"];
+      followNameDiv.append(followName);
+
+      let ourPara = document.createElement("p");
+      ourPara.setAttribute("class", "our-para");
+      ourPara.innerHTML =
+        "This user has started following you. But you didn't follow";
+      followNameDiv.append(ourPara);
+
+      document
+        .querySelector(".mention-box-inside-container")
+        .append(followCardDivContainer);
+    }
   }
-}
+});
 
 // follow notification person details showing container
 
 function showFollowDetails(followId) {
   console.log(followId);
+
+  let followContainer = document.querySelector(".follow-details-div-container");
+
+  if (followContainer !== null) {
+    followContainer.remove();
+  }
 
   let findFollowUser = info.find((site) => site["userId"] == followId);
 
@@ -142,13 +153,13 @@ function showFollowDetails(followId) {
 
   if (match == true) {
     let followingButtonBtn = document.createElement("button");
-    followingButtonBtn.setAttribute("class", "following-button");
+    followingButtonBtn.setAttribute("class", "follow-button");
     followingButtonBtn.setAttribute("id", findFollowUser["userId"]);
     followingButtonBtn.innerHTML = "following";
     followerButtonDivContainer.append(followingButtonBtn);
   } else {
     let followBackBUtton = document.createElement("button");
-    followBackBUtton.setAttribute("class", "follow-button");
+    followBackBUtton.setAttribute("class", "following-button");
     followBackBUtton.setAttribute("id", findFollowUser["userId"]);
     followBackBUtton.setAttribute("onclick", "followBack(this.id)");
     followBackBUtton.innerHTML = "follow back";
@@ -204,7 +215,7 @@ function followBack(e) {
     let createArray = [];
 
     let createObject = {
-      friendRequestId: findUser["userId"],
+      frienderId: findUser["userId"],
       userId: findFollower["userId"],
       userName: findFollower["userName"],
       avatarUrl: findFollower["avatarUrl"],
@@ -220,7 +231,7 @@ function followBack(e) {
   }
 }
 
-// show the notification data of other activity
+// show the notification data of other activity and other data showing function
 
 let notiData = JSON.parse(localStorage.getItem("inviteNotificationData"));
 
@@ -277,6 +288,58 @@ if (notiData != null) {
     document.querySelector(".mention-box-inside-container").append(whole_div);
   }
 }
+
+// other notification function
+
+let otherNotiElement = document.querySelector(".other-button");
+
+otherNotiElement.addEventListener("click", () => {
+  for (let i = 0; i < userNotiData.length; i++) {
+    let whole_div = document.createElement("div");
+    whole_div.setAttribute("class", "mention-box-div");
+    whole_div.setAttribute("id", userNotiData[i]["inviteNotiId"]);
+    whole_div.setAttribute("onclick", "findInviteUser(this.id)");
+
+    let mention_box_insie = document.createElement("div");
+    mention_box_insie.setAttribute("class", "mention-box-inside-div");
+    whole_div.append(mention_box_insie);
+
+    let image_name_div = document.createElement("div");
+    image_name_div.setAttribute("class", "image-and-name-div");
+    mention_box_insie.append(image_name_div);
+
+    let pro_image_div = document.createElement("div");
+    pro_image_div.setAttribute("class", "pro-image-div");
+    image_name_div.append(pro_image_div);
+
+    let pro_image = document.createElement("img");
+    pro_image.setAttribute("class", "mention-profile-image");
+    pro_image.setAttribute("src", userNotiData[i]["invite_person_url"]);
+    pro_image_div.append(pro_image);
+
+    let name_content_div = document.createElement("div");
+    name_content_div.setAttribute("class", "name-content-div");
+    image_name_div.append(name_content_div);
+
+    let h3 = document.createElement("h3");
+    h3.innerHTML = userNotiData[i]["notification_person"];
+    name_content_div.append(h3);
+
+    let p = document.createElement("p");
+    p.innerHTML = userNotiData[i]["inviteChat"];
+    name_content_div.append(p);
+
+    let user_mention_media_div = document.createElement("div");
+    user_mention_media_div.setAttribute("class", "user-mention-media-div");
+    mention_box_insie.append(user_mention_media_div);
+
+    let image = document.createElement("i");
+    image.setAttribute("class", "bi bi-heart-fill");
+    user_mention_media_div.append(image);
+
+    document.querySelector(".mention-box-inside-container").append(whole_div);
+  }
+});
 
 // writing eventListner function to show invite details
 

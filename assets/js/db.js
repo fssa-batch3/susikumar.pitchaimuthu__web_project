@@ -37,6 +37,11 @@ async function setData(userReceiver) {
   let chatMessage = document.querySelector("#chat-input").value.trim();
   console.log(chatMessage);
 
+  if (chatMessage == null || chatMessage == "") {
+    alert("You can send empty chat");
+    return;
+  }
+
   let userName = findUser["userName"];
   console.log(userName);
 
@@ -72,6 +77,35 @@ async function setData(userReceiver) {
   document.querySelector("#chat-input").value = "";
 }
 
+// chat voice convert into the text
+
+async function voiceText() {
+  let speech = true;
+
+  alert("susi");
+
+  window.SpeechRecognition = window.webkitSpeechRecognition;
+
+  let recognition = new SpeechRecognition();
+
+  recognition.addEventListener("result", (e) => {
+    let transcript = Array.from(e.results)
+      .map((result) => result[0])
+      .map((result) => result.transcript);
+
+    // Handle the transcript data here
+    console.log(transcript);
+
+    let chatInputField = document.querySelector("#chat-input");
+
+    chatInputField.value = transcript;
+  });
+
+  if (speech == true) {
+    recognition.start();
+  }
+}
+
 // Attach the click event listener to the document object using event delegation
 firstParent.addEventListener("click", async function (event) {
   let target = event.target;
@@ -83,6 +117,17 @@ firstParent.addEventListener("click", async function (event) {
   if (target.matches(".submit-span")) {
     try {
       await setData(userReceiver);
+      console.log("Data set successfully");
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  // enter the mike option
+
+  if (target.matches(".fa-microphone")) {
+    try {
+      await voiceText();
       console.log("Data set successfully");
     } catch (error) {
       console.error(error);
