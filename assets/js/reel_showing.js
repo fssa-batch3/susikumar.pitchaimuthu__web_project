@@ -7,23 +7,34 @@ let UrlReel = window.location.search;
 
 let ReelParams = new URLSearchParams(UrlReel);
 
-let passingReelId = ReelParams.get("reel");
+let passingReelId = ReelParams.get("user");
 console.log(passingReelId);
 
 // creating a find function to find the reel
 
-let currentReel = reelData.find((e) => e["reelId"] == passingReelId);
+let currentReel;
+
+for (let reelUserDatas of reelData) {
+  for (let reelInside of reelUserDatas) {
+    if (reelInside["reelUser"] == passingReelId) {
+      currentReel = reelUserDatas;
+    }
+  }
+}
+
 console.log(currentReel);
 
-let video = document.createElement("video");
-video.setAttribute("class", "reel-video");
+for (let reels of currentReel) {
+  let video = document.createElement("video");
+  video.setAttribute("class", "reel-video");
 
-let source = document.createElement("source");
-source.setAttribute("src", currentReel["reel_url"]);
-source.setAttribute("type", "video/mp4");
-video.append(source);
+  let source = document.createElement("source");
+  source.setAttribute("src", reels["reel_url"]);
+  source.setAttribute("type", "video/mp4");
+  video.append(source);
 
-document.querySelector(".reel-inside-div").append(video);
+  document.querySelector(".reel-inside-div").append(video);
+}
 
 // writing function for videos
 

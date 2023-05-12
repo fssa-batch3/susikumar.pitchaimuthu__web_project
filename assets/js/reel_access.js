@@ -10,7 +10,7 @@ reelInput.addEventListener("change", function (event) {
   let reader = new FileReader(file);
   console.log(reader);
   //  Reading the video file
-  console.log("susi");
+
   reader.onload = function (event) {
     let src = event.target.result;
 
@@ -22,16 +22,69 @@ reelInput.addEventListener("change", function (event) {
       reelArr = JSON.parse(localStorage.getItem("reelUrlData"));
     }
 
+    let reelTime = moment().format("LT");
+    let reelDate = moment().format("L");
+
     let reelId = Date.now();
     let reelVideoObj = {
       reel_url: src,
       reelId: reelId,
       reelName: reelId + "reel",
+      reelUser: findUser["userId"],
+      reelTime: reelTime,
+      reelDate: reelDate,
+      reelerName: findUser["userName"],
     };
 
-    console.log(reelVideoObj);
+    // Here checking the reel user data is ther is not
 
-    reelArr.push(reelVideoObj);
+    let allReelData = JSON.parse(localStorage.getItem("reelUrlData"));
+
+    console.log(allReelData);
+
+    if (allReelData != null) {
+      let getUser;
+
+      let reelIndex;
+
+      for (let allReel of allReelData) {
+        for (let inside of allReel) {
+          if (inside["reelUser"] == findUser["userId"]) {
+            getUser = allReel;
+            reelIndex = allReelData.indexOf(allReel);
+          }
+        }
+      }
+
+      console.log(getUser);
+      console.log(reelIndex);
+
+      if (getUser != null) {
+        getUser.push(reelVideoObj);
+
+        console.log(getUser);
+
+        allReelData[reelIndex] = getUser;
+
+        localStorage.setItem("reelUrlData", JSON.stringify(allReelData));
+      } else {
+        let anotherArray = [];
+
+        anotherArray.push(reelVideoObj);
+
+        allReelData.push(anotherArray);
+
+        localStorage.setItem("reelUrlData", JSON.stringify(allReelData));
+      }
+
+      return;
+    }
+
+    let newArray = [];
+
+    newArray.push(reelVideoObj);
+
+    reelArr.push(newArray);
 
     localStorage.setItem("reelUrlData", JSON.stringify(reelArr));
   };
@@ -44,23 +97,34 @@ reelInput.addEventListener("change", function (event) {
 let checkReel = JSON.parse(localStorage.getItem("reelUrlData"));
 console.log(checkReel);
 
-if (checkReel !== null) {
-  for (let i = 0; i < checkReel.length; i++) {
-    // creating reel div for the user
+// creating reel div for the user
 
-    let trendingBirdDiv = document.createElement("div");
-    trendingBirdDiv.setAttribute("class", "reel-member-div");
-    trendingBirdDiv.setAttribute("id", checkReel[i]["reelId"]);
+let trendingBirdDiv = document.createElement("div");
+trendingBirdDiv.setAttribute("class", "reel-member-div");
 
-    let trendingBirdDivImage = document.createElement("img");
-    trendingBirdDivImage.setAttribute("class", "reel-member-div-image");
-    trendingBirdDivImage.setAttribute("src", findUser["avatarUrl"]);
+let trendingBirdDivImage = document.createElement("img");
+trendingBirdDivImage.setAttribute("class", "reel-member-div-image");
+trendingBirdDivImage.setAttribute("src", findUser["avatarUrl"]);
+trendingBirdDiv.append(trendingBirdDivImage);
 
-    trendingBirdDiv.append(trendingBirdDivImage);
+document.querySelector(".reel-container").append(trendingBirdDiv);
 
-    document.querySelector(".reel-container").append(trendingBirdDiv);
+// creating function to show user has reel
+
+if (checkReel != null) {
+  for (let reelDatas of checkReel) {
+    for (let insideReel of reelDatas) {
+      if (insideReel["reelUser"] == findUser["userId"]) {
+        let reelMember = document.querySelector(".reel-member-div");
+
+        reelMember.style.border = "2px rgb(108, 156, 180) solid";
+        reelMember.setAttribute("id", insideReel["reelId"]);
+      }
+    }
   }
 }
+
+// creating the add eventlisner to redirect to the reel showing page
 
 let reelPage = document.querySelector(".reel-member-div");
 console.log(reelPage);
