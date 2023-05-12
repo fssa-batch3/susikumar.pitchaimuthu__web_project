@@ -205,7 +205,6 @@ file.addEventListener("change", function () {
 
   if (choosePhoto) {
     let reader = new FileReader();
-    // console.log(reader.result);
 
     reader.addEventListener("load", function () {
       image.setAttribute("src", reader.result);

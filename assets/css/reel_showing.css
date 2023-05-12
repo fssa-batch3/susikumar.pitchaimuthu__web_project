@@ -5,11 +5,45 @@
   margin-top: 3.5em;
 }
 
+.reel-and-arrow-div-container {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  justify-content: space-between;
+}
+
+/* left side arrow container */
+
+.left-arrow-div-container,
+.right-side-arrow-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 5em;
+}
+
+.bi-chevron-double-left,
+.bi-chevron-double-right {
+  font-size: 2em;
+  color: #827d7d;
+}
+
+/* reel container css */
+
 .reel-div-container {
-  width: 35em;
-  height: 47em;
-  border: 1px solid grey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
   border-radius: 10px;
+  box-shadow: rgba(165, 192, 215, 0.48) 6px 2px 16px 0px,
+    rgba(156, 185, 210, 0.48) -6px -2px 16px 0px;
+}
+
+.reel-inside-div-container {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 13px;
 }
 
 .profile-showing-whole-container {
@@ -34,7 +68,7 @@
   width: 5em;
   height: 4em;
   border-radius: 50%;
-  border: 1px solid grey;
+  border: 1px solid #ccc;
 }
 
 .profile-image {
@@ -58,8 +92,13 @@
   width: 20%;
 }
 
-.bi-shield-x {
-  font-size: 1.2em;
+.bi-x-octagon-fill {
+  font-size: 1.4em;
+  color: #ccc;
+}
+
+.bi-x-octagon-fill:hover {
+  color: #808080;
 }
 
 /* reel area */
@@ -103,13 +142,32 @@
 .bi-heart,
 .bi-send {
   font-size: 1.5em;
+  color: #ccc;
+}
+
+.bi-send:hover {
+  color: #808080;
+}
+
+.bi-heart:hover {
+  color: #808080;
+}
+
+.bi-emoji-smile:hover {
+  color: #808080;
 }
 
 #input-for-reel-reaction {
-  width: 26em;
-  height: 2.5em;
-  border: 1px solid grey;
-  border-radius: 6px;
+  width: 31em;
+  height: 2.4em;
+  padding: 3px;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+  outline: none;
+}
+
+input[type="text"] {
+  flex: 1;
 }
 
 .heart-send-div {

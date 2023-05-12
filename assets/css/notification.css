@@ -1,3 +1,14 @@
+#notification {
+  background-color: #00baff;
+  border-radius: 10px;
+  color: #fff;
+}
+
+.nav-link:hover {
+  background-color: #cbe7ea;
+  border-radius: 10px;
+}
+
 .mention-whole-container {
   display: flex;
   align-items: center;

@@ -106,6 +106,22 @@ async function voiceText() {
   }
 }
 
+// Document sending function  creation
+
+async function documentSending() {
+  let chooseFile = this.files[0];
+
+  if (chooseFile) {
+    let reader = new FileReader();
+
+    reader.addEventListener("load", function () {
+      console.log(reader.result);
+    });
+  }
+
+  reader.readAsDataURL(chooseFile);
+}
+
 // Attach the click event listener to the document object using event delegation
 firstParent.addEventListener("click", async function (event) {
   let target = event.target;
@@ -133,4 +149,23 @@ firstParent.addEventListener("click", async function (event) {
       console.error(error);
     }
   }
+
+  // document sending function
+
+  if (target.matches(".fa-file")) {
+    try {
+      await documentSending();
+      console.log("Data set successfully");
+    } catch (error) {
+      console.error(error);
+    }
+  }
 });
+
+if (navigator.share) {
+  // Web Share API is supported
+  console.log("Web Share API is supported");
+} else {
+  // Web Share API is not supported
+  console.log("Web Share API is not supported");
+}

@@ -298,9 +298,19 @@ function chatCard() {
       chatFileOptionDiv.setAttribute("class", "chat-file-option-div");
       inputForm.append(chatFileOptionDiv);
 
+      let fileInput = document.createElement("input");
+      fileInput.setAttribute("type", "file");
+      fileInput.setAttribute("class", "file-input");
+      chatFileOptionDiv.append(fileInput);
+
+      let filelabel = document.createElement("label");
+      filelabel.setAttribute("class", "file-label");
+      filelabel.setAttribute("for", "file");
+      chatFileOptionDiv.append(filelabel);
+
       let fileI = document.createElement("i");
       fileI.setAttribute("class", "fa fa-file");
-      chatFileOptionDiv.append(fileI);
+      filelabel.append(fileI);
 
       let mikeI = document.createElement("i");
       mikeI.setAttribute("class", "fa fa-microphone");

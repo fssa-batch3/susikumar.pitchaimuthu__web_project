@@ -33,11 +33,11 @@ document.querySelector(".reel-video").play();
 // reel delete option
 
 let reelDele = document.createElement("i");
-reelDele.setAttribute("class", "bi bi-shield-x");
+reelDele.setAttribute("class", "bi bi-x-octagon-fill");
 reelDele.setAttribute("id", currentReel["reelId"]);
 document.querySelector(".reel-delete-div").append(reelDele);
 
-let reelOption = document.querySelector(".bi-shield-x");
+let reelOption = document.querySelector(".bi-x-octagon-fill");
 
 reelOption.addEventListener("click", (e) => {
   console.log(reelOption["id"]);
@@ -48,7 +48,7 @@ reelOption.addEventListener("click", (e) => {
   let findIndexReel = reelData.indexOf(findReel);
   console.log(findIndexReel);
 
-  let message = confirm("Are sure to Delete your account in Fresh Nest?");
+  let message = confirm("Are sure to delete this reel");
 
   if (message !== true) {
     return;

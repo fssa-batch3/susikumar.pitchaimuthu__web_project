@@ -4,6 +4,17 @@ body::-webkit-scrollbar {
 
 /* menu css */
 
+.bi-camera {
+  background-color: #00baff;
+  border-radius: 10px;
+  color: #fff;
+}
+
+.nav-link:hover {
+  background-color: #cbe7ea;
+  border-radius: 10px;
+}
+
 .menu {
   display: flex;
   align-items: center;

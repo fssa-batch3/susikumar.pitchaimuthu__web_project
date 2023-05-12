@@ -9,7 +9,7 @@
     <!-- css links -->
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
     />
 
     <link rel="stylesheet" href="../assets/css/reel_showing.css" />
@@ -20,41 +20,62 @@
     <div class="reel-whole-div-container">
       <!-- div for cotaining all reel div -->
 
-      <div class="reel-div-container">
-        <!-- reeling person name div -->
-        <div class="profile-showing-whole-container">
-          <!-- profile div -->
-
-          <dic class="reel-name-div-container">
-            <div class="profile-div"></div>
-
-            <!-- div for show the rooling person name -->
-
-            <div class="user-name-div"></div>
-          </dic>
-
-          <div class="reel-delete-div"></div>
+      <div class="reel-and-arrow-div-container">
+        <div class="left-arrow-div-container">
+          <i class="bi bi-chevron-double-left icon"></i>
         </div>
 
-        <!-- reel showing div -->
+        <!-- reel container -->
 
-        <div class="reel-showing-container">
-          <div class="reel-inside-div"></div>
-        </div>
+        <div class="reel-div-container">
+          <div class="reel-inside-div-container">
+            <!-- reeling person name div -->
+            <div class="profile-showing-whole-container">
+              <!-- profile div -->
 
-        <!-- reel option showing our reaction -->
+              <dic class="reel-name-div-container">
+                <div class="profile-div"></div>
 
-        <div class="reel-option-div-container">
-          <div class="reel-inside-option-div">
-            <div class="input-emoji-div">
-              <i class="bi bi-emoji-smile"></i>
-              <input type="text" id="input-for-reel-reaction" />
+                <!-- div for show the rooling person name -->
+
+                <div class="user-name-div"></div>
+              </dic>
+
+              <div class="reel-delete-div"></div>
             </div>
-            <div class="heart-send-div">
-              <i class="bi bi-heart"></i>
-              <i class="bi bi-send"></i>
+
+            <!-- reel showing div -->
+
+            <div class="reel-showing-container">
+              <div class="reel-inside-div"></div>
+            </div>
+
+            <!-- reel option showing our reaction -->
+
+            <div class="reel-option-div-container">
+              <div class="reel-inside-option-div">
+                <div class="input-emoji-div">
+                  <i class="bi bi-emoji-smile"></i>
+
+                  <input
+                    type="text"
+                    id="input-for-reel-reaction"
+                    placeholder="Type your message..."
+                  />
+                </div>
+                <div class="heart-send-div">
+                  <i class="bi bi-send"></i>
+                  <i class="bi bi-heart"></i>
+                </div>
+              </div>
             </div>
           </div>
+        </div>
+
+        <!-- right side div container -->
+
+        <div class="right-side-arrow-container">
+          <i class="bi bi-chevron-double-right icon"></i>
         </div>
       </div>
     </div>
