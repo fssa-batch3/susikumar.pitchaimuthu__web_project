@@ -298,3 +298,13 @@ body.dark .switch::before {
 body.dark .home .text {
   color: var(--text-color);
 }
+
+.notification-para {
+  position: absolute;
+  right: 24%;
+  top: 40.2%;
+  background-color: #2ec866;
+  border-radius: 50%;
+  padding: 0px 6px;
+  font-size: 65%;
+}

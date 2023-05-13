@@ -516,6 +516,7 @@ function getFollow(es) {
     requesterImage: findUser["avatarUrl"],
     requesterName: findUser["userName"],
     notiMoti: "follow",
+    isRead: "false",
   };
 
   followArray.push(followMessageObject);
