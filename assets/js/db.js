@@ -82,7 +82,7 @@ async function setData(userReceiver) {
 async function voiceText() {
   let speech = true;
 
-  alert("susi");
+  alert("Voice recognition started.");
 
   window.SpeechRecognition = window.webkitSpeechRecognition;
 
@@ -101,25 +101,50 @@ async function voiceText() {
     chatInputField.value = transcript;
   });
 
+  recognition.addEventListener("end", () => {
+    alert("Voice recognition ended.");
+  });
+
   if (speech == true) {
     recognition.start();
   }
 }
 
 // Document sending function  creation
-
 async function documentSending() {
-  let chooseFile = this.files[0];
+  let fileInput = document.createElement("input");
+  fileInput.type = "file";
 
-  if (chooseFile) {
+  let imageElement = document.createElement("img");
+
+  fileInput.click();
+
+  fileInput.addEventListener("change", function (e) {
+    let file = e.target.files[0];
+
+    console.log("File name:", file.name);
+    console.log("File type:", file.type);
+    console.log("File size:", file.size, "bytes");
+    console.log("Last modified:", file.lastModified);
+
     let reader = new FileReader();
+    reader.onload = function (e) {
+      let fileContent = e.target.result;
+      console.log(fileContent);
 
-    reader.addEventListener("load", function () {
-      console.log(reader.result);
-    });
-  }
+      imageElement.src = fileContent;
 
-  reader.readAsDataURL(chooseFile);
+      // Append the image element to a container
+      let container = document.createElement("div");
+      container.appendChild(imageElement);
+
+      console.log(container.innerHTML);
+
+      // Set the HTML content of the input element
+      document.querySelector("#chat-input").value = container.innerHTML;
+    };
+    reader.readAsDataURL(file);
+  });
 }
 
 // Attach the click event listener to the document object using event delegation

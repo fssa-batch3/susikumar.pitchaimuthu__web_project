@@ -7,86 +7,102 @@ console.log(reelInput);
 reelInput.addEventListener("change", function (event) {
   event.preventDefault();
   let file = this.files[0];
-  let reader = new FileReader(file);
-  console.log(reader);
-  //  Reading the video file
+  let reader = new FileReader();
 
   reader.onload = function (event) {
     let src = event.target.result;
 
-    // reel data store
+    let video = document.createElement("video");
 
-    let reelArr = [];
+    // Wait for the metadata to load
+    video.onloadedmetadata = function () {
+      const duration = video.duration;
 
-    if (localStorage.getItem("reelUrlData") !== null) {
-      reelArr = JSON.parse(localStorage.getItem("reelUrlData"));
-    }
+      // Format the duration in minutes and seconds
 
-    let reelTime = moment().format("LT");
-    let reelDate = moment().format("L");
+      const seconds = Math.floor(duration % 60);
 
-    let reelId = Date.now();
-    let reelVideoObj = {
-      reel_url: src,
-      reelId: reelId,
-      reelName: reelId + "reel",
-      reelUser: findUser["userId"],
-      reelTime: reelTime,
-      reelDate: reelDate,
-      reelerName: findUser["userName"],
-    };
+      console.log(seconds);
 
-    // Here checking the reel user data is ther is not
+      // rest of your code...
 
-    let allReelData = JSON.parse(localStorage.getItem("reelUrlData"));
+      // reel data store
+      let reelArr = [];
+      if (localStorage.getItem("reelUrlData") !== null) {
+        reelArr = JSON.parse(localStorage.getItem("reelUrlData"));
+      }
 
-    console.log(allReelData);
+      let reelTime = moment().format("LT");
+      let reelDate = moment().format("L");
 
-    if (allReelData != null) {
-      let getUser;
+      let reelId = Date.now();
+      let reelVideoObj = {
+        reel_url: src,
+        reelId: reelId,
+        reelName: reelId + "reel",
+        reelUser: findUser["userId"],
+        reelTime: reelTime,
+        reelDate: reelDate,
+        reelerName: findUser["userName"],
+        reelDuration: duration,
+      };
 
-      let reelIndex;
+      // Here checking the reel user data is ther is not
 
-      for (let allReel of allReelData) {
-        for (let inside of allReel) {
-          if (inside["reelUser"] == findUser["userId"]) {
-            getUser = allReel;
-            reelIndex = allReelData.indexOf(allReel);
+      let allReelData = JSON.parse(localStorage.getItem("reelUrlData"));
+
+      console.log(allReelData);
+
+      if (allReelData != null) {
+        let getUser;
+
+        let reelIndex;
+
+        for (let allReel of allReelData) {
+          for (let inside of allReel) {
+            if (inside["reelUser"] == findUser["userId"]) {
+              getUser = allReel;
+              reelIndex = allReelData.indexOf(allReel);
+            }
           }
         }
-      }
-
-      console.log(getUser);
-      console.log(reelIndex);
-
-      if (getUser != null) {
-        getUser.push(reelVideoObj);
 
         console.log(getUser);
+        console.log(reelIndex);
 
-        allReelData[reelIndex] = getUser;
+        if (getUser != null) {
+          getUser.push(reelVideoObj);
 
-        localStorage.setItem("reelUrlData", JSON.stringify(allReelData));
-      } else {
-        let anotherArray = [];
+          console.log(getUser);
 
-        anotherArray.push(reelVideoObj);
+          allReelData[reelIndex] = getUser;
 
-        allReelData.push(anotherArray);
+          localStorage.setItem("reelUrlData", JSON.stringify(allReelData));
 
-        localStorage.setItem("reelUrlData", JSON.stringify(allReelData));
+          return;
+        } else {
+          let anotherArray = [];
+
+          anotherArray.push(reelVideoObj);
+
+          allReelData.push(anotherArray);
+
+          localStorage.setItem("reelUrlData", JSON.stringify(allReelData));
+        }
+
+        return;
       }
 
-      return;
-    }
+      let newArray = [];
 
-    let newArray = [];
+      newArray.push(reelVideoObj);
 
-    newArray.push(reelVideoObj);
+      reelArr.push(newArray);
 
-    reelArr.push(newArray);
+      localStorage.setItem("reelUrlData", JSON.stringify(reelArr));
+    };
 
-    localStorage.setItem("reelUrlData", JSON.stringify(reelArr));
+    video.src = src;
   };
 
   reader.readAsDataURL(file);
