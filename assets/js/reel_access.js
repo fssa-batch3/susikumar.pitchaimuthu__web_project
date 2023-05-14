@@ -40,7 +40,7 @@ reelInput.addEventListener("change", function (event) {
         reel_url: src,
         reelId: reelId,
         reelName: reelId + "reel",
-        reelUser: findUser["userId"],
+        reeluserId: findUser["userId"],
         reelTime: reelTime,
         reelDate: reelDate,
         reelerName: findUser["userName"],
@@ -124,6 +124,44 @@ trendingBirdDivImage.setAttribute("src", findUser["avatarUrl"]);
 trendingBirdDiv.append(trendingBirdDivImage);
 
 document.querySelector(".reel-container").append(trendingBirdDiv);
+
+// getting the profile user friends data
+
+let profileUserFriends = JSON.parse(localStorage.getItem("userFriends"));
+
+console.log(profileUserFriends);
+
+let friendsArray = [];
+
+if (profileUserFriends != null) {
+  for (let friendsDetails of profileUserFriends) {
+    for (let inFriend of friendsDetails) {
+      if (inFriend["frienderId"] == findUser["userId"]) {
+        friendsArray = friendsDetails;
+      }
+    }
+  }
+}
+
+console.log(friendsArray);
+
+// Adding the user friends reel in the user reel suggestion
+
+let showingReels = [];
+
+if (friendsArray != null) {
+  for (let close of friendsArray) {
+    for (let reels of checkReel) {
+      console.log(close["userId"]);
+      console.log(reels["reeluserId"]);
+      if (close["userId"] == reels["reeluserId"]) {
+        showingReels.push(reels);
+      }
+    }
+  }
+}
+
+console.log(showingReels);
 
 // creating function to show user has reel
 

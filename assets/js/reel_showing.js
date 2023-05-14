@@ -24,6 +24,12 @@ for (let reelUserDatas of reelData) {
 
 console.log(currentReel);
 
+// Here set the reel userId into the all icon to easily get the id of the reel user
+
+let sendIconElement = document.querySelector(".bi-send");
+
+sendIconElement.setAttribute("id", currentReel[0]["reelUser"]);
+
 const reelInsideDiv = document.querySelector(".reel-inside-div");
 const rangeInputDiv = document.querySelector(".range-input-div");
 let currentIndex = 0; // Track the index of the current video
@@ -82,11 +88,6 @@ function createVideoPlayer(index) {
 
 createVideoPlayer(currentIndex);
 
-// writing function for videos
-
-// document.querySelector(".reel-video").play();
-// reelVideo.muted = "muted"
-
 // reel delete option
 
 let reelDele = document.createElement("i");
@@ -113,4 +114,50 @@ reelOption.addEventListener("click", (e) => {
     reelData.splice(findIndexReel, 1);
     localStorage.setItem("reelUrlData", JSON.stringify(reelData));
   }
+});
+
+// Creating a function for sending the chat reaction to the current user
+
+let sendIcon = document.querySelector(".bi-send");
+
+sendIcon.addEventListener("click", (e) => {
+  let reelerId = e.target.id;
+
+  let messageArray = [];
+
+  // Here checking the other data already present area not. If that is present add that data also
+
+  let otherNotis = JSON.parse(localStorage.getItem("otherNotification"));
+
+  if (otherNotis != null) {
+    messageArray = otherNotis;
+  }
+
+  let reelInput = document.querySelector("#input-for-reel-reaction");
+
+  let messageTime = moment().format("LT");
+
+  let messageDate = moment().format("L");
+
+  let messageId = Date.now();
+
+  let reelObject = {
+    message: reelInput.value,
+    messageTime,
+    messageDate,
+    messager_id: findUser["userId"],
+    message_receiver_id: reelerId,
+    messager: findUser["userName"],
+    message_person_url: findUser["avatarUrl"],
+    messageId,
+    purpose: "reel-chat",
+    isRead: "false",
+  };
+
+  messageArray.push(reelObject);
+
+  console.log(messageArray);
+
+  localStorage.setItem("otherNotification", JSON.stringify(messageArray));
+  reelInput.value = "";
 });

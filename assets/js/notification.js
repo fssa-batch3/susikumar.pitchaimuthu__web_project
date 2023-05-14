@@ -1,3 +1,13 @@
+// let getting the elements for set the count of the respective message
+
+let followElement = document.querySelector(".other-count-para");
+
+followElement.innerHTML = userNotificationLength;
+
+let otherElement = document.querySelector(".follow-count-para");
+
+otherElement.innerHTML = otherNotificationLength;
+
 // writing find method to know who's notification is this
 
 let followData = JSON.parse(localStorage.getItem("followNotificationData"));

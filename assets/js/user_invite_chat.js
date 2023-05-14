@@ -30,22 +30,23 @@ function inviteChatNotification(noti) {
   let notification_file = findObjectInvites["inviteImage"];
 
   let inviteObject = {
-    inviteChat,
-    inviteNotiId,
-    inviteTime,
-    inviteDate,
-    notification_person,
-    invite_person_url,
-    notificationer_id,
-    notification_receiver_id: inviter_id,
+    message: inviteChat,
+    messageId: inviteNotiId,
+    messageTime: inviteTime,
+    messageDate: inviteDate,
+    messager: notification_person,
+    message_person_url: invite_person_url,
+    messager_id: notificationer_id,
+    messger_receiver_id: inviter_id,
     notification_file,
+    purpose: "invite-chat",
   };
 
   console.log(inviteObject);
   inviteNotificationArr.push(inviteObject);
 
   localStorage.setItem(
-    "inviteNotificationData",
+    "otherNotification",
     JSON.stringify(inviteNotificationArr)
   );
 }

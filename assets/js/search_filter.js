@@ -18,14 +18,12 @@ function filterItems() {
 
     // Check if the item name contains the search input
     if (itemName.includes(dashedText)) {
-      item.style.display = "block"; // Show matching item
+      item.style.display = "block";
     } else {
-      item.style.display = "none"; // Hide non-matching item
+      item.style.display = "none";
     }
   }
 }
-
-// searchInput.addEventListener("input", searchFilter);
 
 // intialize the code into the add eventLisner
 

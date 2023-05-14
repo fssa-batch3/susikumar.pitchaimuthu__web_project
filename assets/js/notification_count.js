@@ -19,17 +19,24 @@ if (notificationDatas !== null) {
   }
 }
 
+let userNotificationLength = userNotifications.length;
+
 console.log(userNotifications);
 
 if (othersData !== null) {
   for (let other of othersData) {
-    if (other["requestReceiverId"] == findUser["userId"]) {
+    if (
+      other["message_receiverId"] == findUser["userId"] &&
+      other["isRead"] == "false"
+    ) {
       userNotifications.push(other);
     }
   }
 }
 
 console.log(userNotifications);
+
+let otherNotificationLength = userNotifications.length - userNotificationLength;
 
 let notificationCounts = userNotifications.length;
 
