@@ -7,7 +7,7 @@ let UrlReel = window.location.search;
 
 let ReelParams = new URLSearchParams(UrlReel);
 
-let passingReelId = ReelParams.get("user");
+let passingReelId = ReelParams.get("reel");
 console.log(passingReelId);
 
 // creating a find function to find the reel
@@ -16,7 +16,7 @@ let currentReel;
 
 for (let reelUserDatas of reelData) {
   for (let reelInside of reelUserDatas) {
-    if (reelInside["reelUser"] == passingReelId) {
+    if (reelInside["reeluserId"] == passingReelId) {
       currentReel = reelUserDatas;
     }
   }

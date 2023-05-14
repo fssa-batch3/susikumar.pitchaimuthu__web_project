@@ -1,24 +1,45 @@
 // let getting the elements for set the count of the respective message
 
-let followElement = document.querySelector(".other-count-para");
+if (otherNotificationLength > 0) {
+  let otherPara = document.createElement("p");
+  otherPara.setAttribute("class", "other-count-para");
+  otherPara.innerHTML = otherNotificationLength;
 
-followElement.innerHTML = userNotificationLength;
+  document.querySelector(".other-button-div").append(otherPara);
+}
 
-let otherElement = document.querySelector(".follow-count-para");
-
-otherElement.innerHTML = otherNotificationLength;
+if (userNotificationLength != 0) {
+  let followPara = document.createElement("p");
+  followPara.setAttribute("class", "follow-count-para");
+  followPara.innerHTML = userNotificationLength;
+  document.querySelector(".follow-button-div").append(followPara);
+}
 
 // writing find method to know who's notification is this
 
 let followData = JSON.parse(localStorage.getItem("followNotificationData"));
 console.log(followData);
 
-let othersNoti = document.querySelector(".follow-button");
+let buttonFollowElement = document.querySelector(".follow-button");
 
 let userFriends = JSON.parse(localStorage.getItem("userFriends"));
 console.log(userFriends);
-othersNoti.addEventListener("click", (no) => {
+
+// creating the add eventlistner for show the follow details
+
+buttonFollowElement.addEventListener("click", (no) => {
   no.preventDefault();
+
+  // Here creating if else condition to remove message box
+
+  let messageBox = document.querySelectorAll(".message-box");
+  console.log(messageBox);
+
+  if (messageBox[0] != null) {
+    for (let box of messageBox) {
+      box.remove();
+    }
+  }
 
   let userFollowData;
 
@@ -30,14 +51,17 @@ othersNoti.addEventListener("click", (no) => {
     console.log(userFollowData);
 
     // show the notification data of follow
+    let followContainer = document.querySelector(
+      ".mention-box-inside-container"
+    );
 
-    for (let i = 0; i < userFollowData.length; i++) {
+    for (let data of userFollowData.reverse()) {
       let followCardDivContainer = document.createElement("div");
-      followCardDivContainer.setAttribute("class", "follow-card-div-container");
       followCardDivContainer.setAttribute(
-        "id",
-        userFollowData[i]["friendRequestId"]
+        "class",
+        "follow-card-div-container message-box"
       );
+      followCardDivContainer.setAttribute("id", data["friendRequestId"]);
       followCardDivContainer.setAttribute(
         "onclick",
         "showFollowDetails(this.id)"
@@ -56,7 +80,7 @@ othersNoti.addEventListener("click", (no) => {
 
       let followImage = document.createElement("img");
       followImage.setAttribute("class", "follower-image");
-      followImage.setAttribute("src", userFollowData[i]["requesterImage"]);
+      followImage.setAttribute("src", data["requesterImage"]);
       followImageDiv.append(followImage);
 
       let followNameDiv = document.createElement("div");
@@ -65,7 +89,7 @@ othersNoti.addEventListener("click", (no) => {
 
       let followName = document.createElement("h3");
       followName.setAttribute("class", "follower-name");
-      followName.innerHTML = userFollowData[i]["requesterName"];
+      followName.innerHTML = data["requesterName"];
       followNameDiv.append(followName);
 
       let ourPara = document.createElement("p");
@@ -74,10 +98,32 @@ othersNoti.addEventListener("click", (no) => {
         "This user has started following you. But you didn't follow";
       followNameDiv.append(ourPara);
 
-      document
-        .querySelector(".mention-box-inside-container")
-        .append(followCardDivContainer);
+      followContainer.append(followCardDivContainer);
     }
+
+    // finally setting the as a read properties
+
+    let setData = [];
+
+    for (let checkFollow of followData) {
+      for (let userData of userFollowData) {
+        if (checkFollow["message_id"] == userData["message_id"]) {
+          let readObj = {
+            isRead: "true",
+          };
+
+          let assaignTrue = Object.assign(checkFollow, readObj);
+
+          setData.push(assaignTrue);
+        } else {
+          setData.push(checkFollow);
+        }
+      }
+    }
+
+    console.log(setData);
+
+    localStorage.setItem("followNotificationData", JSON.stringify(setData));
   }
 });
 
@@ -86,7 +132,7 @@ othersNoti.addEventListener("click", (no) => {
 function showFollowDetails(followId) {
   console.log(followId);
 
-  let followContainer = document.querySelector(".follow-details-div-container");
+  let followContainer = document.querySelector(".display-inside-div");
 
   if (followContainer !== null) {
     followContainer.remove();
@@ -128,7 +174,7 @@ function showFollowDetails(followId) {
   let followDetailsDivContainer = document.createElement("div");
   followDetailsDivContainer.setAttribute(
     "class",
-    "follow-details-div-container"
+    "follow-details-div-container display-inside-div"
   );
 
   let followDetailsInsideDiv = document.createElement("div");
@@ -203,19 +249,15 @@ function followBack(e) {
 
   // lets create a function to send follow back mesage data
 
-  let followBackArray = [];
-
   let followBackObject = {
-    notiMoti: "back",
+    purpose: "back",
     friendRequestId: findUser["userId"],
     requestReceiverId: findFollower["userId"],
     requesterImage: findUser["avatarUrl"],
     requesterName: findUser["userName"],
   };
 
-  followBackArray.push(followBackObject);
-
-  followData.push(followBackArray);
+  followData.push(followBackObject);
 
   localStorage.setItem("followNotificationData", JSON.stringify(followData));
 
@@ -243,19 +285,19 @@ function followBack(e) {
 
 // show the notification data of other activity and other data showing function
 
-let notiData = JSON.parse(localStorage.getItem("inviteNotificationData"));
+let notiData = JSON.parse(localStorage.getItem("otherNotification"));
 
 let userNotiData;
 if (notiData != null) {
   userNotiData = notiData.filter(
-    (e) => e["notification_receiver_id"] == findUser["userId"]
+    (e) => e["message_receiver_id"] == findUser["userId"]
   );
 
   console.log(userNotiData);
-  for (let i = 0; i < userNotiData.length; i++) {
+  for (let otherPop of userNotiData.reverse()) {
     let whole_div = document.createElement("div");
-    whole_div.setAttribute("class", "mention-box-div");
-    whole_div.setAttribute("id", userNotiData[i]["inviteNotiId"]);
+    whole_div.setAttribute("class", "mention-box-div message-box");
+    whole_div.setAttribute("id", otherPop["messageId"]);
     whole_div.setAttribute("onclick", "findInviteUser(this.id)");
 
     let mention_box_insie = document.createElement("div");
@@ -272,7 +314,7 @@ if (notiData != null) {
 
     let pro_image = document.createElement("img");
     pro_image.setAttribute("class", "mention-profile-image");
-    pro_image.setAttribute("src", userNotiData[i]["invite_person_url"]);
+    pro_image.setAttribute("src", otherPop["message_person_url"]);
     pro_image_div.append(pro_image);
 
     let name_content_div = document.createElement("div");
@@ -280,11 +322,11 @@ if (notiData != null) {
     image_name_div.append(name_content_div);
 
     let h3 = document.createElement("h3");
-    h3.innerHTML = userNotiData[i]["notification_person"];
+    h3.innerHTML = otherPop["messager"];
     name_content_div.append(h3);
 
     let p = document.createElement("p");
-    p.innerHTML = userNotiData[i]["inviteChat"];
+    p.innerHTML = otherPop["message"];
     name_content_div.append(p);
 
     let user_mention_media_div = document.createElement("div");
@@ -304,10 +346,21 @@ if (notiData != null) {
 let otherNotiElement = document.querySelector(".other-button");
 
 otherNotiElement.addEventListener("click", () => {
-  for (let i = 0; i < userNotiData.length; i++) {
+  // Here remove the except message element
+
+  let messageContainer = document.querySelectorAll(".message-box");
+  console.log(messageContainer);
+
+  if (messageContainer[0] != null) {
+    for (let contain of messageContainer) {
+      contain.remove();
+    }
+  }
+
+  for (let otherData of userNotiData.reverse()) {
     let whole_div = document.createElement("div");
-    whole_div.setAttribute("class", "mention-box-div");
-    whole_div.setAttribute("id", userNotiData[i]["inviteNotiId"]);
+    whole_div.setAttribute("class", "mention-box-div message-box");
+    whole_div.setAttribute("id", otherData["messageId"]);
     whole_div.setAttribute("onclick", "findInviteUser(this.id)");
 
     let mention_box_insie = document.createElement("div");
@@ -324,7 +377,7 @@ otherNotiElement.addEventListener("click", () => {
 
     let pro_image = document.createElement("img");
     pro_image.setAttribute("class", "mention-profile-image");
-    pro_image.setAttribute("src", userNotiData[i]["invite_person_url"]);
+    pro_image.setAttribute("src", otherData["message_person_url"]);
     pro_image_div.append(pro_image);
 
     let name_content_div = document.createElement("div");
@@ -332,11 +385,11 @@ otherNotiElement.addEventListener("click", () => {
     image_name_div.append(name_content_div);
 
     let h3 = document.createElement("h3");
-    h3.innerHTML = userNotiData[i]["notification_person"];
+    h3.innerHTML = otherData["messager"];
     name_content_div.append(h3);
 
     let p = document.createElement("p");
-    p.innerHTML = userNotiData[i]["inviteChat"];
+    p.innerHTML = otherData["message"];
     name_content_div.append(p);
 
     let user_mention_media_div = document.createElement("div");
@@ -357,13 +410,11 @@ function findInviteUser(e) {
   let userNotiId = e;
   console.log(userNotiId);
 
-  let findNoti = userNotiData.find(
-    (noti) => noti["inviteNotiId"] == userNotiId
-  );
+  let findNoti = userNotiData.find((noti) => noti["messageId"] == userNotiId);
   console.log(findNoti);
 
   let findElseData = userNotiData.filter(
-    (noti) => noti["inviteNotiId"] !== findNoti["inviteNotiId"]
+    (noti) => noti["messageId"] !== findNoti["messageId"]
   );
   console.log(findElseData);
 
@@ -387,13 +438,13 @@ function findInviteUser(e) {
       <div class="profile-div">
         <img
           class="profile-image"
-          src="${findNoti["invite_person_url"]}"
+          src="${findNoti["message_person_url"]}"
           alt=""
         />
       </div>
 
       <div>
-        <p>${findNoti["notification_person"]}</p>
+        <p>${findNoti["messager"]}</p>
       </div>
     </div>
 
@@ -403,17 +454,17 @@ function findInviteUser(e) {
       <div class="details-content-inside-div">
         <div class="content-div">
           <h4>text</h4>
-          <p>${findNoti["inviteChat"]}</p>
+          <p>${findNoti["message"]}</p>
         </div>
 
         <div class="content-div">
           <h4>date</h4>
-          <p>${findNoti["inviteTime"]}</p>
+          <p>${findNoti["messageTime"]}</p>
         </div>
 
         <div class="content-div">
           <h4>Time</h4>
-          <p>${findNoti["inviteDate"]}</p>
+          <p>${findNoti["messageDate"]}</p>
         </div>
       </div>
     </div>

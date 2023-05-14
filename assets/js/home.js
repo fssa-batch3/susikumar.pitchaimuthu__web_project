@@ -507,6 +507,8 @@ function getFollow(es) {
   let gatherUser = info.find((e) => e["userId"] == es);
   console.log(gatherUser);
 
+  let messageId = Date.now();
+
   // Gather a follow sequence to send a message to the user
 
   let followArray = [];
@@ -515,8 +517,9 @@ function getFollow(es) {
     requestReceiverId: gatherUser["userId"],
     requesterImage: findUser["avatarUrl"],
     requesterName: findUser["userName"],
-    notiMoti: "follow",
+    purpose: "follow",
     isRead: "false",
+    messageId,
   };
 
   followArray.push(followMessageObject);

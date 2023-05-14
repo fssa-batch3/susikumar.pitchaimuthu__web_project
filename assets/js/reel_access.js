@@ -45,6 +45,7 @@ reelInput.addEventListener("change", function (event) {
         reelDate: reelDate,
         reelerName: findUser["userName"],
         reelDuration: duration,
+        reel_user_url: findUser["avatarUrl"],
       };
 
       // Here checking the reel user data is ther is not
@@ -151,11 +152,12 @@ let showingReels = [];
 
 if (friendsArray != null) {
   for (let close of friendsArray) {
+    console.log(close);
     for (let reels of checkReel) {
-      console.log(close["userId"]);
-      console.log(reels["reeluserId"]);
-      if (close["userId"] == reels["reeluserId"]) {
-        showingReels.push(reels);
+      for (let insideCheck of reels) {
+        if (close["userId"] == insideCheck["reeluserId"]) {
+          showingReels.push(reels);
+        }
       }
     }
   }
@@ -163,16 +165,29 @@ if (friendsArray != null) {
 
 console.log(showingReels);
 
+for (let showReels of showingReels) {
+  let userReelDiv = document.createElement("div");
+  userReelDiv.setAttribute("class", "reel-member-div");
+  userReelDiv.setAttribute("id", showReels[0]["reeluserId"]);
+
+  let userimage = document.createElement("img");
+  userimage.setAttribute("class", "reel-member-div-image");
+  userimage.setAttribute("src", showReels[0]["reel_user_url"]);
+  userReelDiv.append(userimage);
+
+  document.querySelector(".reel-container").append(userReelDiv);
+}
+
 // creating function to show user has reel
 
 if (checkReel != null) {
   for (let reelDatas of checkReel) {
     for (let insideReel of reelDatas) {
-      if (insideReel["reelUser"] == findUser["userId"]) {
+      if (insideReel["reeluserId"] == findUser["userId"]) {
         let reelMember = document.querySelector(".reel-member-div");
 
         reelMember.style.border = "2px rgb(108, 156, 180) solid";
-        reelMember.setAttribute("id", insideReel["reelId"]);
+        reelMember.setAttribute("id", insideReel["reeluserId"]);
       }
     }
   }
@@ -180,22 +195,24 @@ if (checkReel != null) {
 
 // creating the add eventlisner to redirect to the reel showing page
 
-let reelPage = document.querySelector(".reel-member-div");
+let reelPage = document.querySelectorAll(".reel-member-div");
 console.log(reelPage);
 
-reelPage.addEventListener("click", function (event) {
-  event.preventDefault();
+for (let reelCard of reelPage) {
+  reelCard.addEventListener("click", function (event) {
+    event.preventDefault();
 
-  let reelId = event.target.parentElement.id;
+    let reelId = event.target.parentElement.id;
 
-  console.log(reelId);
-  if (checkReel == null) {
-    return;
-  } else {
-    window.location.href =
-      "../pages/reel_showing.html?user=" +
-      findUser["userId"] +
-      "&reel=" +
-      reelId;
-  }
-});
+    console.log(reelId);
+    if (checkReel == null) {
+      return;
+    } else {
+      window.location.href =
+        "../pages/reel_showing.html?user=" +
+        findUser["userId"] +
+        "&reel=" +
+        reelId;
+    }
+  });
+}

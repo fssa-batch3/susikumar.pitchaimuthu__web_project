@@ -23,22 +23,24 @@ let userNotificationLength = userNotifications.length;
 
 console.log(userNotifications);
 
+let otherDataArray = [];
+
 if (othersData !== null) {
   for (let other of othersData) {
     if (
-      other["message_receiverId"] == findUser["userId"] &&
+      other["message_receiver_id"] == findUser["userId"] &&
       other["isRead"] == "false"
     ) {
-      userNotifications.push(other);
+      otherDataArray.push(other);
     }
   }
 }
 
 console.log(userNotifications);
 
-let otherNotificationLength = userNotifications.length - userNotificationLength;
+let otherNotificationLength = otherDataArray.length;
 
-let notificationCounts = userNotifications.length;
+let notificationCounts = otherNotificationLength + userNotificationLength;
 
 if (notificationCounts != 0) {
   let countElement = document.querySelector(".notification-para");

@@ -37,13 +37,15 @@ function inviteChatNotification(noti) {
     messager: notification_person,
     message_person_url: invite_person_url,
     messager_id: notificationer_id,
-    messger_receiver_id: inviter_id,
+    message_receiver_id: inviter_id,
     notification_file,
     purpose: "invite-chat",
   };
 
   console.log(inviteObject);
   inviteNotificationArr.push(inviteObject);
+
+  document.querySelector("#invite-reply-input").value = "";
 
   localStorage.setItem(
     "otherNotification",
