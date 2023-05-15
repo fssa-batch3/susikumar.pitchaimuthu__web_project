@@ -3,7 +3,7 @@ let notificationDatas = JSON.parse(
 );
 console.log(notificationDatas);
 
-let othersData = JSON.parse(localStorage.getItem("inviteNotificationData"));
+let othersData = JSON.parse(localStorage.getItem("otherNotification"));
 console.log(othersData);
 
 let userNotifications = [];
@@ -47,3 +47,34 @@ if (notificationCounts != 0) {
 
   countElement.innerHTML = notificationCounts;
 }
+
+let notification = document.querySelector("#notification");
+
+// notification page direction location
+
+notification.addEventListener("click", () => {
+  window.location.href =
+    "../pages/notification.html?user=" + findUser["userId"];
+
+  // Here convert the data into read
+
+  let otherArray = [];
+
+  for (let other of othersData) {
+    for (let insideOther of otherDataArray) {
+      if (other["messageId"] == insideOther["messageId"]) {
+        let otherObj = {
+          isRead: "true",
+        };
+
+        let otherAssaign = Object.assign(other, otherObj);
+
+        otherArray.push(otherAssaign);
+      } else {
+        otherArray.push(other);
+      }
+    }
+  }
+
+  localStorage.setItem("otherNotification", JSON.stringify(otherArray));
+});

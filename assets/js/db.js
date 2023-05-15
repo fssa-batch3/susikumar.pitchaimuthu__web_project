@@ -194,3 +194,16 @@ if (navigator.share) {
   // Web Share API is not supported
   console.log("Web Share API is not supported");
 }
+
+// emoji element creations
+
+let avatarData = JSON.parse(localStorage.getItem("emojiAvatar"));
+
+// Getting the random image
+let randomIndex = Math.floor(Math.random() * avatarData.length);
+let randomImageSrc = avatarData[randomIndex]["avatar"];
+
+console.log(randomImageSrc);
+
+let avatarImage = document.querySelector(".emoji");
+avatarImage.setAttribute("src", randomImageSrc);

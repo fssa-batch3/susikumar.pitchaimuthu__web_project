@@ -28,7 +28,7 @@ console.log(currentReel);
 
 let sendIconElement = document.querySelector(".bi-send");
 
-sendIconElement.setAttribute("id", currentReel[0]["reelUser"]);
+sendIconElement.setAttribute("id", currentReel[0]["reeluserId"]);
 
 const reelInsideDiv = document.querySelector(".reel-inside-div");
 const rangeInputDiv = document.querySelector(".range-input-div");

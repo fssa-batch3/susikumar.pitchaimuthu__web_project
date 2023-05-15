@@ -550,6 +550,26 @@
   display: none;
 }
 
+/* emoji container */
+
+.emoji-name-div-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.emoji-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.emoji {
+  width: 164px;
+  height: 164px;
+}
+
 .chatId {
   display: none;
 }

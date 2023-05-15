@@ -165,6 +165,14 @@ function chatCard() {
     chatPersonCard[i].addEventListener("click", function (chatEvent) {
       chatEvent.preventDefault();
 
+      // remve emoji div container
+
+      let emojiDivs = document.querySelector(".emoji-name-div-container");
+
+      if (emojiDivs != null) {
+        emojiDivs.remove();
+      }
+
       userSelectId = chatEvent.target.id;
       console.log(userSelectId);
 

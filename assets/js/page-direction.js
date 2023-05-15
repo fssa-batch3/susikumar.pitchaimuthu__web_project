@@ -5,7 +5,6 @@ let camera = document.querySelector("#camera");
 let chat = document.querySelector("#chat");
 let invite = document.querySelector("#invite");
 let setting = document.querySelector("#setting");
-let notification = document.querySelector("#notification");
 let logOut = document.querySelector(".logOut");
 
 // home page direction location
@@ -18,13 +17,6 @@ home.addEventListener("click", () => {
 
 camera.addEventListener("click", () => {
   window.location.href = "../pages/webcam.html?user=" + findUser["userId"];
-});
-
-// notification page direction location
-
-notification.addEventListener("click", () => {
-  window.location.href =
-    "../pages/notification.html?user=" + findUser["userId"];
 });
 
 // invite page direction location
