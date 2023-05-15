@@ -147,6 +147,33 @@ async function documentSending() {
   });
 }
 
+// emoji div showing function
+
+async function emojiShow() {
+  let emojiContainDiv = document.querySelector(".emoji-input-div-container");
+  console.log(emojiContainDiv);
+
+  if (emojiContainDiv.style.display === "none") {
+    emojiContainDiv.style.display = "block";
+  } else {
+    emojiContainDiv.style.display = "none";
+  }
+}
+
+// input emoji function
+
+async function inputEmoji(emojis) {
+  // getting the emails details from the input field
+
+  let emojiInput = document.querySelector("#chat-input");
+  console.log(emojiInput);
+
+  let emojiSpan = emojis;
+
+  console.log(emojiSpan.innerHTML);
+  emojiInput.value += emojiSpan.innerHTML;
+}
+
 // Attach the click event listener to the document object using event delegation
 firstParent.addEventListener("click", async function (event) {
   let target = event.target;
@@ -180,6 +207,28 @@ firstParent.addEventListener("click", async function (event) {
   if (target.matches(".fa-file")) {
     try {
       await documentSending();
+      console.log("Data set successfully");
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  // emoji div function
+
+  if (target.matches(".fa-face-smile")) {
+    try {
+      await emojiShow();
+      console.log("Data set successfully");
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  // emoji picking element
+
+  if (target.matches(".span-emoji")) {
+    try {
+      await inputEmoji(target);
       console.log("Data set successfully");
     } catch (error) {
       console.error(error);

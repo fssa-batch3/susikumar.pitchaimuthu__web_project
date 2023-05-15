@@ -706,6 +706,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+  z-index: 10;
+}
+
+.span-emoji {
+  cursor: pointer;
+  width: 2em;
 }
 
 .emoji-div-for {

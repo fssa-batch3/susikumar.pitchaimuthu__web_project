@@ -294,6 +294,20 @@ function chatCard() {
       emojiDivContainer.setAttribute("class", "emoji-div-container");
       emojiInsideDiv.append(emojiDivContainer);
 
+      let emojiRangeStart = 0x1f600;
+      let emojiRangeEnd = 0x1f64f;
+
+      for (
+        let emojiCode = emojiRangeStart;
+        emojiCode <= emojiRangeEnd;
+        emojiCode++
+      ) {
+        let emoji = document.createElement("span");
+        emoji.setAttribute("class", "span-emoji");
+        emoji.innerHTML = String.fromCodePoint(emojiCode);
+        emojiDivContainer.appendChild(emoji);
+      }
+
       let chatInputDiv = document.createElement("div");
       chatInputDiv.setAttribute("class", "chat-input-div");
       inputForm.append(chatInputDiv);
@@ -531,5 +545,3 @@ function chatCard() {
     });
   }
 }
-
-// Deleting the unread count if the user saw the chat message
