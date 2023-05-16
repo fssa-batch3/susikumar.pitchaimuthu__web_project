@@ -43,12 +43,12 @@ console.log(chartOnePara);
 console.log(findInvite["inviteHeart"]);
 chartOnePara.innerHTML = findInvite["inviteHeart"].length + "%";
 
-let element_two = document.querySelector(".chart-div-two");
+let element_two = document.querySelector(".chart-div-three");
 element_two.setAttribute("data-percent", findInvite["inviteLike"].length);
 let chartTwoPara = document.querySelector(".second");
 chartTwoPara.innerHTML = findInvite["inviteLike"].length + "%";
 
-let element_three = document.querySelector(".chart-div-three");
+let element_three = document.querySelector(".chart-div-two");
 element_three.setAttribute("data-percent", findInvite["inviteNo"].length);
 let chartThreePara = document.querySelector(".three");
 chartThreePara.innerHTML = findInvite["inviteNo"].length + "%";

@@ -124,7 +124,7 @@ deleteInviteButton.addEventListener("click", (deIn) => {
 // chat creation function
 
 let chartOne = new EasyPieChart(element, {
-  barColor: "#A2D2FF",
+  barColor: "#9B1C31",
   lineWidth: 14,
   lineCap: "circle",
   size: 95,
@@ -144,7 +144,7 @@ let chartTwo = new EasyPieChart(element_two, {
 
 console.log(element_three);
 let chartThree = new EasyPieChart(element_three, {
-  barColor: "#A2D2FF",
+  barColor: "#FFAE42",
   lineWidth: 14,
   lineCap: "circle",
   size: 95,

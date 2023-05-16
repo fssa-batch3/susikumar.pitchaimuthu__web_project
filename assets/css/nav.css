@@ -73,6 +73,7 @@ nav {
 }
 
 .dropdown-content {
+  left: 0;
   display: none;
   position: absolute;
   background-color: #f9f9f9;

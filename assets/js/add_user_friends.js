@@ -303,7 +303,7 @@ function chatCard() {
         emojiCode++
       ) {
         let emoji = document.createElement("span");
-        emoji.setAttribute("class", "span-emoji");
+        emoji.setAttribute("class", "span-emoji " + emojiCode);
         emoji.innerHTML = String.fromCodePoint(emojiCode);
         emojiDivContainer.appendChild(emoji);
       }

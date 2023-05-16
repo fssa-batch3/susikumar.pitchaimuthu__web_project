@@ -174,10 +174,9 @@ nav {
 .image-details-section-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   flex: 1;
-  gap: 2em;
+  height: 700px;
 }
 
 .image-details-div-container {

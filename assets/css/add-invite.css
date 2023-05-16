@@ -151,14 +151,13 @@ body {
   border: 1px solid grey;
   width: 24em;
   height: 3em;
-  /* box-shadow: rgb(99, 11, 176) 1px 0 10px; */
-  /* box-shadow: 1px 1px 2px black, 0 0 1em rgb(202, 202, 251),
-    0 0 0.2em rgb(180, 228, 254); */
 }
 
-/* .party-page-input:invalid {
-  box-shadow: rgb(99, 11, 176) 1px 0 10px;
-} */
+.party-page-input:focus {
+  outline: none;
+  border-color: rgb(0, 153, 255);
+  box-shadow: 0 0 10px rgb(65, 162, 215);
+}
 
 .party-slogan-textarea {
   resize: none;
@@ -167,11 +166,23 @@ body {
   border-radius: 8px;
 }
 
+.party-slogan-textarea:focus {
+  outline: none;
+  border-color: rgb(0, 153, 255);
+  box-shadow: 0 0 10px rgb(65, 162, 215);
+}
+
 .party-page-textarea {
   resize: none;
   width: 24em;
   height: 12em;
   border-radius: 8px;
+}
+
+.party-page-textarea:focus {
+  outline: none;
+  border-color: rgb(0, 153, 255);
+  box-shadow: 0 0 10px rgb(65, 162, 215);
 }
 
 /* inivte button css */

@@ -16,9 +16,13 @@ let snap = imageGallery.find((i) => i["imageId"] == urlImage);
 
 console.log(snap);
 
+// let getting the user image gallerty
+
+let userGallery = imageGallery.filter((f) => f["userId"] == findUser["userId"]);
+
 // image index number finding function
 
-let imageIndexNumber = imageGallery.indexOf(snap);
+let imageIndexNumber = userGallery.indexOf(snap);
 console.log(imageIndexNumber);
 
 // image changing function creation according to the image and previous and next
@@ -26,24 +30,24 @@ console.log(imageIndexNumber);
 function previousImage() {
   imageIndexNumber--;
   if (imageIndexNumber < 0) {
-    imageIndexNumber = imageGallery.length - 1;
+    imageIndexNumber = userGallery.length - 1;
   }
-  updateImageDisplay(imageGallery, imageIndexNumber);
+  updateImageDisplay(userGallery, imageIndexNumber);
 }
 
 // Function to change to the next image
 function nextImage() {
   console.log("susi");
   imageIndexNumber++;
-  if (imageIndexNumber >= imageGallery.length) {
+  if (imageIndexNumber >= userGallery.length) {
     imageIndexNumber = 0;
   }
-  updateImageDisplay(imageGallery, imageIndexNumber);
+  updateImageDisplay(userGallery, imageIndexNumber);
 }
 
 // image url element
 
-function updateImageDisplay(imageGallery, imageIndexNumber) {
+function updateImageDisplay(userGallery, imageIndexNumber) {
   // removing all images before changing the image
   let imageDiv = document.querySelector("#user-taken-still");
   console.log(imageDiv);
@@ -58,7 +62,7 @@ function updateImageDisplay(imageGallery, imageIndexNumber) {
 
   console.log(imageIndexNumber);
   let snapshot = document.createElement("img");
-  snapshot.setAttribute("src", imageGallery[imageIndexNumber]["imageLink"]);
+  snapshot.setAttribute("src", userGallery[imageIndexNumber]["imageLink"]);
   snapshot.setAttribute("id", "user-taken-still");
   snapshot.setAttribute("class", "removeElement");
   snapshot.setAttribute("alt", "user-taken-still");
@@ -80,7 +84,7 @@ function updateImageDisplay(imageGallery, imageIndexNumber) {
   imageEditDiv.append(a);
 
   let editButton = document.createElement("button");
-  editButton.setAttribute("id", imageGallery[imageIndexNumber]["imageId"]);
+  editButton.setAttribute("id", userGallery[imageIndexNumber]["imageId"]);
   editButton.setAttribute("class", "option-div");
   a.append(editButton);
 
@@ -95,7 +99,7 @@ function updateImageDisplay(imageGallery, imageIndexNumber) {
   // like button
 
   let likeButton = document.createElement("button");
-  likeButton.setAttribute("id", imageGallery[imageIndexNumber]["imageId"]);
+  likeButton.setAttribute("id", userGallery[imageIndexNumber]["imageId"]);
   likeButton.setAttribute("class", "option-div like-option");
   imageEditDiv.append(likeButton);
 
@@ -110,7 +114,7 @@ function updateImageDisplay(imageGallery, imageIndexNumber) {
   // share button
 
   let shareButton = document.createElement("button");
-  shareButton.setAttribute("id", imageGallery[imageIndexNumber]["imageId"]);
+  shareButton.setAttribute("id", userGallery[imageIndexNumber]["imageId"]);
   shareButton.setAttribute("class", "option-div downloadButton");
   imageEditDiv.append(shareButton);
 
@@ -132,7 +136,7 @@ function updateImageDisplay(imageGallery, imageIndexNumber) {
   imageControlDiv.setAttribute("class", "image-next-option-div removeElement");
 
   let previousButton = document.createElement("button");
-  previousButton.setAttribute("id", imageGallery[imageIndexNumber]["imageId"]);
+  previousButton.setAttribute("id", userGallery[imageIndexNumber]["imageId"]);
   previousButton.setAttribute("onclick", "previousImage()");
   previousButton.setAttribute("class", "option-div");
   imageControlDiv.append(previousButton);
@@ -148,7 +152,7 @@ function updateImageDisplay(imageGallery, imageIndexNumber) {
   // next
 
   let nextButton = document.createElement("button");
-  nextButton.setAttribute("id", imageGallery[imageIndexNumber]["imageId"]);
+  nextButton.setAttribute("id", userGallery[imageIndexNumber]["imageId"]);
   nextButton.setAttribute("class", "option-div");
   nextButton.setAttribute("onclick", "nextImage()");
   imageControlDiv.append(nextButton);
@@ -168,13 +172,13 @@ function updateImageDisplay(imageGallery, imageIndexNumber) {
   // image details showing div
 
   let imageName = document.getElementById("image-name");
-  imageName.innerHTML = imageGallery[imageIndexNumber]["imageName"];
+  imageName.innerHTML = userGallery[imageIndexNumber]["imageName"];
 
   let imageDate = document.getElementById("image-taken-date");
-  imageDate.innerHTML = imageGallery[imageIndexNumber]["imageDate"];
+  imageDate.innerHTML = userGallery[imageIndexNumber]["imageDate"];
 
   let imageTime = document.getElementById("image-taken-time");
-  imageTime.innerHTML = imageGallery[imageIndexNumber]["imageTime"];
+  imageTime.innerHTML = userGallery[imageIndexNumber]["imageTime"];
 }
 
-updateImageDisplay(imageGallery, imageIndexNumber);
+updateImageDisplay(userGallery, imageIndexNumber);

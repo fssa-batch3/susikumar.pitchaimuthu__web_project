@@ -667,11 +667,13 @@
 
 .emoji-input-div-container {
   display: none;
-  background-color: #fff;
+  background-color: #f6fafa;
   width: 20em;
   border-radius: 8px;
   height: 21em;
   position: absolute;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
+    rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
   bottom: 160%;
   left: 2%;
 }
@@ -697,10 +699,18 @@
 }
 
 #emoji-input {
-  height: 2em;
+  height: 2.4em;
   width: 21em;
   border: 1px solid grey;
-  border-radius: 8px;
+  border-radius: 6px;
+  text-align: left;
+  padding-left: 7px;
+}
+
+#emoji-input:focus {
+  outline: none;
+  border-color: rgb(198, 220, 235);
+  box-shadow: 0 0 10px rgb(176, 212, 231);
 }
 .emoji-div-container {
   display: flex;

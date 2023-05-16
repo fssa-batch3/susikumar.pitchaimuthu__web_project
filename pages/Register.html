@@ -41,7 +41,7 @@
                       type="text"
                       id="firstname"
                       name="email"
-                      autocomplete="hdfhshjfj"
+                      autocomplete="off"
                       pattern="[a-zA-Z]+"
                       title="First name is required"
                       required
@@ -57,6 +57,7 @@
                       id="lastname"
                       name="password"
                       pattern="[a-zA-Z]+"
+                      autocomplete="off"
                       required
                     />
                     <span class="placeholder">Last name</span></label
@@ -65,14 +66,26 @@
 
                 <div>
                   <label class="label">
-                    <input type="text" id="username" name="password" required />
+                    <input
+                      type="text"
+                      id="username"
+                      name="password"
+                      autocomplete="off"
+                      required
+                    />
                     <span class="placeholder">User name</span></label
                   >
                 </div>
 
                 <div>
                   <label class="label">
-                    <input type="email" id="email" name="password" required />
+                    <input
+                      type="email"
+                      id="email"
+                      name="password"
+                      autocomplete="off"
+                      required
+                    />
                     <span class="placeholder">Email ID</span></label
                   >
                 </div>
@@ -83,6 +96,7 @@
                       id="password"
                       name="password"
                       pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                      autocomplete="off"
                       required
                     />
 

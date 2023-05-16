@@ -76,11 +76,20 @@ inviteForm.addEventListener("submit", (sub) => {
   let inviteNo = [];
   let inviteHeart = [];
 
+  // converting the reilway time local time
+
+  let [hours, minutes] = inviteTime.split(":");
+  let convertedHours = hours % 12;
+  let period = hours >= 12 ? "PM" : "AM";
+  let convertedTime = `${convertedHours}:${minutes} ${period}`;
+
+  console.log(convertedTime);
+
   let inviteObj = {
     inviteName,
     inviteDate,
     inviteImage: image,
-    inviteTime,
+    inviteTime: convertedTime,
     specialPerson,
     inviteGlimpse,
     inviteExplanation,
