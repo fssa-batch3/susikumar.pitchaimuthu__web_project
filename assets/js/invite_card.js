@@ -207,7 +207,7 @@ likeDiv.addEventListener("click", (event) => {
   for (let ok of okResponse) {
     for (let regisPerson of registerData) {
       if (regisPerson["userId"] == ok) {
-        heartData.push(regisPerson);
+        okData.push(regisPerson);
       }
     }
   }
