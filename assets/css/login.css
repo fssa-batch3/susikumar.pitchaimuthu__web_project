@@ -62,7 +62,7 @@ body {
   margin-bottom: 5px;
 }
 
-input {
+.input {
   border: none;
   height: 35px;
   border-radius: 5px;
@@ -79,6 +79,7 @@ input {
   top: 9px;
   background: #fff;
   padding: 5px;
+  color: #4481eb;
 }
 
 .label .placeholder {
@@ -106,10 +107,17 @@ input {
   transition-delay: 0.1s;
 }
 
-label input:invalid {
+input:invalid:not(:placeholder-shown) + .placeholder {
+  top: 9px;
+  transition-delay: 0.1s;
+  background: #fff;
+  padding: 5px;
+  color: #eb44bc;
+}
+
+input:invalid:not(:placeholder-shown) {
   top: 9px;
   border-color: #eb44bc;
-  transition-delay: 0.1s;
 }
 
 .input-container {
@@ -231,4 +239,43 @@ hr {
   display: flex;
   align-items: center;
   width: 100%;
+}
+
+/* remember and forget password function */
+
+.remember-and-forget-password-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 69%;
+  height: 0.9em;
+}
+
+.remember-me-div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 50%;
+}
+
+.remember {
+  font-size: 97%;
+  font-weight: 550;
+  color: #808080;
+}
+
+.remember-div {
+  display: flex;
+  align-items: center;
+  width: 50%;
+}
+
+.check-box {
+  width: 15px;
+  height: 15px;
+  color: #808080;
+}
+
+.forget {
+  font-size: 96%;
 }

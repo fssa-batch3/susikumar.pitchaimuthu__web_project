@@ -37,7 +37,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 3em;
+  gap: 4em;
 }
 
 /* celebration div */
@@ -89,7 +89,7 @@ body {
 .birthday-all-input-div-container {
   display: flex;
   flex-direction: column;
-  gap: 1em;
+  gap: 3em;
 }
 
 /* birthday input div  */
@@ -109,6 +109,15 @@ body {
   height: 2em;
   border-radius: 5px;
   border: 1px solid rgb(211, 211, 211);
+  background-color: rgb(16, 152, 231);
+  color: #fff;
+  padding: 3px;
+}
+
+::-webkit-calendar-picker-indicator {
+  background-color: #fff;
+  padding: 5px;
+  border-radius: 3px;
 }
 
 #birthday:focus {
@@ -120,9 +129,27 @@ body {
 .input-label-div {
   display: flex;
   align-items: center;
+  justify-content: space-around;
   gap: 2em;
 }
 
+.gender-label-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gender-selection-div {
+  display: flex;
+  align-items: center;
+  width: 57%;
+  gap: 8%;
+}
+
+.form-check {
+  display: flex;
+  align-items: flex-start;
+}
 /* next and previous button css */
 
 .submit-and-previous-button-div {
@@ -138,13 +165,15 @@ body {
 }
 
 .next-button {
-  padding: 7px 24px;
+  padding: 8px 28px;
   border-radius: 5px;
-  border: grey 1px solid;
-  width: 8em;
-  height: 2em;
+  background-image: linear-gradient(to right, #25aae1, #4481eb);
+  box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
+  border: none;
+  color: #fff;
 }
 
 .previous-arrow {
   font-size: 2em;
+  color: rgb(239, 184, 3, 1);
 }

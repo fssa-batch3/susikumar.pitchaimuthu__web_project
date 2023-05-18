@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Log In</title>
+    <title>Sign up</title>
     <link rel="stylesheet" href="../assets/css/login.css" />
     <link
       rel="stylesheet"
@@ -39,14 +39,16 @@
                   <label class="label" for="firstname">
                     <input
                       type="text"
+                      class="input"
                       id="firstname"
                       name="email"
                       autocomplete="off"
                       pattern="[a-zA-Z]+"
                       title="First name is required"
+                      placeholder="&nbsp;"
                       required
                     />
-                    <span class="placeholder">First name</span></label
+                    <span class="placeholder">First name *</span></label
                   >
                 </div>
 
@@ -55,12 +57,14 @@
                     <input
                       type="text"
                       id="lastname"
+                      class="input"
                       name="password"
                       pattern="[a-zA-Z]+"
                       autocomplete="off"
+                      placeholder="&nbsp;"
                       required
                     />
-                    <span class="placeholder">Last name</span></label
+                    <span class="placeholder">Last name *</span></label
                   >
                 </div>
 
@@ -69,11 +73,13 @@
                     <input
                       type="text"
                       id="username"
+                      class="input"
                       name="password"
                       autocomplete="off"
+                      placeholder="&nbsp;"
                       required
                     />
-                    <span class="placeholder">User name</span></label
+                    <span class="placeholder">User name *</span></label
                   >
                 </div>
 
@@ -82,11 +88,13 @@
                     <input
                       type="email"
                       id="email"
+                      class="input"
                       name="password"
                       autocomplete="off"
+                      placeholder="&nbsp;"
                       required
                     />
-                    <span class="placeholder">Email ID</span></label
+                    <span class="placeholder">Email ID *</span></label
                   >
                 </div>
                 <div class="password-input">
@@ -94,13 +102,15 @@
                     <input
                       type="password"
                       id="password"
+                      class="input"
                       name="password"
                       pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                       autocomplete="off"
+                      placeholder="&nbsp;"
                       required
                     />
 
-                    <span class="placeholder">Password</span></label
+                    <span class="placeholder">Password *</span></label
                   >
                   <div class="eye-slash-div">
                     <i class="bi bi-eye-slash"></i>

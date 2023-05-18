@@ -144,7 +144,7 @@ function calculatePasswordStrength(passwordStrength) {
     emojiSpan.innerHTML = "&#128560;";
     passwordContent.innerHTML = "Weak. must contain atleast 8 letter";
   }
-  if (passwordStrength.match(/[A-Z]+/) && passwordStrength.match(/[a-z]+/)) {
+  if (passwordStrength.match(/[0-9]+/) && passwordStrength.length >= 8) {
     strength += 1;
     hr.style.width = "50%";
     hr.style.backgroundColor = "#fada50";
@@ -155,7 +155,8 @@ function calculatePasswordStrength(passwordStrength) {
   if (
     passwordStrength.match(/[0-9]+/) &&
     passwordStrength.match(/[A-Z]+/) &&
-    passwordStrength.match(/[a-z]+/)
+    passwordStrength.match(/[a-z]+/) &&
+    passwordStrength.length >= 8
 
     // contents
   ) {
@@ -169,7 +170,8 @@ function calculatePasswordStrength(passwordStrength) {
     passwordStrength.match(/[$@#&!]+/) &&
     passwordStrength.match(/[0-9]+/) &&
     passwordStrength.match(/[A-Z]+/) &&
-    passwordStrength.match(/[a-z]+/)
+    passwordStrength.match(/[a-z]+/) &&
+    passwordStrength.length >= 8
   ) {
     strength += 1;
     hr.style.width = "100%";

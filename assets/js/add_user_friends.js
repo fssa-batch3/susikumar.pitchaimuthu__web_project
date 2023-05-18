@@ -240,13 +240,15 @@ function chatCard() {
       biTelephone.setAttribute("class", "bi bi-telephone");
       profileOptionDiv.append(biTelephone);
 
-      let biCamera = document.createElement("i");
-      biCamera.setAttribute("class", "bi bi-camera-video");
-      profileOptionDiv.append(biCamera);
+      test("i", "class", "bi bi-telephone");
 
-      let biGear = document.createElement("i");
-      biGear.setAttribute("class", "bi bi-gear");
-      profileOptionDiv.append(biGear);
+      test("i", "class", "bi bi-gear");
+
+      function test(element, id_or_class, class_name_or_id_name) {
+        let biGear = document.createElement(element);
+        biGear.setAttribute(id_or_class, class_name_or_id_name);
+        profileOptionDiv.append(biGear);
+      }
 
       document
         .querySelector(".chat-member-option-div")
