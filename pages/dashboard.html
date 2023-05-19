@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="../assets/css/admin_dashboard.css" />
     <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="../assets/css/admin_dashboard.css" />
     <!----===== Boxicons CSS ===== -->
     <link
       href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css"
@@ -39,22 +39,22 @@
         <div class="menu-bar">
           <div class="menu">
             <ul class="menu-links">
-              <li class="nav-link" id="home">
+              <li class="nav-link" id="analytics">
                 <i class="bi bi-activity icon"></i>
                 <span class="text nav-text">Analytics</span>
               </li>
 
-              <li class="nav-link" id="chat">
+              <li class="nav-link" id="inquaries">
                 <i class="bi bi-envelope-paper icon"></i>
                 <span class="text nav-text">Inquries</span>
               </li>
 
-              <li class="nav-link" id="camera">
+              <li class="nav-link" id="solved_quaries">
                 <i class="bi bi-envelope-paper-heart icon"></i>
                 <span class="text nav-text">Solved quaries</span>
               </li>
 
-              <li class="nav-link" id="notification">
+              <li class="nav-link" id="task-report">
                 <i class="bi bi-back icon"></i>
                 <p class="notification-para"></p>
                 <span class="text nav-text">Task report</span>
@@ -118,146 +118,174 @@
 
           <!-- percentage card elements -->
 
-          <div class="user-details-card-div-container">
-            <div class="user-inside-details-card-div">
-              <!-- card div  -->
+          <div class="after-search-bar-details-div">
+            <div class="user-details-card-div-container">
+              <div class="card-topic-div">
+                <p>Frsehnest details</p>
+              </div>
+              <div class="user-inside-details-card-div">
+                <!-- card div  -->
 
-              <div class="total-users-card-div total-user-card">
-                <div class="total-user-inside-card-div">
-                  <!-- button fa icon div -->
-                  <div class="card-icon-and-button-div">
-                    <button class="user-font-button">
-                      <i class="bi bi-people-fill"></i>
-                    </button>
+                <div class="total-users-card-div total-user-card">
+                  <div class="total-user-inside-card-div">
+                    <!-- button fa icon div -->
+                    <div class="card-icon-and-button-div">
+                      <button class="user-font-button">
+                        <i class="bi bi-people-fill"></i>
+                      </button>
 
-                    <button class="view-button">View</button>
-                  </div>
-
-                  <!-- card detail-div -->
-
-                  <div class="card-details-div">
-                    <div class="purpose-div">
-                      <p class="purpose-para">Total users</p>
+                      <button class="view-button">View</button>
                     </div>
 
-                    <div class="card-details-and-purpose-div">
-                      <div class="image-and-count-div">
-                        <div class="count-div"><p>12.5K</p></div>
-                        <div class="user-short-image-div">
-                          <img
-                            class="added-user-image"
-                            src="../assets/images/Hero section/User-review/2.jpg"
-                            alt="user-image"
-                          />
-                          <img
-                            class="added-user-image"
-                            src="../assets/images/Hero section/User-review/2.jpg"
-                            alt="user-image"
-                          />
-                          <img
-                            class="added-user-image"
-                            src="../assets/images/Hero section/User-review/2.jpg"
-                            alt="user-image"
-                          />
-                        </div>
+                    <!-- card detail-div -->
+
+                    <div class="card-details-div">
+                      <div class="purpose-div">
+                        <p class="purpose-para">Total users</p>
                       </div>
-                      <div class="increase-percentage-para-div">
-                        <p class="percentage-para">+12%</p>
+
+                      <div class="card-details-and-purpose-div">
+                        <div class="image-and-count-div">
+                          <div class="count-div"><p>12.5K</p></div>
+                          <div class="user-short-image-div">
+                            <img
+                              class="added-user-image"
+                              src="../assets/images/Hero section/User-review/2.jpg"
+                              alt="user-image"
+                            />
+                            <img
+                              class="added-user-image"
+                              src="../assets/images/Hero section/User-review/2.jpg"
+                              alt="user-image"
+                            />
+                            <img
+                              class="added-user-image"
+                              src="../assets/images/Hero section/User-review/2.jpg"
+                              alt="user-image"
+                            />
+                          </div>
+                        </div>
+                        <div class="increase-percentage-para-div">
+                          <p class="percentage-para">+12%</p>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <div class="total-users-card-div this-month-card">
-                <div class="total-user-inside-card-div">
-                  <!-- button fa icon div -->
-                  <div class="card-icon-and-button-div">
-                    <button class="user-font-button">
-                      <i class="bi bi-people-fill"></i>
-                    </button>
+                <div class="total-users-card-div this-month-card">
+                  <div class="total-user-inside-card-div">
+                    <!-- button fa icon div -->
+                    <div class="card-icon-and-button-div">
+                      <button class="user-font-button">
+                        <i class="bi bi-people-fill"></i>
+                      </button>
 
-                    <button class="view-button">View</button>
-                  </div>
-
-                  <!-- card detail-div -->
-
-                  <div class="card-details-div">
-                    <div class="purpose-div">
-                      <p class="purpose-para">This month user</p>
+                      <button class="view-button">View</button>
                     </div>
 
-                    <div class="card-details-and-purpose-div">
-                      <div class="image-and-count-div">
-                        <div class="count-div"><p>12.5K</p></div>
-                        <div class="user-short-image-div">
-                          <img
-                            class="added-user-image"
-                            src="../assets/images/Hero section/User-review/2.jpg"
-                            alt="user-image"
-                          />
-                          <img
-                            class="added-user-image"
-                            src="../assets/images/Hero section/User-review/2.jpg"
-                            alt="user-image"
-                          />
-                          <img
-                            class="added-user-image"
-                            src="../assets/images/Hero section/User-review/2.jpg"
-                            alt="user-image"
-                          />
-                        </div>
+                    <!-- card detail-div -->
+
+                    <div class="card-details-div">
+                      <div class="purpose-div">
+                        <p class="purpose-para">This month user</p>
                       </div>
-                      <div class="increase-percentage-para-div">
-                        <p class="percentage-para">+12%</p>
+
+                      <div class="card-details-and-purpose-div">
+                        <div class="image-and-count-div">
+                          <div class="count-div"><p>12.5K</p></div>
+                          <div class="user-short-image-div">
+                            <img
+                              class="added-user-image"
+                              src="../assets/images/Hero section/User-review/2.jpg"
+                              alt="user-image"
+                            />
+                            <img
+                              class="added-user-image"
+                              src="../assets/images/Hero section/User-review/2.jpg"
+                              alt="user-image"
+                            />
+                            <img
+                              class="added-user-image"
+                              src="../assets/images/Hero section/User-review/2.jpg"
+                              alt="user-image"
+                            />
+                          </div>
+                        </div>
+                        <div class="increase-percentage-para-div">
+                          <p class="percentage-para">+12%</p>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <div class="total-users-card-div page-viewers-card">
-                <div class="total-user-inside-card-div">
-                  <!-- button fa icon div -->
-                  <div class="card-icon-and-button-div">
-                    <button class="user-font-button">
-                      <i class="bi bi-people-fill"></i>
-                    </button>
+                <div class="total-users-card-div page-viewers-card">
+                  <div class="total-user-inside-card-div">
+                    <!-- button fa icon div -->
+                    <div class="card-icon-and-button-div">
+                      <button class="user-font-button">
+                        <i class="bi bi-people-fill"></i>
+                      </button>
 
-                    <button class="view-button">View</button>
-                  </div>
-
-                  <!-- card detail-div -->
-
-                  <div class="card-details-div">
-                    <div class="purpose-div">
-                      <p class="purpose-para">Website views</p>
+                      <button class="view-button">View</button>
                     </div>
 
-                    <div class="card-details-and-purpose-div">
-                      <div class="image-and-count-div">
-                        <div class="count-div"><p>12.5K</p></div>
-                        <div class="user-short-image-div">
-                          <img
-                            class="added-user-image"
-                            src="../assets/images/Hero section/User-review/2.jpg"
-                            alt="user-image"
-                          />
-                          <img
-                            class="added-user-image"
-                            src="../assets/images/Hero section/User-review/2.jpg"
-                            alt="user-image"
-                          />
-                          <img
-                            class="added-user-image"
-                            src="../assets/images/Hero section/User-review/2.jpg"
-                            alt="user-image"
-                          />
+                    <!-- card detail-div -->
+
+                    <div class="card-details-div">
+                      <div class="purpose-div">
+                        <p class="purpose-para">Website views</p>
+                      </div>
+
+                      <div class="card-details-and-purpose-div">
+                        <div class="image-and-count-div">
+                          <div class="count-div"><p>12.5K</p></div>
+                          <div class="user-short-image-div">
+                            <img
+                              class="added-user-image"
+                              src="../assets/images/Hero section/User-review/2.jpg"
+                              alt="user-image"
+                            />
+                            <img
+                              class="added-user-image"
+                              src="../assets/images/Hero section/User-review/2.jpg"
+                              alt="user-image"
+                            />
+                            <img
+                              class="added-user-image"
+                              src="../assets/images/Hero section/User-review/2.jpg"
+                              alt="user-image"
+                            />
+                          </div>
+                        </div>
+                        <div class="increase-percentage-para-div">
+                          <p class="percentage-para">+12%</p>
                         </div>
                       </div>
-                      <div class="increase-percentage-para-div">
-                        <p class="percentage-para">+12%</p>
-                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- chart div  -->
+              </div>
+            </div>
+            <div class="chart-div-container">
+              <div class="chart-inside-div-container">
+                <div class="chart-topic-div">
+                  <p>Freshnest Growth</p>
+                </div>
+
+                <div class="main-chart-div-container">
+                  <div class="user-growth-div">
+                    <div class="user-growth-inside-div">
+                      <canvas class="userGrowth"></canvas>
+                    </div>
+                  </div>
+
+                  <div class="total-growth-div-container">
+                    <div class="total-growth-div">
+                      <canvas class="totalGrowth"></canvas>
                     </div>
                   </div>
                 </div>
@@ -272,4 +300,9 @@
   <!-- scirpt files -->
 
   <script src="../assets/js/side-bar.js"></script>
+  <script src="
+https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js
+"></script>
+
+  <script src="../assets/js/admin_page_chart.js"></script>
 </html>
