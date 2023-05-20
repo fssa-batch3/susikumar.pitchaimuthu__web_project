@@ -28,8 +28,15 @@ signUpFrom.addEventListener("submit", (event) => {
   avatarCanva.width = 200;
   avatarCanva.height = 200;
 
+  // creating a random color creation function
+  const letters = "0123456789ABCDEF";
+  let color = "#";
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+
   // draw background
-  avatarContext.fillStyle = "#00B4FF";
+  avatarContext.fillStyle = color;
   avatarContext.fillRect(0, 0, avatarCanva.width, avatarCanva.height);
 
   // draw text
@@ -81,6 +88,7 @@ signUpFrom.addEventListener("submit", (event) => {
     password: password,
     avatarUrl: imageUrl,
     userTheme: "Hey! I am using fresh nest",
+    registrationDate: moment().format("L"),
   };
 
   console.log(userObj);

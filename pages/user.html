@@ -4,9 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Inquaries</title>
+    <title>Users</title>
+
+    <!-- css links -->
+
     <link rel="stylesheet" href="../assets/css/style.css" />
-    <link rel="stylesheet" href="../assets/css/admin_inquiries.css" />
+    <link rel="stylesheet" href="../assets/css/user.css" />
 
     <!----===== Boxicons CSS ===== -->
     <link
@@ -55,10 +58,10 @@
                 <span class="text nav-text">Solved quaries</span>
               </li>
 
-              <li class="nav-link" id="task-report">
-                <i class="bi bi-back icon"></i>
+              <li class="nav-link" id="user">
+                <i class="bi bi-people-fill icon"></i>
                 <p class="notification-para"></p>
-                <span class="text nav-text">Task report</span>
+                <span class="text nav-text">Users</span>
               </li>
             </ul>
           </div>
@@ -88,8 +91,7 @@
 
       <div class="main-area-div-container">
         <div class="main-inside-div-container">
-          <!-- search bar elements -->
-
+          <!-- search bar -->
           <div class="searchbar-and-profile-div">
             <div class="searchbar-profile-inside-div-container">
               <div class="searchbar-div">
@@ -117,28 +119,37 @@
             </div>
           </div>
 
-          <!-- inquaries div container -->
+          <div class="user-details-head-div">
+            <p>User details</p>
+          </div>
 
-          <div class="after-search-bar-details-div">
-            <div class="inquaries-details-div-container">
-              <div class="inquaries-head-div-container">
-                <p>Inquaries Data</p>
-              </div>
-              <!-- inquaries  message div container -->
+          <!-- user showing div container -->
 
-              <div class="quaries-and-details-div-container">
-                <!-- quaries div -->
-
-                <div class="quaries-showing-div-container">
-                  <div class="query-div-container">
-                    <div class="queries-inside-div-container"></div>
+          <div class="user-details-div-container">
+            <div class="user-details-inside-div-container">
+              <div class="user-nav-div-container">
+                <div class="user-nav-inside-container">
+                  <div class="total-user-div">
+                    <p>Total users</p>
+                  </div>
+                  <div class="this-month-user-div">
+                    <p>This month user</p>
                   </div>
                 </div>
+              </div>
 
-                <!-- inquares details div container -->
+              <!-- user details dic container -->
 
-                <div class="quaries-details-div-container">
-                  <div class="quaries-details-inside-div-container"></div>
+              <div class="user-details-card-div-container">
+                <div class="user-details-card-inside-div-container">
+                  <!-- user card div -->
+                  <div class="user-card-showing-div-container">
+                    <div class="user-card-showing-inside-div"></div>
+                  </div>
+
+                  <!-- iuser card div container -->
+
+                  <div class="card-details-div-container"></div>
                 </div>
               </div>
             </div>
@@ -151,4 +162,7 @@
   <!-- scripts -->
 
   <script src="../assets/js/side-bar.js"></script>
+  <script src="https://momentjs.com/downloads/moment.js"></script>
+  <script src="../assets/js/admin_navigation.js"></script>
+  <script src="../assets/js/admin_user.js"></script>
 </html>

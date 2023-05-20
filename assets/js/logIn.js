@@ -13,7 +13,7 @@ logIn.addEventListener("submit", (event) => {
 
   // Here checking the user is a admit or not
 
-  let adminEmail = "admin143@freshnest.com";
+  let adminEmail = "admin143.freshnest@gmail.com";
   let adminPassword = "1234@SMsm";
 
   if (userEmail == adminEmail && password == adminPassword) {
