@@ -21,18 +21,6 @@ changes.addEventListener("submit", function (e) {
 
   console.log(mobile);
 
-  // Check if the input contains any non-digit characters
-  if (mobile.length !== 10) {
-    alert("Please enter a valid phone number.");
-    return;
-  }
-
-  // var expr = /^(0|91)?[6-9][0-9]{9}$/;
-  // if (!expr.test(mobile)) {
-  //   alert("Invalid Mobile Number.");
-  //   return;
-  // }
-
   let editObj = {
     firstName: fname,
     lastName: lname,
@@ -54,6 +42,7 @@ changes.addEventListener("submit", function (e) {
     info[userIndex] = objestAssign;
 
     localStorage.setItem("register", JSON.stringify(info));
+    alert("Your data successfully changed");
   }
 });
 

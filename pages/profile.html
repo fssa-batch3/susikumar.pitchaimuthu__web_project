@@ -81,31 +81,28 @@
               <div class="profile-card-content-div">
                 <!-- profile -->
                 <div class="profile-connect-message-div">
-                  <div class="connect-div">
-                    <button class="connect-button">Connect</button>
-                  </div>
                   <div class="profile-image-div">
                     <img id="profile-image" alt="profile-image" />
 
-                    <div class="profile-option-div">
-                      <div>
-                        <input type="file" id="file" />
-                        <label for="file" class="choose-photo"
-                          >Change profile</label
-                        >
-                      </div>
-                      <div>
-                        <p>View profile</p>
-                      </div>
-                      <div>
-                        <button onclick="defaultProfile()">
-                          Default Profile
-                        </button>
+                    <div class="profile-option-div" style="display: none">
+                      <div class="profile-option-inside-div">
+                        <div class="change-profile-div">
+                          <input type="file" id="file" />
+                          <label for="file" class="choose-photo"
+                            >Change profile</label
+                          >
+                        </div>
+
+                        <div class="default-button-div">
+                          <button
+                            onclick="defaultProfile()"
+                            class="default-button"
+                          >
+                            Default Profile
+                          </button>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="message-div">
-                    <button class="message-button">Message</button>
                   </div>
                 </div>
 

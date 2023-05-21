@@ -274,39 +274,73 @@ body {
 }
 
 .profile-option-div {
-  display: none;
   position: absolute;
   top: 32%;
   background-color: #fff;
   transition: 0.5s ease ease;
+  box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
+  border-radius: 6px;
+  width: 8em;
+}
+
+.profile-option-inside-div {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  flex-direction: column;
+  padding: 4px 7px;
 }
 
 .choose-photo {
   cursor: pointer;
+  font-size: 90%;
+}
+.choose-photo:hover {
+  color: #fff;
 }
 
 #file {
   display: none;
 }
+
+.change-profile-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 99%;
+  padding: 2px 4px;
+}
+
+.change-profile-div:hover {
+  background-color: #25aae1;
+  border-radius: 4px;
+}
+
+.default-button-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 99%;
+  padding: 2px 4px;
+}
+
+.default-button-div:hover {
+  background-color: #25aae1;
+  border-radius: 4px;
+}
+
+.default-button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.default-button:hover {
+  color: #fff;
+}
 /* profile- button */
 
-.connect-div {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  height: 120px;
-}
-
-.message-div {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  height: 120px;
-}
-
-.connect-button,
-.message-button,
-.edit-button {
+.connect-button {
   border: none;
   height: 2em;
   width: 6em;
@@ -318,10 +352,6 @@ body {
 
 .connect-button {
   background-color: #4481eb;
-}
-
-.message-button {
-  background-color: darkviolet;
 }
 
 /* user experience in our website */

@@ -28,7 +28,7 @@ invite.addEventListener("click", () => {
 // settings page direction
 
 setting.addEventListener("click", () => {
-  window.location.href = "../pages/setting.html?user=" + findUser["userId"];
+  window.location.href = "../pages/support.html?user=" + findUser["userId"];
 });
 
 // chat page dirction location

@@ -279,3 +279,7 @@ hr {
 .forget {
   font-size: 96%;
 }
+
+.mandatory {
+  color: #eb44bc;
+}
