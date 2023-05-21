@@ -22,9 +22,8 @@ for (let allUser of allUserData) {
   if (count >= 3) {
     break;
   }
-  console.log("image");
 
-  let userImage = document.querySelector("img");
+  let userImage = document.createElement("img");
   userImage.setAttribute("class", "added-user-image");
   userImage.setAttribute("alt", "user-image");
   userImage.setAttribute("src", allUser["avatarUrl"]);
@@ -63,7 +62,7 @@ for (let thisUser of thisUserData) {
     break;
   }
 
-  let thisUserImage = document.querySelector("img");
+  let thisUserImage = document.createElement("img");
   thisUserImage.setAttribute("class", "added-user-image");
   thisUserImage.setAttribute("alt", "user-image");
   thisUserImage.setAttribute("src", thisUser["avatarUrl"]);

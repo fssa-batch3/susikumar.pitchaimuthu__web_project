@@ -117,9 +117,7 @@ function removeDetailsElement() {
   let detailsElement = document.querySelector(".card-inside-div-container");
 
   if (detailsElement !== null) {
-    for (let detailEle of detailsElement) {
-      detailEle.remove();
-    }
+    detailsElement.remove();
   }
 }
 
@@ -226,4 +224,14 @@ function createDetailsElement(
   document
     .querySelector(".card-details-div-container")
     .append(cardInsideDivContainer);
+}
+
+// selection button css adding
+
+let buttonAll = document.querySelectorAll(".selection-button");
+
+for (let button of buttonAll) {
+  button.addEventListener("click", (event) => {
+    event.preventDefault();
+  });
 }

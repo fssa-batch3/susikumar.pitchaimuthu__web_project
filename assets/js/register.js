@@ -88,7 +88,7 @@ signUpFrom.addEventListener("submit", (event) => {
     password: password,
     avatarUrl: imageUrl,
     userTheme: "Hey! I am using fresh nest",
-    registrationDate: moment().format("L"),
+    registrationDate: moment().format("l"),
   };
 
   console.log(userObj);
