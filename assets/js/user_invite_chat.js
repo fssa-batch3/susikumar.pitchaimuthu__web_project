@@ -40,6 +40,7 @@ function inviteChatNotification(noti) {
     message_receiver_id: inviter_id,
     notification_file,
     purpose: "invite-chat",
+    isRead: false,
   };
 
   console.log(inviteObject);

@@ -236,14 +236,6 @@ firstParent.addEventListener("click", async function (event) {
   }
 });
 
-if (navigator.share) {
-  // Web Share API is supported
-  console.log("Web Share API is supported");
-} else {
-  // Web Share API is not supported
-  console.log("Web Share API is not supported");
-}
-
 // emoji element creations
 
 let avatarData = JSON.parse(localStorage.getItem("emojiAvatar"));

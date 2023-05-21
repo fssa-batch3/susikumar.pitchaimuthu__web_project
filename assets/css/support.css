@@ -1,3 +1,15 @@
+/* adding css to the setting button */
+
+#setting {
+  background-color: #00baff;
+  border-radius: 10px;
+}
+
+.nav-link:hover {
+  background-color: #cbe7ea;
+  border-radius: 10px;
+}
+
 .whole-section-container {
   display: flex;
   align-items: center;

@@ -391,7 +391,6 @@
   width: 100%;
   display: flex;
   align-items: center;
-  /* background-color: aqua; */
   position: relative;
   justify-content: center;
   height: 100%;
@@ -410,9 +409,16 @@
   align-items: center;
   width: 46%;
   flex-direction: column;
-  justify-content: flex-end;
-  gap: 4em;
-  top: 57%;
+  top: 25%;
+  gap: 19em;
+}
+
+.comment-and-input-area-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 2em;
 }
 
 .like-comment-div-container {
@@ -513,7 +519,6 @@
 .invite-reply-emoji-inside-div {
   width: 100%;
   height: 3em;
-  display: none;
 }
 #invite-reply-input {
   width: 75%;
@@ -563,4 +568,66 @@
   padding: 0;
   font-size: 90%;
   color: #808080;
+}
+
+/* invite content div */
+
+.invite-details-content-container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.invite-details-inside-content-div {
+  display: flex;
+  width: 99%;
+  gap: 2.5em;
+}
+
+.invite-burger-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+  background-color: #fff;
+  border-radius: 5px;
+  width: 1.8em;
+  height: 1.6em;
+  cursor: pointer;
+}
+
+.invite-content-container {
+  width: 60%;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border-radius: 6px;
+  background-color: #fff;
+}
+
+.invite-content-inside-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.invite-content-inside-div {
+  display: flex;
+  flex-direction: column;
+  padding: 7px 8px;
+  width: 90%;
+}
+
+.invite-glimpse-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 99%;
+}
+
+.era-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 99%;
 }

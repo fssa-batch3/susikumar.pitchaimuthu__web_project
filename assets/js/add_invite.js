@@ -26,27 +26,45 @@ profilePage.addEventListener("click", () => {
   window.location.href = "../pages/profile.html";
 });
 
+// Disable the past date function
+// Get the current date
+let currentDate = new Date().toISOString().split("T")[0];
+
+// Set the minimum date for the input element
+document.getElementById("party_date").setAttribute("min", currentDate);
+
 // invite image reader function
 
-let inviteImage = document.getElementById("party_image");
+let inviteFile = document.querySelector(".choose-file-button");
 
-let image;
-inviteImage.addEventListener("change", function () {
-  let choosePhoto = this.files[0];
-  console.log("manisha");
-  if (choosePhoto) {
-    let reader = new FileReader();
+let imageSrc;
 
-    reader.addEventListener("load", function () {
-      image = reader.result;
-      console.log(image);
-    });
+inviteFile.addEventListener("click", (e) => {
+  e.preventDefault();
 
-    reader.readAsDataURL(choosePhoto);
-  }
+  let inviteImage = document.createElement("input");
+  inviteImage.type = "file";
+
+  inviteImage.click();
+
+  let image = document.createElement("img");
+
+  inviteImage.addEventListener("change", function () {
+    let choosePhoto = this.files[0];
+    if (choosePhoto) {
+      let reader = new FileReader();
+
+      reader.addEventListener("load", function () {
+        imageSrc = reader.result;
+        console.log(imageSrc);
+      });
+
+      reader.readAsDataURL(choosePhoto);
+    }
+  });
 });
 
-console.log(image);
+console.log(imageSrc);
 
 // Writing EventListner for store user invites data
 let inviteForm = document.querySelector("#invite-form");
@@ -88,7 +106,7 @@ inviteForm.addEventListener("submit", (sub) => {
   let inviteObj = {
     inviteName,
     inviteDate,
-    inviteImage: image,
+    inviteImage: imageSrc,
     inviteTime: convertedTime,
     specialPerson,
     inviteGlimpse,

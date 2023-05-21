@@ -200,9 +200,25 @@ body {
   height: 1.7em;
   border-radius: 5px;
   border: none;
-  background-color: rgb(65, 138, 202);
-  color: white;
+  box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
+  background-color: #4481eb;
+  color: #fff;
   font-weight: bold;
   font-size: 1.3em;
   cursor: pointer;
+}
+
+.mandatory {
+  color: rgb(248, 149, 149);
+}
+
+.choose-file-button {
+  width: 45%;
+  padding: 9px 5px;
+  box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
+  border: none;
+  background-color: #4481eb;
+  border-radius: 6px;
+  color: #fff;
+  font-weight: 600;
 }

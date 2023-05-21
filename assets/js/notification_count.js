@@ -29,7 +29,7 @@ if (othersData !== null) {
   for (let other of othersData) {
     if (
       other["message_receiver_id"] == findUser["userId"] &&
-      other["isRead"] == "false"
+      other["isRead"] == false
     ) {
       otherDataArray.push(other);
     }
@@ -59,6 +59,10 @@ notification.addEventListener("click", () => {
   // Here convert the data into read
 
   let otherArray = [];
+
+  if (otherDataArray.length == 0) {
+    return;
+  }
 
   for (let other of othersData) {
     for (let insideOther of otherDataArray) {

@@ -71,9 +71,83 @@ function showInvite(invId) {
 
   inviteShowingContainer.append(likeCommentOptionDivContainer);
 
+  let inviteDetailsContentContainer = document.createElement("div");
+  inviteDetailsContentContainer.setAttribute(
+    "class",
+    "invite-details-content-container"
+  );
+  likeCommentOptionDivContainer.append(inviteDetailsContentContainer);
+
+  let inviteDetailsInsideContentDiv = document.createElement("div");
+  inviteDetailsInsideContentDiv.setAttribute(
+    "class",
+    "invite-details-inside-content-div"
+  );
+  inviteDetailsContentContainer.append(inviteDetailsInsideContentDiv);
+
+  let burgerDiv = document.createElement("div");
+  burgerDiv.setAttribute("class", "invite-burger-div");
+  burgerDiv.setAttribute("onclick", "showInviteEra()");
+  inviteDetailsInsideContentDiv.append(burgerDiv);
+
+  let burgerIcon = document.createElement("i");
+  burgerIcon.setAttribute("class", "bi bi-list");
+  burgerDiv.append(burgerIcon);
+
+  let inviteContentContainer = document.createElement("div");
+  inviteContentContainer.setAttribute("class", "invite-content-container");
+  inviteContentContainer.setAttribute("style", "display:none;");
+  inviteDetailsInsideContentDiv.append(inviteContentContainer);
+
+  let inviteContentInsideContainer = document.createElement("div");
+  inviteContentInsideContainer.setAttribute(
+    "class",
+    "invite-content-inside-container"
+  );
+  inviteContentContainer.append(inviteContentInsideContainer);
+
+  let inviteContentInsideDiv = document.createElement("div");
+  inviteContentInsideDiv.setAttribute("class", "invite-content-inside-div");
+  inviteContentInsideContainer.append(inviteContentInsideDiv);
+
+  let inviteGlimpseDiv = document.createElement("div");
+  inviteGlimpseDiv.setAttribute("class", "invite-glimpse-div");
+  inviteContentInsideDiv.append(inviteGlimpseDiv);
+
+  let glimpseHead = document.createElement("h4");
+  glimpseHead.setAttribute("class", "glimpse-head");
+  glimpseHead.innerHTML = "Invite Glimpse";
+  inviteGlimpseDiv.append(glimpseHead);
+
+  let glimpsePara = document.createElement("p");
+  glimpsePara.setAttribute("class", "glipse-para");
+  glimpsePara.innerHTML = findPresentInvite["inviteGlimpse"];
+  inviteGlimpseDiv.append(glimpsePara);
+
+  let eraDiv = document.createElement("era-div");
+  eraDiv.setAttribute("class", "era-div");
+  inviteContentInsideDiv.append(eraDiv);
+
+  let eraHead = document.createElement("h4");
+  eraHead.setAttribute("class", "era-head");
+  eraHead.innerHTML = "Invite Explanation";
+  eraDiv.append(eraHead);
+
+  let eraPara = document.createElement("p");
+  eraPara.setAttribute("class", "era-para");
+  eraPara.innerHTML = findPresentInvite["inviteExplanation"];
+  eraDiv.append(eraPara);
+
+  let commentAndInputAreaContainer = document.createElement("div");
+  commentAndInputAreaContainer.setAttribute(
+    "class",
+    "comment-and-input-area-container"
+  );
+  likeCommentOptionDivContainer.append(commentAndInputAreaContainer);
+
   let likeCommentDivContainer = document.createElement("div");
   likeCommentDivContainer.setAttribute("class", "like-comment-div-container");
-  likeCommentOptionDivContainer.append(likeCommentDivContainer);
+  commentAndInputAreaContainer.append(likeCommentDivContainer);
 
   let likeCommentInsideDiv = document.createElement("div");
   likeCommentInsideDiv.setAttribute("class", "like-comment-inside-div");
@@ -136,7 +210,7 @@ function showInvite(invId) {
     "class",
     "invite-profile-name-div-container"
   );
-  likeCommentOptionDivContainer.append(inviteprofileNameDivContainer);
+  commentAndInputAreaContainer.append(inviteprofileNameDivContainer);
 
   let inviteProfileNameInsideDiv = document.createElement("div");
   inviteProfileNameInsideDiv.setAttribute(
@@ -194,6 +268,7 @@ function showInvite(invId) {
     "class",
     "invite-reply-emoji-inside-div"
   );
+  inviteReplyEmojiInsideDiv.setAttribute("style", "display:none;");
   inputEmojiDivContainer.append(inviteReplyEmojiInsideDiv);
 
   let inviteReplyInput = document.createElement("input");
@@ -233,4 +308,16 @@ function showInvite(invId) {
       inputEmojiDiv.style.display = "none";
     }
   });
+}
+
+// creating a function to show the details of the invite
+
+function showInviteEra() {
+  let ivniteDetailsCard = document.querySelector(".invite-content-container");
+
+  if (ivniteDetailsCard.style.display === "none") {
+    ivniteDetailsCard.style.display = "block";
+  } else {
+    ivniteDetailsCard.style.display = "none";
+  }
 }
