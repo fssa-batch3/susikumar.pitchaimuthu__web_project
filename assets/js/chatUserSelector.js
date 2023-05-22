@@ -58,7 +58,7 @@ chatContainer.addEventListener("mouseover", async function (event) {
 
 async function chatDelete(self) {
   console.log(self);
-  // alert("Are you sure want to delete message");
+  alert("Are you sure want to delete message");
   let messageId = self;
 
   console.log(messageId);
@@ -92,6 +92,19 @@ chatContainer.addEventListener("click", async function (event) {
   let currentChat = target.id;
   console.log(currentChat);
 
+  // Here call the chat edit option function
+
+  if (target.matches(".bi-pencil-square")) {
+    try {
+      await chatUpdate(currentChat);
+      console.log("Chat update element successfully got");
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  //  Here calling the chat delete function
+
   if (target.matches(".bi-trash")) {
     try {
       await chatDelete(currentChat);
@@ -110,16 +123,19 @@ async function chatUpdate(upsi) {
   let userInput = prompt("Please enter your update:", "");
   console.log(userInput);
 
+  // Here say the one condition if input value is null  return
+
+  if (userInput === "") {
+    alert("Please type some text");
+    return;
+  }
+
   let updateKey = upsi;
 
   let thirdDatabase = getDatabase();
   let nodeRef = ref(thirdDatabase, "freshchat/" + updateKey);
 
   console.log(nodeRef);
-
-  // let objectRef = ref(nodeRef, updateKey);
-
-  // console.log(objectRef);
 
   let chatUpdateObject = {
     chat: userInput,
@@ -133,22 +149,3 @@ async function chatUpdate(upsi) {
     console.log("Data update failed: ", error);
   }
 }
-
-// chat update function add eventlistner
-
-chatContainer.addEventListener("click", async function (event) {
-  let target = event.target;
-  console.log(target);
-
-  let currentChat = target.id;
-  console.log(currentChat);
-
-  if (target.matches(".bi-pencil-square")) {
-    try {
-      await chatUpdate(currentChat);
-      console.log("Chat update element successfully got");
-    } catch (error) {
-      console.error(error);
-    }
-  }
-});

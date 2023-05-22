@@ -277,6 +277,7 @@ function chatCard() {
 
       let emojiInputDiv = document.createElement("div");
       emojiInputDiv.setAttribute("class", "emoji-input-div-container");
+      emojiInputDiv.setAttribute("style", "display:none;");
       emojiDiv.append(emojiInputDiv);
 
       let emojiInsideDiv = document.createElement("div");
