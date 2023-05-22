@@ -1,69 +1,77 @@
 // like showing function add eventListener
 
-let likeOption = document.querySelector(".like-option");
-console.log(likeOption);
+try {
+  let likeOption = document.querySelector(".like-option");
+  console.log(likeOption);
 
-let likeIcon = document.querySelector(".bi-heart");
+  let likeIcon = document.querySelector(".bi-heart");
 
-// add unique color to the favourite element
+  // add unique color to the favourite element
 
-console.log(snap["imageFav"]);
+  console.log(snap["imageFav"]);
 
-if (snap["imageFav"]) {
-  likeOption.style.backgroundColor = "red";
-  likeIcon.style.color = "white";
+  if (snap["imageFav"]) {
+    likeOption.style.backgroundColor = "red";
+    likeIcon.style.color = "white";
+  }
+} catch (error) {
+  console.log("An error occured while show favourite :", error);
 }
 
 // click to change the color
 
 likeOption.addEventListener("click", () => {
-  if (likeOption.style.backgroundColor === "transparent") {
-    likeOption.style.backgroundColor = "red";
-    likeIcon.style.color = "white";
+  try {
+    if (likeOption.style.backgroundColor === "transparent") {
+      likeOption.style.backgroundColor = "red";
+      likeIcon.style.color = "white";
 
-    let imageFavObject = {
-      imageFav: "favourite",
-    };
+      let imageFavObject = {
+        imageFav: "favourite",
+      };
 
-    let favObjectAssaign = Object.assign(snap, imageFavObject);
-    console.log(favObjectAssaign);
+      let favObjectAssaign = Object.assign(snap, imageFavObject);
+      console.log(favObjectAssaign);
 
-    let findImageIndex = imageGallery.indexOf(snap);
-    console.log(findImageIndex);
+      let findImageIndex = imageGallery.indexOf(snap);
+      console.log(findImageIndex);
 
-    imageGallery[findImageIndex] = favObjectAssaign;
+      imageGallery[findImageIndex] = favObjectAssaign;
 
-    localStorage.setItem("image_url", JSON.stringify(imageGallery));
-  } else {
-    likeOption.style.backgroundColor = "transparent";
-    likeIcon.style.color = "black";
-    let imageFavObject = {
-      imageFav: null,
-    };
+      localStorage.setItem("image_url", JSON.stringify(imageGallery));
+    } else {
+      likeOption.style.backgroundColor = "transparent";
+      likeIcon.style.color = "black";
+      let imageFavObject = {
+        imageFav: null,
+      };
 
-    let favObjectAssaign = Object.assign(snap, imageFavObject);
-    console.log(favObjectAssaign);
+      let favObjectAssaign = Object.assign(snap, imageFavObject);
+      console.log(favObjectAssaign);
 
-    let findImageIndex = imageGallery.indexOf(snap);
-    console.log(findImageIndex);
+      let findImageIndex = imageGallery.indexOf(snap);
+      console.log(findImageIndex);
 
-    imageGallery[findImageIndex] = favObjectAssaign;
+      imageGallery[findImageIndex] = favObjectAssaign;
 
-    localStorage.setItem("image_url", JSON.stringify(imageGallery));
+      localStorage.setItem("image_url", JSON.stringify(imageGallery));
+    }
+
+    // let imageFavObject = {
+    //   imageFav: "favourite",
+    // };
+
+    // let favObjectAssaign = Object.assign(snap, imageFavObject);
+    // console.log(favObjectAssaign);
+
+    // let findImageIndex = imageGallery.indexOf(snap);
+    // console.log(findImageIndex);
+
+    // (imageGallery[findImageIndex] = favObjectAssaign),
+    //   localStorage.setItem("image_url", JSON.stringify(imageGallery));
+  } catch (error) {
+    console.log("An error occured while create image element :", error);
   }
-
-  // let imageFavObject = {
-  //   imageFav: "favourite",
-  // };
-
-  // let favObjectAssaign = Object.assign(snap, imageFavObject);
-  // console.log(favObjectAssaign);
-
-  // let findImageIndex = imageGallery.indexOf(snap);
-  // console.log(findImageIndex);
-
-  // (imageGallery[findImageIndex] = favObjectAssaign),
-  //   localStorage.setItem("image_url", JSON.stringify(imageGallery));
 });
 
 // Image download option

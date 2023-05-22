@@ -15,39 +15,50 @@ for (user of allUserData) {
 // Element creation function
 
 function userCardElementCreation(userImage, userName, userTheme, userId) {
-  let userCard = document.createElement("div");
-  userCard.setAttribute("class", "user-card-div");
-  userCard.innerHTML = `
-    <div class="user-card-inside-div" id=${userId}>
-    <div class="user-image-div">
-      <img
-        class="user-image"
-        src= ${userImage}
-        alt="user-image"
-      />
-    </div>
-  
-    <div class="user-name-div">
-      <h3>${userName}</h3>
-      <p>${userTheme}</p>
-    </div>
-  </div>
-      `;
+  try {
+    let userCard = document.createElement("div");
+    userCard.setAttribute("class", "user-card-div");
+    userCard.innerHTML = `
+      <div class="user-card-inside-div" id=${userId}>
+        <div class="user-image-div">
+          <img
+            class="user-image"
+            src= ${userImage}
+            alt="user-image"
+          />
+        </div>
+      
+        <div class="user-name-div">
+          <h3>${userName}</h3>
+          <p>${userTheme}</p>
+        </div>
+      </div>
+    `;
 
-  document.querySelector(".user-card-showing-inside-div").append(userCard);
+    document.querySelector(".user-card-showing-inside-div").append(userCard);
+  } catch (error) {
+    console.log("An error occurred while creating the user card:", error);
+  }
 }
 
 // creating a function to remove all element
 
 function removeElement() {
-  let beforeElement = document.querySelectorAll(".user-card-div");
+  try {
+    let beforeElement = document.querySelectorAll(".user-card-div");
 
-  // remove the before element
+    // remove the before element
 
-  if (beforeElement !== null) {
-    for (let before of beforeElement) {
-      before.remove();
+    if (beforeElement !== null) {
+      for (let before of beforeElement) {
+        before.remove();
+      }
     }
+  } catch (error) {
+    console.log(
+      "An error occured while removing the rprevious element :",
+      error
+    );
   }
 }
 
@@ -77,16 +88,20 @@ let thisMonthButton = document.querySelector(".this-month-user-div");
 thisMonthButton.addEventListener("click", (event) => {
   event.preventDefault();
 
-  removeElement();
+  try {
+    removeElement();
 
-  // creating for loop to show the this month users
+    // creating for loop to show the this month users
 
-  for (let thisUser of thisUserData) {
-    let userImage = thisUser["avatarUrl"];
-    let userName = thisUser["userName"];
-    let userTheme = thisUser["userTheme"];
-    let userId = thisUser["userId"];
-    userCardElementCreation(userImage, userName, userTheme, userId);
+    for (let thisUser of thisUserData) {
+      let userImage = thisUser["avatarUrl"];
+      let userName = thisUser["userName"];
+      let userTheme = thisUser["userTheme"];
+      let userId = thisUser["userId"];
+      userCardElementCreation(userImage, userName, userTheme, userId);
+    }
+  } catch (error) {
+    console.log("An error occured while the thisbutton function :", error);
   }
 });
 
@@ -97,27 +112,35 @@ let totalUserElement = document.querySelector(".total-user-div");
 totalUserElement.addEventListener("click", (event) => {
   event.preventDefault();
 
-  removeElement();
+  try {
+    removeElement();
 
-  //   creating a for of loop to show the all user cards
+    //   creating a for of loop to show the all user cards
 
-  for (let allUsres of allUserData) {
-    let userName = allUsres["userName"];
-    let userTheme = allUsres["userTheme"];
-    let userImage = allUsres["avatarUrl"];
-    let userId = allUsres["userId"];
+    for (let allUsres of allUserData) {
+      let userName = allUsres["userName"];
+      let userTheme = allUsres["userTheme"];
+      let userImage = allUsres["avatarUrl"];
+      let userId = allUsres["userId"];
 
-    userCardElementCreation(userImage, userName, userTheme, userId);
+      userCardElementCreation(userImage, userName, userTheme, userId);
+    }
+  } catch (error) {
+    console.log("An error occured while the tottalbutton function :", error);
   }
 });
 
 // creating a function to remove the details elemet
 
 function removeDetailsElement() {
-  let detailsElement = document.querySelector(".card-inside-div-container");
+  try {
+    let detailsElement = document.querySelector(".card-inside-div-container");
 
-  if (detailsElement !== null) {
-    detailsElement.remove();
+    if (detailsElement !== null) {
+      detailsElement.remove();
+    }
+  } catch (error) {
+    console.log("An error occured while the removeDetailsFunction :", error);
   }
 }
 
@@ -128,39 +151,45 @@ let userCards = document.querySelectorAll(".user-card-div");
 for (let userCardElement of userCards) {
   userCardElement.addEventListener("click", (event) => {
     event.preventDefault();
+    try {
+      removeDetailsElement();
 
-    removeDetailsElement();
+      // getting that element for getting the element
 
-    // getting that element for getting the element
+      let currentElement = event.target.id;
 
-    let currentElement = event.target.id;
+      console.log(currentElement);
 
-    console.log(currentElement);
+      // find the user
 
-    // find the user
+      let findUser = allUserData.find((e) => e["userId"] == currentElement);
+      console.log(findUser);
 
-    let findUser = allUserData.find((e) => e["userId"] == currentElement);
-    console.log(findUser);
+      let thisImage = findUser["avatarUrl"];
+      let thisFirstName = findUser["firstName"];
+      let thisLastName = findUser["lastName"];
+      let thisTheme = findUser["userTheme"];
+      let thisAge = findUser["age"];
+      let thisEmail = findUser["email"];
+      let thisUserName = findUser["userName"];
 
-    let thisImage = findUser["avatarUrl"];
-    let thisFirstName = findUser["firstName"];
-    let thisLastName = findUser["lastName"];
-    let thisTheme = findUser["userTheme"];
-    let thisAge = findUser["age"];
-    let thisEmail = findUser["email"];
-    let thisUserName = findUser["userName"];
-
-    createDetailsElement(
-      thisImage,
-      thisAge,
-      thisFirstName,
-      thisLastName,
-      thisTheme,
-      thisEmail,
-      thisUserName
-    );
+      createDetailsElement(
+        thisImage,
+        thisAge,
+        thisFirstName,
+        thisLastName,
+        thisTheme,
+        thisEmail,
+        thisUserName
+      );
+    } catch (error) {
+      console.log("An error occured while userCardElement function :", error);
+    }
   });
 }
+
+// creating a details element function
+
 function createDetailsElement(
   thisImage,
   thisAge,
@@ -170,9 +199,10 @@ function createDetailsElement(
   thisEmail,
   thisUserName
 ) {
-  let cardInsideDivContainer = document.createElement("div");
-  cardInsideDivContainer.setAttribute("class", "card-inside-div-container");
-  cardInsideDivContainer.innerHTML = `
+  try {
+    let cardInsideDivContainer = document.createElement("div");
+    cardInsideDivContainer.setAttribute("class", "card-inside-div-container");
+    cardInsideDivContainer.innerHTML = `
   <div class="card-inside-inside-div-container">
   <div class="details-image-div">
     <img
@@ -221,9 +251,12 @@ function createDetailsElement(
 </div>
   `;
 
-  document
-    .querySelector(".card-details-div-container")
-    .append(cardInsideDivContainer);
+    document
+      .querySelector(".card-details-div-container")
+      .append(cardInsideDivContainer);
+  } catch (error) {
+    console.log("An error occured while the createElementFunction :", error);
+  }
 }
 
 // selection button css adding

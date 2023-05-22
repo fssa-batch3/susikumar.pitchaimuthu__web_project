@@ -11,18 +11,7 @@ let imageGallery = JSON.parse(localStorage.getItem("image_url"));
 console.log(imageGallery);
 
 // Array.find(  function(letiableName){} )
-let snap = imageGallery.find(function (userObj) {
-  //   userObj = {name : , "image": {}, "text": ""}
-
-  let image = userObj["imageId"];
-  console.log(image);
-
-  if (urlImage == image) {
-    return true;
-  } else {
-    return false;
-  }
-});
+let snap = imageGallery.find((e) => e["imageId"] == urlImage);
 
 console.log(snap);
 console.log(snap["imageLink"]);
@@ -37,10 +26,7 @@ console.log(snapIndex);
 
 urlIndexArr.push(snapIndex);
 
-console.log(urlIndexArr);
-
 document.querySelector(".option-div").addEventListener("click", () => {
-  console.log("susi");
   snapIndex++;
   console.log(snapIndex);
   urlIndexArr.push(snapIndex);
@@ -55,44 +41,6 @@ image.setAttribute("id", imageGallery[snapLastImage]["imageId"]);
 image.setAttribute("class", "user-still");
 image.setAttribute("src", imageGallery[snapLastImage]["imageLink"]);
 document.querySelector(".image-div").append(image);
-
-// image changing for element div
-
-// previous button
-
-// let imageControlDiv = document.createElement("div");
-// imageControlDiv.setAttribute("class", "image-next-option-div");
-
-// let previousButton = document.createElement("button");
-// previousButton.setAttribute("id", snap["imageId"]);
-// previousButton.setAttribute("class", "option-div");
-// imageControlDiv.append(previousButton);
-
-// let previous_i = document.createElement("i");
-// previous_i.setAttribute("class", "bi bi-skip-backward-btn");
-// previousButton.append(previous_i);
-
-// let previous_p = document.createElement("p");
-// previous_p.innerHTML = "Previous";
-// previousButton.append(previous_p);
-
-// // next
-
-// let nextButton = document.createElement("button");
-// nextButton.setAttribute("id", snap["imageId"]);
-// nextButton.setAttribute("class", "option-div");
-// nextButton.setAttribute("onclick", "forwardUrlIndex()");
-// imageControlDiv.append(nextButton);
-
-// let next_i = document.createElement("i");
-// next_i.setAttribute("class", "bi bi-skip-forward-btn");
-// nextButton.append(next_i);
-
-// let next_p = document.createElement("p");
-// next_p.innerHTML = "Next";
-// nextButton.append(next_p);
-
-// document.querySelector(".image-option-next-option-div").append(imageControlDiv);
 
 // normal filter element creation
 

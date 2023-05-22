@@ -9,23 +9,39 @@ let report = document.querySelector("#user");
 
 dashboard.addEventListener("click", (event) => {
   event.preventDefault();
-
-  window.location.href = "../pages/dashboard.html";
+  try {
+    window.location.href = "../pages/dashboard.html";
+  } catch (error) {
+    console.log("error: ", error);
+  }
 });
 
 inquaries.addEventListener("click", (event) => {
   event.preventDefault();
 
-  window.location.href = "../pages/inquaries.html";
+  try {
+    window.location.href = "../pages/inquaries.html";
+  } catch (error) {
+    console.log("error: ", error);
+  }
 });
 
 solvedQuaries.addEventListener("click", (event) => {
   event.preventDefault();
-  window.location.href = "../pages/solved_quaries.html";
+
+  try {
+    window.location.href = "../pages/solved_quaries.html";
+  } catch (error) {
+    console.log("error: ", error);
+  }
 });
 
 report.addEventListener("click", (event) => {
   event.preventDefault();
 
-  window.location.href = "../pages/user.html";
+  try {
+    window.location.href = "../pages/user.html";
+  } catch (error) {
+    console.log("error: ", error);
+  }
 });

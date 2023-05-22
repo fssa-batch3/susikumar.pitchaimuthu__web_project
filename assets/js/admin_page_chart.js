@@ -1,25 +1,29 @@
 // Getting the upcoming days
 
 function getUpcomingDates() {
-  let currentDate = new Date();
-  let upcomingDates = ["5/21/2023"];
-  let remainingDays = getRemainingDays(currentDate);
+  try {
+    let currentDate = new Date();
+    let upcomingDates = ["5/21/2023"];
+    let remainingDays = getRemainingDays(currentDate);
 
-  for (let i = 1; i <= remainingDays; i++) {
-    let upcomingDate = new Date();
-    upcomingDate.setDate(currentDate.getDate() + i);
+    for (let i = 1; i <= remainingDays; i++) {
+      let upcomingDate = new Date();
+      upcomingDate.setDate(currentDate.getDate() + i);
 
-    let year = upcomingDate.getFullYear();
-    let month = upcomingDate.getMonth() + 1;
-    let day = upcomingDate.getDate();
+      let year = upcomingDate.getFullYear();
+      let month = upcomingDate.getMonth() + 1;
+      let day = upcomingDate.getDate();
 
-    // Formatting the date to MM/DD/YYYY format
-    let formattedDate = month + "/" + day + "/" + year;
+      // Formatting the date to MM/DD/YYYY format
+      let formattedDate = month + "/" + day + "/" + year;
 
-    upcomingDates.push(formattedDate);
+      upcomingDates.push(formattedDate);
+    }
+
+    return upcomingDates;
+  } catch (error) {
+    console.log("An error occurred:", error);
   }
-
-  return upcomingDates;
 }
 
 function getRemainingDays(currentDate) {
@@ -44,24 +48,29 @@ console.log(upcomingDates);
 // getting the daily registered data of the users
 
 // Group the user registration data by date
-// Group the user registration data by date
-let groupedData = allUserData.reduce(function (result, user) {
-  let registrationDate = user.registrationDate;
+try {
+  let groupedData = allUserData.reduce(function (result, user) {
+    let registrationDate = user.registrationDate;
 
-  let matchingGroup = result.find(function (group) {
-    return group[0]["registrationDate"] === registrationDate;
-  });
+    let matchingGroup = result.find(function (group) {
+      return group[0]["registrationDate"] === registrationDate;
+    });
 
-  if (matchingGroup) {
-    matchingGroup.push(user);
-  } else {
-    result.push([user]);
-  }
+    if (matchingGroup) {
+      matchingGroup.push(user);
+    } else {
+      result.push([user]);
+    }
 
-  return result;
-}, []);
+    return result;
+  }, []);
 
-console.log(groupedData);
+  // Handle the groupedData as needed
+  console.log(groupedData);
+} catch (error) {
+  console.log("An error occurred:", error);
+  // Handle the error accordingly
+}
 
 // Here getting the length of each day's data
 let dataLength = [];
@@ -74,58 +83,69 @@ for (let groupDa of groupedData) {
 console.log(dataLength);
 
 // Get the canvas element
-let ctx = document.querySelector(".userGrowth").getContext("2d");
+try {
+  let ctx = document.querySelector(".userGrowth").getContext("2d");
 
-// Create the chart
-let chart = new Chart(ctx, {
-  type: "line",
-  data: {
-    labels: upcomingDates,
-    datasets: [
-      {
-        label: "User growth",
-        data: dataLength,
-        fill: false,
-        borderColor: "rgb(75, 192, 192)",
-        tension: 0.1,
-      },
-    ],
-  },
-  options: {
-    responsive: true,
-    maintainAspectRatio: false,
-  },
-});
+  // Create the chart
+  let chart = new Chart(ctx, {
+    type: "line",
+    data: {
+      labels: upcomingDates,
+      datasets: [
+        {
+          label: "User growth",
+          data: dataLength,
+          fill: false,
+          borderColor: "rgb(75, 192, 192)",
+          tension: 0.1,
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+    },
+  });
+
+  // Handle the chart as needed
+} catch (error) {
+  console.log("while creating the chart:", error);
+  // Handle the error accordingly
+}
 
 // Total grow pie chart details getting
 
-let total = document.querySelector(".totalGrowth").getContext("2d");
+try {
+  let total = document.querySelector(".totalGrowth").getContext("2d");
 
-let chartTwo = new Chart(total, {
-  type: "bar",
-  data: {
-    labels: ["Visited", "Total users", "This month users"],
-    datasets: [
-      {
-        label: "freshnest growth",
-        data: [totalUserLength, totalUserLength, thisUserData.length],
-        backgroundColor: [
-          "rgba(153, 102, 255, 0.2)",
-          "rgba(75, 192, 192, 0.2)",
-          "rgba(54, 162, 235, 0.2)",
-        ],
-        borderColor: [
-          "rgb(153, 102, 255)",
+  let chartTwo = new Chart(total, {
+    type: "bar",
+    data: {
+      labels: ["Visited", "Total users", "This month users"],
+      datasets: [
+        {
+          label: "freshnest growth",
+          data: [totalUserLength, totalUserLength, thisUserData.length],
+          backgroundColor: [
+            "rgba(153, 102, 255, 0.2)",
+            "rgba(75, 192, 192, 0.2)",
+            "rgba(54, 162, 235, 0.2)",
+          ],
+          borderColor: [
+            "rgb(153, 102, 255)",
 
-          "rgb(75, 192, 192)",
-          "rgb(54, 162, 235)",
-        ],
-        borderWidth: 0.6,
-      },
-    ],
-  },
-  options: {
-    responsive: true,
-    maintainAspectRatio: false,
-  },
-});
+            "rgb(75, 192, 192)",
+            "rgb(54, 162, 235)",
+          ],
+          borderWidth: 0.6,
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+    },
+  });
+} catch (error) {
+  console.log("while creating a chart error: ", error);
+}

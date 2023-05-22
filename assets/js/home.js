@@ -14,10 +14,6 @@ try {
 
   userFriendsData = JSON.parse(localStorage.getItem("userFriends"));
 
-  if (!Array.isArray(userFriendsData)) {
-    throw new Error("User friends data not found in the database.");
-  }
-
   console.log(userFriendsData);
 
   for (let i = 0; i < filterElseDate.length; i++) {

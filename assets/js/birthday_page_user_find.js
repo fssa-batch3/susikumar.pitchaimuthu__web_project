@@ -1,16 +1,22 @@
-let getUser = window.location.search;
+try {
+  let getUser = window.location.search;
 
-let userParams = new URLSearchParams(getUser);
+  let userParams = new URLSearchParams(getUser);
 
-let urlId = userParams.get("user");
-console.log(urlId);
+  let urlId = userParams.get("user");
+  console.log(urlId);
 
-// Getting all register data to know the user
+  // Getting all register data to know the user
 
-let allRegister = JSON.parse(localStorage.getItem("register"));
+  let allRegister = JSON.parse(localStorage.getItem("register"));
 
-let findUserData = allRegister.find((e) => e["userId"] == urlId);
-console.log(findUserData);
+  let findUserData = allRegister.find((e) => e["userId"] == urlId);
+  console.log(findUserData);
 
-let findIndexUser = allRegister.indexOf(findUserData);
-console.log(findIndexUser);
+  let findIndexUser = allRegister.indexOf(findUserData);
+  console.log(findIndexUser);
+
+  // Continue with the rest of your code and handle the data as needed
+} catch (error) {
+  console.log("An error occurred:", error);
+}

@@ -27,4 +27,8 @@ let emojiAvatar = [
   { avatar: "../assets/images/avatar_emaojis/24.gif" },
 ];
 
-localStorage.setItem("emojiAvatar", JSON.stringify(emojiAvatar));
+try {
+  localStorage.setItem("emojiAvatar", JSON.stringify(emojiAvatar));
+} catch (error) {
+  console.log("An error occured while setting avatar :", error);
+}

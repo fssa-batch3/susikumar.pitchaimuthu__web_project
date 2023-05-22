@@ -1,17 +1,25 @@
 function getAllTwemojiUrls() {
-  const emojiRanges = [
-    [0x1f601, 0x1f64f], // Emoticons
-    [0x1f300, 0x1f5ff], // Miscellaneous Symbols and Pictographs
-    [0x1f680, 0x1f6ff], // Transport and Map Symbols
-    // Add more ranges as needed
+  let emojiRanges = [
+    [0x1f601, 0x1f64f],
+    [0x1f300, 0x1f5ff],
+    [0x1f680, 0x1f6ff],
   ];
 
-  const emojiUrls = [];
+  let emojiUrls = [];
 
   emojiRanges.forEach(([start, end]) => {
     for (let unicode = start; unicode <= end; unicode++) {
-      const emojiChar = String.fromCodePoint(unicode);
-      const emojiUrl = twemoji.parse(emojiChar);
+      let emojiChar = String.fromCodePoint(unicode);
+      let emojiUrl;
+
+      try {
+        emojiUrl = twemoji.parse(emojiChar);
+      } catch (error) {
+        console.log(`Error parsing emoji ${emojiChar}:`, error);
+        // Handle the error accordingly, e.g., skip the emoji or use a fallback URL
+        continue;
+      }
+
       emojiUrls.push(emojiUrl);
     }
   });
@@ -19,20 +27,21 @@ function getAllTwemojiUrls() {
   return emojiUrls;
 }
 
-const twemojiUrls = getAllTwemojiUrls();
-console.log(twemojiUrls); // Array of Twemoji URLs for all emojis
+let twemojiUrls = getAllTwemojiUrls();
+console.log(twemojiUrls);
 
 // Setting the emoji to the emoji file
 
 console.log(twemojiUrls.length);
 
-const emojiContainer = document.querySelector(".emoji-div-container");
-for (let twemoEmoji of twemojiUrls) {
-  twemojiUrls.forEach((url) => {
-    const img = document.createElement("img");
-    img.setAttribute("src", url);
+let emojiContainer = document.querySelector(".emoji-div-container");
+for (let twemojiUrl of twemojiUrls) {
+  try {
+    let img = document.createElement("img");
+    img.setAttribute("src", twemojiUrl);
     img.setAttribute("alt", "Emoticon");
-
     emojiContainer.appendChild(img);
-  });
+  } catch (error) {
+    console.log("Error creating image element:", error);
+  }
 }
