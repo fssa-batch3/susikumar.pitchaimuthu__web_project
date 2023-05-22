@@ -30,12 +30,12 @@ let sendIconElement = document.querySelector(".bi-send");
 
 sendIconElement.setAttribute("id", currentReel[0]["reeluserId"]);
 
-const reelInsideDiv = document.querySelector(".reel-inside-div");
-const rangeInputDiv = document.querySelector(".range-input-div");
+let reelInsideDiv = document.querySelector(".reel-inside-div");
+let rangeInputDiv = document.querySelector(".range-input-div");
 let currentIndex = 0; // Track the index of the current video
 
-function createVideoPlayer(index) {
-  const reel = currentReel[index];
+async function createVideoPlayer(index) {
+  let reel = currentReel[index];
 
   let rangeInput = document.createElement("input");
   rangeInput.setAttribute("type", "range");
@@ -54,13 +54,18 @@ function createVideoPlayer(index) {
 
   reelInsideDiv.append(video);
 
-  // Wait for the metadata to load
-  video.onloadedmetadata = function () {
-    const duration = video.duration;
+  try {
+    // Wait for the metadata to load
+    await new Promise((resolve, reject) => {
+      video.onloadedmetadata = resolve;
+      video.onerror = reject;
+    });
+
+    let duration = video.duration;
     rangeInput.max = duration;
 
     function updateProgress() {
-      const currentTime = video.currentTime;
+      let currentTime = video.currentTime;
       rangeInput.value = currentTime;
       requestAnimationFrame(updateProgress);
     }
@@ -68,7 +73,7 @@ function createVideoPlayer(index) {
     video.addEventListener("timeupdate", updateProgress);
 
     rangeInput.addEventListener("input", function () {
-      const seekTime = parseFloat(rangeInput.value);
+      let seekTime = parseFloat(rangeInput.value);
       video.currentTime = seekTime;
     });
 
@@ -83,10 +88,15 @@ function createVideoPlayer(index) {
     };
 
     video.play();
-  };
+  } catch (error) {
+    console.error("An error occurred while creating the video player:", error);
+    // Handle the error as needed
+  }
 }
 
 createVideoPlayer(currentIndex);
+
+// rest of the code
 
 // reel delete option
 
