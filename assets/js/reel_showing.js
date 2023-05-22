@@ -87,7 +87,7 @@ async function createVideoPlayer(index) {
       }
     };
 
-    video.play();
+    await video.play();
   } catch (error) {
     console.error("An error occurred while creating the video player:", error);
     // Handle the error as needed

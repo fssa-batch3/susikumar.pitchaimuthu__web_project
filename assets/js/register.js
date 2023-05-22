@@ -2,103 +2,109 @@ let signUpFrom = document.getElementById("form");
 signUpFrom.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  let userData = [];
+  try {
+    let userData = [];
 
-  if (localStorage.getItem("register") != null) {
-    userData = JSON.parse(localStorage.getItem("register"));
-  }
-
-  console.log(userData);
-
-  let firstElement = document.getElementById("firstname").value.trim();
-  let lastElememt = document.getElementById("lastname").value.trim();
-  let userName = document.getElementById("username").value.trim();
-  let userEmail = document.getElementById("email").value.trim();
-  let password = document.getElementById("password").value.trim();
-  let cryptoValue = Date.now();
-
-  let avatarText = firstElement.toUpperCase().charAt(0);
-  console.log(avatarText);
-
-  // avatar create
-
-  let avatarCanva = document.createElement("canvas");
-  let avatarContext = avatarCanva.getContext("2d");
-
-  avatarCanva.width = 200;
-  avatarCanva.height = 200;
-
-  // creating a random color creation function
-  const letters = "0123456789ABCDEF";
-  let color = "#";
-  for (let i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
-  }
-
-  // draw background
-  avatarContext.fillStyle = color;
-  avatarContext.fillRect(0, 0, avatarCanva.width, avatarCanva.height);
-
-  // draw text
-
-  avatarContext.font = "bold 100px Assistant";
-  avatarContext.textAlign = "center";
-  avatarContext.textBaseline = "middle";
-  avatarContext.fillStyle = "#fff";
-  avatarContext.fillText(
-    avatarText,
-    avatarCanva.width / 2,
-    avatarCanva.height / 2
-  );
-
-  // return
-
-  let imageUrl = avatarCanva.toDataURL("image/png");
-
-  // Writing function to create en dash to space of user name
-
-  var spaceRegex = / /g;
-
-  // Replace spaces with an end dash
-  var dashedText = userName.replace(spaceRegex, "_");
-
-  // return dashedText;
-
-  console.log(dashedText);
-
-  // let checkUser = JSON.parse(localStorage.getItem("register"));
-
-  for (let i = 0; i < userData.length; i++) {
-    if (userData[i]["email"] === userEmail) {
-      match = true;
-      alert("user Email ID is already exist");
-      return;
-    } else if (userData[i]["userName"] == userName) {
-      alert("user name already exist can you change your user name");
-      return;
+    if (localStorage.getItem("register") != null) {
+      userData = JSON.parse(localStorage.getItem("register"));
     }
+
+    console.log(userData);
+
+    let firstElement = document.getElementById("firstname").value.trim();
+    let lastElement = document.getElementById("lastname").value.trim();
+    let userName = document.getElementById("username").value.trim();
+    let userEmail = document.getElementById("email").value.trim();
+    let password = document.getElementById("password").value.trim();
+    let cryptoValue = Date.now();
+
+    let avatarText = firstElement.toUpperCase().charAt(0);
+    console.log(avatarText);
+
+    // avatar create
+
+    let avatarCanva = document.createElement("canvas");
+    let avatarContext = avatarCanva.getContext("2d");
+
+    avatarCanva.width = 200;
+    avatarCanva.height = 200;
+
+    // creating a random color creation function
+    const letters = "0123456789ABCDEF";
+    let color = "#";
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+
+    // draw background
+    avatarContext.fillStyle = color;
+    avatarContext.fillRect(0, 0, avatarCanva.width, avatarCanva.height);
+
+    // draw text
+
+    avatarContext.font = "bold 100px Assistant";
+    avatarContext.textAlign = "center";
+    avatarContext.textBaseline = "middle";
+    avatarContext.fillStyle = "#fff";
+    avatarContext.fillText(
+      avatarText,
+      avatarCanva.width / 2,
+      avatarCanva.height / 2
+    );
+
+    // return
+
+    let imageUrl = avatarCanva.toDataURL("image/png");
+
+    // Writing function to create en dash to space of user name
+
+    var spaceRegex = / /g;
+
+    // Replace spaces with an end dash
+    var dashedText = userName.replace(spaceRegex, "_");
+
+    // return dashedText;
+
+    console.log(dashedText);
+
+    // let checkUser = JSON.parse(localStorage.getItem("register"));
+
+    let match = false;
+
+    for (let i = 0; i < userData.length; i++) {
+      if (userData[i]["email"] === userEmail) {
+        match = true;
+        throw new Error("User email ID already exists");
+      } else if (userData[i]["userName"] == userName) {
+        throw new Error(
+          "Username already exists. Please choose a different username."
+        );
+      }
+    }
+
+    let userObj = {
+      userId: cryptoValue,
+      firstName: firstElement,
+      lastName: lastElement,
+      userName: dashedText,
+      email: userEmail.toLowerCase(),
+      password: password,
+      avatarUrl: imageUrl,
+      userTheme: "Hey! I am using fresh nest",
+      registrationDate: moment().format("l"),
+    };
+
+    console.log(userObj);
+    console.log(userData);
+
+    userData.push(userObj);
+    let str = JSON.stringify(userData);
+    localStorage.setItem("register", str);
+    alert("Success");
+    window.location.href = "./birthday.html?user=" + cryptoValue;
+  } catch (error) {
+    console.log("Error: " + error.message);
   }
-
-  let userObj = {
-    userId: cryptoValue,
-    firstName: firstElement,
-    lastName: lastElememt,
-    userName: dashedText,
-    email: userEmail.toLowerCase(),
-    password: password,
-    avatarUrl: imageUrl,
-    userTheme: "Hey! I am using fresh nest",
-    registrationDate: moment().format("l"),
-  };
-
-  console.log(userObj);
-  console.log(userData);
-
-  userData.push(userObj);
-  let str = JSON.stringify(userData);
-  localStorage.setItem("register", str);
-  alert("Success");
-  window.location.href = "./birthday.html?user=" + cryptoValue;
 });
 
 // password showing funciton

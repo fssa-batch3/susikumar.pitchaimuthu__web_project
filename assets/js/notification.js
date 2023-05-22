@@ -261,6 +261,8 @@ function followBack(e) {
 
   localStorage.setItem("followNotificationData", JSON.stringify(followData));
 
+  let time = moment().format("LT");
+
   // set the user data into the userFriends database
 
   if (friendArray.length == 0) {
@@ -273,6 +275,7 @@ function followBack(e) {
       avatarUrl: findFollower["avatarUrl"],
       userTheme: findFollower["userTheme"],
       email: findFollower["email"],
+      time,
     };
 
     createArray.push(createObject);

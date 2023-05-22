@@ -5,46 +5,51 @@ let logIn = document.getElementById("form");
 let doSomething = [];
 logIn.addEventListener("submit", (event) => {
   event.preventDefault();
-  let defaultData = JSON.parse(localStorage.getItem("register"));
-  console.log(defaultData);
 
-  let userEmail = document.getElementById("inputemail").value.trim();
-  let password = document.getElementById("password").value.trim();
+  try {
+    let defaultData = JSON.parse(localStorage.getItem("register"));
+    console.log(defaultData);
 
-  // Here checking the user is a admit or not
+    let userEmail = document.getElementById("inputemail").value.trim();
+    let password = document.getElementById("password").value.trim();
 
-  let adminEmail = "admin143.freshnest@gmail.com";
-  let adminPassword = "1234@SMsm";
+    // Here checking the user is a admit or not
 
-  if (userEmail == adminEmail && password == adminPassword) {
-    window.location.href = "../pages/dashboard.html";
-    return;
-  }
+    let adminEmail = "admin143.freshnest@gmail.com";
+    let adminPassword = "1234@SMsm";
 
-  let match = false;
+    if (userEmail == adminEmail && password == adminPassword) {
+      window.location.href = "../pages/dashboard.html";
+      return;
+    }
 
-  let usercheck = defaultData.find((e) => e["email"] == userEmail);
-  console.log(usercheck);
+    let match = false;
 
-  if (usercheck == undefined) {
-    alert("Email id not found");
-    return;
-  } else if (usercheck["password"] !== password) {
-    alert("Password is not correct");
-    return;
-  } else {
-    match = true;
+    let usercheck = defaultData.find((e) => e["email"] == userEmail);
+    console.log(usercheck);
 
-    let which = doSomething.push(usercheck);
-    console.log(which);
+    if (usercheck == undefined) {
+      alert("Email id not found");
+      return;
+    } else if (usercheck["password"] !== password) {
+      alert("Password is not correct");
+      return;
+    } else {
+      match = true;
 
-    let logString = JSON.stringify(doSomething);
-    window.localStorage.setItem("user_data", logString);
-  }
+      let which = doSomething.push(usercheck);
+      console.log(which);
 
-  if (match == true) {
-    alert("You are successfully get into freshnest");
-    window.location.href = "../pages/home.html?user=" + usercheck["userId"];
+      let logString = JSON.stringify(doSomething);
+      window.localStorage.setItem("user_data", logString);
+    }
+
+    if (match == true) {
+      alert("You are successfully get into freshnest");
+      window.location.href = "../pages/home.html?user=" + usercheck["userId"];
+    }
+  } catch (error) {
+    console.log("Error " + error.message);
   }
 });
 

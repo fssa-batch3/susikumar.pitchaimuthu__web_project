@@ -23,7 +23,11 @@ profileDiv.append(profileImg);
 let profilePage = document.querySelector(".user-profile-div");
 
 profilePage.addEventListener("click", () => {
-  window.location.href = "../pages/profile.html";
+  try {
+    window.location.href = "../pages/profile.html";
+  } catch (error) {
+    console.log("error:", error.message);
+  }
 });
 
 // Disable the past date function
@@ -40,28 +44,40 @@ let inviteFile = document.querySelector(".choose-file-button");
 let imageSrc;
 
 inviteFile.addEventListener("click", (e) => {
-  e.preventDefault();
+  try {
+    e.preventDefault();
 
-  let inviteImage = document.createElement("input");
-  inviteImage.type = "file";
+    let inviteImage = document.createElement("input");
+    inviteImage.type = "file";
 
-  inviteImage.click();
+    inviteImage.click();
 
-  let image = document.createElement("img");
+    let image = document.createElement("img");
 
-  inviteImage.addEventListener("change", function () {
-    let choosePhoto = this.files[0];
-    if (choosePhoto) {
-      let reader = new FileReader();
+    inviteImage.addEventListener("change", function () {
+      try {
+        let choosePhoto = this.files[0];
+        if (choosePhoto) {
+          let reader = new FileReader();
 
-      reader.addEventListener("load", function () {
-        imageSrc = reader.result;
-        console.log(imageSrc);
-      });
+          reader.addEventListener("load", function () {
+            try {
+              imageSrc = reader.result;
+              console.log(imageSrc);
+            } catch (error) {
+              console.log("error:", error);
+            }
+          });
 
-      reader.readAsDataURL(choosePhoto);
-    }
-  });
+          reader.readAsDataURL(choosePhoto);
+        }
+      } catch (error) {
+        console.log("error:", error);
+      }
+    });
+  } catch (error) {
+    console.log("error:", error);
+  }
 });
 
 console.log(imageSrc);
@@ -70,60 +86,66 @@ console.log(imageSrc);
 let inviteForm = document.querySelector("#invite-form");
 
 inviteForm.addEventListener("submit", (sub) => {
-  sub.preventDefault();
-  let inviteArr = [];
+  try {
+    sub.preventDefault();
+    let inviteArr = [];
 
-  if (localStorage.getItem("userInvites") !== null) {
-    inviteArr = JSON.parse(localStorage.getItem("userInvites"));
+    if (localStorage.getItem("userInvites") !== null) {
+      inviteArr = JSON.parse(localStorage.getItem("userInvites"));
+    }
+
+    let inviteName = document.getElementById("party_name").value.trim();
+
+    let inviteTime = document.getElementById("party_time").value.trim();
+
+    let inviteDate = document.getElementById("party_date").value.trim();
+    let specialPerson = document.getElementById("special_person").value.trim();
+    let inviteGlimpse = document
+      .getElementById("party_short_note")
+      .value.trim();
+    let inviteExplanation = document
+      .getElementById("party_expand_passage")
+      .value.trim();
+
+    let inviteId = Date.now();
+
+    let inviteLike = [];
+    let inviteNo = [];
+    let inviteHeart = [];
+
+    // converting the reilway time local time
+
+    let [hours, minutes] = inviteTime.split(":");
+    let convertedHours = hours % 12;
+    let period = hours >= 12 ? "PM" : "AM";
+    let convertedTime = `${convertedHours}:${minutes} ${period}`;
+
+    console.log(convertedTime);
+
+    let inviteObj = {
+      inviteName,
+      inviteDate,
+      inviteImage: imageSrc,
+      inviteTime: convertedTime,
+      specialPerson,
+      inviteGlimpse,
+      inviteExplanation,
+      inviteId,
+      inviterId: findUser["userId"],
+      inviterName: findUser["userName"],
+      inviterImage: findUser["avatarUrl"],
+      inviteLike,
+      inviteNo,
+      inviteHeart,
+    };
+
+    console.log(inviteObj);
+
+    inviteArr.push(inviteObj);
+
+    localStorage.setItem("userInvites", JSON.stringify(inviteArr));
+    window.location.href = "../pages/invite.html?user=" + findUser["userId"];
+  } catch (error) {
+    console.log("error: " + error.message);
   }
-
-  let inviteName = document.getElementById("party_name").value.trim();
-
-  let inviteTime = document.getElementById("party_time").value.trim();
-
-  let inviteDate = document.getElementById("party_date").value.trim();
-  let specialPerson = document.getElementById("special_person").value.trim();
-  let inviteGlimpse = document.getElementById("party_short_note").value.trim();
-  let inviteExplanation = document
-    .getElementById("party_expand_passage")
-    .value.trim();
-
-  let inviteId = Date.now();
-
-  let inviteLike = [];
-  let inviteNo = [];
-  let inviteHeart = [];
-
-  // converting the reilway time local time
-
-  let [hours, minutes] = inviteTime.split(":");
-  let convertedHours = hours % 12;
-  let period = hours >= 12 ? "PM" : "AM";
-  let convertedTime = `${convertedHours}:${minutes} ${period}`;
-
-  console.log(convertedTime);
-
-  let inviteObj = {
-    inviteName,
-    inviteDate,
-    inviteImage: imageSrc,
-    inviteTime: convertedTime,
-    specialPerson,
-    inviteGlimpse,
-    inviteExplanation,
-    inviteId,
-    inviterId: findUser["userId"],
-    inviterName: findUser["userName"],
-    inviterImage: findUser["avatarUrl"],
-    inviteLike,
-    inviteNo,
-    inviteHeart,
-  };
-
-  console.log(inviteObj);
-
-  inviteArr.push(inviteObj);
-
-  localStorage.setItem("userInvites", JSON.stringify(inviteArr));
-  window.location.href = "../pages/invite.html?user=" + findUser["userId"];
 });
