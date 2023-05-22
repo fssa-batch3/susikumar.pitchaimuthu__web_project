@@ -8,9 +8,11 @@ import {
   push,
 } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-database.js";
 
+let apiKeyId = "AIzaSyByvONF3f6-tLWrigL42gKw2hGQxtbmYWc";
+
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyByvONF3f6-tLWrigL42gKw2hGQxtbmYWc",
+  apiKey: apiKeyId,
   authDomain: "freshchat-28154.firebaseapp.com",
   databaseURL: "https://freshchat-28154-default-rtdb.firebaseio.com",
   projectId: "freshchat-28154",

@@ -14,16 +14,6 @@ if (snap["imageFav"]) {
   likeIcon.style.color = "white";
 }
 
-// likeOption.addEventListener("mouseenter", () => {
-//   likeOption.style.backgroundColor = "red";
-//   likeIcon.style.color = "white";
-// });
-
-// likeOption.addEventListener("mouseleave", () => {
-//   likeOption.style.backgroundColor = "white";
-//   likeIcon.style.color = "black";
-// });
-
 // click to change the color
 
 likeOption.addEventListener("click", () => {
@@ -80,9 +70,9 @@ likeOption.addEventListener("click", () => {
 
 async function downloadImage(url, fileName) {
   try {
-    const response = await fetch(url);
-    const blob = await response.blob();
-    const link = document.createElement("a");
+    let response = await fetch(url);
+    let blob = await response.blob();
+    let link = document.createElement("a");
     link.download = fileName;
     link.href = URL.createObjectURL(blob);
     link.click();
@@ -97,11 +87,12 @@ let clickImage = imageGallery[imageIndexNumber]["imageLink"];
 let clickName = imageGallery[imageIndexNumber]["imageName"];
 let downloadButton = document.querySelector(".downloadButton");
 
-downloadButton.addEventListener("click", async function () {
-  try {
-    await downloadImage(clickImage, clickName);
-    console.log("Image downloaded successfully");
-  } catch (error) {
-    console.error(error);
-  }
+downloadButton.addEventListener("click", function () {
+  downloadImage(clickImage, clickName)
+    .then(() => {
+      console.log("Image downloaded successfully");
+    })
+    .catch((error) => {
+      console.error(error);
+    });
 });

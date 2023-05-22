@@ -119,7 +119,7 @@ function updateImageDisplay(userGallery, imageIndexNumber) {
   imageEditDiv.append(shareButton);
 
   let share_i = document.createElement("i");
-  share_i.setAttribute("class", "bi bi-x-diamond");
+  share_i.setAttribute("class", "bi bi-download");
   shareButton.append(share_i);
 
   let share_p = document.createElement("p");
