@@ -46,31 +46,28 @@ let upcomingDates = getUpcomingDates();
 console.log(upcomingDates);
 
 // getting the daily registered data of the users
+let groupedData;
 
 // Group the user registration data by date
-try {
-  let groupedData = allUserData.reduce(function (result, user) {
-    let registrationDate = user.registrationDate;
 
-    let matchingGroup = result.find(function (group) {
-      return group[0]["registrationDate"] === registrationDate;
-    });
+groupedData = allUserData.reduce(function (result, user) {
+  let registrationDate = user.registrationDate;
 
-    if (matchingGroup) {
-      matchingGroup.push(user);
-    } else {
-      result.push([user]);
-    }
+  let matchingGroup = result.find(function (group) {
+    return group[0]["registrationDate"] === registrationDate;
+  });
 
-    return result;
-  }, []);
+  if (matchingGroup) {
+    matchingGroup.push(user);
+  } else {
+    result.push([user]);
+  }
 
-  // Handle the groupedData as needed
-  console.log(groupedData);
-} catch (error) {
-  console.log("An error occurred:", error);
-  // Handle the error accordingly
-}
+  return result;
+}, []);
+
+// Handle the groupedData as needed
+console.log(groupedData);
 
 // Here getting the length of each day's data
 let dataLength = [];
