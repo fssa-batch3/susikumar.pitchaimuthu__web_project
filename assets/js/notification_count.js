@@ -52,7 +52,10 @@ let notification = document.querySelector("#notification");
 
 // notification page direction location
 
-notification.addEventListener("click", () => {
+notification.addEventListener("click", (event) => {
+  event.preventDefault();
+  window.location.href =
+    "../pages/notification.html?user=" + findUser["userId"];
   // Here convert the data into read
 
   try {
@@ -79,9 +82,6 @@ notification.addEventListener("click", () => {
     }
 
     localStorage.setItem("otherNotification", JSON.stringify(otherArray));
-
-    window.location.href =
-      "../pages/notification.html?user=" + findUser["userId"];
   } catch (error) {
     console.log(
       "An error occurred while redirect to the notification page :",

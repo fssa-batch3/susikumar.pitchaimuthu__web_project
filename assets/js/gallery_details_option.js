@@ -1,10 +1,10 @@
 // like showing function add eventListener
 
-try {
-  let likeOption = document.querySelector(".like-option");
-  console.log(likeOption);
+let likeOption = document.querySelector(".like-option");
+let likeIcon = document.querySelector(".bi-heart");
 
-  let likeIcon = document.querySelector(".bi-heart");
+try {
+  console.log(likeOption);
 
   // add unique color to the favourite element
 
@@ -20,7 +20,8 @@ try {
 
 // click to change the color
 
-likeOption.addEventListener("click", () => {
+likeOption.addEventListener("click", (event) => {
+  event.preventDefault();
   try {
     if (likeOption.style.backgroundColor === "transparent") {
       likeOption.style.backgroundColor = "red";
@@ -56,19 +57,6 @@ likeOption.addEventListener("click", () => {
 
       localStorage.setItem("image_url", JSON.stringify(imageGallery));
     }
-
-    // let imageFavObject = {
-    //   imageFav: "favourite",
-    // };
-
-    // let favObjectAssaign = Object.assign(snap, imageFavObject);
-    // console.log(favObjectAssaign);
-
-    // let findImageIndex = imageGallery.indexOf(snap);
-    // console.log(findImageIndex);
-
-    // (imageGallery[findImageIndex] = favObjectAssaign),
-    //   localStorage.setItem("image_url", JSON.stringify(imageGallery));
   } catch (error) {
     console.log("An error occured while create image element :", error);
   }

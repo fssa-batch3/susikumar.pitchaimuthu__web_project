@@ -161,7 +161,6 @@ let showingReels = [];
 
 if (friendsArray != null) {
   for (let close of friendsArray) {
-    console.log(close);
     for (let reels of checkReel) {
       for (let insideCheck of reels) {
         if (close["userId"] == insideCheck["reeluserId"]) {

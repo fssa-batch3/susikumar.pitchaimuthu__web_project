@@ -1,3 +1,6 @@
+let imageGallery;
+let snap;
+let imageIndexNumber;
 try {
   let url = window.location.search;
   let urlParams = new URLSearchParams(url);
@@ -8,12 +11,12 @@ try {
 
   // parsing gallery data for add details adding option
 
-  let imageGallery = JSON.parse(localStorage.getItem("image_url"));
+  imageGallery = JSON.parse(localStorage.getItem("image_url"));
   console.log(imageGallery);
 
   // Array.find(  function(variableName){} )
 
-  let snap = imageGallery.find((i) => i["imageId"] == urlImage);
+  snap = imageGallery.find((i) => i["imageId"] == urlImage);
 
   console.log(snap);
 
@@ -25,7 +28,7 @@ try {
 
   // image index number finding function
 
-  let imageIndexNumber = userGallery.indexOf(snap);
+  imageIndexNumber = userGallery.indexOf(snap);
   console.log(imageIndexNumber);
 
   // image changing function creation according to the image and previous and next

@@ -1,5 +1,8 @@
 // get user from the url
 
+let findUser;
+
+let userIndex;
 try {
   let userUrl = window.location.search;
   let userUrlParams = new URLSearchParams(userUrl);
@@ -13,10 +16,10 @@ try {
 
   // usin find method for find the user
 
-  let findUser = info.find((user) => user["userId"] == urlId);
+  findUser = info.find((user) => user["userId"] == urlId);
   console.log(findUser);
 
-  let userIndex = info.indexOf(findUser);
+  userIndex = info.indexOf(findUser);
   console.log(userIndex);
 
   // profile image and details adding elements
@@ -35,10 +38,9 @@ try {
 let profile = document.querySelector(".image-text");
 
 profile.addEventListener("click", () => {
-
-  try{
-  window.location.href = "../pages/profile.html?user=" + findUser["userId"];
-  } catch (error){
-    console.log(("An error occurred while redirect the profile page :", error))
+  try {
+    window.location.href = "../pages/profile.html?user=" + findUser["userId"];
+  } catch (error) {
+    console.log(("An error occurred while redirect the profile page :", error));
   }
 });
