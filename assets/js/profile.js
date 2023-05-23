@@ -1,38 +1,45 @@
 // Profile user element value set creations
 
-let uname = (document.querySelector(".userName").innerHTML =
-  findUser["userName"]);
+try {
+  let uname = (document.querySelector(".userName").innerHTML =
+    findUser["userName"]);
 
-let head = (document.getElementById("profile-head").innerText =
-  "Hello" + "   " + findUser["userName"]);
+  let head = (document.getElementById("profile-head").innerText =
+    "Hello" + "   " + findUser["userName"]);
 
-let userTheme = (document.querySelector(".user-theme").innerHTML =
-  findUser["userTheme"]);
+  let userTheme = (document.querySelector(".user-theme").innerHTML =
+    findUser["userTheme"]);
 
-let agePara = (document.querySelector(".age-para").innerHTML = findUser["age"]);
+  let agePara = (document.querySelector(".age-para").innerHTML =
+    findUser["age"]);
 
-// profile image
+  // profile image
 
-let profileImage = (document.querySelector("#profile-image").src =
-  findUser["avatarUrl"]);
+  let profileImage = (document.querySelector("#profile-image").src =
+    findUser["avatarUrl"]);
 
-let cityPara = (document.querySelector(".city-para").innerHTML =
-  findUser["city"] || "");
+  let cityPara = (document.querySelector(".city-para").innerHTML =
+    findUser["city"] || "");
+} catch (error) {
+  console.log("An error occurred while show the profile details :", error);
+}
+
 // create element for show the use last activity
 
 let allActivity = JSON.parse(localStorage.getItem("userInvites"));
 
-let showingArr = [];
-
 let users = JSON.parse(localStorage.getItem("register"));
 
-let SuggestedUsers = users.filter((e) => e["userId"] !== findUser["userId"]);
-console.log(SuggestedUsers);
+let showingArr = [];
 
-for (let i = 0; i < SuggestedUsers.length; i++) {
-  let card = document.createElement("div");
-  card.setAttribute("class", "card-div-container");
-  card.innerHTML = `<div class="card-inside-div">
+try {
+  let SuggestedUsers = users.filter((e) => e["userId"] !== findUser["userId"]);
+  console.log(SuggestedUsers);
+
+  for (let i = 0; i < SuggestedUsers.length; i++) {
+    let card = document.createElement("div");
+    card.setAttribute("class", "card-div-container");
+    card.innerHTML = `<div class="card-inside-div">
 <div class="user-activity-image-div">
   <img
     class="activity-image"
@@ -56,9 +63,11 @@ for (let i = 0; i < SuggestedUsers.length; i++) {
 </div>
 </div>`;
 
-  document.querySelector(".card-inside-control-div").append(card);
+    document.querySelector(".card-inside-control-div").append(card);
+  }
+} catch (error) {
+  console.log("An error occurred while creating a suggest data :", error);
 }
-
 // Writing function for suggestion and activity card
 
 let activityHead = document.querySelector(".activity-head");
@@ -66,32 +75,33 @@ let activityHead = document.querySelector(".activity-head");
 let suggestionHead = document.querySelector(".suggestion-head");
 
 activityHead.addEventListener("click", () => {
-  // creating for loop for delete all the cards
+  try {
+    // creating for loop for delete all the cards
 
-  let cardDivContainer = document.querySelectorAll(".card-div-container");
-  console.log(cardDivContainer);
+    let cardDivContainer = document.querySelectorAll(".card-div-container");
+    console.log(cardDivContainer);
 
-  if (cardDivContainer[0] !== undefined) {
-    for (let j = 0; j < cardDivContainer.length; j++)
-      cardDivContainer[j].remove();
-  }
+    if (cardDivContainer[0] !== undefined) {
+      for (let j = 0; j < cardDivContainer.length; j++)
+        cardDivContainer[j].remove();
+    }
 
-  let userActivityData = JSON.parse(localStorage.getItem("userInvites"));
-  console.log(userActivityData);
+    let userActivityData = JSON.parse(localStorage.getItem("userInvites"));
+    console.log(userActivityData);
 
-  let findUserActivity;
-  if (userActivityData !== null) {
-    findUserActivity = userActivityData.filter(
-      (e) => e["inviterId"] == findUser["userId"]
-    );
+    let findUserActivity;
+    if (userActivityData !== null) {
+      findUserActivity = userActivityData.filter(
+        (e) => e["inviterId"] == findUser["userId"]
+      );
 
-    console.log(findUserActivity);
+      console.log(findUserActivity);
 
-    if (findUserActivity !== null) {
-      for (let i = 0; i < findUserActivity.length; i++) {
-        let card = document.createElement("div");
-        card.setAttribute("class", "card-div-container");
-        card.innerHTML = `<div class="card-inside-div">
+      if (findUserActivity !== null) {
+        for (let i = 0; i < findUserActivity.length; i++) {
+          let card = document.createElement("div");
+          card.setAttribute("class", "card-div-container");
+          card.innerHTML = `<div class="card-inside-div">
       <div class="user-activity-image-div">
         <img
           class="activity-image"
@@ -115,31 +125,36 @@ activityHead.addEventListener("click", () => {
       </div>
       </div>`;
 
-        document.querySelector(".card-inside-control-div").append(card);
+          document.querySelector(".card-inside-control-div").append(card);
+        }
       }
     }
+  } catch (error) {
+    console.log("An error occurred while show the acitivity :", error);
   }
 });
 
 // suggestion showing div element creations
 
 suggestionHead.addEventListener("click", (e) => {
-  // creating for loop for delete all the cards
+  try {
+    // creating for loop for delete all the cards
 
-  let suggestedCardDiv = document.querySelectorAll(".card-div-container");
-  console.log(suggestedCardDiv);
+    let suggestedCardDiv = document.querySelectorAll(".card-div-container");
+    console.log(suggestedCardDiv);
 
-  if (suggestedCardDiv[0] !== undefined) {
-    for (let j = 0; j < suggestedCardDiv.length; j++)
-      suggestedCardDiv[j].remove();
-  }
+    if (suggestedCardDiv[0] !== undefined) {
+      for (let suggestCard of suggestedCardDiv) {
+        suggestCard.remove();
+      }
+    }
 
-  console.log(SuggestedUsers);
+    console.log(SuggestedUsers);
 
-  for (let i = 0; i < SuggestedUsers.length; i++) {
-    let card = document.createElement("div");
-    card.setAttribute("class", "card-div-container");
-    card.innerHTML = `<div class="card-inside-div">
+    for (let i = 0; i < SuggestedUsers.length; i++) {
+      let card = document.createElement("div");
+      card.setAttribute("class", "card-div-container");
+      card.innerHTML = `<div class="card-inside-div">
   <div class="user-activity-image-div">
     <img
       class="activity-image"
@@ -163,7 +178,10 @@ suggestionHead.addEventListener("click", (e) => {
   </div>
   </div>`;
 
-    document.querySelector(".card-inside-control-div").append(card);
+      document.querySelector(".card-inside-control-div").append(card);
+    }
+  } catch (error) {
+    console.log("An error occurred while suggested data :", error);
   }
 });
 
@@ -191,8 +209,14 @@ let ProfileOption = document.querySelector(".profile-option-div");
 // onclick function for option display block
 
 image.addEventListener("click", () => {
-  if ((ProfileOption.style.display = "none")) {
-    ProfileOption.style.display = "block";
+  try {
+    if ((ProfileOption.style.display = "none")) {
+      ProfileOption.style.display = "block";
+    } else {
+      ProfileOption.style.display = "none";
+    }
+  } catch (error) {
+    console.log("An error occurred while imge element block :", error);
   }
 });
 
@@ -244,59 +268,63 @@ file.addEventListener("change", function () {
 // Transform to default profile image
 
 function defaultProfile() {
-  console.log(findUser);
+  try {
+    console.log(findUser);
 
-  let firstElement = findUser["firstName"];
+    let firstElement = findUser["firstName"];
 
-  let avatarText = firstElement.toUpperCase().charAt(0);
-  console.log(avatarText);
+    let avatarText = firstElement.toUpperCase().charAt(0);
+    console.log(avatarText);
 
-  // avatar create
+    // avatar create
 
-  let avatarCanva = document.createElement("canvas");
-  let avatarContext = avatarCanva.getContext("2d");
+    let avatarCanva = document.createElement("canvas");
+    let avatarContext = avatarCanva.getContext("2d");
 
-  avatarCanva.width = 200;
-  avatarCanva.height = 200;
+    avatarCanva.width = 200;
+    avatarCanva.height = 200;
 
-  // creating a random color creation function
-  const letters = "0123456789ABCDEF";
-  let color = "#";
-  for (let i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
+    // creating a random color creation function
+    const letters = "0123456789ABCDEF";
+    let color = "#";
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+
+    // draw background
+    avatarContext.fillStyle = color;
+    avatarContext.fillRect(0, 0, avatarCanva.width, avatarCanva.height);
+
+    // draw text
+
+    avatarContext.font = "bold 100px Assistant";
+    avatarContext.textAlign = "center";
+    avatarContext.textBaseline = "middle";
+    avatarContext.fillStyle = "#fff";
+    avatarContext.fillText(
+      avatarText,
+      avatarCanva.width / 2,
+      avatarCanva.height / 2
+    );
+
+    // return
+
+    let imageUrl = avatarCanva.toDataURL("image/png");
+
+    let changeImage = {
+      avatarUrl: imageUrl,
+    };
+
+    // let asingning the data to the profile user object
+
+    let assingImage = Object.assign(findUser, changeImage);
+
+    console.log(assingImage);
+
+    info[userIndex] = assingImage;
+
+    localStorage.setItem("register", JSON.stringify(info));
+  } catch (error) {
+    console.log("An error occurred while chage the default image :", error);
   }
-
-  // draw background
-  avatarContext.fillStyle = color;
-  avatarContext.fillRect(0, 0, avatarCanva.width, avatarCanva.height);
-
-  // draw text
-
-  avatarContext.font = "bold 100px Assistant";
-  avatarContext.textAlign = "center";
-  avatarContext.textBaseline = "middle";
-  avatarContext.fillStyle = "#fff";
-  avatarContext.fillText(
-    avatarText,
-    avatarCanva.width / 2,
-    avatarCanva.height / 2
-  );
-
-  // return
-
-  let imageUrl = avatarCanva.toDataURL("image/png");
-
-  let changeImage = {
-    avatarUrl: imageUrl,
-  };
-
-  // let asingning the data to the profile user object
-
-  let assingImage = Object.assign(findUser, changeImage);
-
-  console.log(assingImage);
-
-  info[userIndex] = assingImage;
-
-  localStorage.setItem("register", JSON.stringify(info));
 }

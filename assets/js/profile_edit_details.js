@@ -1,5 +1,8 @@
 // first getting all the elements for the forms
 
+try {
+
+
 let userNameP = document.querySelector(".profile-user-name");
 let userSloganP = document.querySelector(".profile-user-slogan");
 let profileImage = document.querySelector(".profile-image");
@@ -33,3 +36,7 @@ for (let i = 0; i < gender.length; i++) {
 }
 
 dateOfBirth.value = findUser["dateOfBirth"];
+
+} catch (error){
+  console.log("An error occured while adding the value to the input :", error)
+}

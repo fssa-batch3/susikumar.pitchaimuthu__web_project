@@ -53,32 +53,39 @@ let notification = document.querySelector("#notification");
 // notification page direction location
 
 notification.addEventListener("click", () => {
-  window.location.href =
-    "../pages/notification.html?user=" + findUser["userId"];
-
   // Here convert the data into read
 
-  let otherArray = [];
+  try {
+    let otherArray = [];
 
-  if (otherDataArray.length == 0) {
-    return;
-  }
+    if (otherDataArray.length == 0) {
+      return;
+    }
 
-  for (let other of othersData) {
-    for (let insideOther of otherDataArray) {
-      if (other["messageId"] == insideOther["messageId"]) {
-        let otherObj = {
-          isRead: "true",
-        };
+    for (let other of othersData) {
+      for (let insideOther of otherDataArray) {
+        if (other["messageId"] == insideOther["messageId"]) {
+          let otherObj = {
+            isRead: "true",
+          };
 
-        let otherAssaign = Object.assign(other, otherObj);
+          let otherAssaign = Object.assign(other, otherObj);
 
-        otherArray.push(otherAssaign);
-      } else {
-        otherArray.push(other);
+          otherArray.push(otherAssaign);
+        } else {
+          otherArray.push(other);
+        }
       }
     }
-  }
 
-  localStorage.setItem("otherNotification", JSON.stringify(otherArray));
+    localStorage.setItem("otherNotification", JSON.stringify(otherArray));
+
+    window.location.href =
+      "../pages/notification.html?user=" + findUser["userId"];
+  } catch (error) {
+    console.log(
+      "An error occurred while redirect to the notification page :",
+      error
+    );
+  }
 });
