@@ -52,52 +52,56 @@ console.log(image);
 
 // eventListener for showing invite
 editButton.addEventListener("click", (inv) => {
-  inv.preventDefault();
-  let inviteName = document.getElementById("inviteName").value.trim();
-  let inviteDate = document.getElementById("inviteDate").value.trim();
-  let inviteTime = document.getElementById("inviteTime").value.trim();
-  let inviteGlimpse = document.getElementById("inviteGlimpse").value.trim();
-  let inviteExplanation = document
-    .getElementById("inviteExplanation")
-    .value.trim();
-  let specialPerson = document.getElementById("specialPerson").value.trim();
+  try {
+    inv.preventDefault();
+    let inviteName = document.getElementById("inviteName").value.trim();
+    let inviteDate = document.getElementById("inviteDate").value.trim();
+    let inviteTime = document.getElementById("inviteTime").value.trim();
+    let inviteGlimpse = document.getElementById("inviteGlimpse").value.trim();
+    let inviteExplanation = document
+      .getElementById("inviteExplanation")
+      .value.trim();
+    let specialPerson = document.getElementById("specialPerson").value.trim();
 
-  let inviteEditObj = {
-    inviteName,
-    inviteDate,
-    inviteTime,
-    inviteExplanation,
-    inviteGlimpse,
-    specialPerson,
-  };
+    let inviteEditObj = {
+      inviteName,
+      inviteDate,
+      inviteTime,
+      inviteExplanation,
+      inviteGlimpse,
+      specialPerson,
+    };
 
-  if (image !== undefined) {
-    inviteEditObj["inviteImage"] = image;
-  }
+    if (image !== undefined) {
+      inviteEditObj["inviteImage"] = image;
+    }
 
-  console.log(inviteEditObj);
+    console.log(inviteEditObj);
 
-  let inviteEditObectAssaign = Object.assign(findInvite, inviteEditObj);
-  console.log(inviteEditObectAssaign);
+    let inviteEditObectAssaign = Object.assign(findInvite, inviteEditObj);
+    console.log(inviteEditObectAssaign);
 
-  getinviteData[inviteIndex] = inviteEditObectAssaign;
+    getinviteData[inviteIndex] = inviteEditObectAssaign;
 
-  console.log(inviteIndex);
+    console.log(inviteIndex);
 
-  localStorage.setItem("userInvites", JSON.stringify(getinviteData));
+    localStorage.setItem("userInvites", JSON.stringify(getinviteData));
 
-  console.log(inviteDisabled);
+    console.log(inviteDisabled);
 
-  for (let i = 0; i < inviteDisabled.length; i++) {
-    inviteDisabled[i].setAttribute("disabled", "");
-  }
+    for (let i = 0; i < inviteDisabled.length; i++) {
+      inviteDisabled[i].setAttribute("disabled", "");
+    }
 
-  if ((editButton.style.display = "block")) {
-    editButton.style.display = "none";
-  }
+    if ((editButton.style.display = "block")) {
+      editButton.style.display = "none";
+    }
 
-  if ((editInvite.style.display = "none")) {
-    editInvite.style.display = "block";
+    if ((editInvite.style.display = "none")) {
+      editInvite.style.display = "block";
+    }
+  } catch (error) {
+    console.log("An error occurred while getting the update data :", error);
   }
 });
 
@@ -106,16 +110,20 @@ editButton.addEventListener("click", (inv) => {
 let deleteInviteButton = document.getElementById("delete-invite-button");
 
 deleteInviteButton.addEventListener("click", (deIn) => {
-  deIn.preventDefault();
+  try {
+    deIn.preventDefault();
 
-  let deleteInvite = confirm("Are sure to Delete your fresh invite");
+    let deleteInvite = confirm("Are sure to Delete your fresh invite");
 
-  if (deleteInvite !== true) {
-    return;
-  } else {
-    getinviteData.splice(inviteIndex, 1);
-    localStorage.setItem("userInvites", JSON.stringify(getinviteData));
-    window.location.href = "../pages/invite.html?user=" + findUser["userId"];
+    if (deleteInvite !== true) {
+      return;
+    } else {
+      getinviteData.splice(inviteIndex, 1);
+      localStorage.setItem("userInvites", JSON.stringify(getinviteData));
+      window.location.href = "../pages/invite.html?user=" + findUser["userId"];
+    }
+  } catch (error) {
+    console.log("An error occured while delete the invite :", error);
   }
 });
 

@@ -559,12 +559,6 @@
   align-items: center;
 }
 
-.emoji-div {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .emoji {
   width: 164px;
   height: 164px;

@@ -7,89 +7,62 @@ let filterButton = document.querySelector(".filter-button");
 
 // filter button add eventListener
 
-filterButton.addEventListener("click", () => {
-  let from = new Date(document.querySelector("#from").value);
-  let to = new Date(document.querySelector("#to").value);
+filterButton.addEventListener("click", (event) => {
+  event.preventDefault();
 
-  let dateArray = [];
+  try {
+    let from = new Date(document.querySelector("#from").value);
+    let to = new Date(document.querySelector("#to").value);
 
-  Date.prototype.addDays = function (days) {
-    var date = new Date(this.valueOf());
-    date.setDate(date.getDate() + days);
-    return date;
-  };
+    let dateArray = [];
 
-  while (from <= to) {
-    let dateAndYear = new Date(from);
-    let datesf =
-      dateAndYear.getMonth() +
-      1 +
-      "/" +
-      dateAndYear.getDate() +
-      "/" +
-      dateAndYear.getFullYear();
-    dateArray.push(datesf);
-    from = from.addDays(1);
-  }
+    Date.prototype.addDays = function (days) {
+      var date = new Date(this.valueOf());
+      date.setDate(date.getDate() + days);
+      return date;
+    };
 
-  console.log(dateArray);
+    while (from <= to) {
+      let dateAndYear = new Date(from);
+      let datesf =
+        dateAndYear.getMonth() +
+        1 +
+        "/" +
+        dateAndYear.getDate() +
+        "/" +
+        dateAndYear.getFullYear();
+      dateArray.push(datesf);
+      from = from.addDays(1);
+    }
 
-  let filterImage = [];
-  console.log(images);
-  console.log(images[0]["imageDate"]);
+    console.log(dateArray);
 
-  for (let i = 0; i < dateArray.length; i++) {
-    for (let j = 0; j < images.length; j++) {
-      if (images[j]["imageDate"] == dateArray[i]) {
-        filterImage.push(images[j]);
+    let filterImage = [];
+    console.log(images);
+    console.log(images[0]["imageDate"]);
+
+    for (let i = 0; i < dateArray.length; i++) {
+      for (let j = 0; j < images.length; j++) {
+        if (images[j]["imageDate"] == dateArray[i]) {
+          filterImage.push(images[j]);
+        }
       }
     }
-  }
 
-  console.log(filterImage);
+    console.log(filterImage);
 
-  if (imageContainer.hasChildNodes()) {
-    let image_div = document.querySelectorAll(".card-container");
+    // removing the element
 
-    for (let i = 0; i < image_div.length; i++) {
-      image_div[i].remove();
+    removeCardElement();
+
+    for (let filterImg of filterImage) {
+      let imageId = filterImg["imageId"];
+      let imageLink = filterImg["imageLink"];
+      let imageName = filterImg["imageName"];
+      snapImageCreation(imageId, imageLink, imageName);
     }
-  }
-
-  for (let i = 0; i < filterImage.length; i++) {
-    let imageContainer = document.createElement("div");
-    imageContainer.setAttribute("class", "card-container");
-    imageContainer.setAttribute("id", filterImage[i]["imageId"]);
-
-    //
-    let image_name_container = document.createElement("div");
-    image_name_container.setAttribute("class", "image-name-container");
-    imageContainer.append(image_name_container);
-
-    let a = document.createElement("a");
-    a.setAttribute(
-      "href",
-      "../pages/snap-details.html?user=" +
-        findUser["userId"] +
-        "&image=" +
-        filterImage[i]["imageId"]
-    );
-    image_name_container.append(a);
-    let image = document.createElement("img");
-    image.setAttribute("id", filterImage[i]["imageId"]);
-    image.setAttribute("src", filterImage[i]["imageLink"]);
-    image.setAttribute("alt", "userSnaps");
-    image.setAttribute("class", "taking-image");
-    a.append(image);
-
-    let image_name = document.createElement("p");
-    image_name.setAttribute("class", "snap-name");
-    image_name.innerHTML = filterImage[i]["imageName"];
-    image_name_container.append(image_name);
-
-    document
-      .querySelector(".second-section-container-div")
-      .append(imageContainer);
+  } catch (error) {
+    console.log("An error occured while galller image creation :", error);
   }
 });
 
@@ -100,21 +73,31 @@ let favourite_image = document.querySelector(".favourite-photo-option-li");
 let latest = document.querySelector(".latest-photo-option-li");
 let recent = document.querySelector(".recent-photo-option-li");
 let allPhoto = document.querySelector(".all-photo-option-li");
-
 let imageCard = document.querySelectorAll(".card-container");
 
-allPhoto.addEventListener("click", () => {
-  if (imageContainer.hasChildNodes()) {
-    let image_div = document.querySelectorAll(".card-container");
-    for (let i = 0; i < image_div.length; i++) {
-      image_div[i].remove();
-    }
-  }
+// Here creating function to remove the card element before creating the other element
 
-  for (let i = 0; i < imageGallery.length; i++) {
+function removeCardElement() {
+  try {
+    if (imageContainer.hasChildNodes()) {
+      let image_div = document.querySelectorAll(".card-container");
+
+      for (let cardDiv of image_div) {
+        cardDiv.remove();
+      }
+    }
+  } catch (error) {
+    console.log("An error occured while removing the image card :", error);
+  }
+}
+
+// creating a common function for create a gallery image
+
+function snapImageCreation(imageId, imageLink, imageName) {
+  try {
     let imageContainer = document.createElement("div");
     imageContainer.setAttribute("class", "card-container");
-    imageContainer.setAttribute("id", imageGallery[i]["imageId"]);
+    imageContainer.setAttribute("id", imageId);
 
     //
     let image_name_container = document.createElement("div");
@@ -127,264 +110,224 @@ allPhoto.addEventListener("click", () => {
       "../pages/snap-details.html?user=" +
         findUser["userId"] +
         "&image=" +
-        imageGallery[i]["imageId"]
+        imageId
     );
     image_name_container.append(a);
     let image = document.createElement("img");
-    image.setAttribute("id", imageGallery[i]["imageId"]);
-    image.setAttribute("src", imageGallery[i]["imageLink"]);
+    image.setAttribute("id", imageId);
+    image.setAttribute("src", imageLink);
     image.setAttribute("alt", "userSnaps");
     image.setAttribute("class", "taking-image");
     a.append(image);
 
     let image_name = document.createElement("p");
     image_name.setAttribute("class", "snap-name");
-    image_name.innerHTML = imageGallery[i]["imageName"];
+    image_name.innerHTML = imageName;
     image_name_container.append(image_name);
 
     document
       .querySelector(".second-section-container-div")
       .append(imageContainer);
+  } catch (error) {
+    console.log("An error occurred while creating the image card :", error);
+  }
+}
+
+// all photo showing function
+
+allPhoto.addEventListener("click", (event) => {
+  event.preventDefault();
+  try {
+    // removing the element
+    removeCardElement();
+
+    for (let imageGP of imageGallery) {
+      let imageId = imageGP["imageId"];
+      let imageLink = imageGP["imageLink"];
+      let imageName = imageGP["imageName"];
+      snapImageCreation(imageId, imageLink, imageName);
+    }
+  } catch (error) {
+    console.log("An error occured while all photo function :", error);
   }
 });
 
 // favourite images option add eventlistner function
 
-favourite_image.addEventListener("click", () => {
-  if (imageContainer.hasChildNodes()) {
-    let image_div = document.querySelectorAll(".card-container");
+favourite_image.addEventListener("click", (event) => {
+  event.preventDefault();
+  try {
+    // removing the element
+    removeCardElement();
 
-    for (let i = 0; i < image_div.length; i++) {
-      image_div[i].remove();
+    let favImages = images.filter((e) => e["imageFav"] == "favourite");
+    console.log(favImages);
+
+    for (let favouriteImages of favImages) {
+      let imageId = favouriteImages["imageId"];
+      let imageLink = favouriteImages["imageLink"];
+      let imageName = favouriteImages["imageName"];
+
+      snapImageCreation(imageId, imageLink, imageName);
     }
-  }
-
-  let favImages = images.filter((e) => e["imageFav"] == "favourite");
-  console.log(favImages);
-
-  for (let i = 0; i < favImages.length; i++) {
-    let imageContainer = document.createElement("div");
-    imageContainer.setAttribute("class", "card-container");
-    imageContainer.setAttribute("id", favImages[i]["imageId"]);
-
-    //
-    let image_name_container = document.createElement("div");
-    image_name_container.setAttribute("class", "image-name-container");
-    imageContainer.append(image_name_container);
-
-    let a = document.createElement("a");
-    a.setAttribute(
-      "href",
-      "../pages/snap-details.html?user=" +
-        findUser["userId"] +
-        "&image=" +
-        favImages[i]["imageId"]
-    );
-    image_name_container.append(a);
-    let image = document.createElement("img");
-    image.setAttribute("id", favImages[i]["imageId"]);
-    image.setAttribute("src", favImages[i]["imageLink"]);
-    image.setAttribute("alt", "userSnaps");
-    image.setAttribute("class", "taking-image");
-    a.append(image);
-
-    let image_name = document.createElement("p");
-    image_name.setAttribute("class", "snap-name");
-    image_name.innerHTML = favImages[i]["imageName"];
-    image_name_container.append(image_name);
-
-    document
-      .querySelector(".second-section-container-div")
-      .append(imageContainer);
+  } catch (error) {
+    console.log("An error occured while creating favourite image :", error);
   }
 });
 
 // latest images showing add eventListener function
 
-latest.addEventListener("click", () => {
-  if (imageContainer.hasChildNodes()) {
-    let image_div = document.querySelectorAll(".card-container");
-    for (let i = 0; i < image_div.length; i++) {
-      image_div[i].remove();
-    }
-  }
+latest.addEventListener("click", (event) => {
+  event.preventDefault();
+  try {
+    // removing the element
+    removeCardElement();
 
-  let today = moment().format("l");
-  console.log(today);
+    let today = moment().format("l");
+    console.log(today);
 
-  let IST = new Date();
-  let priorDate = new Date(new Date().setDate(IST.getDate() - 7));
+    let IST = new Date();
+    let priorDate = new Date(new Date().setDate(IST.getDate() - 7));
 
-  console.log(priorDate);
+    console.log(priorDate);
 
-  let endDate =
-    priorDate.getMonth() +
-    1 +
-    "/" +
-    priorDate.getDate() +
-    "/" +
-    priorDate.getFullYear();
-
-  console.log(endDate);
-
-  let latestPicArray = [];
-
-  let currentDate = new Date(endDate);
-
-  while (currentDate <= new Date(today)) {
-    let latesetDate = new Date(currentDate);
-    let latestPic =
-      latesetDate.getMonth() +
+    let endDate =
+      priorDate.getMonth() +
       1 +
       "/" +
-      latesetDate.getDate() +
+      priorDate.getDate() +
       "/" +
-      latesetDate.getFullYear();
-    console.log(latestPic);
-    latestPicArray.push(latestPic);
-    currentDate.setDate(currentDate.getDate() + 1);
-  }
+      priorDate.getFullYear();
 
-  console.log(latestPicArray);
+    console.log(endDate);
 
-  // Creating for loop function find the all latest pics
+    let latestPicArray = [];
 
-  let filterLatestImage = [];
+    let currentDate = new Date(endDate);
 
-  for (let i = 0; i < latestPicArray.length; i++) {
-    for (let j = 0; j < images.length; j++) {
-      if (images[j]["imageDate"] == latestPicArray[i]) {
-        filterLatestImage.push(images[j]);
+    while (currentDate <= new Date(today)) {
+      let latesetDate = new Date(currentDate);
+      let latestPic =
+        latesetDate.getMonth() +
+        1 +
+        "/" +
+        latesetDate.getDate() +
+        "/" +
+        latesetDate.getFullYear();
+      console.log(latestPic);
+      latestPicArray.push(latestPic);
+      currentDate.setDate(currentDate.getDate() + 1);
+    }
+
+    console.log(latestPicArray);
+
+    // Creating for loop function find the all latest pics
+
+    let filterLatestImage = [];
+
+    for (let i = 0; i < latestPicArray.length; i++) {
+      for (let j = 0; j < images.length; j++) {
+        if (images[j]["imageDate"] == latestPicArray[i]) {
+          filterLatestImage.push(images[j]);
+        }
       }
     }
-  }
-  console.log(filterLatestImage);
+    console.log(filterLatestImage);
 
-  for (let i = 0; i < filterLatestImage.length; i++) {
-    let imageContainer = document.createElement("div");
-    imageContainer.setAttribute("class", "card-container");
-    imageContainer.setAttribute("id", filterLatestImage[i]["imageId"]);
-
-    //
-    let image_name_container = document.createElement("div");
-    image_name_container.setAttribute("class", "image-name-container");
-    imageContainer.append(image_name_container);
-
-    let image = document.createElement("img");
-    image.setAttribute("id", filterLatestImage[i]["imageId"]);
-    image.setAttribute("src", filterLatestImage[i]["imageLink"]);
-    image.setAttribute("alt", "userSnaps");
-    image.setAttribute("class", "taking-image");
-    image_name_container.append(image);
-
-    let image_name = document.createElement("p");
-    image_name.setAttribute("class", "snap-name");
-    image_name.innerHTML = filterLatestImage[i]["imageName"];
-    image_name_container.append(image_name);
-
-    document
-      .querySelector(".second-section-container-div")
-      .append(imageContainer);
+    for (let filterLatest of filterLatestImage) {
+      let imageId = filterLatest["imageId"];
+      let imageLink = filterLatest["imageLink"];
+      let imageName = filterLatest["imageName"];
+      snapImageCreation(imageId, imageLink, imageName);
+    }
+  } catch (error) {
+    console.log("An error occured while show the latest image :", error);
   }
 });
 
 // recently deleted images add eventListener function
 
-recent.addEventListener("click", () => {
-  if (imageContainer.hasChildNodes()) {
-    let image_div = document.querySelectorAll(".card-container");
-    for (let i = 0; i < image_div.length; i++) {
-      image_div[i].remove();
-    }
-  }
+recent.addEventListener("click", (event) => {
+  event.preventDefault();
 
-  let now = moment().format("l");
-  console.log(now);
+  try {
+    // removing the element
+    removeCardElement();
 
-  let last = new Date();
-  let lastDate = new Date(new Date().setDate(last.getDate() - 28));
+    let now = moment().format("l");
+    console.log(now);
 
-  console.log(lastDate);
+    let last = new Date();
+    let lastDate = new Date(new Date().setDate(last.getDate() - 28));
 
-  let destiDate =
-    lastDate.getMonth() +
-    1 +
-    "/" +
-    lastDate.getDate() +
-    "/" +
-    lastDate.getFullYear();
+    console.log(lastDate);
 
-  console.log(destiDate);
-
-  let recentDeleteDateArray = [];
-
-  let startDate = new Date(destiDate);
-
-  while (startDate <= new Date(now)) {
-    let forDate = new Date(startDate);
-    let latestDeletePic =
-      forDate.getMonth() +
+    let destiDate =
+      lastDate.getMonth() +
       1 +
       "/" +
-      forDate.getDate() +
+      lastDate.getDate() +
       "/" +
-      forDate.getFullYear();
-    console.log(latestDeletePic);
-    recentDeleteDateArray.push(latestDeletePic);
-    startDate.setDate(startDate.getDate() + 1);
-  }
+      lastDate.getFullYear();
 
-  console.log(recentDeleteDateArray);
+    console.log(destiDate);
 
-  // Creating for loop function get the recent delete pics
+    let recentDeleteDateArray = [];
 
-  let recentImageData = JSON.parse(
-    localStorage.getItem("recentDeleteImageData")
-  );
-  console.log(recentImageData);
+    let startDate = new Date(destiDate);
 
-  let filterDeleteImage = [];
+    while (startDate <= new Date(now)) {
+      let forDate = new Date(startDate);
+      let latestDeletePic =
+        forDate.getMonth() +
+        1 +
+        "/" +
+        forDate.getDate() +
+        "/" +
+        forDate.getFullYear();
+      console.log(latestDeletePic);
+      recentDeleteDateArray.push(latestDeletePic);
+      startDate.setDate(startDate.getDate() + 1);
+    }
 
-  for (let i = 0; i < recentDeleteDateArray.length; i++) {
-    for (let j = 0; j < recentImageData.length; j++) {
-      if (recentImageData[j]["imageDate"] == recentDeleteDateArray[i]) {
-        filterDeleteImage.push(recentImageData[j]);
+    console.log(recentDeleteDateArray);
+
+    // Creating for loop function get the recent delete pics
+
+    let recentImageData = JSON.parse(
+      localStorage.getItem("recentDeleteImageData")
+    );
+    console.log(recentImageData);
+
+    let filterDeleteImage = [];
+
+    for (let i = 0; i < recentDeleteDateArray.length; i++) {
+      for (let j = 0; j < recentImageData.length; j++) {
+        if (recentImageData[j]["imageDate"] == recentDeleteDateArray[i]) {
+          filterDeleteImage.push(recentImageData[j]);
+        }
       }
     }
-  }
 
-  console.log(filterDeleteImage);
+    console.log(filterDeleteImage);
 
-  for (let i = 0; i < filterDeleteImage.length; i++) {
-    let imageContainer = document.createElement("div");
-    imageContainer.setAttribute("class", "card-container");
-    imageContainer.setAttribute("id", filterDeleteImage[i]["imageId"]);
-
-    //
-    let image_name_container = document.createElement("div");
-    image_name_container.setAttribute("class", "image-name-container");
-    imageContainer.append(image_name_container);
-
-    let image = document.createElement("img");
-    image.setAttribute("id", filterDeleteImage[i]["imageId"]);
-    image.setAttribute("src", filterDeleteImage[i]["imageLink"]);
-    image.setAttribute("alt", "userSnaps");
-    image.setAttribute("class", "taking-image");
-    image_name_container.append(image);
-
-    let image_name = document.createElement("p");
-    image_name.setAttribute("class", "snap-name");
-    image_name.innerHTML = filterDeleteImage[i]["imageName"];
-    image_name_container.append(image_name);
-
-    document
-      .querySelector(".second-section-container-div")
-      .append(imageContainer);
+    for (let filterDelete of filterDeleteImage) {
+      let imageId = filterDelete["imageId"];
+      let imageLink = filterDelete["imageLink"];
+      let imageName = filterDelete["imageName"];
+      snapImageCreation(imageId, imageLink, imageName);
+    }
+  } catch (error) {
+    console.log("An error occured while show the recently deleted :", error);
   }
 });
 
 // camera page direction location
 
 goToCamera.addEventListener("click", () => {
-  window.location.href = "../pages/webcam.html?user=" + findUser["userId"];
+  try {
+    window.location.href = "../pages/webcam.html?user=" + findUser["userId"];
+  } catch (error) {
+    console.log("An error occurred while redirect the webcam page :", error);
+  }
 });

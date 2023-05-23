@@ -46,8 +46,8 @@ function addUser() {
   let userCard = document.querySelectorAll(".user-card-container");
 
   if (userCard[0] != undefined) {
-    for (let i = 0; i < userCard.length; i++) {
-      userCard[i].remove();
+    for (let uCard of userCard) {
+      uCard.remove();
     }
   }
 
@@ -119,10 +119,10 @@ function addUser() {
       let unread = false;
 
       if (currentChatData != null) {
-        for (let i = 0; i < currentChatData.length; i++) {
+        for (let curData of currentChatData) {
           if (
-            currentChatData[i]["chatReceiverId"] == findUser["userId"] &&
-            currentChatData[i]["isRead"] == unread
+            curData["chatReceiverId"] == findUser["userId"] &&
+            curData["isRead"] == unread
           ) {
             numberCount.push(currentChatData[i]);
           }

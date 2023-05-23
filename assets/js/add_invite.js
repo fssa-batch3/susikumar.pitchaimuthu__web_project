@@ -52,8 +52,6 @@ inviteFile.addEventListener("click", (e) => {
 
     inviteImage.click();
 
-    let image = document.createElement("img");
-
     inviteImage.addEventListener("change", function () {
       try {
         let choosePhoto = this.files[0];
