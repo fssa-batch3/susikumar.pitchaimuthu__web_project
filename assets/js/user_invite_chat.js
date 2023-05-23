@@ -1,57 +1,61 @@
 // user friends showing div container
 
 function inviteChatNotification(noti) {
-  console.log(noti);
+  try {
+    console.log(noti);
 
-  let inviteNotificationArr = [];
+    let inviteNotificationArr = [];
 
-  if (localStorage.getItem("inviteNotificationData") !== null) {
-    inviteNotificationArr = JSON.parse(
-      localStorage.getItem("inviteNotificationData")
+    if (localStorage.getItem("inviteNotificationData") !== null) {
+      inviteNotificationArr = JSON.parse(
+        localStorage.getItem("inviteNotificationData")
+      );
+    }
+
+    let findCurrentUser = JSON.parse(localStorage.getItem("userInvites"));
+
+    let findObjectInvites = findCurrentUser.find(
+      (inviteObj) => inviteObj["inviteId"] == noti
     );
+    console.log(findObjectInvites);
+
+    let inviteChat = document.getElementById("invite-reply-input").value;
+
+    let inviteNotiId = Date.now();
+    let inviteTime = moment().format("LT");
+    let inviteDate = moment().format("L");
+    let invite_person_url = findUser["avatarUrl"];
+    let notification_person = findUser["userName"];
+    let inviter_id = findObjectInvites["inviterId"];
+    let notificationer_id = findUser["userId"];
+    let notification_file = findObjectInvites["inviteImage"];
+
+    let inviteObject = {
+      message: inviteChat,
+      messageId: inviteNotiId,
+      messageTime: inviteTime,
+      messageDate: inviteDate,
+      messager: notification_person,
+      message_person_url: invite_person_url,
+      messager_id: notificationer_id,
+      message_receiver_id: inviter_id,
+      notification_file,
+      purpose: "invite-chat",
+      isRead: false,
+    };
+
+    console.log(inviteObject);
+    inviteNotificationArr.push(inviteObject);
+
+    document.querySelector("#invite-reply-input").value = "";
+
+    localStorage.setItem(
+      "otherNotification",
+      JSON.stringify(inviteNotificationArr)
+    );
+  } catch (error) {
+    console.log("An error occurred while setting the invite chat :", error);
   }
-
-  let findCurrentUser = JSON.parse(localStorage.getItem("userInvites"));
-
-  let findObjectInvites = findCurrentUser.find(
-    (inviteObj) => inviteObj["inviteId"] == noti
-  );
-  console.log(findObjectInvites);
-
-  let inviteChat = document.getElementById("invite-reply-input").value;
-
-  let inviteNotiId = Date.now();
-  let inviteTime = moment().format("LT");
-  let inviteDate = moment().format("L");
-  let invite_person_url = findUser["avatarUrl"];
-  let notification_person = findUser["userName"];
-  let inviter_id = findObjectInvites["inviterId"];
-  let notificationer_id = findUser["userId"];
-  let notification_file = findObjectInvites["inviteImage"];
-
-  let inviteObject = {
-    message: inviteChat,
-    messageId: inviteNotiId,
-    messageTime: inviteTime,
-    messageDate: inviteDate,
-    messager: notification_person,
-    message_person_url: invite_person_url,
-    messager_id: notificationer_id,
-    message_receiver_id: inviter_id,
-    notification_file,
-    purpose: "invite-chat",
-    isRead: false,
-  };
-
-  console.log(inviteObject);
-  inviteNotificationArr.push(inviteObject);
-
-  document.querySelector("#invite-reply-input").value = "";
-
-  localStorage.setItem(
-    "otherNotification",
-    JSON.stringify(inviteNotificationArr)
-  );
 }
 
 // invite reation showing function
@@ -62,142 +66,152 @@ console.log(inviteDatas);
 // heart function
 
 function likeHeart(e) {
-  console.log(e);
+  try {
+    console.log(e);
 
-  let findInvite = inviteDatas.find((end) => end["inviteId"] == e);
-  console.log(findInvite);
+    let findInvite = inviteDatas.find((end) => end["inviteId"] == e);
+    console.log(findInvite);
 
-  let LikeIndex = inviteDatas.indexOf(findInvite);
-  console.log(LikeIndex);
+    let LikeIndex = inviteDatas.indexOf(findInvite);
+    console.log(LikeIndex);
 
-  let likeButton = document.querySelector(".heart-div").firstChild;
-  console.log(likeButton);
+    let likeButton = document.querySelector(".heart-div").firstChild;
+    console.log(likeButton);
 
-  let buttonValue = likeButton.classList["value"];
+    let buttonValue = likeButton.classList["value"];
 
-  if (buttonValue == "bi bi-heart") {
-    likeButton.remove("bi bi-heart");
+    if (buttonValue == "bi bi-heart") {
+      likeButton.remove("bi bi-heart");
 
-    let likeFill = document.createElement("i");
-    likeFill.setAttribute("class", "bi bi-heart-fill");
-    document.querySelector(".heart-div").append(likeFill);
+      let likeFill = document.createElement("i");
+      likeFill.setAttribute("class", "bi bi-heart-fill");
+      document.querySelector(".heart-div").append(likeFill);
 
-    let heartArray = findInvite["inviteHeart"];
-    console.log(heartArray);
+      let heartArray = findInvite["inviteHeart"];
+      console.log(heartArray);
 
-    heartArray.push(findUser["userId"]);
+      heartArray.push(findUser["userId"]);
 
-    localStorage.setItem("userInvites", JSON.stringify(inviteDatas));
-    return;
-  } else {
-    likeButton.remove("bi bi-heart-fill");
+      localStorage.setItem("userInvites", JSON.stringify(inviteDatas));
+      return;
+    } else {
+      likeButton.remove("bi bi-heart-fill");
 
-    let likeFill = document.createElement("i");
-    likeFill.setAttribute("class", "bi bi-heart");
-    document.querySelector(".heart-div").append(likeFill);
+      let likeFill = document.createElement("i");
+      likeFill.setAttribute("class", "bi bi-heart");
+      document.querySelector(".heart-div").append(likeFill);
 
-    let heartIndex;
+      let heartIndex;
 
-    for (let i = 0; i < findInvite["inviteHeart"].length; i++) {
-      if (findInvite["inviteHeart"][i] == findUser["userId"]) {
-        heartIndex = findInvite["inviteHeart"].indexOf(
-          findInvite["inviteHeart"][i]
-        );
+      for (let i = 0; i < findInvite["inviteHeart"].length; i++) {
+        if (findInvite["inviteHeart"][i] == findUser["userId"]) {
+          heartIndex = findInvite["inviteHeart"].indexOf(
+            findInvite["inviteHeart"][i]
+          );
+        }
       }
+      console.log(heartIndex);
+
+      findInvite["inviteHeart"].splice(heartIndex);
+
+      localStorage.setItem("userInvites", JSON.stringify(inviteDatas));
     }
-    console.log(heartIndex);
-
-    findInvite["inviteHeart"].splice(heartIndex);
-
-    localStorage.setItem("userInvites", JSON.stringify(inviteDatas));
+  } catch (error) {
+    console.log("An error occurred while adding the like :", error);
   }
 }
 
 // thumbs up function
 
 function thumbsUp(e) {
-  let findInvite = inviteDatas.find((end) => end["inviteId"] == e);
-  console.log(findInvite);
+  try {
+    let findInvite = inviteDatas.find((end) => end["inviteId"] == e);
+    console.log(findInvite);
 
-  let LikeIndex = inviteDatas.indexOf(findInvite);
-  console.log(LikeIndex);
-  // Here thumbsUpfill already there remove that
+    let LikeIndex = inviteDatas.indexOf(findInvite);
+    console.log(LikeIndex);
+    // Here thumbsUpfill already there remove that
 
-  let thumbsDownFill = document.querySelector(".sorry-div").firstChild;
+    let thumbsDownFill = document.querySelector(".sorry-div").firstChild;
 
-  let fillValue = thumbsDownFill.classList["value"];
+    let fillValue = thumbsDownFill.classList["value"];
 
-  if (fillValue == "bi bi-hand-thumbs-down-fill") {
-    thumbsDownFill.remove("bi bi-hand-thumbs-down-fill");
+    if (fillValue == "bi bi-hand-thumbs-down-fill") {
+      thumbsDownFill.remove("bi bi-hand-thumbs-down-fill");
 
-    // instead of that element adding normal element
+      // instead of that element adding normal element
 
-    let sorryFill = document.createElement("i");
-    sorryFill.setAttribute("class", "bi bi-hand-thumbs-down");
-    document.querySelector(".sorry-div").append(sorryFill);
-    let dislikeIndex;
+      let sorryFill = document.createElement("i");
+      sorryFill.setAttribute("class", "bi bi-hand-thumbs-down");
+      document.querySelector(".sorry-div").append(sorryFill);
+      let dislikeIndex;
 
-    for (let i = 0; i < findInvite["inviteNo"].length; i++) {
-      if (findInvite["inviteNo"][i] == findUser["userId"]) {
-        dislikeIndex = findInvite["inviteNo"].indexOf(
-          findInvite["inviteNo"][i]
-        );
+      for (let i = 0; i < findInvite["inviteNo"].length; i++) {
+        if (findInvite["inviteNo"][i] == findUser["userId"]) {
+          dislikeIndex = findInvite["inviteNo"].indexOf(
+            findInvite["inviteNo"][i]
+          );
+        }
       }
+
+      findInvite["inviteNo"].splice(dislikeIndex);
+
+      localStorage.setItem("userInvites", JSON.stringify(inviteDatas));
     }
 
-    findInvite["inviteNo"].splice(dislikeIndex);
+    //  creating a function to add and delete count fo the invite
 
-    localStorage.setItem("userInvites", JSON.stringify(inviteDatas));
-  }
+    console.log(e);
 
-  //  creating a function to add and delete count fo the invite
+    let okButton = document.querySelector(".ok-div").firstChild;
 
-  console.log(e);
+    let okValue = okButton.classList["value"];
 
-  let okButton = document.querySelector(".ok-div").firstChild;
+    if (okValue == "bi bi-hand-thumbs-up") {
+      okButton.remove(" bi bi-hand-thumbs-up");
 
-  let okValue = okButton.classList["value"];
+      let likeFill = document.createElement("i");
+      likeFill.setAttribute("class", "bi bi-hand-thumbs-up-fill");
+      document.querySelector(".ok-div").append(likeFill);
 
-  if (okValue == "bi bi-hand-thumbs-up") {
-    okButton.remove(" bi bi-hand-thumbs-up");
+      let likeArray = findInvite["inviteLike"];
 
-    let likeFill = document.createElement("i");
-    likeFill.setAttribute("class", "bi bi-hand-thumbs-up-fill");
-    document.querySelector(".ok-div").append(likeFill);
+      likeArray.push(findUser["userId"]);
 
-    let likeArray = findInvite["inviteLike"];
+      localStorage.setItem("userInvites", JSON.stringify(inviteDatas));
+    } else {
+      okButton.remove(" bi bi-hand-thumbs-up-fill");
 
-    likeArray.push(findUser["userId"]);
+      let likeFill = document.createElement("i");
+      likeFill.setAttribute("class", "bi bi-hand-thumbs-up");
+      document.querySelector(".ok-div").append(likeFill);
 
-    localStorage.setItem("userInvites", JSON.stringify(inviteDatas));
-  } else {
-    okButton.remove(" bi bi-hand-thumbs-up-fill");
+      let thumbsUpIndex;
 
-    let likeFill = document.createElement("i");
-    likeFill.setAttribute("class", "bi bi-hand-thumbs-up");
-    document.querySelector(".ok-div").append(likeFill);
-
-    let thumbsUpIndex;
-
-    for (let i = 0; i < findInvite["inviteLike"].length; i++) {
-      if (findInvite["inviteLike"][i] == findUser["userId"]) {
-        thumbsUpIndex = findInvite["inviteLike"].indexOf(
-          findInvite["inviteLike"][i]
-        );
+      for (let i = 0; i < findInvite["inviteLike"].length; i++) {
+        if (findInvite["inviteLike"][i] == findUser["userId"]) {
+          thumbsUpIndex = findInvite["inviteLike"].indexOf(
+            findInvite["inviteLike"][i]
+          );
+        }
       }
+
+      console.log(thumbsUpIndex);
+
+      findInvite["inviteLike"].splice(thumbsUpIndex);
+
+      localStorage.setItem("userInvites", JSON.stringify(inviteDatas));
     }
-
-    console.log(thumbsUpIndex);
-
-    findInvite["inviteLike"].splice(thumbsUpIndex);
-
-    localStorage.setItem("userInvites", JSON.stringify(inviteDatas));
+  } catch (error) {
+    console.log("An error occurred while the thumbsUp :", error);
   }
 }
 
 // thumbs down function
 
 function thumbsDown(e) {
+
+  try {
   let findInvite = inviteDatas.find((end) => end["inviteId"] == e);
   console.log(findInvite);
 
@@ -275,4 +289,8 @@ function thumbsDown(e) {
 
     localStorage.setItem("userInvites", JSON.stringify(inviteDatas));
   }
+
+} catch (error){
+  console.log("An error occured while thumbs down :", error)
+}
 }

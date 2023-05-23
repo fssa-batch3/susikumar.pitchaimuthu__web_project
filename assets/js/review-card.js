@@ -1,4 +1,4 @@
-const userReview = [
+let userReview = [
   {
     review:
       "The Nest browser was very useful to us. It's was very joyful and funny. When we are think to make aconversation between me and my friend's. It's very useful",
@@ -43,7 +43,7 @@ const userReview = [
   },
 ];
 
-for (let i = 0; i <= userReview.length; i++) {
+for (let userCard of userReview) {
   let userReviewCard1 = document.createElement("div");
   userReviewCard1.setAttribute("class", "user-1-review-section-div");
 
@@ -53,7 +53,7 @@ for (let i = 0; i <= userReview.length; i++) {
 
   let userReviewPara = document.createElement("p");
   userReviewPara.setAttribute("class", "user-1-review-div-para");
-  userReviewPara.innerText = userReview[i]["review"];
+  userReviewPara.innerText = userCard["review"];
   userReviewDiv.append(userReviewPara);
 
   let userImageContainer = document.createElement("div");
@@ -65,7 +65,7 @@ for (let i = 0; i <= userReview.length; i++) {
   userImageContainer.append(userImageDiv);
 
   let userImage = document.createElement("img");
-  userImage.setAttribute("src", userReview[i]["profile"]);
+  userImage.setAttribute("src", userCard["profile"]);
   userImage.setAttribute("class", "user-review-1-image-div-image");
   userImageDiv.append(userImage);
 
@@ -73,11 +73,11 @@ for (let i = 0; i <= userReview.length; i++) {
   userImageContainer.append(div);
 
   let h3 = document.createElement("h3");
-  h3.innerText = userReview[i]["userName"];
+  h3.innerText = userCard["userName"];
   div.append(h3);
 
   let from = document.createElement("p");
-  from.innerText = userReview[i]["From"];
+  from.innerText = userCard["From"];
   div.append(from);
 
   document

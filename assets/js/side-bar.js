@@ -4,15 +4,28 @@ const body = document.querySelector("body"),
   searchBtn = body.querySelector(".search-box"),
   modeSwitch = body.querySelector(".toggle-switch"),
   modeText = body.querySelector(".mode-text");
+
+// side bar toggle
+
 toggle.addEventListener("click", () => {
-  sidebar.classList.toggle("close");
+  try {
+    sidebar.classList.toggle("close");
+  } catch (error) {
+    console.log("An error occured while toggle open and close :", error);
+  }
 });
 
+// side dark mode function
+
 modeSwitch.addEventListener("click", () => {
-  body.classList.toggle("dark");
-  if (body.classList.contains("dark")) {
-    modeText.innerText = "Light mode";
-  } else {
-    modeText.innerText = "Dark mode";
+  try {
+    body.classList.toggle("dark");
+    if (body.classList.contains("dark")) {
+      modeText.innerText = "Light mode";
+    } else {
+      modeText.innerText = "Dark mode";
+    }
+  } catch (error) {
+    console.log("An error occurred while dark mode :", error);
   }
 });

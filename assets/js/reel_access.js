@@ -6,107 +6,112 @@ console.log(reelInput);
 
 reelInput.addEventListener("change", function (event) {
   event.preventDefault();
-  let file = this.files[0];
-  let reader = new FileReader();
 
-  reader.onload = function (event) {
-    let src = event.target.result;
+  try {
+    let file = this.files[0];
+    let reader = new FileReader();
 
-    let video = document.createElement("video");
+    reader.onload = function (event) {
+      let src = event.target.result;
 
-    // Wait for the metadata to load
-    video.onloadedmetadata = function () {
-      const duration = video.duration;
+      let video = document.createElement("video");
 
-      // Format the duration in minutes and seconds
+      // Wait for the metadata to load
+      video.onloadedmetadata = function () {
+        const duration = video.duration;
 
-      const seconds = Math.floor(duration % 60);
+        // Format the duration in minutes and seconds
 
-      console.log(seconds);
+        const seconds = Math.floor(duration % 60);
 
-      // rest of your code...
+        console.log(seconds);
 
-      // reel data store
-      let reelArr = [];
-      if (localStorage.getItem("reelUrlData") !== null) {
-        reelArr = JSON.parse(localStorage.getItem("reelUrlData"));
-      }
+        // rest of your code...
 
-      let reelTime = moment().format("LT");
-      let reelDate = moment().format("L");
+        // reel data store
+        let reelArr = [];
+        if (localStorage.getItem("reelUrlData") !== null) {
+          reelArr = JSON.parse(localStorage.getItem("reelUrlData"));
+        }
 
-      let reelId = Date.now();
-      let reelVideoObj = {
-        reel_url: src,
-        reelId: reelId,
-        reelName: reelId + "reel",
-        reeluserId: findUser["userId"],
-        reelTime: reelTime,
-        reelDate: reelDate,
-        reelerName: findUser["userName"],
-        reelDuration: duration,
-        reel_user_url: findUser["avatarUrl"],
-      };
+        let reelTime = moment().format("LT");
+        let reelDate = moment().format("L");
 
-      // Here checking the reel user data is ther is not
+        let reelId = Date.now();
+        let reelVideoObj = {
+          reel_url: src,
+          reelId: reelId,
+          reelName: reelId + "reel",
+          reeluserId: findUser["userId"],
+          reelTime: reelTime,
+          reelDate: reelDate,
+          reelerName: findUser["userName"],
+          reelDuration: duration,
+          reel_user_url: findUser["avatarUrl"],
+        };
 
-      let allReelData = JSON.parse(localStorage.getItem("reelUrlData"));
+        // Here checking the reel user data is ther is not
 
-      console.log(allReelData);
+        let allReelData = JSON.parse(localStorage.getItem("reelUrlData"));
 
-      if (allReelData != null) {
-        let getUser;
+        console.log(allReelData);
 
-        let reelIndex;
+        if (allReelData != null) {
+          let getUser;
 
-        for (let allReel of allReelData) {
-          for (let inside of allReel) {
-            if (inside["reelUser"] == findUser["userId"]) {
-              getUser = allReel;
-              reelIndex = allReelData.indexOf(allReel);
+          let reelIndex;
+
+          for (let allReel of allReelData) {
+            for (let inside of allReel) {
+              if (inside["reelUser"] == findUser["userId"]) {
+                getUser = allReel;
+                reelIndex = allReelData.indexOf(allReel);
+              }
             }
           }
-        }
-
-        console.log(getUser);
-        console.log(reelIndex);
-
-        if (getUser != null) {
-          getUser.push(reelVideoObj);
 
           console.log(getUser);
+          console.log(reelIndex);
 
-          allReelData[reelIndex] = getUser;
+          if (getUser != null) {
+            getUser.push(reelVideoObj);
 
-          localStorage.setItem("reelUrlData", JSON.stringify(allReelData));
+            console.log(getUser);
+
+            allReelData[reelIndex] = getUser;
+
+            localStorage.setItem("reelUrlData", JSON.stringify(allReelData));
+
+            return;
+          } else {
+            let anotherArray = [];
+
+            anotherArray.push(reelVideoObj);
+
+            allReelData.push(anotherArray);
+
+            localStorage.setItem("reelUrlData", JSON.stringify(allReelData));
+          }
 
           return;
-        } else {
-          let anotherArray = [];
-
-          anotherArray.push(reelVideoObj);
-
-          allReelData.push(anotherArray);
-
-          localStorage.setItem("reelUrlData", JSON.stringify(allReelData));
         }
 
-        return;
-      }
+        let newArray = [];
 
-      let newArray = [];
+        newArray.push(reelVideoObj);
 
-      newArray.push(reelVideoObj);
+        reelArr.push(newArray);
 
-      reelArr.push(newArray);
+        localStorage.setItem("reelUrlData", JSON.stringify(reelArr));
+      };
 
-      localStorage.setItem("reelUrlData", JSON.stringify(reelArr));
+      video.src = src;
     };
 
-    video.src = src;
-  };
-
-  reader.readAsDataURL(file);
+    reader.readAsDataURL(file);
+  } catch (error) {
+    console.log("An error occurred the access the reel file :", error);
+  }
 });
 
 // reel showing redirection EventListener
@@ -116,15 +121,19 @@ console.log(checkReel);
 
 // creating reel div for the user
 
-let trendingBirdDiv = document.createElement("div");
-trendingBirdDiv.setAttribute("class", "reel-member-div");
+try {
+  let trendingBirdDiv = document.createElement("div");
+  trendingBirdDiv.setAttribute("class", "reel-member-div");
 
-let trendingBirdDivImage = document.createElement("img");
-trendingBirdDivImage.setAttribute("class", "reel-member-div-image");
-trendingBirdDivImage.setAttribute("src", findUser["avatarUrl"]);
-trendingBirdDiv.append(trendingBirdDivImage);
+  let trendingBirdDivImage = document.createElement("img");
+  trendingBirdDivImage.setAttribute("class", "reel-member-div-image");
+  trendingBirdDivImage.setAttribute("src", findUser["avatarUrl"]);
+  trendingBirdDiv.append(trendingBirdDivImage);
 
-document.querySelector(".reel-container").append(trendingBirdDiv);
+  document.querySelector(".reel-container").append(trendingBirdDiv);
+} catch (error) {
+  console.log("An error occured while adding the user reel profile :", error);
+}
 
 // getting the profile user friends data
 
