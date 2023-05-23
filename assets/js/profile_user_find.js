@@ -3,6 +3,7 @@
 let findUser;
 
 let userIndex;
+let info;
 try {
   let userUrl = window.location.search;
   let userUrlParams = new URLSearchParams(userUrl);
@@ -11,7 +12,7 @@ try {
   let urlId = userUrlParams.get("user");
   console.log(urlId);
 
-  let info = JSON.parse(window.localStorage.getItem("register"));
+  info = JSON.parse(window.localStorage.getItem("register"));
   console.log(info);
 
   // usin find method for find the user

@@ -1,3 +1,17 @@
+// Here creating a function to find the user count
+
+let totalUser = JSON.parse(localStorage.getItem("userFriends"));
+
+let totalFriends;
+
+for (let users of totalUser) {
+  if (users[0]["frienderId"] == findUser["userId"]) {
+    totalFriends = users;
+  }
+}
+
+// Her user invite showing function creating
+
 try {
   let GetInviteDetails = JSON.parse(localStorage.getItem("userInvites"));
   console.log(GetInviteDetails);
@@ -78,12 +92,12 @@ try {
       receiverPara.innerHTML = "Count";
       receiverDiv.append(receiverPara);
 
+      let likeCount =
+        (userInvite["inviteLike"].length / totalFriends.length) * 100;
+
       let okPercentageDiv = document.createElement("div");
       okPercentageDiv.setAttribute("class", "ok-percentage-div");
-      okPercentageDiv.setAttribute(
-        "data-percent",
-        userInvite["inviteLike"].length
-      );
+      okPercentageDiv.setAttribute("data-percent", likeCount);
       receiverEmojiContainer.append(okPercentageDiv);
 
       let okPercentageInsideDiv = document.createElement("div");
@@ -96,15 +110,14 @@ try {
 
       let okPercentagep = document.createElement("p");
       okPercentagep.setAttribute("class", "ok-percentage-p");
-      okPercentagep.innerHTML = userInvite["inviteLike"].length;
+      okPercentagep.innerHTML = likeCount + "%";
       okPercentageInsideDiv.append(okPercentagep);
+
+      let noCount = (userInvite["inviteNo"].length / totalFriends.length) * 100;
 
       let noPercentageDiv = document.createElement("div");
       noPercentageDiv.setAttribute("class", "no-percentage-div");
-      noPercentageDiv.setAttribute(
-        "data-percent",
-        userInvite["inviteNo"].length
-      );
+      noPercentageDiv.setAttribute("data-percent", noCount);
       receiverEmojiContainer.append(noPercentageDiv);
 
       let noPercentageInsideDiv = document.createElement("div");
@@ -116,7 +129,7 @@ try {
       noPercentageInsideDiv.append(noPercentageI);
 
       let noPercentageP = document.createElement("p");
-      noPercentageP.innerHTML = userInvite["inviteNo"].length;
+      noPercentageP.innerHTML = noCount + "%";
       noPercentageP.setAttribute("class", "no-percentage-p");
       noPercentageInsideDiv.append(noPercentageP);
 

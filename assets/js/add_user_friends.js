@@ -5,9 +5,13 @@ import database from "./db.js";
 import {
   onValue,
   ref,
+  set,
+  push,
 } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-database.js";
 
 console.log(database);
+
+import { boostChat } from "./chatElement.js";
 
 // getting the firebase database data
 
@@ -37,12 +41,9 @@ console.log(currentChatData);
 
 // getting the user data from the database
 
-function addUser() {
-  let freshChatUsers = JSON.parse(localStorage.getItem("userFriends"));
-  console.log(freshChatUsers);
+// creating function to remove the userCards before show the new user
 
-  let allUSerFriendsData;
-
+function allUserCardRemove() {
   let userCard = document.querySelectorAll(".user-card-container");
 
   if (userCard[0] != undefined) {
@@ -50,6 +51,17 @@ function addUser() {
       uCard.remove();
     }
   }
+}
+
+function addUser() {
+  let freshChatUsers = JSON.parse(localStorage.getItem("userFriends"));
+  console.log(freshChatUsers);
+
+  let allUSerFriendsData;
+
+  // removing user cards
+
+  allUserCardRemove();
 
   //  Creating a for loop for find user friends
 
@@ -124,7 +136,7 @@ function addUser() {
             curData["chatReceiverId"] == findUser["userId"] &&
             curData["isRead"] == unread
           ) {
-            numberCount.push(currentChatData[i]);
+            numberCount.push(curData);
           }
         }
       }
@@ -155,23 +167,50 @@ function addUser() {
   chatCard();
 }
 
+// avatar emoji part removing function
+
+function removeAvatar() {
+  // remve emoji div container
+
+  let emojiDivs = document.querySelector(".emoji-name-div-container");
+
+  if (emojiDivs != null) {
+    emojiDivs.remove();
+  }
+}
+
+// user profile card emoji removing function
+
+function profileRemove() {
+  let checkUserData = document.querySelector(".user-profile-show-div");
+
+  if (checkUserData !== null) {
+    document.querySelector(".user-profile-show-div").remove();
+  }
+}
+
+//
+
+function removingInput() {
+  let nullInput = document.querySelector("#chat-input-form");
+
+  if (nullInput !== null) {
+    document.querySelector("#chat-input-form").remove();
+  }
+}
+
+let userSelectId;
 function chatCard() {
   let chatPersonCard = document.querySelectorAll(".user-card-container");
   console.log(chatPersonCard);
 
-  let userSelectId;
-
-  for (let i = 0; i < chatPersonCard.length; i++) {
-    chatPersonCard[i].addEventListener("click", function (chatEvent) {
+  for (let chatCards of chatPersonCard) {
+    chatCards.addEventListener("click", function (chatEvent) {
       chatEvent.preventDefault();
 
-      // remve emoji div container
+      //  remove=ing the avatar area
 
-      let emojiDivs = document.querySelector(".emoji-name-div-container");
-
-      if (emojiDivs != null) {
-        emojiDivs.remove();
-      }
+      removeAvatar();
 
       userSelectId = chatEvent.target.id;
       console.log(userSelectId);
@@ -184,11 +223,10 @@ function chatCard() {
 
       console.log(userSelectionIdFind);
 
-      let checkUserData = document.querySelector(".user-profile-show-div");
+      // removing user profiel if already there
 
-      if (checkUserData !== null) {
-        document.querySelector(".user-profile-show-div").remove();
-      }
+      profileRemove();
+
       // Elelements are created for showing chat user Datails in the top of the chat
 
       let userNameDivContainer = document.createElement("div");
@@ -240,7 +278,7 @@ function chatCard() {
       biTelephone.setAttribute("class", "bi bi-telephone");
       profileOptionDiv.append(biTelephone);
 
-      test("i", "class", "bi bi-telephone");
+      test("i", "class", "bi bi-camera");
 
       test("i", "class", "bi bi-gear");
 
@@ -256,11 +294,7 @@ function chatCard() {
 
       // write the code to null the data
 
-      let nullInput = document.querySelector("#chat-input-form");
-
-      if (nullInput !== null) {
-        document.querySelector("#chat-input-form").remove();
-      }
+      removingInput();
 
       // create dynamic element for the input field
 
@@ -355,196 +389,78 @@ function chatCard() {
 
       document.querySelector(".chat-input-option-div").append(inputForm);
 
-      // checking the chats for to show the respective chat to respective person
+      // Here boosting the user chats
 
-      console.log("susi");
-
-      if (currentChatData == null) {
-        return;
-      }
-
-      console.log("run");
-
-      let unique = [];
-
-      for (let firebaseData of currentChatData) {
-        if (
-          (firebaseData["chatterId"] == findUser["userId"] &&
-            firebaseData["chatReceiverId"] == userSelectId) ||
-          (firebaseData["chatReceiverId"] == findUser["userId"] &&
-            firebaseData["chatterId"] == userSelectId)
-        ) {
-          unique.push(firebaseData);
-        }
-      }
-
-      console.log(unique);
-
-      let sender = unique.filter(
-        (obj, index, self) =>
-          index === self.findIndex((o) => o.chatkey === obj.chatkey)
-      );
-
-      console.log(sender);
-      // adding read true to the all chats
-
-      let chageChat = document.querySelectorAll(".chat-div-for-user");
-
-      if (chageChat[0] != undefined) {
-        for (let i = 0; i < chageChat.length; i++) {
-          chageChat[i].remove();
-        }
-      }
-
-      for (let senders of sender) {
-        if (
-          senders["chatReceiverId"] == userSelectId &&
-          senders["chatterId"] == findUser["userId"]
-        ) {
-          let chatDivUser = document.createElement("div");
-          chatDivUser.setAttribute("class", "chat-div-for-user");
-
-          let chatUserInsideDiv = document.createElement("div");
-          chatUserInsideDiv.setAttribute("class", "chat-user-inside-div");
-          chatUserInsideDiv.setAttribute("id", senders["chatkey"]);
-          chatDivUser.append(chatUserInsideDiv);
-
-          let chatDiv = document.createElement("div");
-          chatDiv.setAttribute("class", "chat-div");
-          chatUserInsideDiv.append(chatDiv);
-
-          let chatInsideDiv = document.createElement("div");
-          chatInsideDiv.setAttribute("class", "chat-inside-div");
-          chatDiv.append(chatInsideDiv);
-
-          let chatContentTimeDiv = document.createElement("div");
-          chatContentTimeDiv.setAttribute("class", "chat-content-time-div");
-          chatInsideDiv.append(chatContentTimeDiv);
-
-          let chatContentTimeInsideDiv = document.createElement("div");
-          chatContentTimeInsideDiv.setAttribute(
-            "class",
-            "chat-content-time-inside-div"
-          );
-          chatContentTimeDiv.append(chatContentTimeInsideDiv);
-
-          let chatContentDiv = document.createElement("div");
-          chatContentDiv.setAttribute("class", "chat-content-div");
-          chatContentTimeInsideDiv.append(chatContentDiv);
-
-          let chatContent = document.createElement("p");
-          chatContent.setAttribute("class", "chat-content");
-          chatContent.innerHTML = senders["chat"];
-          chatContentDiv.append(chatContent);
-
-          let chatTimeDiv = document.createElement("div");
-          chatTimeDiv.setAttribute("class", "chat-time-div");
-          chatContentTimeInsideDiv.append(chatTimeDiv);
-
-          let timePara = document.createElement("p");
-          timePara.setAttribute("class", "time-para");
-          timePara.innerHTML = senders["chatTime"];
-          chatTimeDiv.append(timePara);
-
-          let userProfileDiv = document.createElement("div");
-          userProfileDiv.setAttribute("class", "user-profile-div");
-          chatInsideDiv.append(userProfileDiv);
-
-          let usrImage = document.createElement("img");
-          usrImage.setAttribute("alt", "chat-image");
-          usrImage.setAttribute("class", "chatter-image");
-          usrImage.setAttribute("src", findUser["avatarUrl"]);
-          userProfileDiv.append(usrImage);
-
-          // chat update and delete option element
-
-          let div = document.createElement("div");
-          div.setAttribute("class", "update-delete-option-div");
-          div.setAttribute("id", senders["chatkey"]);
-          chatContentTimeDiv.prepend(div);
-
-          let editOptionInsideDiv = document.createElement("div");
-          editOptionInsideDiv.setAttribute("class", "edit-option-inside-div");
-          div.append(editOptionInsideDiv);
-
-          let chatEditdiv = document.createElement("div");
-          chatEditdiv.setAttribute("class", "edit-option-div");
-          chatEditdiv.setAttribute("id", senders["chatId"]);
-          editOptionInsideDiv.append(chatEditdiv);
-
-          let editFa = document.createElement("i");
-          editFa.setAttribute("class", "bi bi-pencil-square");
-          editFa.setAttribute("id", senders["chatkey"]);
-          chatEditdiv.append(editFa);
-
-          let deleteFa = document.createElement("i");
-          deleteFa.setAttribute("class", "bi bi-trash");
-          deleteFa.setAttribute("id", senders["chatkey"]);
-          chatEditdiv.append(deleteFa);
-
-          document.querySelector(".right-side-container").append(chatDivUser);
-        } else {
-          console.log("friends");
-          let chatDivUser = document.createElement("div");
-          chatDivUser.setAttribute("class", "chat-div-for-user");
-
-          let chatUserInsideDiv = document.createElement("div");
-          chatUserInsideDiv.setAttribute("class", "chat-friends-inside-div");
-          chatDivUser.append(chatUserInsideDiv);
-
-          let chatDiv = document.createElement("div");
-          chatDiv.setAttribute("class", "chat-div");
-          chatUserInsideDiv.append(chatDiv);
-
-          let chatInsideDiv = document.createElement("div");
-          chatInsideDiv.setAttribute("class", "chat-inside-div");
-          chatDiv.append(chatInsideDiv);
-
-          let userProfileDiv = document.createElement("div");
-          userProfileDiv.setAttribute("class", "user-profile-div");
-          chatInsideDiv.append(userProfileDiv);
-
-          let usrImage = document.createElement("img");
-          usrImage.setAttribute("alt", "chat-image");
-          usrImage.setAttribute("class", "chatter-image");
-          usrImage.setAttribute("src", senders["chatSenderImage"]);
-          userProfileDiv.append(usrImage);
-
-          let chatContentTimeDiv = document.createElement("div");
-          chatContentTimeDiv.setAttribute("class", "chat-content-time-div");
-          chatInsideDiv.append(chatContentTimeDiv);
-
-          let chatContentTimeInsideDiv = document.createElement("div");
-          chatContentTimeInsideDiv.setAttribute(
-            "class",
-            "chat-content-time-inside-div"
-          );
-          chatContentTimeDiv.append(chatContentTimeInsideDiv);
-
-          let chatContentDiv = document.createElement("div");
-          chatContentDiv.setAttribute("class", "chat-content-div");
-          chatContentTimeInsideDiv.append(chatContentDiv);
-
-          let chatContent = document.createElement("p");
-          chatContent.setAttribute("class", "chat-content");
-          chatContent.innerHTML = senders["chat"];
-          chatContentDiv.append(chatContent);
-
-          let chatTimeDiv = document.createElement("div");
-          chatTimeDiv.setAttribute("class", "chat-time-div");
-          chatContentTimeInsideDiv.append(chatTimeDiv);
-
-          let timePara = document.createElement("p");
-          timePara.setAttribute("class", "time-para");
-          timePara.innerHTML = senders["chatTime"];
-          chatTimeDiv.append(timePara);
-
-          document.querySelector(".right-side-container").append(chatDivUser);
-        }
-      }
-      // Scroll to the bottom of the chat container
-      const chatContainer = document.querySelector(".right-side-container");
-      chatContainer.scrollTop = chatContainer.scrollHeight;
+      boostChat();
     });
   }
 }
+export { userSelectId };
+
+// creating a function to set the data
+
+let firstParent = document.querySelector(".chat-input-option-div");
+
+async function setData(userReceiver) {
+  let chatReceiverId = userReceiver;
+  let chatMessage = document.querySelector("#chat-input").value.trim();
+  console.log(chatMessage);
+
+  if (chatMessage == null || chatMessage == "") {
+    alert("You can send empty chat");
+    return;
+  }
+
+  let userName = findUser["userName"];
+  console.log(userName);
+
+  let personId = findUser["userId"];
+
+  let chatTime = moment().format("LT");
+  let dateChat = moment().format("l");
+  let chatId = Date.now();
+
+  // Generate a new unique key using push()
+  let chatRef = push(ref(database, "freshchat/"));
+
+  let chatData = {
+    chatPerson: userName,
+    chat: chatMessage,
+    chatTime: chatTime,
+    chatReceiverId: chatReceiverId,
+    chatDate: dateChat,
+    chatterId: personId,
+    chatId: chatId,
+    chatSenderImage: findUser["avatarUrl"],
+    isRead: false,
+  };
+
+  try {
+    await set(chatRef, chatData);
+
+    boostChat();
+
+    console.log("Data updated successfully!");
+    // Proceed with further actions or data retrieval here
+  } catch (error) {
+    console.error("Error updating data:", error);
+  }
+  document.querySelector("#chat-input").value = "";
+}
+
+firstParent.addEventListener("click", async function (event) {
+  let target = event.target;
+
+  console.log(target);
+
+  let userReceiver = target.id;
+  // Check if the event target is the chat-submit button inside the chat-submit-button-div
+  if (target.matches(".submit-span")) {
+    try {
+      await setData(userReceiver);
+      console.log("Data set successfully");
+    } catch (error) {
+      console.error(error);
+    }
+  }
+});

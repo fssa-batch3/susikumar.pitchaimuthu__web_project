@@ -1,3 +1,15 @@
+// Here getting the user to find the user strength
+
+let totalUser = JSON.parse(localStorage.getItem("userFriends"));
+
+let totalFriends;
+
+for (let users of totalUser) {
+  if (users[0]["frienderId"] == findUser["userId"]) {
+    totalFriends = users;
+  }
+}
+
 // create user profile div creation
 
 let profileNameDiv = document.createElement("div");
@@ -36,22 +48,29 @@ console.log(findInvite);
 
 // first element chart div
 
+let likeStrength =
+  (findInvite["inviteLike"].length / totalFriends.length) * 100;
+console.log(likeStrength);
+let heartStrength =
+  (findInvite["inviteHeart"].length / totalFriends.length) * 100;
+let noStrength = (findInvite["inviteNo"].length / totalFriends.length) * 100;
+
 let element = document.querySelector(".chart-div");
-element.setAttribute("data-percent", findInvite["inviteHeart"].length);
+element.setAttribute("data-percent", heartStrength);
 let chartOnePara = document.querySelector(".first");
 console.log(chartOnePara);
 console.log(findInvite["inviteHeart"]);
-chartOnePara.innerHTML = findInvite["inviteHeart"].length + "%";
+chartOnePara.innerHTML = heartStrength + "%";
 
 let element_two = document.querySelector(".chart-div-three");
-element_two.setAttribute("data-percent", findInvite["inviteLike"].length);
+element_two.setAttribute("data-percent", likeStrength);
 let chartTwoPara = document.querySelector(".second");
-chartTwoPara.innerHTML = findInvite["inviteLike"].length + "%";
+chartTwoPara.innerHTML = likeStrength + "%";
 
 let element_three = document.querySelector(".chart-div-two");
-element_three.setAttribute("data-percent", findInvite["inviteNo"].length);
+element_three.setAttribute("data-percent", noStrength);
 let chartThreePara = document.querySelector(".three");
-chartThreePara.innerHTML = findInvite["inviteNo"].length + "%";
+chartThreePara.innerHTML = noStrength + "%";
 
 // create element for showing the invite
 
