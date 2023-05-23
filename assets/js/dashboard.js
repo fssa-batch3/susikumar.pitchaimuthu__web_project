@@ -1,9 +1,16 @@
+let allUserData;
+
+let totalUserLength;
+let thisMonthUser;
+
+// This month users
+let thisUserData = [];
 try {
   // Getting the all user data from the database
-  let allUserData = JSON.parse(localStorage.getItem("register"));
+  allUserData = JSON.parse(localStorage.getItem("register"));
   console.log(allUserData);
 
-  let totalUserLength = allUserData.length;
+  totalUserLength = allUserData.length;
   console.log(totalUserLength);
 
   // Getting the all elements to show the details
@@ -30,9 +37,6 @@ try {
     count++;
   }
 
-  // This month users
-  let thisUserData = [];
-
   for (let userDatas of allUserData) {
     let dateString = userDatas["registrationDate"];
 
@@ -49,7 +53,7 @@ try {
 
   console.log(thisUserData);
 
-  let thisMonthUser = document.querySelector(".this-month-user");
+  thisMonthUser = document.querySelector(".this-month-user");
   thisMonthUser.innerHTML = thisUserData.length;
 
   let number = 0;

@@ -46,11 +46,10 @@ let upcomingDates = getUpcomingDates();
 console.log(upcomingDates);
 
 // getting the daily registered data of the users
-let groupedData;
 
 // Group the user registration data by date
 
-groupedData = allUserData.reduce(function (result, user) {
+let groupedData = allUserData.reduce(function (result, user) {
   let registrationDate = user.registrationDate;
 
   let matchingGroup = result.find(function (group) {

@@ -1,3 +1,8 @@
+let findIndexUser;
+
+let findUserData;
+let allRegister;
+
 try {
   let getUser = window.location.search;
 
@@ -8,12 +13,12 @@ try {
 
   // Getting all register data to know the user
 
-  let allRegister = JSON.parse(localStorage.getItem("register"));
+  allRegister = JSON.parse(localStorage.getItem("register"));
 
-  let findUserData = allRegister.find((e) => e["userId"] == urlId);
+  findUserData = allRegister.find((e) => e["userId"] == urlId);
   console.log(findUserData);
 
-  let findIndexUser = allRegister.indexOf(findUserData);
+  findIndexUser = allRegister.indexOf(findUserData);
   console.log(findIndexUser);
 
   // Continue with the rest of your code and handle the data as needed
