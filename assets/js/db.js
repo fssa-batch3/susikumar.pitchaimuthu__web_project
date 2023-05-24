@@ -73,6 +73,7 @@ async function documentSending() {
   fileInput.type = "file";
 
   let imageElement = document.createElement("img");
+  imageElement.setAttribute("class", "sending-image");
 
   fileInput.click();
 

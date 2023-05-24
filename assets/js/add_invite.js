@@ -1,3 +1,29 @@
+// Get the current time
+const currentTime = new Date().toLocaleTimeString([], {
+  hour: "2-digit",
+  minute: "2-digit",
+});
+
+const timeInput = document.getElementById("party_time");
+
+// Add event listener to the time input
+timeInput.addEventListener("input", function () {
+  const selectedTime = this.value;
+  const currentTime = new Date().toLocaleTimeString([], {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+
+  // Compare selected time with current time
+  if (selectedTime < currentTime) {
+    alert("You cannot select a past time.");
+    this.value = ""; // Clear the input value
+  }
+});
+
+// Set the min attribute of the time input to the current time
+document.getElementById("party_time").min = currentTime;
+
 // This element for create user profile
 
 let profileNameDiv = document.createElement("div");
@@ -119,6 +145,8 @@ inviteForm.addEventListener("submit", (sub) => {
     let convertedTime = `${convertedHours}:${minutes} ${period}`;
 
     console.log(convertedTime);
+
+    // cna't select past time
 
     let inviteObj = {
       inviteName,
