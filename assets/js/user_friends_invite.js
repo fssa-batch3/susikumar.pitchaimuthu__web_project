@@ -1,9 +1,8 @@
 // dynamic card creation
 
+let friendsInvitesData = JSON.parse(localStorage.getItem("userInvites"));
+console.log(friendsInvitesData);
 try {
-  let friendsInvitesData = JSON.parse(localStorage.getItem("userInvites"));
-  console.log(friendsInvitesData);
-
   let friendsInvites = friendsInvitesData.filter(
     (e) => e["inviterId"] !== findUser["userId"]
   );

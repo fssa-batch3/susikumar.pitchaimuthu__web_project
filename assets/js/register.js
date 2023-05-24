@@ -1,4 +1,11 @@
 let signUpFrom = document.getElementById("form");
+
+document.getElementById("firstname").value = "Susikumar";
+document.getElementById("lastname").value = "Pitchaimuthu";
+document.getElementById("username").value = "I am susi";
+document.getElementById("email").value = "susi@gmail.com";
+document.getElementById("password").value = "1234@SMsm";
+
 signUpFrom.addEventListener("submit", (event) => {
   event.preventDefault();
 
