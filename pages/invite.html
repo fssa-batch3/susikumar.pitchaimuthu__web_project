@@ -144,9 +144,9 @@
             </div>
             <!-- invites showing container -->
 
-            <div
-              class="friends-inside-invite-and-details-showing-container"
-            ></div>
+            <div class="friends-inside-invite-and-details-showing-container">
+              <!-- Here creating element if the user didn't add any invite it will show -->
+            </div>
           </div>
         </div>
         <div class="hr-bar-div"><hr /></div>
@@ -173,19 +173,26 @@
       let okDiv = document.querySelector(".ok-percentage-div");
       let noDiv = document.querySelector(".no-percentage-div");
 
-      let chartSuccess = new EasyPieChart(okDiv, {
-        barColor: "#A2D2FF",
-        lineWidth: 11,
-        lineCap: "circle",
-        size: 85,
-      });
+      try {
+        let chartSuccess = new EasyPieChart(okDiv, {
+          barColor: "#A2D2FF",
+          lineWidth: 11,
+          lineCap: "circle",
+          size: 85,
+        });
 
-      let chartFailure = new EasyPieChart(noDiv, {
-        barColor: "#FFAE42",
-        lineWidth: 11,
-        lineCap: "circle",
-        size: 85,
-      });
+        let chartFailure = new EasyPieChart(noDiv, {
+          barColor: "#FFAE42",
+          lineWidth: 11,
+          lineCap: "circle",
+          size: 85,
+        });
+      } catch (error) {
+        console.log(
+          "An error occured while creating chart for the user inivite :",
+          error
+        );
+      }
     </script>
     <script src="../assets/js/user_friends_invite_show.js"></script>
     <script src="../assets/js/user_invite_chat.js"></script>

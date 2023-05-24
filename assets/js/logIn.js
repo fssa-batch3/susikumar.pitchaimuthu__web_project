@@ -13,8 +13,8 @@ logIn.addEventListener("submit", (event) => {
     let userEmail = document.getElementById("inputemail").value.trim();
     let password = document.getElementById("password").value.trim();
 
-    userEmail.value = "susi@gmail.com"
-    password.value = "1234@SMsm"
+    userEmail.value = "susi@gmail.com";
+    password.value = "1234@SMsm";
 
     // Here checking the user is a admit or not
 
@@ -52,7 +52,7 @@ logIn.addEventListener("submit", (event) => {
       window.location.href = "../pages/home.html?user=" + usercheck["userId"];
     }
   } catch (error) {
-    console.log("Error " + error.message);
+    console.log("Error ", error);
   }
 });
 

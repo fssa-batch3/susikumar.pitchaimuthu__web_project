@@ -1,44 +1,82 @@
 // chack the invite id
 let presentInvId;
+
+let inviteBackgroundImageDiv = document.createElement("div");
+inviteBackgroundImageDiv.setAttribute("class", "invite-background-image-div");
+inviteBackgroundImageDiv.innerHTML = `<div class="ivnite-background-image-inside-div">
+  <img
+    class="invite-background-image"
+    src="../assets/images/Birhday ballons/invite background imge.jpg"
+    alt="invite-background-image"
+  />
+</div>`;
+
+document
+  .querySelector(".invite-details-showing-container")
+  .append(inviteBackgroundImageDiv);
+
+// creating funciton remove the all card before pushing
+
+// deleting the background card
+
+function removeBackground() {
+  let backgroundImage = document.querySelector(".invite-background-image-div");
+
+  if (backgroundImage != null) {
+    backgroundImage.remove();
+  }
+}
+
+function reomoveInvite() {
+  // deleting the card
+  let all = document.querySelector(".invite-inside-details-div-container");
+
+  if (all != null) {
+    document.querySelector(".invite-inside-details-div-container").remove();
+  }
+}
+
+let findPresentInvite;
 function showInvite(invId) {
   try {
     presentInvId = invId;
     // checking invite to know whose invite is this...
 
-    let findPresentInvite = friendsInvitesData.find(
+    findPresentInvite = friendsInvitesData.find(
       (preInv) => preInv["inviteId"] == presentInvId
     );
     console.log(findPresentInvite);
 
     let userLike = false;
 
-    for (let i = 0; i < findPresentInvite["inviteLike"].length; i++) {
-      if (findPresentInvite["inviteLike"][i] == findUser["userId"]) {
+    for (let invLike of findPresentInvite["inviteLike"]) {
+      if (invLike == findUser["userId"]) {
         userLike = true;
       }
     }
 
     let userDislike = false;
-    for (let i = 0; i < findPresentInvite["inviteNo"].length; i++) {
-      if (findPresentInvite["inviteNo"][i] == findUser["userId"]) {
+    for (let inviteNo of findPresentInvite["inviteNo"]) {
+      if (inviteNo == findUser["userId"]) {
         userDislike = true;
       }
     }
 
     let userHeart = false;
-    for (let i = 0; i < findPresentInvite["inviteHeart"].length; i++) {
-      if (findPresentInvite["inviteHeart"][i] == findUser["userId"]) {
+    for (let invHeart of findPresentInvite["inviteHeart"]) {
+      if (invHeart == findUser["userId"]) {
         userHeart = true;
       }
     }
 
     // invite type showing container
 
-    let all = document.querySelector(".invite-inside-details-div-container");
+    removeBackground();
 
-    if (all != null) {
-      document.querySelector(".invite-inside-details-div-container").remove();
-    }
+    reomoveInvite();
+
+    // element creation
+
     let inviteShowingContainer = document.createElement("div");
     inviteShowingContainer.setAttribute(
       "class",

@@ -2,13 +2,64 @@
 
 let friendsInvitesData = JSON.parse(localStorage.getItem("userInvites"));
 console.log(friendsInvitesData);
+
+let friendsInvites;
+
+if (friendsInvitesData == null) {
+  noInvite();
+}
+
+// If invites are empty create element
+
+let animeImages = JSON.parse(localStorage.getItem("inviteAnime"));
+console.log(animeImages);
+
+let randomIndex = Math.floor(Math.random() * animeImages.length);
+let randomImageSrc = animeImages[randomIndex]["anime"];
+console.log(randomImageSrc);
+
+function noInvite() {
+  let noInivteDivContainer = document.createElement("div");
+  noInivteDivContainer.setAttribute("class", "no-invite-div-container");
+  noInivteDivContainer.innerHTML = ` <div class="no-invite-inside-div">
+  <div class="anime-image-div">
+    <img
+      class="invite-anime"
+      src="${randomImageSrc}"
+      alt="gif-images"
+    />
+  </div>
+
+  <div class="content-div">
+    <p class="anime-content">
+      Your friends didn't send invitation. Wait until they send
+      the invite
+    </p>
+  </div>
+</div>`;
+
+  document
+    .querySelector(".friends-inside-invite-and-details-showing-container")
+    .append(noInivteDivContainer);
+}
+
 try {
-  let friendsInvites = friendsInvitesData.filter(
+  friendsInvites = friendsInvitesData.filter(
     (e) => e["inviterId"] !== findUser["userId"]
   );
 
   console.log(friendsInvites);
 
+  if (friendsInvites.length == 0) {
+    noInvite();
+  } else {
+    profileUserInvite(friendsInvites);
+  }
+} catch (error) {
+  console.log("An error occurred while creating a user invite card :", error);
+}
+
+function profileUserInvite() {
   for (let friendInv of friendsInvites) {
     let friendInviteContainer = document.createElement("div");
     friendInviteContainer.setAttribute(
@@ -87,6 +138,4 @@ try {
       .querySelector(".friends-inside-invite-and-details-showing-container")
       .append(friendInviteContainer);
   }
-} catch (error) {
-  console.log("An error occurred while creating a user invite card :", error);
 }

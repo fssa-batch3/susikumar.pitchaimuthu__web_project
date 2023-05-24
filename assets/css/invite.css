@@ -631,3 +631,118 @@
   justify-content: space-between;
   width: 99%;
 }
+
+/* add invite showing function */
+
+.add-invitation-popup-div {
+  display: block;
+  width: 100%;
+}
+
+.invitation-showing-inside-area {
+  display: flex;
+  align-items: center;
+  width: 99%;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.add-invite-popup-inside-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
+    rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  width: fit-content;
+  animation-name: example;
+  position: absolute;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+
+.buff-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 12px;
+  gap: 3px;
+}
+
+.gifs {
+  width: 2em;
+  height: 2em;
+}
+
+@keyframes example {
+  0% {
+    background-color: red;
+    right: 0px;
+    top: -28px;
+  }
+  50% {
+    background-color: yellow;
+    right: 200px;
+    top: -28px;
+  }
+  100% {
+    background-color: green;
+    right: 0px;
+    top: -28px;
+  }
+}
+
+.no-invite-div-contianer {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.no-invite-inside-div {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 2em;
+}
+
+.amime-image-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70%;
+}
+
+.invite-anime {
+  width: 8em;
+  height: 9em;
+  border-radius: 5px;
+}
+.content-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 65%;
+}
+
+.anime-content {
+  font-size: 94%;
+  text-align: center;
+}
+
+.invite-background-image-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 99%;
+}
+
+.inivte-background-image-inside-div {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+.invite-background-image {
+  width: 44em;
+  height: 40em;
+}
