@@ -309,12 +309,25 @@ function followBack(e) {
 
 let notiData = JSON.parse(localStorage.getItem("otherNotification"));
 
-let userNotiData;
-if (notiData != null) {
-  userNotiData = notiData.filter(
-    (e) => e["message_receiver_id"] == findUser["userId"]
-  );
+// Here finding the user other notification
 
+if (notiData == null) {
+  noNotification();
+}
+
+let userNotiData = notiData.filter(
+  (e) => e["message_receiver_id"] == findUser["userId"]
+);
+
+if (userNotiData == null) {
+  noNotification();
+} else {
+  otherElementCreation();
+}
+
+// other notification element creation
+
+function otherElementCreation() {
   console.log(userNotiData);
   for (let otherPop of userNotiData.reverse()) {
     let whole_div = document.createElement("div");
@@ -379,52 +392,7 @@ otherNotiElement.addEventListener("click", () => {
         contain.remove();
       }
     }
-
-    for (let otherData of userNotiData.reverse()) {
-      let whole_div = document.createElement("div");
-      whole_div.setAttribute("class", "mention-box-div message-box");
-      whole_div.setAttribute("id", otherData["messageId"]);
-      whole_div.setAttribute("onclick", "findInviteUser(this.id)");
-
-      let mention_box_insie = document.createElement("div");
-      mention_box_insie.setAttribute("class", "mention-box-inside-div");
-      whole_div.append(mention_box_insie);
-
-      let image_name_div = document.createElement("div");
-      image_name_div.setAttribute("class", "image-and-name-div");
-      mention_box_insie.append(image_name_div);
-
-      let pro_image_div = document.createElement("div");
-      pro_image_div.setAttribute("class", "pro-image-div");
-      image_name_div.append(pro_image_div);
-
-      let pro_image = document.createElement("img");
-      pro_image.setAttribute("class", "mention-profile-image");
-      pro_image.setAttribute("src", otherData["message_person_url"]);
-      pro_image_div.append(pro_image);
-
-      let name_content_div = document.createElement("div");
-      name_content_div.setAttribute("class", "name-content-div");
-      image_name_div.append(name_content_div);
-
-      let h3 = document.createElement("h3");
-      h3.innerHTML = otherData["messager"];
-      name_content_div.append(h3);
-
-      let p = document.createElement("p");
-      p.innerHTML = otherData["message"];
-      name_content_div.append(p);
-
-      let user_mention_media_div = document.createElement("div");
-      user_mention_media_div.setAttribute("class", "user-mention-media-div");
-      mention_box_insie.append(user_mention_media_div);
-
-      let image = document.createElement("i");
-      image.setAttribute("class", "bi bi-heart-fill");
-      user_mention_media_div.append(image);
-
-      document.querySelector(".mention-box-inside-container").append(whole_div);
-    }
+    otherElementCreation();
   } catch (error) {
     console.log("An error occurred while show the othe notificaiton :", error);
   }
@@ -611,4 +579,26 @@ function findInviteUser(e) {
       error
     );
   }
+}
+
+function noNotification() {
+  let noNotificationElementDiv = document.createElement("div");
+  noNotificationElementDiv.setAttribute("class", "no-notification-element-div");
+  noNotificationElementDiv.innerHTML = `
+  <div class="no-notification-inside-element-div">
+  <img
+    class="no-message-gif"
+    src="../assets/images/Birhday ballons/no message.gif"
+    alt="no-message"
+  />
+
+  <p class="no-message-para">
+    You didn't get any message. Wait some special will message to
+    you
+  </p>
+</div>
+  `;
+  document
+    .querySelector(".mention-box-inside-container")
+    .append(noNotificationElementDiv);
 }

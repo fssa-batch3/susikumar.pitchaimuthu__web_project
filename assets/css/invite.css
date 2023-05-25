@@ -577,6 +577,7 @@
   width: 100%;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .invite-details-inside-content-div {
@@ -602,6 +603,8 @@
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   border-radius: 6px;
   background-color: #fff;
+  position: absolute;
+  left: 16%;
 }
 
 .invite-content-inside-container {

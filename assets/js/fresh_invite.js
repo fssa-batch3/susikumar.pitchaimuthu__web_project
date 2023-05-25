@@ -21,6 +21,7 @@ try {
 } catch (error) {
   console.log("An error occurred whilecheck the users :", error);
 }
+console.log(totalFriends);
 
 // Her user invite showing function creating
 let GetInviteDetails;

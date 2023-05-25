@@ -15,6 +15,16 @@
       integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
       crossorigin="anonymous"
     />
+
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init("Jx38uwx8-F_GyFuql");
+      })();
+    </script>
   </head>
   <body>
     <!-- section for the profile showing -->
@@ -70,9 +80,25 @@
                   </div>
                   <div class="col-md-6">
                     <label for="inputEmail4" class="form-label"
-                      >Email <span class="mandatory">*</span></label
+                      >Email <span class="mandatory">*</span>
+                      <button
+                        type="button"
+                        class="btn btn-primary update"
+                        style="
+                          --bs-btn-padding-y: 0.25rem;
+                          --bs-btn-padding-x: 0.5rem;
+                          --bs-btn-font-size: 0.75rem;
+                        "
+                      >
+                        Update
+                      </button></label
                     >
-                    <input type="email" class="form-control" id="email" />
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="email"
+                      disabled
+                    />
                   </div>
 
                   <div class="col-md-6">
@@ -150,6 +176,8 @@
           </div>
         </div>
       </div>
+
+      <!-- otp sending input area -->
     </section>
     <!-- scripts -->
     <script

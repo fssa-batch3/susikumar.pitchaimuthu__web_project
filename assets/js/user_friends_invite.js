@@ -50,17 +50,31 @@ try {
 
   console.log(friendsInvites);
 
-  if (friendsInvites.length == 0) {
+  if (totalFriends == undefined) {
+    noInvite();
+  }
+
+  let thisUserInvites = [];
+
+  for (let friendInvite of totalFriends) {
+    for (let friendDatas of friendsInvitesData) {
+      if (friendDatas["inviterId"] == friendInvite) {
+        thisUserInvites.push(friendDatas);
+      }
+    }
+  }
+
+  if (thisUserInvites.length == 0) {
     noInvite();
   } else {
-    profileUserInvite(friendsInvites);
+    profileUserInvite();
   }
 } catch (error) {
   console.log("An error occurred while creating a user invite card :", error);
 }
 
 function profileUserInvite() {
-  for (let friendInv of friendsInvites) {
+  for (let friendInv of thisUserInvites) {
     let friendInviteContainer = document.createElement("div");
     friendInviteContainer.setAttribute(
       "class",
