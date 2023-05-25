@@ -1,25 +1,20 @@
 // Profile user element value set creations
 
 try {
-  let uname = (document.querySelector(".userName").innerHTML =
-    findUser["userName"]);
+  document.querySelector(".userName").innerHTML = findUser["userName"];
 
-  let head = (document.getElementById("profile-head").innerText =
-    "Hello" + "   " + findUser["userName"]);
+  document.getElementById("profile-head").innerText =
+    "Hello" + "   " + findUser["userName"];
 
-  let userTheme = (document.querySelector(".user-theme").innerHTML =
-    findUser["userTheme"]);
+  document.querySelector(".user-theme").innerHTML = findUser["userTheme"];
 
-  let agePara = (document.querySelector(".age-para").innerHTML =
-    findUser["age"]);
+  document.querySelector(".age-para").innerHTML = findUser["age"];
 
   // profile image
 
-  let profileImage = (document.querySelector("#profile-image").src =
-    findUser["avatarUrl"]);
+  document.querySelector("#profile-image").src = findUser["avatarUrl"];
 
-  let cityPara = (document.querySelector(".city-para").innerHTML =
-    findUser["city"] || "");
+  document.querySelector(".city-para").innerHTML = findUser["city"] || "";
 } catch (error) {
   console.log("An error occurred while show the profile details :", error);
 }
@@ -36,30 +31,30 @@ try {
   let SuggestedUsers = users.filter((e) => e["userId"] !== findUser["userId"]);
   console.log(SuggestedUsers);
 
-  for (let i = 0; i < SuggestedUsers.length; i++) {
+  for (let userSuggestions of SuggestedUsers) {
     let card = document.createElement("div");
     card.setAttribute("class", "card-div-container");
     card.innerHTML = `<div class="card-inside-div">
 <div class="user-activity-image-div">
   <img
     class="activity-image"
-    src="${SuggestedUsers[i]["avatarUrl"]}"
+    src="${userSuggestions["avatarUrl"]}"
     alt="activity-image"
   />
 </div>
 
 <div class="user-activity-name-div">
    <div class="user-name-div">
-       <h3 class="user-name">${SuggestedUsers[i]["userName"]}</h3>
+       <h3 class="user-name">${userSuggestions["userName"]}</h3>
    </div>
 
     <div class="user-theme-div">
-       <p class="user-theme">${SuggestedUsers[i]["userTheme"]}</p>
+       <p class="user-theme">${userSuggestions["userTheme"]}</p>
     </div>
 </div>
 
 <div>
-  <button class="connect-button" onclick="showDetails(this.id)" id=${SuggestedUsers[i]["userId"]}>View</button>
+  <button class="connect-button" onclick="showDetails(this.id)" id=${userSuggestions["userId"]}>View</button>
 </div>
 </div>`;
 
@@ -82,8 +77,9 @@ activityHead.addEventListener("click", () => {
     console.log(cardDivContainer);
 
     if (cardDivContainer[0] !== undefined) {
-      for (let j = 0; j < cardDivContainer.length; j++)
-        cardDivContainer[j].remove();
+      for (let cardDIvs of cardDivContainer) {
+        cardDIvs.remove();
+      }
     }
 
     let userActivityData = JSON.parse(localStorage.getItem("userInvites"));
@@ -98,30 +94,30 @@ activityHead.addEventListener("click", () => {
       console.log(findUserActivity);
 
       if (findUserActivity !== null) {
-        for (let i = 0; i < findUserActivity.length; i++) {
+        for (let filterActivity of findUserActivity) {
           let card = document.createElement("div");
           card.setAttribute("class", "card-div-container");
           card.innerHTML = `<div class="card-inside-div">
       <div class="user-activity-image-div">
         <img
           class="activity-image"
-          src="${findUserActivity[i]["inviteImage"]}"
+          src="${filterActivity["inviteImage"]}"
           alt="activity-image"
         />
       </div>
       
       <div class="user-activity-name-div">
          <div class="user-name-div">
-             <h3 class="user-name">${findUserActivity[i]["inviteName"]}</h3>
+             <h3 class="user-name">${filterActivity["inviteName"]}</h3>
          </div>
       
           <div class="user-theme-div">
-             <p class="user-theme">${findUserActivity[i]["inviteGlimpse"]}</p>
+             <p class="user-theme">${filterActivity["inviteGlimpse"]}</p>
           </div>
       </div>
       
       <div>
-        <button class="connect-button" onclick="showDetails(this.id)" id=${SuggestedUsers[i]["iniviteId"]}>View</button>
+        <button class="connect-button" onclick="showDetails(this.id)" id=${filterActivity["iniviteId"]}>View</button>
       </div>
       </div>`;
 
@@ -151,30 +147,30 @@ suggestionHead.addEventListener("click", (e) => {
 
     console.log(SuggestedUsers);
 
-    for (let i = 0; i < SuggestedUsers.length; i++) {
+    for (let insSuggest of SuggestedUsers) {
       let card = document.createElement("div");
       card.setAttribute("class", "card-div-container");
       card.innerHTML = `<div class="card-inside-div">
   <div class="user-activity-image-div">
     <img
       class="activity-image"
-      src="${SuggestedUsers[i]["avatarUrl"]}"
+      src="${insSuggest["avatarUrl"]}"
       alt="activity-image"
     />
   </div>
   
   <div class="user-activity-name-div">
      <div class="user-name-div">
-         <h3 class="user-name">${SuggestedUsers[i]["userName"]}</h3>
+         <h3 class="user-name">${insSuggest["userName"]}</h3>
      </div>
   
       <div class="user-theme-div">
-         <p class="user-theme">${SuggestedUsers[i]["userTheme"]}</p>
+         <p class="user-theme">${insSuggest["userTheme"]}</p>
       </div>
   </div>
   
   <div>
-    <button class="connect-button" onclick="showDetails(this.id)" id=${SuggestedUsers[i]["userId"]}>View</button>
+    <button class="connect-button" onclick="showDetails(this.id)" id=${insSuggest["userId"]}>View</button>
   </div>
   </div>`;
 
@@ -210,7 +206,7 @@ let ProfileOption = document.querySelector(".profile-option-div");
 
 image.addEventListener("click", () => {
   try {
-    if ((ProfileOption.style.display = "none")) {
+    if (ProfileOption.style.display === "none") {
       ProfileOption.style.display = "block";
     } else {
       ProfileOption.style.display = "none";

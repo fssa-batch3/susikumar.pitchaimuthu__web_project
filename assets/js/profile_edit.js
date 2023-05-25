@@ -13,9 +13,9 @@ changes.addEventListener("submit", function (e) {
 
     let currentGender;
 
-    for (let i = 0; i < gender.length; i++) {
-      if (gender[i].checked) {
-        currentGender = gender[i].value;
+    for (let ingender of gender) {
+      if (ingender.checked) {
+        currentGender = ingender.value;
       }
     }
 
@@ -70,7 +70,6 @@ updateButton.addEventListener("click", (e) => {
 
   try {
     // generate otp function
-    let otp;
 
     sendUpdateOtp();
 
@@ -140,7 +139,7 @@ function otpElementShow() {
 
 function sendUpdateOtp() {
   try {
-    otp = Math.floor(1000 + Math.random() * 9000);
+    let otp = Math.floor(1000 + Math.random() * 9000);
     console.log(otp);
 
     let params = {
@@ -166,5 +165,3 @@ function sendUpdateOtp() {
 }
 
 // Here submiting fucntion to find the result
-
-function otpSubmit() {}

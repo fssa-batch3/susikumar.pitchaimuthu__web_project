@@ -94,10 +94,10 @@ function showDetails(sd) {
     console.log(followData);
 
     if (followData !== null) {
-      for (let i = 0; i < followData.length; i++) {
-        for (let j = 0; j < followData[i].length; j++) {
-          if (followData[i][j]["userId"] == findDetails["userId"]) {
-            buttonArray.push(followData[i][j]);
+      for (let ofFollow of followData) {
+        for (let inFollow of ofFollow) {
+          if (inFollow["userId"] == findDetails["userId"]) {
+            buttonArray.push(inFollow);
           }
         }
       }
@@ -219,7 +219,7 @@ console.log(buttonArray);
 
 function removeDetails() {
   try {
-    if ((clickDetails.style.display = "block")) {
+    if (clickDetails.style.display === "block") {
       clickDetails.style.display = "none";
     }
   } catch (error) {

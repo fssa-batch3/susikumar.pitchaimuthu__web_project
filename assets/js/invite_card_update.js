@@ -9,15 +9,15 @@ let editButton = document.getElementById("save-button");
 
 editInvite.addEventListener("click", (e) => {
   e.preventDefault();
-  for (let i = 0; i < inviteDisabled.length; i++) {
-    inviteDisabled[i].removeAttribute("disabled");
+  for (let disable of inviteDisabled) {
+    disable.removeAttribute("disabled");
   }
 
-  if ((editButton.style.display = "none")) {
+  if (editButton.style.display === "none") {
     editButton.style.display = "block";
   }
 
-  if ((editInvite.style.display = "block")) {
+  if (editInvite.style.display === "block") {
     editInvite.style.display = "none";
   }
 });
@@ -37,7 +37,6 @@ invitefile.addEventListener("change", function () {
   console.log("manisha");
   if (choosePhoto) {
     let reader = new FileReader();
-    // console.log(reader.result);
 
     reader.addEventListener("load", function () {
       image = reader.result;
@@ -89,15 +88,15 @@ editButton.addEventListener("click", (inv) => {
 
     console.log(inviteDisabled);
 
-    for (let i = 0; i < inviteDisabled.length; i++) {
-      inviteDisabled[i].setAttribute("disabled", "");
+    for (let inDisable of inviteDisabled) {
+      inDisable.setAttribute("disabled", "");
     }
 
-    if ((editButton.style.display = "block")) {
+    if (editButton.style.display === "block") {
       editButton.style.display = "none";
     }
 
-    if ((editInvite.style.display = "none")) {
+    if (editInvite.style.display === "none") {
       editInvite.style.display = "block";
     }
   } catch (error) {

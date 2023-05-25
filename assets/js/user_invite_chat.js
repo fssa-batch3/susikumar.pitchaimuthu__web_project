@@ -103,11 +103,9 @@ function likeHeart(e) {
 
       let heartIndex;
 
-      for (let i = 0; i < findInvite["inviteHeart"].length; i++) {
-        if (findInvite["inviteHeart"][i] == findUser["userId"]) {
-          heartIndex = findInvite["inviteHeart"].indexOf(
-            findInvite["inviteHeart"][i]
-          );
+      for (let inivteHearts of findInvite["inviteHeart"]) {
+        if (inivteHearts == findUser["userId"]) {
+          heartIndex = findInvite["inviteHeart"].indexOf(inivteHearts);
         }
       }
       console.log(heartIndex);
@@ -146,11 +144,9 @@ function thumbsUp(e) {
       document.querySelector(".sorry-div").append(sorryFill);
       let dislikeIndex;
 
-      for (let i = 0; i < findInvite["inviteNo"].length; i++) {
-        if (findInvite["inviteNo"][i] == findUser["userId"]) {
-          dislikeIndex = findInvite["inviteNo"].indexOf(
-            findInvite["inviteNo"][i]
-          );
+      for (let invNos of findInvite["inviteNo"]) {
+        if (invNos == findUser["userId"]) {
+          dislikeIndex = findInvite["inviteNo"].indexOf(invNos);
         }
       }
 
@@ -188,11 +184,9 @@ function thumbsUp(e) {
 
       let thumbsUpIndex;
 
-      for (let i = 0; i < findInvite["inviteLike"].length; i++) {
-        if (findInvite["inviteLike"][i] == findUser["userId"]) {
-          thumbsUpIndex = findInvite["inviteLike"].indexOf(
-            findInvite["inviteLike"][i]
-          );
+      for (let invLikes of findInvite["inviteLike"]) {
+        if (invLikes == findUser["userId"]) {
+          thumbsUpIndex = findInvite["inviteLike"].indexOf(invLikes);
         }
       }
 
@@ -210,87 +204,83 @@ function thumbsUp(e) {
 // thumbs down function
 
 function thumbsDown(e) {
-
   try {
-  let findInvite = inviteDatas.find((end) => end["inviteId"] == e);
-  console.log(findInvite);
+    let findInvite = inviteDatas.find((end) => end["inviteId"] == e);
+    console.log(findInvite);
 
-  let LikeIndex = inviteDatas.indexOf(findInvite);
-  console.log(LikeIndex);
-  // Here thumbsUpfill already there remove that
+    let LikeIndex = inviteDatas.indexOf(findInvite);
+    console.log(LikeIndex);
+    // Here thumbsUpfill already there remove that
 
-  let thumbsFill = document.querySelector(".ok-div").firstChild;
+    let thumbsFill = document.querySelector(".ok-div").firstChild;
 
-  let fillValue = thumbsFill.classList["value"];
+    let fillValue = thumbsFill.classList["value"];
 
-  if (fillValue == "bi bi-hand-thumbs-up-fill") {
-    thumbsFill.remove("bi bi-hand-thumbs-up-fill");
+    if (fillValue == "bi bi-hand-thumbs-up-fill") {
+      thumbsFill.remove("bi bi-hand-thumbs-up-fill");
 
-    // instead of that element adding normal element
+      // instead of that element adding normal element
 
-    let likeFill = document.createElement("i");
-    likeFill.setAttribute("class", "bi bi-hand-thumbs-up");
-    document.querySelector(".ok-div").append(likeFill);
+      let likeFill = document.createElement("i");
+      likeFill.setAttribute("class", "bi bi-hand-thumbs-up");
+      document.querySelector(".ok-div").append(likeFill);
 
-    let thumbsUpIndex;
+      let thumbsUpIndex;
 
-    for (let i = 0; i < findInvite["inviteLike"].length; i++) {
-      if (findInvite["inviteLike"][i] == findUser["userId"]) {
-        thumbsUpIndex = findInvite["inviteLike"].indexOf(
-          findInvite["inviteLike"][i]
-        );
+      for (let i = 0; i < findInvite["inviteLike"].length; i++) {
+        if (findInvite["inviteLike"][i] == findUser["userId"]) {
+          thumbsUpIndex = findInvite["inviteLike"].indexOf(
+            findInvite["inviteLike"][i]
+          );
+        }
       }
+
+      console.log(thumbsUpIndex);
+
+      findInvite["inviteLike"].splice(thumbsUpIndex);
+
+      localStorage.setItem("userInvites", JSON.stringify(inviteDatas));
     }
 
-    console.log(thumbsUpIndex);
+    //  creating a function to add and delete count fo the invite
+    console.log(e);
 
-    findInvite["inviteLike"].splice(thumbsUpIndex);
+    let thumbsDownElement = document.querySelector(".sorry-div").firstChild;
 
-    localStorage.setItem("userInvites", JSON.stringify(inviteDatas));
-  }
+    let sorryValue = thumbsDownElement.classList["value"];
 
-  //  creating a function to add and delete count fo the invite
-  console.log(e);
+    if (sorryValue == "bi bi-hand-thumbs-down") {
+      thumbsDownElement.remove("bi bi-hand-thumbs-down");
 
-  let thumbsDownElement = document.querySelector(".sorry-div").firstChild;
+      let likeFill = document.createElement("i");
+      likeFill.setAttribute("class", "bi bi-hand-thumbs-down-fill");
+      document.querySelector(".sorry-div").append(likeFill);
 
-  let sorryValue = thumbsDownElement.classList["value"];
+      let dislikeArray = findInvite["inviteNo"];
 
-  if (sorryValue == "bi bi-hand-thumbs-down") {
-    thumbsDownElement.remove("bi bi-hand-thumbs-down");
+      dislikeArray.push(findUser["userId"]);
 
-    let likeFill = document.createElement("i");
-    likeFill.setAttribute("class", "bi bi-hand-thumbs-down-fill");
-    document.querySelector(".sorry-div").append(likeFill);
+      localStorage.setItem("userInvites", JSON.stringify(inviteDatas));
+    } else {
+      thumbsDownElement.remove("bi bi-hand-thumbs-down-fill");
 
-    let dislikeArray = findInvite["inviteNo"];
+      let likeFill = document.createElement("i");
+      likeFill.setAttribute("class", "bi bi-hand-thumbs-down");
+      document.querySelector(".sorry-div").append(likeFill);
 
-    dislikeArray.push(findUser["userId"]);
+      let dislikeIndex;
 
-    localStorage.setItem("userInvites", JSON.stringify(inviteDatas));
-  } else {
-    thumbsDownElement.remove("bi bi-hand-thumbs-down-fill");
-
-    let likeFill = document.createElement("i");
-    likeFill.setAttribute("class", "bi bi-hand-thumbs-down");
-    document.querySelector(".sorry-div").append(likeFill);
-
-    let dislikeIndex;
-
-    for (let i = 0; i < findInvite["inviteNo"].length; i++) {
-      if (findInvite["inviteNo"][i] == findUser["userId"]) {
-        dislikeIndex = findInvite["inviteNo"].indexOf(
-          findInvite["inviteNo"][i]
-        );
+      for (let noInivte of findInvite["inviteNo"]) {
+        if (noInivte == findUser["userId"]) {
+          dislikeIndex = findInvite["inviteNo"].indexOf(noInivte);
+        }
       }
+
+      findInvite["inviteNo"].splice(dislikeIndex);
+
+      localStorage.setItem("userInvites", JSON.stringify(inviteDatas));
     }
-
-    findInvite["inviteNo"].splice(dislikeIndex);
-
-    localStorage.setItem("userInvites", JSON.stringify(inviteDatas));
+  } catch (error) {
+    console.log("An error occured while thumbs down :", error);
   }
-
-} catch (error){
-  console.log("An error occured while thumbs down :", error)
-}
 }

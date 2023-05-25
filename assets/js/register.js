@@ -65,10 +65,10 @@ signUpFrom.addEventListener("submit", (event) => {
 
     // Writing function to create en dash to space of user name
 
-    var spaceRegex = / /g;
+    let spaceRegex = / /g;
 
     // Replace spaces with an end dash
-    var dashedText = userName.replace(spaceRegex, "_");
+    let dashedText = userName.replace(spaceRegex, "_");
 
     // return dashedText;
 
@@ -76,11 +76,8 @@ signUpFrom.addEventListener("submit", (event) => {
 
     // let checkUser = JSON.parse(localStorage.getItem("register"));
 
-    let match = false;
-
     for (let i = 0; i < userData.length; i++) {
       if (userData[i]["email"] === userEmail) {
-        match = true;
         throw new Error("User email ID already exists");
       } else if (userData[i]["userName"] == userName) {
         throw new Error(
