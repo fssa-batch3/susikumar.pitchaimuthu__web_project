@@ -3,7 +3,7 @@
 let allUserData = JSON.parse(localStorage.getItem("register"));
 console.log(allUserData);
 
-for (user of allUserData) {
+for (let user of allUserData) {
   let userImage = user["avatarUrl"];
   let userName = user["userName"];
   let userTheme = user["userTheme"];

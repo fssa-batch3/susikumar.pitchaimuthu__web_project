@@ -1,5 +1,3 @@
-// const { set } = require("husky");
-
 let url = window.location.search;
 let urlParams = new URLSearchParams(url);
 
@@ -46,13 +44,13 @@ document.querySelector(".image-div").append(image);
 
 let getFilterUrl = JSON.parse(localStorage.getItem("image_url"));
 
-for (let i = 0; i < getFilterUrl.length; i++) {
+for (let getFill of getFilterUrl) {
   let filterDiv = document.createElement("div");
   filterDiv.setAttribute("class", "each-filter-div");
 
   let filterImage = document.createElement("img");
   filterImage.setAttribute("class", "filter-image");
-  filterImage.setAttribute("src", getFilterUrl[i]["imageLink"]);
+  filterImage.setAttribute("src", getFill["imageLink"]);
   filterDiv.append(filterImage);
 
   document.querySelector(".filter-inside-div").append(filterDiv);
@@ -85,7 +83,7 @@ function filter() {
 // clicking option div container
 
 function clickAdjustment() {
-  var x = document.querySelector(".clicking-option-div-container");
+  let x = document.querySelector(".clicking-option-div-container");
   if (x.style.display === "none") {
     x.style.display = "block";
   } else {
@@ -95,7 +93,7 @@ function clickAdjustment() {
 
 // filter showing div container
 
-for (let i = 0; i < getFilterUrl.length; i++) {
+for (let getUrl of getFilterUrl) {
   let filterNameImgeContainer = document.createElement("div");
   filterNameImgeContainer.setAttribute("class", "filter-image-name-div");
 
@@ -105,7 +103,7 @@ for (let i = 0; i < getFilterUrl.length; i++) {
 
   let filterImage = document.createElement("img");
   filterImage.setAttribute("class", "still-filter-image");
-  filterImage.setAttribute("src", getFilterUrl[i]["imageLink"]);
+  filterImage.setAttribute("src", getUrl["imageLink"]);
   filterImageDiv.append(filterImage);
 
   let filterNameDiv = document.createElement("div");

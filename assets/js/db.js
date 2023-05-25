@@ -1,12 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js";
 
-import {
-  getDatabase,
-  set,
-  ref,
-  push,
-} from "https://www.gstatic.com/firebasejs/9.20.0/firebase-database.js";
+import { getDatabase } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-database.js";
 
 let apiKeyId = "AIzaSyByvONF3f6-tLWrigL42gKw2hGQxtbmYWc";
 
@@ -29,8 +24,6 @@ let database = getDatabase();
 console.log(database);
 
 export default database;
-
-// console.log(database);
 
 let firstParent = document.querySelector(".chat-input-option-div");
 

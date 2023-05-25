@@ -83,7 +83,7 @@ try {
   let ctx = document.querySelector(".userGrowth").getContext("2d");
 
   // Create the chart
-  let chart = new Chart(ctx, {
+  new Chart(ctx, {
     type: "line",
     data: {
       labels: upcomingDates,
@@ -114,7 +114,7 @@ try {
 try {
   let total = document.querySelector(".totalGrowth").getContext("2d");
 
-  let chartTwo = new Chart(total, {
+  new Chart(total, {
     type: "bar",
     data: {
       labels: ["Visited", "Total users", "This month users"],

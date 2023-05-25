@@ -30,7 +30,6 @@ onValue(ref(database, `freshchat/`), (snapshot) => {
 
     console.log(currentChatData);
   });
-  //   addUser();
 });
 
 console.log(currentChatData);

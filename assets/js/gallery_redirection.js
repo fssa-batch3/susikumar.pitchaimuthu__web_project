@@ -17,7 +17,7 @@ filterButton.addEventListener("click", (event) => {
     let dateArray = [];
 
     Date.prototype.addDays = function (days) {
-      var date = new Date(this.valueOf());
+      let date = new Date(this.valueOf());
       date.setDate(date.getDate() + days);
       return date;
     };
@@ -41,10 +41,10 @@ filterButton.addEventListener("click", (event) => {
     console.log(images);
     console.log(images[0]["imageDate"]);
 
-    for (let i = 0; i < dateArray.length; i++) {
-      for (let j = 0; j < images.length; j++) {
-        if (images[j]["imageDate"] == dateArray[i]) {
-          filterImage.push(images[j]);
+    for (let dateAr of dateArray) {
+      for (let imgs of images) {
+        if (img["imageDate"] == dateAr) {
+          filterImage.push(imgs);
         }
       }
     }
@@ -225,10 +225,10 @@ latest.addEventListener("click", (event) => {
 
     let filterLatestImage = [];
 
-    for (let i = 0; i < latestPicArray.length; i++) {
-      for (let j = 0; j < images.length; j++) {
-        if (images[j]["imageDate"] == latestPicArray[i]) {
-          filterLatestImage.push(images[j]);
+    for (let finalPics of latestPicArray) {
+      for (let finalmg of images) {
+        if (finalmg["imageDate"] == finalPics) {
+          filterLatestImage.push(finalmg);
         }
       }
     }
@@ -301,10 +301,10 @@ recent.addEventListener("click", (event) => {
 
     let filterDeleteImage = [];
 
-    for (let i = 0; i < recentDeleteDateArray.length; i++) {
-      for (let j = 0; j < recentImageData.length; j++) {
-        if (recentImageData[j]["imageDate"] == recentDeleteDateArray[i]) {
-          filterDeleteImage.push(recentImageData[j]);
+    for (let recentDel of recentDeleteDateArray) {
+      for (let recentImg of recentImageData) {
+        if (recentImg["imageDate"] == recentDel) {
+          filterDeleteImage.push(recentImg);
         }
       }
     }

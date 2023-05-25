@@ -18,8 +18,8 @@ sendButton.addEventListener("click", (e) => {
   emailjs
     .send(serviceId, templateId, params)
     .then((res) => {
-      (document.querySelector(".underline-input").value = ""),
-        (document.querySelector("#message").value = "");
+      document.querySelector(".underline-input").value = "";
+      document.querySelector("#message").value = "";
 
       console.log(res);
       alert("The Email has been sent");

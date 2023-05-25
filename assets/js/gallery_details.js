@@ -61,8 +61,8 @@ try {
     if (imageDiv !== null) {
       let removeElements = document.querySelectorAll(".removeElement");
 
-      for (let j = 0; j < removeElements.length; j++) {
-        removeElements[j].remove();
+      for (let removeEle of removeElements) {
+        removeEle.remove();
       }
     }
 

@@ -13,9 +13,6 @@ logIn.addEventListener("submit", (event) => {
     let userEmail = document.getElementById("inputemail").value.trim();
     let password = document.getElementById("password").value.trim();
 
-    userEmail.value = "susi@gmail.com";
-    password.value = "1234@SMsm";
-
     // Here checking the user is a admit or not
 
     let adminEmail = "admin143.freshnest@gmail.com";

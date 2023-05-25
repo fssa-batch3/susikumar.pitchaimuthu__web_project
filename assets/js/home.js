@@ -16,11 +16,11 @@ try {
 
   console.log(userFriendsData);
 
-  for (let i = 0; i < filterElseDate.length; i++) {
+  for (let elseFillData of filterElseDate) {
     // Code to create user cards
     let userCardContainer = document.createElement("div");
     userCardContainer.setAttribute("class", "user-card-container");
-    userCardContainer.setAttribute("id", filterElseDate[i]["userName"]);
+    userCardContainer.setAttribute("id", elseFillData["userName"]);
 
     let searchCard = document.createElement("div");
     searchCard.setAttribute("class", "user-card");
@@ -44,7 +44,7 @@ try {
     let tinyImage = document.createElement("img");
     tinyImage.setAttribute("alt", "user-profile");
     tinyImage.setAttribute("class", "tiny-image");
-    tinyImage.setAttribute("src", filterElseDate[i]["avatarUrl"]);
+    tinyImage.setAttribute("src", elseFillData["avatarUrl"]);
     tinyProfileDiv.append(tinyImage);
 
     let tinyContentContainer = document.createElement("div");
@@ -53,12 +53,12 @@ try {
 
     let tinyH3 = document.createElement("h3");
     tinyH3.setAttribute("class", "tiny-name");
-    tinyH3.innerHTML = filterElseDate[i]["userName"];
+    tinyH3.innerHTML = elseFillData["userName"];
     tinyContentContainer.append(tinyH3);
 
     let tinyP = document.createElement("p");
     tinyP.setAttribute("class", "tiny-para");
-    tinyP.innerHTML = filterElseDate[i]["userTheme"];
+    tinyP.innerHTML = elseFillData["userTheme"];
     tinyContentContainer.append(tinyP);
 
     let viewBUttonDiv = document.createElement("div");
@@ -68,7 +68,7 @@ try {
     let viewButton = document.createElement("button");
     viewButton.setAttribute("class", "view");
     viewButton.innerHTML = "view";
-    viewButton.setAttribute("id", filterElseDate[i]["userId"]);
+    viewButton.setAttribute("id", elseFillData["userId"]);
     viewButton.setAttribute("onclick", "showUser(this.id)");
     viewBUttonDiv.append(viewButton);
 
@@ -168,11 +168,11 @@ function showUser(s) {
     console.log(friendsDatas);
 
     if (friendsDatas !== null) {
-      for (let i = 0; i < friendsDatas.length; i++) {
-        for (let j = 0; j < friendsDatas[i].length; j++) {
+      for (let friendsAll of friendsDatas) {
+        for (let insideFriends of friendsAll) {
           if (
-            friendsDatas[i][j]["userId"] == s &&
-            friendsDatas[i][j]["frienderId"] == findUser["userId"]
+            insideFriends["userId"] == s &&
+            insideFriends["frienderId"] == findUser["userId"]
           ) {
             buttonFollow = true;
           }
@@ -201,11 +201,11 @@ function showUser(s) {
     let suggedData;
 
     if (userFriendsData !== null) {
-      for (let i = 0; i < userFriendsData.length; i++) {
-        if (userFriendsData[i].length == 0) {
+      for (let usersData of userFriendsData) {
+        if (usersData.length == 0) {
           break;
-        } else if (userFriendsData[i][0]["frienderId"] == s) {
-          suggedData = userFriendsData[i];
+        } else if (usersData[0]["frienderId"] == s) {
+          suggedData = usersData;
         }
       }
     }
@@ -215,7 +215,7 @@ function showUser(s) {
     // suggested friends element creation
 
     if (suggedData !== undefined) {
-      for (let i = 0; i < suggedData.length; i++) {
+      for (let userSuggestion of suggedData) {
         let personSuggestedFriendsDivContainer = document.createElement("div");
         personSuggestedFriendsDivContainer.setAttribute(
           "class",
@@ -232,8 +232,8 @@ function showUser(s) {
 
         let personcontainer = document.createElement("div");
         personcontainer.setAttribute("class", "person-container");
-        personcontainer.setAttribute("id", suggedData[i]["userId"]);
-        if (suggedData[i]["userId"] !== findUser["userId"]) {
+        personcontainer.setAttribute("id", userSuggestion["userId"]);
+        if (suggestion["userId"] !== findUser["userId"]) {
           personcontainer.setAttribute("onclick", "ShowSuggest(this.id)");
         }
         personSuggestedInsideDiv.append(personcontainer);
@@ -249,7 +249,7 @@ function showUser(s) {
         let lastImage = document.createElement("img");
         lastImage.setAttribute("class", "last-image");
         lastImage.setAttribute("alt", "profile-image");
-        lastImage.setAttribute("src", suggedData[i]["avatarUrl"]);
+        lastImage.setAttribute("src", suggestion["avatarUrl"]);
         lastImageDiv.append(lastImage);
 
         let userNameThemeDiv = document.createElement("div");
@@ -259,17 +259,17 @@ function showUser(s) {
         let h5 = document.createElement("h5");
         h5.setAttribute("class", "user-last-name");
 
-        if (suggedData[i]["userId"] == findUser["userId"]) {
+        if (suggestion["userId"] == findUser["userId"]) {
           h5.innerHTML = "You";
         } else {
-          h5.innerHTML = suggedData[i]["userName"];
+          h5.innerHTML = suggestion["userName"];
         }
 
         userNameThemeDiv.append(h5);
 
         let lastPara = document.createElement("p");
         lastPara.setAttribute("class", "last-para");
-        lastPara.innerHTML = suggedData[i]["userTheme"];
+        lastPara.innerHTML = suggestion["userTheme"];
 
         userNameThemeDiv.append(lastPara);
 
@@ -288,7 +288,7 @@ function showUser(s) {
       .querySelector(".details-showing-container")
       .append(detailsInsideDivContainer);
   } catch (error) {
-    console.log("Error:" + error.message);
+    console.log("Error:", error);
   }
 }
 
@@ -298,7 +298,7 @@ function removediv() {
   try {
     document.querySelector(".details-inside-div-container").remove();
   } catch (error) {
-    console.log("error: " + error.message);
+    console.log("error: ", error);
   }
 }
 
@@ -383,11 +383,11 @@ function ShowSuggest(k) {
     console.log(friendsDatas);
 
     if (friendsDatas !== null) {
-      for (let i = 0; i < friendsDatas.length; i++) {
-        for (let j = 0; j < friendsDatas[i].length; j++) {
+      for (let listFriends of friendsDatas) {
+        for (let showFriends of listFriends) {
           if (
-            friendsDatas[i][j]["userId"] == clicker["userId"] &&
-            friendsDatas[i][j]["frienderId"] == findUser["userId"]
+            showFriends["userId"] == clicker["userId"] &&
+            showFriends["frienderId"] == findUser["userId"]
           ) {
             buttonFollow = true;
           }
@@ -416,11 +416,11 @@ function ShowSuggest(k) {
     let suggedData;
 
     if (userFriendsData !== null) {
-      for (let i = 0; i < userFriendsData.length; i++) {
-        if (userFriendsData[i].length == 0) {
+      for (let friendUser of userFriendsData) {
+        if (friendUser.length == 0) {
           break;
-        } else if (userFriendsData[i][0]["frienderId"] == clicker["userId"]) {
-          suggedData = userFriendsData[i];
+        } else if (friendUser[0]["frienderId"] == clicker["userId"]) {
+          suggedData = friendUser;
         }
       }
     }
@@ -430,7 +430,7 @@ function ShowSuggest(k) {
     // suggested friends element creation
 
     if (suggedData !== undefined) {
-      for (let i = 0; i < suggedData.length; i++) {
+      for (let userSuggestion of suggedData) {
         let personSuggestedFriendsDivContainer = document.createElement("div");
         personSuggestedFriendsDivContainer.setAttribute(
           "class",
@@ -447,8 +447,8 @@ function ShowSuggest(k) {
 
         let personcontainer = document.createElement("div");
         personcontainer.setAttribute("class", "person-container");
-        personcontainer.setAttribute("id", suggedData[i]["userId"]);
-        if (suggedData[i]["userId"] !== findUser["userId"]) {
+        personcontainer.setAttribute("id", userSuggestion["userId"]);
+        if (userSuggestion["userId"] !== findUser["userId"]) {
           personcontainer.setAttribute("onclick", "ShowSuggest(this.id)");
         }
         personSuggestedInsideDiv.append(personcontainer);
@@ -464,7 +464,7 @@ function ShowSuggest(k) {
         let lastImage = document.createElement("img");
         lastImage.setAttribute("class", "last-image");
         lastImage.setAttribute("alt", "profile-image");
-        lastImage.setAttribute("src", suggedData[i]["avatarUrl"]);
+        lastImage.setAttribute("src", userSuggestion["avatarUrl"]);
         lastImageDiv.append(lastImage);
 
         let userNameThemeDiv = document.createElement("div");
@@ -474,17 +474,17 @@ function ShowSuggest(k) {
         let h5 = document.createElement("h5");
         h5.setAttribute("class", "user-last-name");
 
-        if (suggedData[i]["userId"] == findUser["userId"]) {
+        if (userSuggestion["userId"] == findUser["userId"]) {
           h5.innerHTML = "You";
         } else {
-          h5.innerHTML = suggedData[i]["userName"];
+          h5.innerHTML = userSuggestion["userName"];
         }
 
         userNameThemeDiv.append(h5);
 
         let lastPara = document.createElement("p");
         lastPara.setAttribute("class", "last-para");
-        lastPara.innerHTML = suggedData[i]["userTheme"];
+        lastPara.innerHTML = userSuggestion["userTheme"];
 
         userNameThemeDiv.append(lastPara);
 
@@ -518,9 +518,9 @@ function getFollow(es) {
     console.log(followButtonArea);
     let thisButton;
 
-    for (let i = 0; i < followButtonArea.length; i++) {
-      if (followButtonArea[i]["id"] == es) {
-        thisButton = followButtonArea[i];
+    for (let followArea of followButtonArea) {
+      if (followArea["id"] == es) {
+        thisButton = followArea;
       }
     }
 
@@ -562,11 +562,11 @@ function getFollow(es) {
     let userArray;
 
     if (userFriends !== null) {
-      for (let i = 0; i < userFriends.length; i++) {
-        if (userFriends[i].length == 0) {
+      for (let ifFriends of userFriends) {
+        if (ifFriends.length == 0) {
           break;
-        } else if (userFriends[i][0]["frienderId"] == findUser["userId"]) {
-          userArray = userFriends[i];
+        } else if (ifFriends[0]["frienderId"] == findUser["userId"]) {
+          userArray = ifFriends;
         }
       }
     }
@@ -574,8 +574,8 @@ function getFollow(es) {
     console.log(userArray);
 
     if (userArray !== undefined) {
-      for (let i = 0; i < userArray.length; i++) {
-        if (userArray[i]["userId"] == findClickingUser["userId"]) {
+      for (let ifArray of userArray) {
+        if (ifArray["userId"] == findClickingUser["userId"]) {
           return;
         }
       }
@@ -660,10 +660,10 @@ function removeFollow(r) {
 
     let userFriendsCurrentData;
 
-    for (let i = 0; i < allUserFriendsData.length; i++) {
-      for (let j = 0; j < allUserFriendsData[i].length; j++) {
-        if (allUserFriendsData[i][j]["frienderId"] == findUser["userId"]) {
-          userFriendsCurrentData = allUserFriendsData[i];
+    for (let allFriends of allUserFriendsData) {
+      for (let inUserFriends of allFriends) {
+        if (inUserFriends["frienderId"] == findUser["userId"]) {
+          userFriendsCurrentData = allFriends;
         }
       }
     }
