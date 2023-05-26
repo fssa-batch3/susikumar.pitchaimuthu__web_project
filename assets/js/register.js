@@ -1,11 +1,5 @@
 let signUpFrom = document.getElementById("form");
 
-document.getElementById("firstname").value = "Susikumar";
-document.getElementById("lastname").value = "Pitchaimuthu";
-document.getElementById("username").value = "I am susi";
-document.getElementById("email").value = "susi@gmail.com";
-document.getElementById("password").value = "1234@SMsm";
-
 signUpFrom.addEventListener("submit", (event) => {
   event.preventDefault();
 
@@ -120,25 +114,23 @@ console.log(eyeIcon);
 
 let eyeDiv = document.querySelector(".eye-slash-div");
 
+let isPasswordVisible = false;
+
 eyeDiv.addEventListener("click", (e) => {
   console.log(e.target);
   let eyeButton = e.target;
   console.log("yes");
-  if (passwordInput.type === "password") {
+  if (!isPasswordVisible) {
     // eye hide element creation
-    eyeButton.remove("bi bi-eye-slash");
-
-    let eyeHide = document.createElement("i");
-    eyeHide.setAttribute("class", "bi bi-eye");
-    document.querySelector(".eye-slash-div").append(eyeHide);
-    passwordInput.type = "text";
+    eyeButton.classList.remove("bi-eye-slash");
+    eyeButton.classList.add("bi-eye");
+    passwordInput.setAttribute("type", "text");
+    isPasswordVisible = true;
   } else {
-    eyeButton.remove("bi bi-eye");
-
-    let eyeIcon = document.createElement("i");
-    eyeIcon.setAttribute("class", "bi bi-eye-slash");
-    document.querySelector(".eye-slash-div").append(eyeIcon);
-    passwordInput.type = "password";
+    eyeButton.classList.remove("bi-eye");
+    eyeButton.classList.add("bi-eye-slash");
+    passwordInput.setAttribute("type", "password");
+    isPasswordVisible = false;
   }
 });
 
@@ -160,7 +152,7 @@ function calculatePasswordStrength(passwordStrength) {
     hr.style.width = "25%";
     hr.style.backgroundColor = "red";
     emojiSpan.innerHTML = "&#128560;";
-    passwordContent.innerHTML = "Weak. must contain atleast 8 letter";
+    passwordContent.innerText = "Weak. must contain atleast 8 letter";
   }
   if (passwordStrength.match(/[0-9]+/) && passwordStrength.length >= 8) {
     strength += 1;
@@ -182,7 +174,7 @@ function calculatePasswordStrength(passwordStrength) {
     hr.style.width = "75%";
     hr.style.backgroundColor = "#005063";
     emojiSpan.innerHTML = "&#128521;";
-    passwordContent.innerHTML = "Almost. Must contain one special character";
+    passwordContent.innerText = "Almost. Must contain one special character";
   }
   if (
     passwordStrength.match(/[$@#&!]+/) &&
@@ -195,7 +187,7 @@ function calculatePasswordStrength(passwordStrength) {
     hr.style.width = "100%";
     hr.style.backgroundColor = "#39ff14";
     emojiSpan.innerHTML = "&#128526;";
-    passwordContent.innerHTML = "Awesome. You have a secure password";
+    passwordContent.innerText = "Awesome. You have a secure password";
   }
 }
 
