@@ -3,8 +3,8 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.20.0/firebas
 import { getDatabase } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-database.js";
 
 // Your web app's Firebase configuration
-let firebaseConfig = {
-  apiKey: process.env.FIREBASE_API_KEY,
+const firebaseConfig = {
+  apiKey: "AIzaSyByvONF3f6-tLWrigL42gKw2hGQxtbmYWc",
   authDomain: "freshchat-28154.firebaseapp.com",
   databaseURL: "https://freshchat-28154-default-rtdb.firebaseio.com",
   projectId: "freshchat-28154",
@@ -177,8 +177,10 @@ firstParent.addEventListener("click", async function (event) {
 
 let avatarData = JSON.parse(localStorage.getItem("emojiAvatar"));
 
-// Getting the random image
-let randomIndex = Math.floor(Math.random() * avatarData.length);
+// Getting the random index
+let randomArray = new Uint32Array(1);
+window.crypto.getRandomValues(randomArray);
+let randomIndex = randomArray[0] % avatarData.length;
 let randomImageSrc = avatarData[randomIndex]["avatar"];
 
 console.log(randomImageSrc);

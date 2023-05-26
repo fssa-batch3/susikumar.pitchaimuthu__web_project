@@ -31,12 +31,15 @@ signUpFrom.addEventListener("submit", (event) => {
     avatarCanva.height = 200;
 
     // creating a random color creation function
-    const letters = "0123456789ABCDEF";
+    let letters = "0123456789ABCDEF";
     let color = "#";
-    for (let i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
-    }
 
+    let randomArray = new Uint32Array(1);
+    window.crypto.getRandomValues(randomArray);
+    for (let i = 0; i < 6; i++) {
+      color += letters[randomArray[0] % 16];
+      window.crypto.getRandomValues(randomArray);
+    }
     // draw background
     avatarContext.fillStyle = color;
     avatarContext.fillRect(0, 0, avatarCanva.width, avatarCanva.height);
@@ -146,35 +149,33 @@ function calculatePasswordStrength(passwordStrength) {
   let passwordContent = document.querySelector(".password-content");
 
   // Evaluate length
-
   if (passwordStrength.length <= 8) {
     strength += 1;
     hr.style.width = "25%";
     hr.style.backgroundColor = "red";
     emojiSpan.innerHTML = "&#128560;";
-    passwordContent.innerText = "Weak. must contain atleast 8 letter";
+    passwordContent.innerText = "Weak. Must contain at least 8 characters.";
   }
   if (passwordStrength.match(/[0-9]+/) && passwordStrength.length >= 8) {
     strength += 1;
     hr.style.width = "50%";
     hr.style.backgroundColor = "#fada50";
     emojiSpan.innerHTML = "&#128542;";
-    passwordContent.innerHTML =
-      "So-so. Must contain at least 1 Upper and lower case";
+    passwordContent.innerText =
+      "So-so. Must contain at least 1 uppercase and 1 lowercase letter.";
   }
   if (
     passwordStrength.match(/[0-9]+/) &&
     passwordStrength.match(/[A-Z]+/) &&
     passwordStrength.match(/[a-z]+/) &&
     passwordStrength.length >= 8
-
-    // contents
   ) {
     strength += 1;
     hr.style.width = "75%";
     hr.style.backgroundColor = "#005063";
     emojiSpan.innerHTML = "&#128521;";
-    passwordContent.innerText = "Almost. Must contain one special character";
+    passwordContent.innerText =
+      "Almost. Must contain at least one special character.";
   }
   if (
     passwordStrength.match(/[$@#&!]+/) &&
@@ -187,7 +188,7 @@ function calculatePasswordStrength(passwordStrength) {
     hr.style.width = "100%";
     hr.style.backgroundColor = "#39ff14";
     emojiSpan.innerHTML = "&#128526;";
-    passwordContent.innerText = "Awesome. You have a secure password";
+    passwordContent.innerText = "Awesome. You have a secure password.";
   }
 }
 

@@ -139,7 +139,10 @@ function otpElementShow() {
 
 function sendUpdateOtp() {
   try {
-    let otp = Math.floor(1000 + Math.random() * 9000);
+    let randomArray = new Uint32Array(1);
+    window.crypto.getRandomValues(randomArray);
+    let otp = 1000 + (randomArray[0] % 9000);
+
     console.log(otp);
 
     let params = {

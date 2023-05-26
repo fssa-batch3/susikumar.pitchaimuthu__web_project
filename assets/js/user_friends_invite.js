@@ -14,7 +14,10 @@ if (friendsInvitesData == null) {
 let animeImages = JSON.parse(localStorage.getItem("inviteAnime"));
 console.log(animeImages);
 
-let randomIndex = Math.floor(Math.random() * animeImages.length);
+let randomArray = new Uint32Array(1);
+window.crypto.getRandomValues(randomArray);
+let randomIndex = randomArray[0] % animeImages.length;
+
 let randomImageSrc = animeImages[randomIndex]["anime"];
 console.log(randomImageSrc);
 

@@ -281,10 +281,14 @@ function defaultProfile() {
     avatarCanva.height = 200;
 
     // creating a random color creation function
-    const letters = "0123456789ABCDEF";
+    let letters = "0123456789ABCDEF";
     let color = "#";
+
+    let randomArray = new Uint32Array(1);
+    window.crypto.getRandomValues(randomArray);
     for (let i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
+      color += letters[randomArray[0] % 16];
+      window.crypto.getRandomValues(randomArray);
     }
 
     // draw background
