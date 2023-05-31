@@ -29,7 +29,7 @@ function noInvite() {
     <img
       class="invite-anime"
       src="${randomImageSrc}"
-      alt="gif-images"
+      alt="gif-images"g
     />
   </div>
 
