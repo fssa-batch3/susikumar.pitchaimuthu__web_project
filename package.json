@@ -1,5 +1,10 @@
 {
   "dependencies": {
-    "moment": "^2.29.4"
+    "@commitlint/cli": "^17.4.4",
+    "@commitlint/config-conventional": "^17.4.4",
+    "emoji-picker-element": "^1.16.0",
+    "husky": "^8.0.3",
+    "moment": "^2.29.4",
+    "mysql": "^2.18.1"
   }
 }

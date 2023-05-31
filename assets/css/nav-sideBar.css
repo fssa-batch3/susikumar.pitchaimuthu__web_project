@@ -56,7 +56,7 @@ nav {
   gap: 2em;
 }
 
-.form {
+/* .form {
   position: relative;
   width: 243px;
 }
@@ -101,7 +101,7 @@ nav {
 .fa-globe {
   font-size: 1.42em;
   cursor: pointer;
-}
+} */
 
 /* chat area */
 

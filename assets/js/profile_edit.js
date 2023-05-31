@@ -1,159 +1,170 @@
-const disable = document.querySelectorAll(".disable-input");
-console.log(disable);
-
-// disable function
-
-function edit() {
-  for (i = 0; i < disable.length; i++) {
-    console.log(disable[i]);
-    disable[i].removeAttribute("disabled");
-  }
-}
-
-const changes = document.getElementById("change-form");
+let changes = document.getElementById("change-form");
 changes.addEventListener("submit", function (e) {
   e.preventDefault();
+  try {
+    let fname = document.getElementById("firstName").value.trim();
+    let lname = document.getElementById("lastName").value.trim();
+    let u1name = document.getElementById("userName").value.trim();
+    let gmail = document.getElementById("email").value.trim();
+    let mobile = document.getElementById("phone").value;
+    let old = document.getElementById("dateOfBirth").value.trim();
+    let editBio = document.getElementById("bio").value.trim();
+    let editCity = document.getElementById("city").value.trim();
 
-  const fname = document.getElementById("firstName").value.trim();
-  const lname = document.getElementById("lastName").value.trim();
-  const u1name = document.getElementById("userName").value.trim();
-  const gmail = document.getElementById("email").value.trim();
-  const mobile = document.getElementById("phone").value.trim();
-  const old = document.getElementById("age").value.trim();
-  const nation = document.getElementById("nation").value.trim();
+    let currentGender;
 
-  const editObj = {
-    firstName: fname,
-    lastName: lname,
-    userName: u1name,
-    Email: gmail,
-    mobileNumber: mobile,
-    age: old,
-    nationality: nation,
-  };
-
-  const returnData = JSON.parse(localStorage.getItem("user_data"));
-  console.log(returnData);
-
-  let check = returnData.find((e) => e.Email == gmail);
-
-  if (check.Email != gmail) {
-    alert("Email ID not found");
-  } else {
-    let objestAssign = Object.assign(found, editObj);
-    console.log(objestAssign);
-    let regisData = JSON.parse(localStorage.getItem("register"));
-
-    let FEmail = regisData.find((e) => e.Email == check.Email);
-
-    let finalFind = regisData.indexOf(FEmail);
-    console.log(finalFind);
-
-    regisData[finalFind] = objestAssign;
-
-    localStorage.setItem("register", JSON.stringify(regisData));
-  }
-});
-
-// function for delete details
-
-function dele() {
-  console.log(found);
-  let findInd = info.indexOf(found);
-
-  const whatMean = JSON.parse(localStorage.getItem("register"));
-
-  let message = confirm("Are sure to Delete your account in Fresh Nest?");
-
-  if (message !== true) {
-    return;
-  } else {
-    whatMean.splice(findInd, 1);
-    localStorage.setItem("register", JSON.stringify(whatMean));
-  }
-}
-
-// profile option
-
-let file = document.getElementById("file");
-
-let image = document.getElementById("profile-image");
-
-let ProfileOption = document.querySelector(".profile-option-div");
-
-// onclick function for option display block
-
-image.addEventListener("click", () => {
-  if ((ProfileOption.style.display = "none")) {
-    ProfileOption.style.display = "block";
-  }
-});
-
-// profile photo chanage photo function
-
-file.addEventListener("change", function () {
-  let choosePhoto = this.files[0];
-
-  console.log("Manisha");
-
-  if (choosePhoto) {
-    let reader = new FileReader();
-    // console.log(reader.result);
-
-    reader.addEventListener("load", function () {
-      image.setAttribute("src", reader.result);
-
-      let ProfileImagesChange = [];
-
-      if (localStorage.getItem("profileImagesData") !== null) {
-        ProfileImagesChange = JSON.parse(
-          localStorage.getItem("profileImagesData")
-        );
+    for (let ingender of gender) {
+      if (ingender.checked) {
+        currentGender = ingender.value;
       }
-      let userProfileObj = {
-        avatarUrl: reader.result,
-      };
+    }
 
-      ProfileImagesChange.push(found["avatarUrl"]);
+    console.log(mobile);
 
-      localStorage.setItem(
-        "profileImagesData",
-        JSON.stringify(ProfileImagesChange)
-      );
+    let editObj = {
+      firstName: fname,
+      lastName: lname,
+      userName: u1name,
+      mobileNumber: mobile,
+      age: old,
+      city: editCity,
+      userTheme: editBio,
+      userGender: currentGender,
+    };
 
-      console.log(userProfileObj);
-      console.log(found);
+    if (findUser["email"] !== gmail) {
+      alert("You can't change your email");
+      return;
+    } else {
+      let objestAssign = Object.assign(findUser, editObj);
+      console.log(objestAssign);
 
-      let avatarUrlAssaign = Object.assign(found, userProfileObj);
-      console.log(avatarUrlAssaign);
-      console.log(foundIndex);
+      info[userIndex] = objestAssign;
 
-      info[foundIndex] = avatarUrlAssaign;
-
-      console.log((info[foundIndex] = avatarUrlAssaign));
       localStorage.setItem("register", JSON.stringify(info));
-    });
-
-    reader.readAsDataURL(choosePhoto);
+      alert("Your data successfully changed");
+    }
+  } catch (error) {
+    console.log("An error occurred while save profile edit data", error);
   }
 });
 
-// Transform to default profile image
+// cancel button function
 
-function defaultProfile() {
-  console.log(found);
+let cancelButton = document.querySelector("#cancel-button");
 
-  let getImageUrl = JSON.parse(localStorage.getItem("profileImagesData"));
-  console.log(getImageUrl);
+cancelButton.addEventListener("click", () => {
+  try {
+    window.location.href = "../pages/profile.html?user=" + findUser["userId"];
+  } catch (error) {
+    console.log("An error occurred while cancel edit :", error);
+  }
+});
 
-  let currentUrl = getImageUrl[0];
-  console.log(currentUrl);
+// otp generation function
 
-  let imageUrlAssaign = Object.assign(found, currentUrl);
+let updateButton = document.querySelector(".update");
 
-  console.log(imageUrlAssaign);
+updateButton.addEventListener("click", (e) => {
+  e.preventDefault();
 
-  info[foundIndex] = imageUrlAssaign;
+  try {
+    // generate otp function
 
-  localStorage.setItem("register", JSON.stringify(info));
+    sendUpdateOtp();
+
+    // otp card element creation
+
+    let otpCardDivContainer = document.createElement("div");
+    otpCardDivContainer.setAttribute("class", "otp-card-div-container");
+    otpCardDivContainer.innerHTML = `
+    <div class="otp-card-inside-div">
+    <div class="otp-content-div">
+      <h3 class="otp-content">Enter your OTP</h3>
+      <p class="otp-content">
+        You would could receive the OTP in your email
+      </p>
+    </div>
+
+    <div class="otp-container">
+      <input class="otp-input" type="number" maxlength="1" />
+      <input class="otp-input" type="number" maxlength="1" />
+      <input class="otp-input" type="number" maxlength="1" />
+      <input class="otp-input" type="number" maxlength="1" />
+    </div>
+
+    <div class="button-div">
+      <button class="otp-submit" onclick="otpSubmit">Submit</button>
+      <button class="resend-otp">Resend OTP</button>
+      <button type="button" class="cancel-otp btn btn-outline-warning">Cancel</button>
+    </div>
+  </div>
+    `;
+
+    document
+      .querySelector(".common-section-container")
+      .append(otpCardDivContainer);
+
+    otpElementShow();
+  } catch (error) {
+    console.log("An error occured while creating otp element :", error);
+  }
+});
+
+// email update function
+
+function otpElementShow() {
+  try {
+    let otpInputs = document.querySelectorAll(".otp-input");
+
+    otpInputs.forEach((input, index) => {
+      input.addEventListener("input", (event) => {
+        let currentValue = event.target.value;
+
+        if (currentValue.length === 1) {
+          if (index < otpInputs.length - 1) {
+            otpInputs[index + 1].focus();
+          } else {
+            input.blur(); // Move focus out of the last input
+          }
+        }
+      });
+    });
+  } catch (error) {
+    console.log("An error occurred while otp input function :", error);
+  }
 }
+
+// otp sending function
+
+function sendUpdateOtp() {
+  try {
+    let randomArray = new Uint32Array(1);
+    window.crypto.getRandomValues(randomArray);
+    let otp = 1000 + (randomArray[0] % 9000);
+
+    console.log(otp);
+
+    let params = {
+      name: findUser["userName"],
+      email: findUser["email"],
+      subject: "This is your OTP for update your email id",
+      message: otp,
+    };
+
+    let serviceId = "service_6dvp4gm";
+    let templateId = "template_02oezsg";
+
+    emailjs
+      .send(serviceId, templateId, params)
+      .then((res) => {
+        console.log(res);
+        alert("The Email has been sent");
+      })
+      .catch((err) => console.log(err));
+  } catch (error) {
+    console.log("An error occured while generating the otp :", error);
+  }
+}
+
+// Here submiting fucntion to find the result

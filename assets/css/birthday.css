@@ -1,6 +1,5 @@
 body {
   background-color: #f7faff;
-  font-family: "Kanit", sans-serif;
 }
 
 .div-container {
@@ -10,26 +9,35 @@ body {
 }
 
 .main-div {
-  border: 3px black solid;
+  border: 0.4px solid rgb(195, 193, 193);
   border-radius: 10px;
   width: 400px;
   height: 500px;
-  flex-direction: column;
-  justify-content: space-between;
-  margin: 20px;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
 }
 
 .content-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   text-align: center;
   height: 480px;
+  gap: 3em;
+  margin: 20px;
 }
 
 .content-container-logo {
   width: 43%;
   padding-top: 25px;
+}
+
+/* birthday image and input container */
+
+.birthday-image-and-input-div-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4em;
 }
 
 /* celebration div */
@@ -75,9 +83,79 @@ body {
   width: 100%;
   height: 100%;
 }
+
+/* birthday page input container */
+
+.birthday-all-input-div-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3em;
+}
+
+/* birthday input div  */
+
+.birthday-input-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
 #date-of-birth {
   padding: 10px 10px;
   font-size: 18px;
+}
+
+#birthday {
+  width: 12em;
+  height: 2em;
+  border-radius: 5px;
+  border: 1px solid rgb(211, 211, 211);
+  background-color: rgb(16, 152, 231);
+  color: #fff;
+  padding: 3px;
+}
+
+::-webkit-calendar-picker-indicator {
+  background-color: #fff;
+  padding: 5px;
+  border-radius: 3px;
+}
+
+#birthday:focus {
+  outline: none;
+  box-shadow: 0 0 0 1.6px hsla(206, 71%, 52%, 0.8);
+}
+
+/* gender selection csss button */
+.input-label-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 2em;
+}
+
+.gender-label-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gender-selection-div {
+  display: flex;
+  align-items: center;
+  width: 57%;
+  gap: 8%;
+}
+
+.form-check {
+  display: flex;
+  align-items: flex-start;
+}
+/* next and previous button css */
+
+.submit-and-previous-button-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .next-back-div {
@@ -87,18 +165,15 @@ body {
 }
 
 .next-button {
-  padding: 7px 24px;
+  padding: 8px 28px;
   border-radius: 5px;
-  border: grey 1px solid;
-}
-
-.back-button {
-  display: flex;
-  width: 11%;
-  align-items: center;
+  background-image: linear-gradient(to right, #25aae1, #4481eb);
+  box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
+  border: none;
+  color: #fff;
 }
 
 .previous-arrow {
-  width: 100%;
-  height: 100%;
+  font-size: 2em;
+  color: rgb(239, 184, 3, 1);
 }

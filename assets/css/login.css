@@ -26,7 +26,6 @@ body {
   margin-top: 8em;
   width: auto;
   gap: 5em;
-  height: 500px;
 }
 
 .welcome-container {
@@ -45,9 +44,15 @@ body {
   box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px,
     rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
   display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-inside-container {
+  display: flex;
   flex-direction: column;
   width: 412px;
-  height: 600px;
+  padding: 5px;
 }
 
 .label {
@@ -57,7 +62,7 @@ body {
   margin-bottom: 5px;
 }
 
-input {
+.input {
   border: none;
   height: 35px;
   border-radius: 5px;
@@ -74,6 +79,7 @@ input {
   top: 9px;
   background: #fff;
   padding: 5px;
+  color: #4481eb;
 }
 
 .label .placeholder {
@@ -101,6 +107,19 @@ input {
   transition-delay: 0.1s;
 }
 
+input:invalid:not(:placeholder-shown) + .placeholder {
+  top: 9px;
+  transition-delay: 0.1s;
+  background: #fff;
+  padding: 5px;
+  color: #eb44bc;
+}
+
+input:invalid:not(:placeholder-shown) {
+  top: 9px;
+  border-color: #eb44bc;
+}
+
 .input-container {
   display: flex;
   flex-direction: column;
@@ -110,7 +129,6 @@ input {
 }
 
 .button-error-container {
-  margin-top: 2.5em;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -160,7 +178,6 @@ input {
 }
 
 .sign-button {
-  /* background-image: linear-gradient(to right, #25aae1, #4481eb); */
   box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
   border: none;
   background-color: #4481eb;
@@ -182,4 +199,87 @@ input {
 .sign-up-link {
   color: hsl(217, 10%, 50.8%);
   font-size: 17px;
+}
+
+/* eye icon */
+.password-input {
+  position: relative;
+}
+
+.eye-slash-div,
+.confirm-eye-slash-div {
+  position: absolute;
+  font-size: 1.2em;
+  color: #808080;
+  right: 3%;
+  top: 23%;
+}
+
+/* password strength div */
+.password-strength-div {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 70%;
+}
+
+.hr-div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+hr {
+  height: 5px;
+  border-radius: 5px;
+  margin: 0;
+  border: none;
+}
+
+.strength-content-div {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* remember and forget password function */
+
+.remember-and-forget-password-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 69%;
+  height: 0.9em;
+}
+
+.remember-me-div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 50%;
+}
+
+.remember {
+  font-size: 97%;
+  font-weight: 550;
+  color: #808080;
+}
+
+.remember-div {
+  display: flex;
+  align-items: center;
+  width: 50%;
+}
+
+.check-box {
+  width: 15px;
+  height: 15px;
+  color: #808080;
+}
+
+.forget {
+  font-size: 96%;
+}
+
+.mandatory {
+  color: #eb44bc;
 }

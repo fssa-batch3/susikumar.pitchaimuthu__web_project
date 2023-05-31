@@ -1,4 +1,4 @@
-const userReview = [
+let userReview = [
   {
     review:
       "The Nest browser was very useful to us. It's was very joyful and funny. When we are think to make aconversation between me and my friend's. It's very useful",
@@ -43,41 +43,41 @@ const userReview = [
   },
 ];
 
-for (let i = 0; i <= userReview.length; i++) {
-  const userReviewCard1 = document.createElement("div");
+for (let userCard of userReview) {
+  let userReviewCard1 = document.createElement("div");
   userReviewCard1.setAttribute("class", "user-1-review-section-div");
 
-  const userReviewDiv = document.createElement("div");
+  let userReviewDiv = document.createElement("div");
   userReviewDiv.setAttribute("class", "user-1-review-div");
   userReviewCard1.append(userReviewDiv);
 
-  const userReviewPara = document.createElement("p");
+  let userReviewPara = document.createElement("p");
   userReviewPara.setAttribute("class", "user-1-review-div-para");
-  userReviewPara.innerText = userReview[i]["review"];
+  userReviewPara.innerText = userCard["review"];
   userReviewDiv.append(userReviewPara);
 
-  const userImageContainer = document.createElement("div");
+  let userImageContainer = document.createElement("div");
   userImageContainer.setAttribute("class", "user-review-1-image-about-div");
   userReviewCard1.append(userImageContainer);
 
-  const userImageDiv = document.createElement("div");
+  let userImageDiv = document.createElement("div");
   userImageDiv.setAttribute("class", "user-review-1-image-div");
   userImageContainer.append(userImageDiv);
 
-  const userImage = document.createElement("img");
-  userImage.setAttribute("src", userReview[i]["profile"]);
+  let userImage = document.createElement("img");
+  userImage.setAttribute("src", userCard["profile"]);
   userImage.setAttribute("class", "user-review-1-image-div-image");
   userImageDiv.append(userImage);
 
-  const div = document.createElement("div");
+  let div = document.createElement("div");
   userImageContainer.append(div);
 
-  const h3 = document.createElement("h3");
-  h3.innerText = userReview[i]["userName"];
+  let h3 = document.createElement("h3");
+  h3.innerText = userCard["userName"];
   div.append(h3);
 
-  const from = document.createElement("p");
-  from.innerText = userReview[i]["From"];
+  let from = document.createElement("p");
+  from.innerText = userCard["From"];
   div.append(from);
 
   document

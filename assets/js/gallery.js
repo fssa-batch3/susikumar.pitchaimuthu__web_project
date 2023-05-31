@@ -1,53 +1,43 @@
-let imageGallery = JSON.parse(localStorage.getItem("image_url"));
+let images = JSON.parse(localStorage.getItem("image_url"));
 
-for (let i = 0; i < imageGallery.length; i++) {
-  const imageContainer = document.createElement("div");
-  imageContainer.setAttribute("class", "card-container");
-  imageContainer.setAttribute("id", imageGallery[i]["imageId"]);
+let imageGallery = images.filter((e) => e["userId"] == findUser["userId"]);
 
-  //
-  let image_name_container = document.createElement("div");
-  image_name_container.setAttribute("class", "image-name-container");
-  imageContainer.append(image_name_container);
+try {
+  for (let imagesGall of imageGallery) {
+    let imageContainer = document.createElement("div");
+    imageContainer.setAttribute("class", "card-container");
+    imageContainer.setAttribute("id", imagesGall["imageId"]);
 
-  const a = document.createElement("a");
-  a.setAttribute(
-    "href",
-    "../pages/snap-details.html?image=" + imageGallery[i]["imageId"]
-  );
-  image_name_container.append(a);
-  const image = document.createElement("img");
-  image.setAttribute("id", imageGallery[i]["imageId"]);
-  image.setAttribute("src", imageGallery[i]["imageLink"]);
-  image.setAttribute("alt", "userSnaps");
-  image.setAttribute("class", "taking-image");
-  a.append(image);
+    //
+    let image_name_container = document.createElement("div");
+    image_name_container.setAttribute("class", "image-name-container");
+    imageContainer.append(image_name_container);
 
-  let image_name = document.createElement("p");
-  image_name.setAttribute("class", "snap-name");
-  image_name.innerHTML = imageGallery[i]["imageName"];
-  image_name_container.append(image_name);
+    let a = document.createElement("a");
+    a.setAttribute(
+      "href",
+      "../pages/snap-details.html?user=" +
+        findUser["userId"] +
+        "&image=" +
+        imagesGall["imageId"]
+    );
+    image_name_container.append(a);
+    let image = document.createElement("img");
+    image.setAttribute("id", imagesGall["imageId"]);
+    image.setAttribute("src", imagesGall["imageLink"]);
+    image.setAttribute("alt", "userSnaps");
+    image.setAttribute("class", "taking-image");
+    a.append(image);
 
-  document
-    .querySelector(".second-section-container-div")
-    .append(imageContainer);
-}
+    let image_name = document.createElement("p");
+    image_name.setAttribute("class", "snap-name");
+    image_name.innerHTML = imagesGall["imageName"];
+    image_name_container.append(image_name);
 
-// saving the image id for the update and feature
-
-function deleteImage(imageId) {
-  console.log(imageId);
-
-  let imageIdArr = [];
-
-  if (localStorage.getItem("imageIdData") !== null) {
-    imageIdArr = JSON.parse(localStorage.getItem("imageIdData"));
+    document
+      .querySelector(".second-section-container-div")
+      .append(imageContainer);
   }
-
-  let imageIdObject = {
-    imageId: imageId,
-  };
-  imageIdArr.push(imageIdObject);
-
-  localStorage.setItem("imageIdData", JSON.stringify(imageIdArr));
+} catch (error) {
+  console.log("An error occured while show the images :", error);
 }

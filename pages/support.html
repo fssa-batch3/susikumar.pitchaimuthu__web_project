@@ -4,239 +4,270 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>support</title>
-    <link rel="stylesheet" href="../assets/css/support.css" />
-    <link rel="stylesheet" href="../assets/css/footer.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <title>Setting</title>
+
+    <!-- bootstrap link -->
+
     <link
-      href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
+    />
+
+    <script
+      src="https://kit.fontawesome.com/a06ff6477a.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!----===== Boxicons CSS ===== -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css"
       rel="stylesheet"
     />
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800&display=swap");
-    </style>
+
+    <!-- css links -->
+
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="../assets/css/support.css" />
   </head>
   <body>
-    <header>
-      <nav class="nav-bar">
-        <div class="logo-div">
-          <a href="http://127.0.0.1:5500/pages/home.html"
-            ><img
-              class="nav-logo-image"
-              src="../assets/images/common/Fresh-nest-logo-black.png"
-              alt="freshnest-logo"
-          /></a>
-        </div>
+    <section class="whole-section-container">
+      <nav class="sidebar close">
+        <header>
+          <div class="image-text">
+            <span class="image">
+              <img id="profile-image" src="" alt="profile-image" />
+            </span>
 
-        <div>
-          <img
-            class="nav-link-main-div-image"
-            src="../assets/images/chat/user.png"
-            alt="nav-profile"
-          />
+            <div class="text logo-text">
+              <span class="name">Codinglab</span>
+              <span class="profession">Web developer</span>
+            </div>
+          </div>
+
+          <i class="bx bx-chevron-right toggle"></i>
+        </header>
+
+        <div class="menu-bar">
+          <div class="menu">
+            <ul class="menu-links">
+              <li class="nav-link" id="home">
+                <i class="bi bi-person-badge-fill icon"></i>
+                <span class="text nav-text">Dashboard</span>
+              </li>
+
+              <li class="nav-link" id="chat">
+                <i class="bi bi-chat-right icon"></i>
+                <span class="text nav-text">freshChat</span>
+              </li>
+
+              <li class="nav-link" id="camera">
+                <i class="bi bi-camera icon"></i>
+                <span class="text nav-text">fresh cam</span>
+              </li>
+
+              <li class="nav-link" id="invite">
+                <i class="fa-brands fa-battle-net icon"></i>
+                <span class="text nav-text">fresh invite</span>
+              </li>
+
+              <li class="nav-link" id="notification">
+                <i class="bx bx-bell icon"></i>
+                <p class="notification-para"></p>
+                <span class="text nav-text">Notification</span>
+              </li>
+
+              <li class="nav-link" id="setting">
+                <i class="bi bi-gear icon"></i>
+                <span class="text nav-text">Setting</span>
+              </li>
+            </ul>
+          </div>
+
+          <ul class="bottom-content">
+            <li class="logOut">
+              <i class="bx bx-log-out icon"></i>
+              <span class="text nav-text">Logout</span>
+            </li>
+
+            <li class="mode">
+              <div class="sun-moon">
+                <i class="bx bx-moon icon moon"></i>
+                <i class="bx bx-sun icon sun"></i>
+              </div>
+              <span class="mode-text text">Dark mode</span>
+
+              <div class="toggle-switch">
+                <span class="switch"></span>
+              </div>
+            </li>
+          </ul>
         </div>
       </nav>
-    </header>
 
-    <section>
-      <div class="section">
-        <div class="back-communicate">
-          <div class="back-arrow-div">
-            <a href="http://127.0.0.1:5500/Home%20pages/index.html"
-              ><img
-                class="previous-image"
-                src="../assets/images/common/previous.png"
-                alt="back-arrow"
-            /></a>
-          </div>
-
-          <div class="side-content">
-            <div>
-              <select>
-                <option value="0"><a href="#">Our features</a></option>
-                <option><a href="#">Nest</a></option>
-                <option><a href="#">Still</a></option>
-              </select>
-            </div>
-
-            <div class="second-side-content">
-              <a href="#">Account</a>
-              <a href="#">Privacy</a>
-              <a href="#">profile</a>
-              <a href="#">Notification settings</a>
-              <a href="#">Delete account</a>
-
-              <a href="#">Privacy and reporting</a>
-              <a href="#">Password settings</a>
-
-              <a href="#">Terms and Policies</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="communication-whole-div">
-          <div class="support-center">
-            <h2 class="nest-support">Nest Support Center</h2>
-          </div>
-
-          <div class="communication-container">
-            <div>
-              <div class="three-image">
-                <img
-                  class="first-image"
-                  src="../assets/images/support/girl_in_call.png"
-                  alt="first-image"
-                />
-              </div>
-
-              <div class="call">
-                <a href="#" class="voice-call">Voice call</a>
-                <div class="call-content-div">
-                  <p class="call-content">
-                    Call to Nest and ask your doubts next. And then make fun
-                    with your friends
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div>
-              <div class="three-image">
-                <img
-                  class="first-image"
-                  src="../assets/images/support/4_people_in_one.png"
-                  alt="three-communication"
-                />
-              </div>
-
-              <div class="video">
-                <a href="#" class="voice-call">Video call</a>
-                <div class="video-content-div">
-                  <p class="video-content">
-                    Make video with your with your duo. And then come to Nest
-                    and make fun Fast.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <div class="three-image">
-                <img
-                  class="first-image"
-                  src="../assets/images/support/chat-girl-removebg-preview.png"
-                  alt="video-call"
-                />
-              </div>
-
-              <div class="email">
-                <a href="#" class="voice-call">Email Contact</a>
-                <div class="email-content-div">
-                  <p class="email-content">
-                    Make maessage with emil ID to your buddy and ask your
-                    questions. Got answer and chat with your lover.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- footer -->
-
-    <footer>
-      <div class="footer-container">
-        <div class="footer-logo-div">
-          <div class="logo-div-footer">
-            <div class="logo-image-div">
+      <!-- section detail section -->
+      <section class="section-details-section">
+        <div class="inside-nav-div">
+          <div class="nav-div-container">
+            <!-- logo div -->
+            <div class="logo-div">
               <img
-                class="footer-logo-div-image-white"
-                src="../assets/images/footer/fresh-nest-logo-white.png"
-                alt="footer-website-logo"
+                class="logo-image"
+                src="../assets/images/logos/bird-logo.png"
+                alt="logo-image"
               />
             </div>
-            <div>
-              <p>The browser for entertainment</p>
+
+            <!-- profile div container -->
+
+            <div class="profile-name-image-div-container">
+              <!-- profile div -->
+              <div class="profile-name-inside-container">
+                <!-- profile name div -->
+                <div class="profile-name-div">
+                  <p>Manisha susikumar</p>
+                </div>
+
+                <!-- profile image div -->
+
+                <div class="profile-div">
+                  <img
+                    class="profile-image"
+                    src="../assets/images/Hero section/User-review/2.jpg"
+                    alt="profile-image"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- call showing setting page -->
+
+        <div class="all-div-container">
+          <!-- side bar -->
+
+          <div class="side-bar-div-container">
+            <div class="side-bar-inside-div-container">
+              <ul class="side-bar-ul">
+                <li class="nav-link" id="term-conditions">
+                  <i class="bi bi-calendar2-check"></i>
+                  <span class="text nav-text">Terms and condition</span>
+                </li>
+
+                <li class="nav-link" id="password-setting">
+                  <i class="bi bi-file-lock"></i>
+                  <span class="text nav-text">Password</span>
+                </li>
+                <li class="nav-link" id="contact-us">
+                  <i class="bi bi-person-lines-fill"></i>
+                  <span class="text nav-text">Contact us</span>
+                </li>
+
+                <li class="nav-link" id="delete-button">
+                  <i class="bi bi-box-arrow-left"></i>
+                  <span class="text nav-text">Delete</span>
+                </li>
+              </ul>
             </div>
           </div>
 
-          <div class="footer-copyright-div">
-            <img
-              class="footer-copyright-div-image"
-              src="../assets/images/footer/copyright-logo.png"
-              alt="copyright-image"
-            />
-            <p>2022 Fresh Nest</p>
-          </div>
-          <div class="footer-term-policy-div">
-            <a class="footer-policy-a" href="#">Privacy</a>
-            <a class="footer-term-condition-a" href="#">Terms and Conditions</a>
+          <!-- option showing area -->
+
+          <div class="communication-container">
+            <div class="communication-inside-div-container">
+              <div class="communication-div">
+                <div class="communication-inside-div">
+                  <div class="three-image">
+                    <img
+                      class="first-image"
+                      src="../assets/images/support/girl_in_call.png"
+                      alt="first-image"
+                    />
+                  </div>
+
+                  <div class="call">
+                    <div class="content-inside-div">
+                      <p class="voice-call">Voice call</p>
+                      <div class="call-content-div">
+                        <p class="call-content">
+                          Call to Nest and ask your doubts next. And then make
+                          fun with your friends
+                        </p>
+                        <button class="voice-call-button">
+                          Make voice call
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- second video communication -->
+              <div class="communication-div">
+                <div class="communication-inside-div">
+                  <div class="three-image">
+                    <img
+                      class="first-image"
+                      src="../assets/images/support/4_people_in_one.png"
+                      alt="three-communication"
+                    />
+                  </div>
+
+                  <div class="video">
+                    <div class="content-inside-div">
+                      <p class="voice-call">Video call</p>
+                      <div class="video-content-div">
+                        <p class="video-content">
+                          Make video with your with your duo. And then come to
+                          Nest and make fun Fast.
+                        </p>
+                        <button class="video-call-button">
+                          Make video call
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- email communication div -->
+
+              <div class="communication-div">
+                <div class="communication-inside-div">
+                  <div class="three-image">
+                    <img
+                      class="first-image"
+                      src="../assets/images/support/chat-girl-removebg-preview.png"
+                      alt="video-call"
+                    />
+                  </div>
+
+                  <div class="email">
+                    <div class="content-inside-div">
+                      <p class="voice-call">Email Contact</p>
+                      <div class="email-content-div">
+                        <p class="email-content">
+                          Make maessage with emil ID to your buddy and ask your
+                          questions. Got answer and chat with your lover.
+                        </p>
+                        <button class="email-button">Go to Email</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="footer-home-div">
-          <p class="footer-home-head">Page</p>
-          <a class="footer-home-about" href="#">About us</a>
-          <a class="footer-home-download" href="#">Download</a>
-          <a class="footer-home-support" href="#">Support</a>
-        </div>
-        <div class="footer-features-div">
-          <p>Features</p>
-          <a class="footer-still-a" href="#">Still</a>
-          <a class="footer-nest-a" href="#">Nest</a>
-          <a class="footer-rolling-a" href="#">Rolling</a>
-        </div>
-        <div class="footer-download-div">
-          <p>Download</p>
-          <a class="footer-mac-a" href="#">Mac/Pc</a>
-          <a class="footer-iphone-a" href="#">Iphone</a>
-          <a class="footer-android-a" href="#">Android</a>
-        </div>
-        <div class="footer-social-media-div">
-          <p>Social Media contacts</p>
-          <div class="footer-social-media-div-twitter-div">
-            <img
-              class="footer-social-media-div-twitter-div-image"
-              src="../assets/images/footer/Twitter-logo.png"
-              alt="twitter-logo"
-            />
-            <a href="#">@freshnest</a>
-          </div>
-          <div class="footer-social-media-div-facebook-div">
-            <img
-              class="footer-social-media-div-facebook-div-image"
-              src="../assets/images/footer/facebook-logo.png"
-              alt="facebook-logo"
-            />
-            <a href="#">freshnest</a>
-          </div>
-          <div class="footer-social-media-div-github-div">
-            <img
-              class="footer-social-media-div-github-div-image"
-              src="../assets/images/footer/github-logo.png"
-              alt="github-logo"
-            />
-            <a href="#">freshnest.io</a>
-          </div>
-          <div class="footer-social-media-div-whatsapp-div">
-            <img
-              class="footer-social-media-div-whatsapp-div-image"
-              src="../assets/images/footer/whatsapp-logo.png"
-              alt="whatsapp-logo"
-            />
-            <a href="#">freshnest</a>
-          </div>
-          <div class="footer-social-media-div-instagram-div">
-            <img
-              class="footer-social-media-div-instagram-div-image"
-              src="../assets/images/footer/Instagram-logo.png"
-              alt="instagram-logo"
-            />
-            <a href="#">fresh_nest_&_co </a>
-          </div>
-        </div>
-      </div>
-    </footer>
+      </section>
+    </section>
+
+    <!-- script files -->
+
+    <script src="../assets/js/side-bar.js"></script>
+    <script src="../assets/js/page-direction.js"></script>
+    <script src="../assets/js/profile_user_find.js"></script>
+    <script src="../assets/js/notification_count.js"></script>
+    <script src="../assets/js/setting.js"></script>
   </body>
 </html>

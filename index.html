@@ -17,6 +17,11 @@
       href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -60,35 +65,31 @@
             <li class="feature-li">
               <a href="#">Features</a>
               <div class="dropdown">
-                <img
-                  class="down-arrow"
-                  src="./assets/images/nav-bar/Down arrow blue.png"
-                  alt="down-arrow"
-                />
+                <i class="bi bi-caret-down-fill down-arrow"></i>
                 <div class="dropdown-content">
                   <ol id="feature-dropdown-ol">
-                    <li class="still-li">
-                      <a
-                        class="still-a"
-                        href="http://127.0.0.1:5500/pages/still.html"
-                        >Still</a
-                      >
-                    </li>
-                    <li class="Nest-li">
-                      <a
-                        class="nest-a"
-                        href="http://127.0.0.1:5500/pages/nest.html"
-                        >Nest</a
-                      >
-                    </li>
+                    <a
+                      class="still-a"
+                      href="http://127.0.0.1:5500/pages/still.html"
+                    >
+                      <li class="still-li">
+                        <p class="li-para">Still</p>
+                      </li>
+                    </a>
+
+                    <a
+                      class="nest-a"
+                      href="http://127.0.0.1:5500/pages/nest.html"
+                    >
+                      <li class="Nest-li">
+                        <p class="li-para">Nest</p>
+                      </li>
+                    </a>
                   </ol>
                 </div>
               </div>
             </li>
-            <li><a href="#">App</a></li>
-            <li>
-              <a href="http://127.0.0.1:5500/pages/support.html">Support</a>
-            </li>
+            <li>Support</li>
           </ul>
         </div>
 
@@ -154,12 +155,10 @@
             </div>
 
             <div>
-              <a href="http://127.0.0.1:5500/pages/signup.html">
-                <button class="hero-section-button">
-                  <p class="try-para">Try Nest for free</p>
-                  <span>&#8594;</span>
-                </button>
-              </a>
+              <button class="hero-section-button" onclick="signUpButton()">
+                <p class="try-para">Try Nest for free</p>
+                <span>&#8594;</span>
+              </button>
             </div>
             <div>
               <p class="head-its-trial-para">

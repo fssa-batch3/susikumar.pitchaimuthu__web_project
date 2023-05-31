@@ -1,6 +1,4 @@
 let video = document.querySelector("#start");
-let brightness = document.getElementById("brightnessRange");
-let brightness_input = document.getElementById("brightness-container");
 let adjusment = document.querySelector(".adjustment-div");
 let snap = document.querySelector(".capture-div");
 let canvas = document.getElementById("canvas");
@@ -17,73 +15,106 @@ let conditions = {
 
 // adding brightness for the webcamera
 
-brightness.addEventListener("change", function () {
-  brightness_input.style.filter = "brightness(" + brightness.value + "%)";
+const brightnessInput = document.getElementById("brightnessRange");
+brightnessRange.addEventListener("input", () => {
+  try {
+    const brightnessValue = brightnessRange.value;
+    video.style.filter = `brightness(${brightnessValue}%)`;
+  } catch (error) {
+    console.log("An error occurred while brightness range :", error);
+  }
 });
 
-// function startCamera() {
-navigator.mediaDevices.getUserMedia(conditions).then((stream) => {
-  video.srcObject = stream;
-  video.style.brightness = brightness;
-  video.play();
+navigator.mediaDevices
+  .getUserMedia(conditions)
+  .then((stream) => {
+    video.srcObject = stream;
+    video.play();
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+
+// filter selection function
+
+filterButton.addEventListener("change", function (e) {
+  e.preventDefault();
+  try {
+    filter = e.target.value;
+    video.style.filter = filter;
+  } catch (error) {
+    console.log("An error occurred  while adding the filter :", error);
+  }
 });
 
 // Draw image
 
 snap.addEventListener("click", () => {
-  let imageData = [];
+  try {
+    let imageData = [];
 
-  if (localStorage.getItem("image_url") !== null) {
-    imageData = JSON.parse(localStorage.getItem("image_url"));
+    if (localStorage.getItem("image_url") !== null) {
+      imageData = JSON.parse(localStorage.getItem("image_url"));
+    }
+
+    let filterValue = video.style.filter;
+    console.log(filterValue);
+
+    if (filterValue) {
+      canvas.getContext("2d").filter = filterValue; // Apply the filter to the canvas context
+    }
+
+    canvas.getContext("2d").drawImage(video, 0, 0, canvas.width, canvas.height);
+
+    let imageUrl = canvas.toDataURL("image/jpeg");
+    // console.log(imageUrl);
+    let imageName = Date.now();
+
+    let imageDate = moment().format("l");
+    let imageTime = moment().format("LT");
+    console.log(imageTime);
+
+    let imageObject = {
+      imageLink: imageUrl,
+      imageName: "image" + imageName,
+      imageId: imageName,
+      imageDate: imageDate,
+      imageTime: imageTime,
+      userId: findUser["userId"],
+    };
+    console.log(imageObject);
+
+    imageData.push(imageObject);
+
+    localStorage.setItem("image_url", JSON.stringify(imageData));
+  } catch (error) {
+    console.log("An error occurred while snap function :", error);
   }
-
-  canvas.getContext("2d").drawImage(video, 0, 0, canvas.width, canvas.height);
-
-  canvas.style.filter = filter;
-  let imageUrl = canvas.toDataURL("image/jpeg");
-  // console.log(imageUrl);
-  let imageName = Date.now();
-
-  let imageDate = moment().format("MMMM Do YYYY");
-  let imageTime = moment().format("LT");
-  console.log(imageTime);
-
-  let imageObject = {
-    imageLink: imageUrl,
-    imageName: "image" + imageName,
-    imageId: imageName,
-    imageDate: imageDate,
-    imageTime: imageTime,
-  };
-  console.log(imageObject);
-
-  imageData.push(imageObject);
-
-  let set = localStorage.setItem("image_url", JSON.stringify(imageData));
 });
 
-// filter selection
-
-filterButton.addEventListener("change", function (e) {
-  e.preventDefault();
-  filter = e.target.value;
-  video.style.filter = filter;
-});
-
-// brightness adjusment
+// brightness showing and element none function
 
 function bright() {
-  if (adjusment.style.display === "none") {
-    adjusment.style.display = "block";
-  } else {
-    adjusment.style.display = "none";
+  try {
+    if (adjusment.style.display === "none") {
+      adjusment.style.display = "block";
+    } else {
+      adjusment.style.display = "none";
+    }
+  } catch (error) {
+    console.log("An error occured while adjusting the brightness :", error);
   }
 }
 
-// gallery page direction function
+// gallery page urlparameter sending definition code
 
-function gallery() {
-  window.location.href = "../pages/snap-gallery.html";
-}
+let gallery = document.querySelector(".gallery");
 
-// image update feature javascript
+gallery.addEventListener("click", () => {
+  try {
+    window.location.href =
+      "../pages/snap-gallery.html?user=" + findUser["userId"];
+  } catch (error) {
+    console.log("An error occurred while the gallery redirection :", error);
+  }
+});
